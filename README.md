@@ -13,7 +13,7 @@ A live version of the project can be accessed here:
   - User Experience Design
     - [User Experience (UX)](#ux)    
     - [User Demographic](#user-demographic-table-of-contents)
-    - [User Stories](#user-stories-table-of-contents)
+    - [User Stories & Epics](#user-stories-and-epics)
     - [Flowchart](#flowchart)
     - [Entity Relationship Diagram](#entity-relationship-diagram)
 
@@ -247,6 +247,51 @@ A live version of the project can be accessed here:
 
   [Back to Top](#astroshare-blog)
 
+## User Stories and Epics
+Astro Blog Share is for those who are interested in Astronomical subjects and like to share there toughs in a deticated blog. The blog can be used as a discussion platform for anybody who have a special affliation whit astronomy.
+ <br>
+
+List of Epics: <br>
+- [EPIC 1: Repository and agile tool]()
+- [EPIC 2: Basic Website and Database Structure]()
+- [EPIC 3: User authentication]()
+- [EPIC 4: Blog Post Management]()
+- [EPIC 5: Testing]()
+- [EPIC 6: Validation]()
+
+User Stories with their id:  <br>
+- As a new website user, I am able to identify the website's goal so that I can decide whether to continue or leave. [#9]()
+- As a new user, I can register an account so that I can create and manage wish lists or items of other wish lists. [#12](ht)
+- As a registered user, I want to log in to my account so that I can create, read, update and delete my wish list(s) [#13]()
+- As a registered user, I want to manage my profile so that I can update my account. [#13]()
+- As a registered user, I want to edit my wishlist so that I can update its details. [#16]()
+- As a registered user, I want to be able to delete a wishlist so that I can remove outdated or unnecessary lists. [#17]()
+- As a registered user, I want to edit items in my wishlist so that I can update their details.[#19]()
+- As a registered user, I want to be able to delete items from my wishlist so that I can remove unwanted items.[#20]()
+- As a registered user, I want to reserve an item of a wishlist, so that no other user will purchase this. [#23]()
+- As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. [#24]()
+- As a logged-in user, I want to update my profile information so that my account details are current. [#14]()
+- As a frequent website user, I can easily login to my account so that I have access to my wish lists and items I want to purchase. [#9]()
+- As a user of the website I want to create a wish list for a specific occasion so that I can organize my desired items. [#15]()
+- As a user, I want to add items to my wishlist so that I can keep track of things I want. [#18]()
+- As a user, I want to share my wishlist with others so that they can see my wishlist and know what I want to have. [#22]()
+<br>
+
+- As a developer, I want to define a database structure so that it matches the objectives of the project. [#10])
+- As a developer I want to set up and configure a database so that I can store and manage the application data securely and efficiently. [#11]()
+- As a developer, I need to verify that all html files pass the W3C validation so that the code is executed correctly. [#25](https://github.com/Harmonica_men/wishlist/issues/25)
+- As a developer, I need to verify that my css files pass the W3C validation so that the code is executed correctly. [#26](https://github.com/Harmonica_men/wishlist/issues/26)
+- As a developer, I need to verify that my JavaScript files pass the jshint validation so that the code is executed correctly. [#27](https://github.com/Harmonica_men/wishlist/issues/27)
+- As a developer, I need to verify that my python files pass the pep8 validation so that the code is executed correctly. [#28](https://github.com/Harmonica_men/wishlist/issues/28)
+- As a developer, I want to implement python test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#29](https://github.com/Harmonica_men/wishlist/issues/29)
+- As a developer, I want to implement JavaScript test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#30](https://github.com/Harmonica_men/wishlist/issues/30)
+- As a developer, I want to implement manual test cases so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#31](https://github.com/Harmonica_men/wishlist/issues/31)
+<br>
+
+- As an admin, I want to access the site's administrative features so that I have access to the admin panel. [#8](https://github.com/Harmonica_men/wishlist/issues/8)
+
+
+
 ## User Stories Table of Contents
   1. [Welcome and Introduction](#welcome-and-introduction)
   2. [Sign-Up Process](#sign-up-process)
@@ -256,6 +301,7 @@ A live version of the project can be accessed here:
   6. [Profile and Community Building](#profile-and-community-building)
   7. [Ease of Use and Accessibility](#ease-of-use-and-accessibility)
   8. [Continuous Engagement](#continuous-engagement)
+  9. [Epics]()
 
   ## Welcome and Introduction
   **As a user:**
