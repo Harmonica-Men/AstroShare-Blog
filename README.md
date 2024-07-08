@@ -62,12 +62,18 @@ The project was divided into three milestones, each containing the corresponding
   - Configure settings for the project  static files, static and README.md
   - Deploy early to a hosting platform Heroku
 
+<details>
+<summary></summary>
+<br>
+
+</details>
+
 2. [Basic Blog Functionality]()
-- Task: Implement basic blog functionality including models, views, and templates.
-  - Define the models for blog posts (e.g., Post, Category, Tag).
-  - Create views to list all posts, view individual posts, and manage categories/tags.
-  - Design templates for the blog homepage, individual post pages, and category/tag pages.
-  - Implement URL routing for the blog.
+  - Task: Implement basic blog functionality including models, views, and templates.
+    - Define the models for blog posts (e.g., Post, Category, Tag).
+    - Create views to list all posts, view individual posts, and manage categories/tags.
+    - Design templates for the blog homepage, individual post pages, and category/tag pages.
+    - Implement URL routing for the blog.
 
 3. User Authentication
   - Task: Add user authentication to allow for author logins and secure post management.
@@ -111,51 +117,6 @@ The project was divided into three milestones, each containing the corresponding
 
 
 
-### Epics and User stories
-
-*Your Wish List Maker* is for those who are interested in organizing their wish lists for special occasions in one place and sending those wish lists to family and friends to provide them with all the desired items.
-Although the website can be used by users of any age, my main target group was working parents, especially women between 30–50 years. <br>
-
-List of Epics: <br>
-- [EPIC 1: Repository and agile tool](https://github.com/queenisabaer/wishlist/issues/2)
-- [EPIC 2: Basic Website and Database Structure](https://github.com/queenisabaer/wishlist/issues/3)
-- [EPIC 3: User authentication](https://github.com/queenisabaer/wishlist/issues/4)
-- [EPIC 4: Wish List Management](https://github.com/queenisabaer/wishlist/issues/5)
-- [EPIC 5: Testing](https://github.com/queenisabaer/wishlist/issues/6)
-- [EPIC 6: Validation](https://github.com/queenisabaer/wishlist/issues/7)
-
-User Stories with their id:  <br>
-- As a new website user, I am able to identify the website's goal so that I can decide whether to continue or leave. [#9](https://github.com/queenisabaer/wishlist/issues/9)
-- As a new user, I can register an account so that I can create and manage wish lists or items of other wish lists. [#12](https://github.com/queenisabaer/wishlist/issues/12)
-- As a registered user, I want to log in to my account so that I can create, read, update and delete my wish list(s) [#13](https://github.com/queenisabaer/wishlist/issues/13)
-- As a registered user, I want to manage my profile so that I can update my account. [#13](https://github.com/queenisabaer/wishlist/issues/13)
-- As a registered user, I want to edit my wishlist so that I can update its details. [#16](https://github.com/queenisabaer/wishlist/issues/16)
-- As a registered user, I want to be able to delete a wishlist so that I can remove outdated or unnecessary lists. [#17](https://github.com/queenisabaer/wishlist/issues/17)
-- As a registered user, I want to edit items in my wishlist so that I can update their details.[#19](https://github.com/queenisabaer/wishlist/issues/19)
-- As a registered user, I want to be able to delete items from my wishlist so that I can remove unwanted items.[#20](https://github.com/queenisabaer/wishlist/issues/20)
-- As a registered user, I want to reserve an item of a wishlist, so that no other user will purchase this. [#23](https://github.com/queenisabaer/wishlist/issues/23)
-- As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. [#24](https://github.com/queenisabaer/wishlist/issues/23)
-- As a logged-in user, I want to update my profile information so that my account details are current. [#14](https://github.com/queenisabaer/wishlist/issues/14)
-- As a frequent website user, I can easily login to my account so that I have access to my wish lists and items I want to purchase. [#9](https://github.com/queenisabaer/wishlist/issues/9)
-- As a user of the website I want to create a wish list for a specific occasion so that I can organize my desired items. [#15](https://github.com/queenisabaer/wishlist/issues/15)
-- As a user, I want to add items to my wishlist so that I can keep track of things I want. [#18](https://github.com/queenisabaer/wishlist/issues/18)
-- As a user, I want to share my wishlist with others so that they can see my wishlist and know what I want to have. [#22](https://github.com/queenisabaer/wishlist/issues/22)
-<br>
-
-- As a developer, I want to define a database structure so that it matches the objectives of the project. [#10](https://github.com/queenisabaer/wishlist/issues/10)
-- As a developer I want to set up and configure a database so that I can store and manage the application data securely and efficiently. [#11](https://github.com/queenisabaer/wishlist/issues/11)
-- As a developer, I need to verify that all html files pass the W3C validation so that the code is executed correctly. [#25](https://github.com/queenisabaer/wishlist/issues/25)
-- As a developer, I need to verify that my css files pass the W3C validation so that the code is executed correctly. [#26](https://github.com/queenisabaer/wishlist/issues/26)
-- As a developer, I need to verify that my JavaScript files pass the jshint validation so that the code is executed correctly. [#27](https://github.com/queenisabaer/wishlist/issues/27)
-- As a developer, I need to verify that my python files pass the pep8 validation so that the code is executed correctly. [#28](https://github.com/queenisabaer/wishlist/issues/28)
-- As a developer, I want to implement python test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#29](https://github.com/queenisabaer/wishlist/issues/29)
-- As a developer, I want to implement JavaScript test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#30](https://github.com/queenisabaer/wishlist/issues/30)
-- As a developer, I want to implement manual test cases so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#31](https://github.com/queenisabaer/wishlist/issues/31)
-<br>
-
-- As an admin, I want to access the site's administrative features so that I have access to the admin panel. [#8](https://github.com/queenisabaer/wishlist/issues/8)
-
-
 
 ## User stories 
 
@@ -171,6 +132,9 @@ A user story is an explanation of a software feature written from the perspectiv
 Below is an example of how the user stories where structured for this project.
 
 <br/>
+
+
+
 
 
 
