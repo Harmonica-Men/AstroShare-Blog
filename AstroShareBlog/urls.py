@@ -20,6 +20,6 @@ from blogger import views
 
 
 urlpatterns = [
-    path('', views.homepage, name='homepage'),
     path('admin/', admin.site.urls),
+    path('', include('blogger.urls')),
 ]
