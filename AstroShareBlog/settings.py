@@ -28,7 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-harmonicame-astroshareb-tykmah5chi5.ws.codeinstitute-ide.net',
                  '.herokuapp.com']
 
-
+CSRF_TRUSTED_ORIGINS = [
+       'https://8000-harmonicame-astroshareb-tykmah5chi5.ws.codeinstitute-ide.net',
+    ]
+    
 # Application definition
 
 INSTALLED_APPS = [
