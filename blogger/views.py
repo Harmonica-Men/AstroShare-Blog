@@ -10,3 +10,6 @@ class FrontpageView(ListView): # Frontpage view for the Blog Post
     model = Post
     template_name = 'frontpage.html'
 
+class ArticleDetailView(DetailView):
+    model = Post
+    template_name = 'article_details.html'

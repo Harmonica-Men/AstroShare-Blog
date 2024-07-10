@@ -2,11 +2,21 @@
 
 <ul>
     {% for post in object_list %}
-    <li>{{ post.title }} - {{ post.author }} <br>
+    <li>
+        <a href="{% url 'article-detail'  post.pk %}">{{ post.title }}</a>
+         <br>
+        {{ post.author.frist_name }} - {{ post.author.last_name }} 
+
         {{ post.body}}
 
     </li>
-
+<hr>
 
     {% endfor %}
 </ul>
+
+<br>
+<a href="{% url 'frontpage-blogpost' %}">Back to Frontpage blog post</a>
+<br>
+
+

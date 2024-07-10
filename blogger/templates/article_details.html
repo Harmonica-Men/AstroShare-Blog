@@ -1,0 +1,18 @@
+<h1>article detail post</h1>
+
+<h2> {{ post.title }}</h2>
+<small> 
+    By: {{ post.author.frist_name }} - {{ post.author.last_name }} 
+</small>
+<br>
+<hr>
+<br>
+{{ post.body }}
+<hr>
+
+<br>
+<br>
+<a href="{% url 'homepage' %}">Back to homepage</a>
+<br>
+<a href="{% url 'frontpage-blogpost' %}">Back to Frontpage blog post</a>
+<br>
