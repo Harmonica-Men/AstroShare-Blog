@@ -12,8 +12,12 @@
     <li>
         <a href="{% url 'article-detail'  post.pk %}">{{ post.title }}</a>
          <br>
-        {{ post.author.frist_name }} - {{ post.author.last_name }} 
 
+
+        {{ post.author.frist_name }} - {{ post.author.last_name }} 
+        <small> <a href="{% url 'update-post' post.pk %}">Edit</a> </small>
+
+        <br>
         {{ post.body}}
 
     </li>
