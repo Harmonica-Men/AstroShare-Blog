@@ -648,3 +648,5 @@ describe  Frontpage & Homepage
 3 way proces , urls , views , html
 
 widgets in forms
+
+LOGIN_RREDIRECT_URL & LOGOUT
