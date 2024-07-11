@@ -23,6 +23,7 @@ class AddPostView(CreateView):
 
 class UpdatePostView(UpdateView):
     model = Post   
+    form_class = PostForm
     template_name = 'update_post.html'
-    fields = ('title', 'title_tag', 'body')
+#    fields = ('title', 'title_tag', 'body')
 
