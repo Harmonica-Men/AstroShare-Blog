@@ -11,7 +11,8 @@ def HomepageView(request): # Homepage view
 class FrontpageView(ListView): # Frontpage view for the Blog Post
     model = Post
     template_name = 'frontpage.html'
-
+    ordering = ['-id'] #reverse order post
+ 
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article_details.html'
