@@ -8,15 +8,14 @@
 <h1>Add Blog Post </h1>
 <br>
 <br>
-<table>
+
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_table }} <!-- unorder list format   -->
-   
+    {{ form.as.p }} <!-- unorder list format   -->
+</form>
+
 <hr>
 
-</form>
-</table>
 <button class="btn btn-secondary">
     Post 
 </button>

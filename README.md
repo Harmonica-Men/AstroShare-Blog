@@ -644,3 +644,7 @@ Bootstrap
 
 
 describe  Frontpage & Homepage
+
+3 way proces , urls , views , html
+
+widgets in forms
