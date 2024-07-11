@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %} This is article details {% endblock %}
 {% block content %}
 <h1>article detail post</h1>
 
@@ -17,6 +17,8 @@
 <br>
 
 <a href="{% url 'homepage' %}" class="alert alert-secondary" >Back to homepage</a>
+<br>
+<br>
 <br>
 <a href="{% url 'frontpage-blogpost' %}" class="alert alert-secondary">Back to Frontpage blog post</a>
 <br>
