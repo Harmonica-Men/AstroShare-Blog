@@ -21,4 +21,6 @@ from blogger import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blogger.urls')),
+    path('members/', include('django.contrib.auth.urls')),
+    path('members/', include('members.urls')),
 ]

@@ -33,3 +33,6 @@ class DeletePostView(DeleteView):
     model = Post   
     template_name = 'delete_post.html'
     success_url = reverse_lazy('frontpage-blogpost')
+
+def register(request):
+    return render(request, 'register.html')
