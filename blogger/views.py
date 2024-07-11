@@ -21,6 +21,8 @@ class AddPostView(CreateView):
     form_class = PostForm
     template_name = 'add_post.html'
 
+class UpdatePostView(UpdateView):
+    model = Post   
+    template_name = 'update_post.html'
+    fields = ('title', 'title_tag', 'body')
 
-    # fields = '__all__' # because I am lazy
-    # success_url = reverse_lazy('frontpage-blogpost')  # go back to frontpage of blogpost
