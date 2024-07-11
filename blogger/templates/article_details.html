@@ -4,22 +4,38 @@
 <h1>article detail post</h1>
 
 <h2> {{ post.title }}</h2>
-<small> 
-    By: {{ post.author.frist_name }} - {{ post.author.last_name }} - {{ post.post_date }}
-</small>
-<br>
-<hr>
-<br>
-{{ post.body }}
-<hr>
+
+    <small>
+        By: 
+            {{ post.author.frist_name }} - 
+            {{ post.author.last_name }} - 
+            {{ post.post_date }}
+
+            {% if user.is_authenticated %}
+
+                <small> 
+                    - <a href="{% url 'update-post' post.pk %}">Edit</a> 
+                    <a href="{% url 'delete-post' post.pk %}">DELETE POST</a> 
+                </small>
+
+            {% endif %}
+
+        <br>
+        {{ post.body }}
+    </small>
+    <br>
+    <hr>
+    <br>
+    {{ post.body }}
+    <hr>
 
 <br>
 <br>
 
-<a href="{% url 'homepage' %}" class="alert alert-secondary" >Back to homepage</a>
+    <a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a>
 <br>
 <br>
 <br>
-<a href="{% url 'frontpage-blogpost' %}" class="alert alert-secondary">Back to Frontpage blog post</a>
+    <a href="{% url 'frontpage-blogpost' %}" class="alert alert-secondary">Back to Frontpage blog post</a>
 <br>
 {% endblock %}
