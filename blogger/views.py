@@ -19,4 +19,4 @@ class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
     fields = '__all__' # because I am lazy
-    success_url = reverse_lazy('frontpage-blogpost')  # go back to frontpage of blogpost
+    # success_url = reverse_lazy('frontpage-blogpost')  # go back to frontpage of blogpost
