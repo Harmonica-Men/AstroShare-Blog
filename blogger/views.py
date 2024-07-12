@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.views import View
 from .models import Post, Category
 from .forms import PostForm
+# from django.utils.text import slugify
 
 def HomepageView(request): # Homepage view
     return render(request, 'homepage.html')
@@ -49,18 +50,39 @@ def CategoryListView(request):
     cat_menu_list = Category.objects.all()
     return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
 
-class CategoryView(View):
-    template_name = 'categories.html'
-    error_template_name = '404.html'
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+    # .replace('-', ' '))
+    # return render(request, 'categories.html', {'cats':cats.title(), 'category'})
+    return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
 
-    def get(self, request, cats):
-        try:
-            category = get_object_or_404(Category, name=cats)
-            category_posts = Post.objects.filter(category=category)
-            context = {
-                'cats': category.name,
-                'category_posts': category_posts,
-            }
-            return render(request, self.template_name, context)
-        except Http404:
-            return render(request, self.error_template_name, status=404)
+# class CategoryView(View):
+#     template_name = 'categories.html'
+#     error_template_name = '404.html'
+
+#     def get(self, request, cats):
+#         # category_posts = Post.objects.filter(category=category)
+
+#         category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+
+#         print(category_posts)
+#         try:
+#             #print('category',category)
+#             category = get_object_or_404(Category, name=cats)
+            
+#             category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+#             # category_posts = Post.objects.filter(category=slugify(category))
+
+#             # test = slugify(category)
+
+#             # print (slugify(category))
+#             # print (test)
+#             print (category_posts)
+
+#             context = {
+#                 'cats': category.name,
+#                 'category_posts': category_posts,
+#             }
+#             return render(request, self.template_name, context)
+#         except Http404:
+#             return render(request, self.error_template_name, status=404)

@@ -650,3 +650,6 @@ describe  Frontpage & Homepage
 widgets in forms
 
 LOGIN_RREDIRECT_URL & LOGOUT
+
+
+sluggyfy could have (maybe)

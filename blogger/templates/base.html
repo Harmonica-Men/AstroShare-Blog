@@ -34,7 +34,7 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                 {% for item in cat_menu %}
-                  <a class="dropdown-item" href="{% url 'category' item %}">
+                  <a class="dropdown-item" href="{% url 'category' item|slugify %}">
                     {{ item }} 
                   </a>
                 {% endfor %}
@@ -46,7 +46,7 @@
             </li>    
           {% endif %}
 
-          {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
           <li><a class="nav-item"><a class="nav-link" href=" {% url 'add-newpost' %} ">Add Post</a></li>
           <li><a class="nav-item"><a class="nav-link" href=" {% url 'add-newcategory' %} ">Add Category</a></li>
           <li><a class="nav-item"><a class="nav-link" href=" {% url 'logout' %} ">Logout</a></li>
