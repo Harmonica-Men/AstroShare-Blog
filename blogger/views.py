@@ -43,6 +43,11 @@ class AddCategoryView(CreateView):
     template_name = 'add_category.html'
     fields = '__all__'
 
+# function 
+def CategoryListView(request):
+    cat_menu_list = Category.objects.all()
+    return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
+
 class CategoryView(View):
     template_name = 'categories.html'
     error_template_name = '404.html'
