@@ -13,7 +13,7 @@
         <a href="{% url 'article-detail'  post.pk %}">{{ post.title }}</a>
          <br>
 
-
+        - {{ post.category }}
         {{ post.author.frist_name }} - {{ post.author.last_name }} - {{ post.post_date }}
 
         {% if user.is_authenticated %}

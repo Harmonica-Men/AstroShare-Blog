@@ -2,7 +2,7 @@ from django.shortcuts import render
 # from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm
 
 def HomepageView(request): # Homepage view
@@ -36,3 +36,10 @@ class DeletePostView(DeleteView):
 
 # def register(request):
 #     return render(request, 'register.html')
+
+class AddCategoryView(CreateView):
+    model = Category
+    # form_class = PostForm
+    template_name = 'add_category.html'
+    fields = '__all__'
+    
