@@ -22,14 +22,7 @@
             <!-- <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li> -->
-            {% if user.is_authenticated %}
-              <li><a class="nav-item"><a class="nav-link" href=" {% url 'add-newpost' %} ">Add Post</a></li>
-              <li><a class="nav-item"><a class="nav-link" href=" {% url 'add-newcategory' %} ">Add Category</a></li>
-              <li><a class="nav-item"><a class="nav-link" href=" {% url 'logout' %} ">Logout</a></li>
-            {% else %}
-              <li><a class="nav-item"><a class="nav-link" href=" {% url 'login' %} ">Login</a></li>
-              <li><a class="nav-link" href=" {% url 'register' %} ">Register</a></li>
-            {% endif %}
+           
 
             <!-- Categories menu code -->
             {% if cat_menu %}  
@@ -52,17 +45,16 @@
               <a class="nav-link" href="{% url 'category-list' %}">Categories List</a>
             </li>    
           {% endif %}
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
+
+          {% if user.is_authenticated %}
+          <li><a class="nav-item"><a class="nav-link" href=" {% url 'add-newpost' %} ">Add Post</a></li>
+          <li><a class="nav-item"><a class="nav-link" href=" {% url 'add-newcategory' %} ">Add Category</a></li>
+          <li><a class="nav-item"><a class="nav-link" href=" {% url 'logout' %} ">Logout</a></li>
+        {% else %}
+          <li><a class="nav-item"><a class="nav-link" href=" {% url 'login' %} ">Login</a></li>
+          <li><a class="nav-link" href=" {% url 'register' %} ">Register</a></li>
+        {% endif %}
+          
             <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> -->
