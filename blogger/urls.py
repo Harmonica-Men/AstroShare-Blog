@@ -1,6 +1,6 @@
 from django.urls import path, include
-from .views import FrontpageView, HomepageView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView
-#from .views import FrontpageView, AddPostView, UpdatePostView, DeletePostView
+from .views import FrontpageView, HomepageView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView
+from .views import CategoryView, CategoryListView
 
 urlpatterns = [
     path('', HomepageView, name= 'homepage'),
