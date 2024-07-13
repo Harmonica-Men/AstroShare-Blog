@@ -20,5 +20,9 @@ user : {{ user.profile.id }}
 
 <hr>
 <br>
+<a href="{% url 'password_change' user.pk %}">Change Password</a>
+
+<hr>
+<br>
     
 {% endblock %}
