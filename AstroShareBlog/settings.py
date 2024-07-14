@@ -19,13 +19,17 @@ from cloudinary.models import CloudinaryField
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+database_url = os.environ.get("DATABASE_URL")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'django-insecure-1ieo2(r5opy@dl(xqzlm0^xti0vnz85)81chvvakz@$q@om!7)'
+#SECRET_KEY = 'django-insecure-1ieo2(r5opy@dl(xqzlm0^xti0vnz85)81chvvakz@$q@om!7)'
+DATABASE_URL = 'postgres://uwb4hdjzua9:7p5Hb6Ee1XKE@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/trait_shore_zero_528265'
+
+SECRET_KEY = 'django-insecure-m@=5yl8r(&a%ez6c5#le$5%za(cqckq#53bvnl^)24-p3zgobe'
 
 CLOUDINARY_URL = "cloudinary://394961391133235:Pj9-5H6dpGHJbBmra5wtJ2ci_OQ@dtbji5cfz"
 
