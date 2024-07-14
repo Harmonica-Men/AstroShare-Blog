@@ -17,6 +17,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    image = CloudinaryField('image', null = True, blank= True) # upload_to="images/"
     title_tag = models.CharField(max_length=200, default= "star gazer")
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     body = models.TextField()
