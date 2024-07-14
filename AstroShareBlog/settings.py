@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from cloudinary.models import CloudinaryField
+from pathlib import Path
+# from cloudinary.models import CloudinaryField
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +31,7 @@ DATABASE_URL = 'postgres://uwb4hdjzua9:7p5Hb6Ee1XKE@ep-gentle-mountain-a23bxz6h.
 
 SECRET_KEY = 'django-insecure-m@=5yl8r(&a%ez6c5#le$5%za(cqckq#53bvnl^)24-p3zgobe'
 
-CLOUDINARY_URL = "cloudinary://394961391133235:Pj9-5H6dpGHJbBmra5wtJ2ci_OQ@dtbji5cfz"
+CLOUDINARY_URL = "cloudinary://839441162297935:eTQFu1X9X065YP1jycD8d4aMSJc@dtbji5cfz"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
