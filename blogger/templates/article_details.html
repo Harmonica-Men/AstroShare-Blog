@@ -9,10 +9,7 @@
 <small>
     By:
     {{ post.author.frist_name }} - {{ post.author.last_name }}
-
-    <p class="small text-muted">  
-        <a href="{% url 'show-profile-page' post.author.profile.id %}">Profile Page</a>
-    </p>
+  
 
     {% if user.is_authenticated %}
 
@@ -34,6 +31,10 @@
                     <!-- <p class="card-text">{{ post.body|safe }}</p> -->
                     <p class="card-text">{{ post.author.profile.bio }}</p>
                     <p class="small text-muted">
+
+                        {% url 'show-profile-page' user.profile.id as show_url %}
+                        <a href="{{ show_url }}">Show Profile Page**</a>
+
                         {% if post.author.profile.website_url %}
                         <a href="{{ post.author.profile.website_url }}">Website</a> |
                         {% endif %}
