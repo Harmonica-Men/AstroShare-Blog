@@ -37,9 +37,7 @@ DATABASE_URL = 'postgres://uwb4hdjzua9:7p5Hb6Ee1XKE@ep-gentle-mountain-a23bxz6h.
 
 SECRET_KEY = 'django-insecure-m@=5yl8r(&a%ez6c5#le$5%za(cqckq#53bvnl^)24-p3zgobe'
 
-# CLOUDINARY_URL = "cloudinary://394961391133235:Pj9-5H6dpGHJbBmra5wtJ2ci_OQ@dtbji5cfz"
 CLOUDINARY_URL = "CLOUDINARY_URL"
-# CLOUDINARY_URL = "cloudinary://839441162297935:eTQFu1X9X065YP1jycD8d4aMSJc@dtbji5cfz"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

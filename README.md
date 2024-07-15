@@ -653,3 +653,5 @@ LOGIN_RREDIRECT_URL & LOGOUT
 
 
 sluggyfy could have (maybe)
+
+1to1 edit profile
