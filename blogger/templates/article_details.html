@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} This is article details {% endblock %}
 {% block content %}
 <h1>article detail post</h1>
@@ -16,9 +17,13 @@
     <div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-2">
-
+                {% if post.author.profile.profile_pic.url %}
                 <img src="{{ post.author.profile.profile_pic.url }}" width=100 height=100 class="rounded-circle"
                     alt="profile picture">
+                {% else %}
+                <img src="{% static '/images/Anonymous-Profile-pic.jpg'%}" class="card-img"  width="100" height="100" class="rounded-circle" alt="Profile Picture">
+
+                {% endif %}
                 <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
             </div>
             <div class="col-md-8">
