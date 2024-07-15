@@ -55,6 +55,15 @@
           <li><a class="nav-item"><a class="nav-link" href=" {% url 'login' %} ">Login</a></li>
           <li><a class="nav-link" href=" {% url 'register' %} ">Register</a></li>
         {% endif %}
+
+        <li>
+          {% if user.profile.id %}
+            {% url 'edit_profile_page' user.profile.id as edit_url %}
+            <a class="nav-item"><a class="nav-link" href="{{ edit_url }}">Edit Profile Page</a>
+            
+          {% endif %}
+
+        </li>
           
             <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

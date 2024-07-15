@@ -10,7 +10,9 @@
     By:
     {{ post.author.frist_name }} - {{ post.author.last_name }}
 
-
+    <p class="small text-muted">  
+        <a href="{% url 'show-profile-page' post.author.profile.id %}">Profile Page</a>
+    </p>
 
     {% if user.is_authenticated %}
 
