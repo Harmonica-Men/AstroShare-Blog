@@ -27,7 +27,7 @@
           
           {% if user.is_authenticated %}
 
-
+          <a class="nav-link" href="{% url 'create-profile-page' %}">create Profile Page TEST</a>
           <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
           <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
