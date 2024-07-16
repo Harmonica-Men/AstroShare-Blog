@@ -109,4 +109,16 @@ class AddCategoryView(CreateView):
     template_name = 'add_category.html'
     fields = '__all__'
 
+class SearchView(View):
+    template_name = 'search.html'
 
+    def get(self, request):
+        query = request.GET.get('query', '')
+        posts = Post.objects.filter(status=Post.ACTIVE).filter(
+            Q(title__icontains=query) | Q(intro__icontains=query) | Q(body__icontains=query)
+        )
+        context = {
+            'posts': posts,
+            'query': query,
+        }
+        return render(request, self.template_name, context)
