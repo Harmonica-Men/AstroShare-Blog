@@ -58,43 +58,18 @@
           
           {% if user.is_authenticated %}
           
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'edit-profile' %}">Edit Profile</a>
-          </li>
-          <li class="nav-item">
-            {% if user.profile.id %}
-              {% url 'edit-profile-page' user.profile.id as editurl %}-
-              <a class="nav-link" href="{{ editurl }}">Edit Profile Page</a>
-            {% else %}
-              <a class="nav-link" href="{% url 'create-profile-page' %}">Create Profile Page 0</a>
-            {% endif %}
-          </li>
-          <li class="nav-item">
-            {% if user.profile.id %}
-              {% url 'show-profile-page' user.profile.id as show_url %}
-              <a class="nav-link" href="{{ showurl }}">Show Profile Page</a>
-            {% else %}
-              <a class="nav-link" href="{% url 'create-profile-page' %}">Create Profile Page 1</a>
-            {% endif %}
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
           {% endif %}
-          
+            
           <!-- Categories menu code -->
           {% if cat_menu %}
           <li class="nav-item dropdown">
