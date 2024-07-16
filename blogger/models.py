@@ -54,3 +54,15 @@ class Post(models.Model):
         return reverse('article-detail', kwargs={'pk':self.pk})
         # return reverse('frontpage-blogpost') 
         # return f'/{self.category.slug}/{self.slug}/'
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    body = models.TextField()
+    date_added = models.TimeField(auto_now_add=True)
+
+    # def __str__(self):
+    #     return self.post
+       #return '%s - %s' % str(self.post.title, self.name)
+    def __str__(self):
+        return f'{self.name} - {self.body[:20]}'
