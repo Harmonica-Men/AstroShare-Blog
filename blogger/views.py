@@ -5,6 +5,8 @@ from django.views import View
 from .models import Post, Category, Comment
 from django.urls import reverse_lazy, reverse
 from .forms import PostForm, CommentForm
+from django.db.models import Q
+
 
 
 # from django.utils.text import slugify
