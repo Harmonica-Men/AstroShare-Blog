@@ -25,10 +25,10 @@ class FrontpageView(ListView): # Frontpage view for the Blog Post
         return context
 
 # function 
-def CategoryListView(request, cats):
+def CategoryListView(request):
     cat_menu_list = Category.objects.all()
     return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
-  
+ 
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
