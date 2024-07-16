@@ -11,12 +11,10 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'frontpage-blogpost' %}">My Blog Posts</a>
 
@@ -26,78 +24,76 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Profile Page
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li>
-                <a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Settings</a>
-              </li>
-              <li>
-                {% if user.profile.id %}
-                {% url 'edit-profile-page' user.profile.id as editurl %}
-                <a class="dropdown-item" href="{{ editurl }}">Edit Profile Page</a>
-                {% else %}
-                {% url 'create-profile-page' user.profile.id as createurl %}
-                <a class="dropdown-item" href="{% url 'createurl' %}">create Profile Page 0</a>
-
-                {% endif %}
-              </li>
-              <li>
-                {% if user.profile.id %}
-                {% url 'show-profile-page' user.profile.id as showurl %}
-                <a class="dropdown-item" href="{{ showurl }}">Show Profile Page</a>
-                {% else %}
-
-                {% url 'create_profile_page' user.profile.id as createurl %}
-                <a class="dropdown-item" href="{% url 'createurl' %}">Create Profile Page 1</a>
-
-                {% endif %}
-              </li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
 
           {% if user.is_authenticated %}
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-          </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Profile
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Settings</a>
+                </li>
+                <li>
+                  {% if user.profile.id %}
+                    <a class="dropdown-item" href="{% url 'edit-profile-page' user.profile.id %}">Edit Profile Page</a>
+                  {% else %}
+                    <a class="dropdown-item" href="{% url 'create-profile-page' %}">Create Profile Page</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if user.profile.id %}
+                    <a class="dropdown-item" href="{% url 'show-profile-page' user.profile.id %}">Show Profile Page</a>
+                  {% else %}
+                    <a class="dropdown-item" href="{% url 'create-profile-page' %}">Create Profile Page</a>
+                  {% endif %}
+                </li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
           {% endif %}
-
 
           <!-- Categories menu code -->
-
-
-
-          {% if cat_menu %}  
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Categories List
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              {% for item in cat_menu %}
-              <li>
-                <a class="dropdown-item" href="{% url 'category' item %}">
-                  {{ item }}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-          </li> 
+          {% if cat_menu %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Categories List
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                {% for item in cat_menu %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'category' item %}">
+                      {{ item }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
           {% else %}
-            <a class="nav-link" href="{% url 'category-list' %}">Category List Menu</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'category-list' %}">Category List Menu</a>
+            </li>
           {% endif %}
-          </li>
         </ul>
       </div>
     </div>
