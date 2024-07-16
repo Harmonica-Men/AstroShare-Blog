@@ -26,19 +26,38 @@
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Profile Page
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Settings</a>
+              </li>
+              <li>
+                {% if user.profile.id %}
+                  {% url 'edit-profile-page' user.profile.id as editurl %}
+                  <a class="dropdown-item" href="{{ editurl }}">Edit Profile Page</a>
+                {% else %}
+                  {% url 'create-profile-page' user.profile.id as createurl %} 
+                  <a class="dropdown-item" href="{% url 'createurl' %}">create Profile Page 0</a>
+                  
+                {% endif %}
+              </li>
+              <li>
+                {% if user.profile.id %}
+                  {% url 'show-profile-page' user.profile.id as showurl %}
+                  <a class="dropdown-item" href="{{ showurl }}">Show Profile Page</a>
+                {% else %}
+                
+                  {% url 'create_profile_page' user.profile.id as createurl %}
+                  <a class="dropdown-item" href="{% url 'createurl' %}">Create Profile Page 1</a>
+                  
+                {% endif %}
+              </li>
             </ul>
           </li>
           
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'create-profile-page' %}">Create Profile Page TEST</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
           </li>
@@ -53,18 +72,18 @@
           </li>
           <li class="nav-item">
             {% if user.profile.id %}
-              {% url 'edit_profile_page' user.profile.id as edit_url %}
-              <a class="nav-link" href="{{ edit_url }}">Edit Profile Page</a>
+              {% url 'edit-profile-page' user.profile.id as editurl %}-
+              <a class="nav-link" href="{{ editurl }}">Edit Profile Page</a>
             {% else %}
-              <a class="nav-link" href="{% url 'create_profile_page' %}">Create Profile Page 0</a>
+              <a class="nav-link" href="{% url 'create-profile-page' %}">Create Profile Page 0</a>
             {% endif %}
           </li>
           <li class="nav-item">
             {% if user.profile.id %}
-              {% url 'show_profile_page' user.profile.id as show_url %}
-              <a class="nav-link" href="{{ show_url }}">Show Profile Page</a>
+              {% url 'show-profile-page' user.profile.id as show_url %}
+              <a class="nav-link" href="{{ showurl }}">Show Profile Page</a>
             {% else %}
-              <a class="nav-link" href="{% url 'create_profile_page' %}">Create Profile Page 1</a>
+              <a class="nav-link" href="{% url 'create-profile-page' %}">Create Profile Page 1</a>
             {% endif %}
           </li>
           {% else %}
@@ -95,6 +114,7 @@
           {% endif %}
         </ul>
       </div>
+      
     </div>
   </nav>
   <br>
