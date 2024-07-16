@@ -22,7 +22,7 @@ class EditProfilePageView(generic.UpdateView):
     model = Profile
     template_name = 'registration/edit_profile_page.html'
     fields = ['bio', 'profile_pic', 'website_url', 'facebook_url', 'twitter_url', 'instagram_url']
-    success_url = reverse_lazy('frontpage')
+    success_url = reverse_lazy('frontpage-blogpost')
     
 class ShowProfilePageView(DetailView):
     model = Profile
@@ -46,7 +46,7 @@ class UserEditView(generic.UpdateView):
     # form_class = UserCreationForm
     form_class = EditProfileForm
     template_name = 'registration/edit_profile.html'
-    success_url = reverse_lazy('frontpage')
+    success_url = reverse_lazy('frontpage-blogpost')
 
     def get_object(self):
         return self.request.user
@@ -57,7 +57,7 @@ class PasswordChangeView(PasswordChangeView):
 
 class CustomPasswordChangeView(PasswordChangeView):
     template_name = 'registration/change_password.html'
-    success_url = reverse_lazy('frontpage')  # Redirect to frontpage after password change
+    success_url = reverse_lazy('frontpage-blogpost')  # Redirect to frontpage after password change
 
     def get_object(self, queryset=None):
         return get_object_or_404(User, pk=self.kwargs['pk'])
