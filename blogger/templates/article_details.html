@@ -94,11 +94,10 @@
 <hr>
 
 <h2>Comments .... </h2>
-<a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+<a href="{% url 'add-comment' post.pk %}">Add Comment</a>
 
 {% if not post.comments.exists %}
 No Comments yet 
-<!-- <a href="{% url 'add_comment' post.pk %}">Add Comment</a> -->
 
 {% else %}
 {% for comment in post.comments.all %}
