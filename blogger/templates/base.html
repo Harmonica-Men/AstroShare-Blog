@@ -16,7 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'frontpage-blogpost' %}">My Blog Posts</a>
+      <a class="navbar-brand" href="{% url 'homepage' %}">Home Page</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
         aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,8 @@
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <!-- <a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a> -->
+            <a class="nav-link active" aria-current="page" href="{% url 'frontpage-blogpost' %}">Front Page Blog</a>
           </li>
 
           {% if user.is_authenticated %}
