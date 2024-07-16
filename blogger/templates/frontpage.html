@@ -35,6 +35,13 @@
 <br>
 <a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a>
 <br>
+<br>
+<form action="{% url 'like-post' post.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primart btn-sm">Like</button>
+</form>
+<hr>
+
 
 
 {% endblock %}
