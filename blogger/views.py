@@ -12,7 +12,8 @@ from .forms import PostForm
 
 
 def LikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    # post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post = get_object_or_404(Post, pk=pk)
     liked = False
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
