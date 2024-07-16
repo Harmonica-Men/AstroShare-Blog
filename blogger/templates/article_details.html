@@ -91,7 +91,24 @@
 
 </small>
 <br>
+<hr>
+
+<h2>Comments .... </h2>
+<a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+
+{% if not post.comments.exists %}
+No Comments yet 
+<!-- <a href="{% url 'add_comment' post.pk %}">Add Comment</a> -->
+
+{% else %}
+{% for comment in post.comments.all %}
+    <strong>{{ comment.name }} - {{ comment.date_added }}</strong>
+    <br>
+    {{ comment.body }}
+{% endfor %}
+{% endif %}
 <br>
+<hr>
 <br>
 <a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a>
 <br>
