@@ -1,11 +1,12 @@
-from django.shortcuts import render, get_object_or_404
-# from django.http import HttpResponse
-from django.http import Http404
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views import View
 from .models import Post, Category
+from django.urls import reverse_lazy, reverse
 from .forms import PostForm
+
+
 # from django.utils.text import slugify
 
 def HomepageView(request): # Homepage view
@@ -14,18 +15,20 @@ def HomepageView(request): # Homepage view
 class FrontpageView(ListView): # Frontpage view for the Blog Post
     model = Post
     template_name = 'frontpage.html'
-    ordering = ['post_date'] #show post on publication date
+    cats = Category.objects.all()
+    ordering = ['-post_date'] #show post on publication date reverse
 
-def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
         context = super(FrontpageView, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = cat_menu
         return context
 
 # function 
-def CategoryListView(request):
+def CategoryListView(request, cats):
     cat_menu_list = Category.objects.all()
     return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
+  
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))

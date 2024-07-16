@@ -76,13 +76,13 @@
 
           <!-- Categories menu code -->
 
-          
-          
-          
+
+
+          {% if cat_menu %}  
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              Categories
+              Categories lIst 0
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
               {% for item in cat_menu %}
@@ -93,10 +93,11 @@
               </li>
               {% endfor %}
             </ul>
+          </li> 
+          {% else %}
+            <a class="nav-link" href="{% url 'category-list' %}">Category list</a>
+          {% endif %}
           </li>
-          
-          
-          
         </ul>
       </div>
     </div>
