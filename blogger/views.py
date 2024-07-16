@@ -26,6 +26,10 @@ def get_context_data(self, *args, **kwargs):
 def CategoryListView(request):
     cat_menu_list = Category.objects.all()
     return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
+
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+    return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
  
 class ArticleDetailView(DetailView):
     model = Post
@@ -56,12 +60,4 @@ class AddCategoryView(CreateView):
     template_name = 'add_category.html'
     fields = '__all__'
 
-# function 
-def CategoryListView(request):
-    cat_menu_list = Category.objects.all()
-    return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
-
-def CategoryView(request, cats):
-    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-    return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
 
