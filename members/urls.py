@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import UserRegisterView, UserEditView, CustomPasswordChangeView, ShowProfilePageView, EditProfilePageView
-#from django.contrib.auth import views as auth_views
+from .views import UserRegisterView, UserEditView, CustomPasswordChangeView, ShowProfilePageView, EditProfilePageView, CreateProfilePageView
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import PasswordChangeView
 
 
 urlpatterns = [
