@@ -5,7 +5,7 @@ from django.views import generic
 from django.views.generic import DetailView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
+from .forms import SignUpForm, EditProfileForm, PasswordChangingFormn, CreateProfilePageView
 from blogger.models import Profile
 
 class CreateProfilePageView(CreateView):
