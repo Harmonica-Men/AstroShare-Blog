@@ -35,6 +35,14 @@ class Profile(models.Model):
       
 
 class Post(models.Model):
+    ACTIVE = 'active'
+    DRAFT = 'draft'
+
+    CHOICES_STATUS = (
+    (ACTIVE, 'Active'),
+    (DRAFT, 'Draft')
+    )
+    
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null = True, blank= True) # upload_to="images/"
     title_tag = models.CharField(max_length=200, default= "star gazer")
