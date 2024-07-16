@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Category
+from .models import Post, Category, Comment
 
 
 # Hardcode the list
@@ -19,4 +19,14 @@ class PostForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),            
         }
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'body')
+        # fields = ('title', 'title_tag', 'author', 'category', 'body', 'image')
+
+        widgets = {
+            'name' : forms.TextInput(attrs={'class': 'form-control', 'placeholder' : 'placeholder test'}),
+            'body' : forms.Textarea(attrs={'class': 'form-control'}),
+        }
 
