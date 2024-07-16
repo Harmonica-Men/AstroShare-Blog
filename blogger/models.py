@@ -1,26 +1,32 @@
 from django.db import models
-from django.urls import reverse
 from django.contrib.auth.models import User
+from django.urls import reverse
 from datetime import datetime, date
 from cloudinary.models import CloudinaryField
 
 
+# from ckeditor.fields import RichTextField
+# from django_ckeditor_5.fields import CKEditor5Field
+
+
 class Category(models.Model):
-    name = models.CharField(max_length=200)
-#     # title = models.CharField(max_length=255)
-#     # slug = models.SlugField(unique=True)
+     name = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.name
+     class Meta:
+         ordering = ('name',)
+        # verbose_name_plural = "bnaane"
+         verbose_name_plural = 'Categories'
 
-    def get_absolute_url(self):
-        return reverse('frontpage-blogpost') 
+     def __str__(self):
+         return self.name
+
+     def get_absolute_url(self):
+         return reverse('frontpage-blogpost') 
 
 class Profile(models.Model):
-    # 1 to 1 database relation
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
-    profile_pic = CloudinaryField('image', null = True, blank= True) #up_load to /image/profile
+    profile_pic = CloudinaryField('image', null = True, blank= True)
     website_url = models.CharField(max_length=100, null=True, blank=True)
     twitter_url = models.CharField(max_length=100, null=True, blank=True)
     instagram_url = models.CharField(max_length=100, null=True, blank=True)
@@ -31,8 +37,9 @@ class Profile(models.Model):
        return str(self.user)
 
     def get_absolute_url(self):
-        return reverse('frontpage') 
-      
+        return reverse('frontpage-blogpost') 
+
+
 
 class Post(models.Model):
     ACTIVE = 'active'
@@ -44,24 +51,36 @@ class Post(models.Model):
     )
     
     title = models.CharField(max_length=200)
-    image = CloudinaryField('image', null = True, blank= True) # upload_to="images/"
-    title_tag = models.CharField(max_length=200, default= "star gazer")
+    image = CloudinaryField('image', null = True, blank= True)
+    title_tag = models.CharField(max_length=200)
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
+    slug = models.SlugField()
+    intro = models.TextField()
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
     category = models.CharField(max_length=200, default='coding')
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
 
     def total_likes(self):
         return self.likes.count()
 
+    
+    class Meta:
+        ordering = ('-created_at','post_date',)
+
     def __str__(self):
-        return self.title + ' | ' + str(self.author)
+        return self.title
+
+    
 
     def get_absolute_url(self):
-        return reverse('article-detail', kwargs={'pk':self.pk})
-        # return reverse('frontpage-blogpost') 
+        # return reverse('article-detail', args=(str(self.id)))
+        return reverse('frontpage-blogpost') 
         # return f'/{self.category.slug}/{self.slug}/'
+
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
