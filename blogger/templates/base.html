@@ -106,6 +106,20 @@
                 </div>
               </form>
           </div>
+          {% if user.is_authenticated %}
+          {% if user.profile.id %}
+
+            </ul>
+            
+            <ul class="navbar-nav ml-auto"> 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'edit-profile' %}">ID: {{ user.first_name }}</a>
+
+              </li>
+
+            </ul>
+        {% endif %}
+      {% endif %}
         </ul>
       </div>
     </div>

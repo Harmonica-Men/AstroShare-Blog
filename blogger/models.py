@@ -39,8 +39,6 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('frontpage-blogpost') 
 
-
-
 class Post(models.Model):
     ACTIVE = 'active'
     DRAFT = 'draft'
