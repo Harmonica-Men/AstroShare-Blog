@@ -5,8 +5,10 @@
   
 
 :root {
-  --primary-color: #223242;
-  --primary-color-highlight: #89a4bb;
+  --primary-color: #2a3138;
+  --attrib-color0: #3987a6;
+  --attrib-color1: #969696;
+  --primary-color-highlight: #69b9ff;
   --bs-body-bg: #000000;
   --bs-body-font-family: 'Montserrat', sans-serif;
 }
@@ -16,11 +18,11 @@ html {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--attrib-color0);
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--attrib-color1);
 }
 
 /*
@@ -181,7 +183,7 @@ a:hover {
 }
 
 .steps--background {
-  background-color: #8c686e;
+  background-color: #ffffff;
 }
 
 @media (min-width: 544px) {
@@ -194,3 +196,11 @@ a:hover {
     height: auto;
   }
 }
+
+/*
+* Footer
+*/
+.footer .border-highlight {
+  border-top: 1px solid var(--primary-color-highlight);
+}
+
