@@ -1,0 +1,93 @@
+/* main.css */
+/* body {
+    background-color: black;
+    color: white; /* Optional: to make text readable on a black background */
+  
+
+:root {
+  --primary-color: #0a1118;
+  --primary-color-highlight: #233D54;
+  --bs-body-bg: #FBF0F6;
+  --bs-body-font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/*
+* Custom Container
+*/
+.container-custom {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .container-custom {
+    width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-custom {
+    width: 1340px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-custom {
+    width: 1520px;
+  }
+}
+
+/*
+* Main Header
+*/
+.header {
+  z-index: 2;
+}
+
+/*
+* Flyout Navigation Bar
+*/
+#navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(255, 247, 231);
+  z-index: 4;
+}
+
+.dropdown-nav__closeNavBtn {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  background-color: rgbA(255, 255, 255, 0.6);
+}
+
+.dropdown-nav__container {
+  height: 100vh;
+  padding: 0 1rem;
+}
+
+/*
+* blog Section
+*/
+.hero {
+  position: relative;
+  height: 100vh;
+  background-color: var(--primary-color);
+  overflow: hidden;
+}
