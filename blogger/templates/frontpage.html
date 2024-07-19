@@ -1,31 +1,27 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% load static %}
 
-<h1>Front Page Blog Post </h1>
+{% block content %}
+<h1>Front Page Blog Post</h1>
 <ul>
     {% for post in object_list %}
-    <li>
-        <a href="{% url 'article-detail'  post.pk %}">{{ post.title }}</a>
-        
-        <a href="{% url 'category' post.category|slugify %} ">{{ post.category }}</a>
-        {{ post.author.frist_name }} - {{ post.author.last_name }} - {{ post.post_date }}
+    <li class="{% cycle 'bg-light' 'bg-gray' %}">
+        <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+        <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
+        {{ post.author.first_name }} - {{ post.author.last_name }} - {{ post.post_date }}
 
         {% if user.is_authenticated %}
-
-        <small> 
-            <a href="{% url 'update-post' post.pk %}">Edit</a> 
-            <a href="{% url 'delete-post' post.pk %}">DELETE POST</a> 
+        <small>
+            <a href="{% url 'update-post' post.pk %}">Edit</a>
+            <a href="{% url 'delete-post' post.pk %}">DELETE POST</a>
         </small>
-
         {% endif %}
 
         <br>
         {{ post.body|slice:":200" }}
-
     </li>
-<hr>
-
+    <hr>
     {% endfor %}
 </ul>
 
@@ -33,9 +29,5 @@
 <a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a>
 <br>
 <br>
-
 <hr>
-
-
-
 {% endblock %}
