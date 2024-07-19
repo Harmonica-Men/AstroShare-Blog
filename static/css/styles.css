@@ -1,11 +1,11 @@
 /* styles.css */
 /* Body styling */
 body {
+    /* background-image: url("{% static 'images/background.webp' %}"); */
+    background-image: url("../images/background.webp");
 
-    background: url("{% static 'images/background.jpg' %}") no-repeat center center fixed; 
     background-size: cover;
-    background-color: black; 
- 
+    color: white; /* Optional: to ensure text is readable on the background image */
 }
     
 
