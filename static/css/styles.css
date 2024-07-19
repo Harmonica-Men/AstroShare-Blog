@@ -1,0 +1,12 @@
+
+    .bg-light {
+        background-color: rgba(247, 128, 128, 0.559);
+    }
+    .bg-gray {
+        background-color: rgba(142, 142, 142, 0.544);
+    }
+    li {
+        padding: 10px; /* Optional: Add some padding for better spacing */
+        margin-bottom: 10px; /* Optional: Add some margin for spacing between items */
+    }
+  
