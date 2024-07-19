@@ -1,20 +1,34 @@
+/* styles.css */
+/* Body styling */
+body {
+
+    background: url("{% static 'images/background.jpg' %}") no-repeat center center fixed; 
+    background-size: cover;
+    background-color: black; 
+ 
+}
+    
+
+/* Content styling */
+.content {
+    background: rgba(155, 77, 77, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* Styling for individual posts */
+.post {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Alternating background colors for posts */
 .bg-l-gray {
-    background-color: rgba(223, 12, 65, 0.559);
+    background-color: rgb(137, 137, 137); 
 }
 
 .bg-d-gray {
-    background-color: rgba(126, 137, 209, 0.544);
-}
-
-
-li {
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    list-style: none;
-}
-
-ul {
-    padding: 0;
-    /* Remove default padding */
+    background-color: rgb(73, 73, 73); 
 }
