@@ -1,8 +1,8 @@
 
-    .bg-light {
-        background-color: rgba(247, 128, 128, 0.559);
+    .bg-l-gray {
+        background-color: rgba(223, 209, 12, 0.559);
     }
-    .bg-gray {
+    .bg-d-gray {
         background-color: rgba(111, 184, 72, 0.544);
     }
     /* li {

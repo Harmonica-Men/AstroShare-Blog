@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block content %}
 <h1>Front Page Blog Post</h1>
 <ul>
     {% for post in object_list %}
-    <li class="{% cycle 'bg-light' 'bg-gray' %}">
+    <li class="{% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
         <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
         <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
         {{ post.author.first_name }} - {{ post.author.last_name }} - {{ post.post_date }}
