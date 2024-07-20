@@ -29,21 +29,25 @@
 
 {% block content %}
 <div class="content">
-    <h1>Front Page Blog Post</h1>
+    <h3>Latest posts</h3>
     <ul>
       {% for post in object_list %}
       <li class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
+        <h2>
           <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
-          <a href="{% url 'category' post.category|slugify %}"> post cat {{ post.category }}</a>
-
-          <span class="first-name">{{ post.author.first_name }}</span> - post l name 
-          <span class="last-name">{{ post.author.last_name }}</span> - post date {{ post.post_date }}<br>
+        </h2>
+        <small> 
+        </span> <p> Posted: {{ post.post_date }} Category: <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
+          By: <span class="last-name">{{ post.author.last_name }}</span>, <span class="first-name">{{ post.author.first_name }}</p>
+        </small>
           {{ post.body|slice:":200" }}
           {% if user.is_authenticated %}
-          <small>
-              <a href="{% url 'update-post' post.pk %}">Edit</a>
-              <a href="{% url 'delete-post' post.pk %}">DELETE POST</a>
-          </small>
+          <p>
+            <small>
+                <a href="{% url 'update-post' post.pk %}">Edit</a>
+                <a href="{% url 'delete-post' post.pk %}">DELETE POST</a>
+            </small>
+          </p>
           {% endif %}
       </li>
       <hr>

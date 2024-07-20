@@ -11,16 +11,18 @@ body {
 /* styles.css - frontpage */
 .first-name, .last-name {
     color: yellow;
+    text-transform: capitalize;
 }
 
 .last-name {
     text-transform: uppercase;
+
 }
     
 
 /* Content styling */
 .content {
-    background: rgba(155, 77, 77, 0.8); 
+    background: rgba(78, 77, 155, 0.8); 
     padding: 20px;
     border-radius: 10px;
     margin: 20px;
@@ -39,5 +41,5 @@ body {
 }
 
 .bg-d-gray {
-    background-color: rgb(73, 73, 73); 
+    background-color: rgb(67, 66, 66); 
 }
