@@ -7,6 +7,15 @@ body {
     background-size: cover;
     color: white; /* Optional: to ensure text is readable on the background image */
 }
+
+/* styles.css - frontpage */
+.first-name, .last-name {
+    color: yellow;
+}
+
+.last-name {
+    text-transform: uppercase;
+}
     
 
 /* Content styling */
