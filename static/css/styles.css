@@ -5,12 +5,12 @@ body {
     background-image: url("../images/background.webp");
 
     background-size: cover;
-    color: white; /* Optional: to ensure text is readable on the background image */
+    color: hsl(0, 0%, 100%); /* Optional: to ensure text is readable on the background image */
 }
 
 /* styles.css - frontpage */
 .first-name, .last-name {
-    color: yellow;
+    color: rgb(128, 128, 128);
     text-transform: capitalize;
 }
 
@@ -41,5 +41,5 @@ body {
 }
 
 .bg-d-gray {
-    background-color: rgb(67, 66, 66); 
+    background-color: rgb(105, 105, 105); 
 }
