@@ -7,6 +7,9 @@ from django.urls import reverse_lazy, reverse
 from .forms import PostForm, CommentForm
 from django.db.models import Q
 
+import plotly.graph_objects as go
+import plotly.io as pio
+
 import requests
 
 
@@ -139,3 +142,36 @@ def nasa_picture_of_the_day(request):
     }
     
     return render(request, 'nasa_picture.html', context)
+
+
+
+def iss_location(request):
+    # Fetch ISS location data
+    response = requests.get('http://api.open-notify.org/iss-now.json')
+    data = response.json()
+    latitude = float(data['iss_position']['latitude'])
+    longitude = float(data['iss_position']['longitude'])
+
+    # Create Plotly figure
+    fig = go.Figure(go.Scattergeo(
+        lon=[longitude],
+        lat=[latitude],
+        text="ISS",
+        mode='markers',
+        marker=dict(size=10, color='red')
+    ))
+
+    fig.update_layout(
+        title='Current Location of the ISS',
+        geo_scope='world',
+    )
+
+    # Convert the figure to HTML
+    fig_html = pio.to_html(fig, full_html=False)
+
+    # Render the template with the plot and ISS coordinates
+    return render(request, 'iss_location.html', {
+        'plot_html': fig_html,
+        'latitude': latitude,
+        'longitude': longitude
+    })
