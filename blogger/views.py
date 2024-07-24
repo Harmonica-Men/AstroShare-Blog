@@ -146,23 +146,49 @@ def nasa_picture_of_the_day(request):
 
 
 def iss_location(request):
-    # Fetch ISS location data
+    # Fetch current ISS location data
     response = requests.get('http://api.open-notify.org/iss-now.json')
     data = response.json()
     latitude = float(data['iss_position']['latitude'])
     longitude = float(data['iss_position']['longitude'])
 
+    # Define an endpoint to fetch recent ISS positions (for trajectory)
+    # Here we simulate the trajectory data; in a real scenario, you would fetch it from an appropriate data source
+    trajectory = [
+      
+        {'latitude': latitude, 'longitude': longitude},
+        {'latitude': latitude - 1, 'longitude': longitude + 2},
+        {'latitude': latitude - 2, 'longitude': longitude + 4},
+        {'latitude': latitude - 3, 'longitude': longitude + 8},
+
+    ]
+    
+    lats = [point['latitude'] for point in trajectory]
+    lons = [point['longitude'] for point in trajectory]
+
     # Create Plotly figure
-    fig = go.Figure(go.Scattergeo(
+    fig = go.Figure()
+
+    # Plot the ISS current location
+    fig.add_trace(go.Scattergeo(
         lon=[longitude],
         lat=[latitude],
-        text="ISS",
+        text="Current ISS Location",
         mode='markers',
         marker=dict(size=10, color='red')
     ))
 
+    # Plot the ISS trajectory
+    fig.add_trace(go.Scattergeo(
+        lon=lons,
+        lat=lats,
+        mode='lines',
+        line=dict(width=2, color='blue'),
+        name='ISS Trajectory'
+    ))
+
     fig.update_layout(
-        title='Current Location of the ISS',
+        title='Current Location and Trajectory of the ISS',
         geo_scope='world',
     )
 
