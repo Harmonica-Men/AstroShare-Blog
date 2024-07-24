@@ -8,7 +8,6 @@ from .forms import PostForm, CommentForm
 from django.db.models import Q
 
 
-
 # from django.utils.text import slugify
 
 

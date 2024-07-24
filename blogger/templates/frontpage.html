@@ -29,11 +29,11 @@
 
 {% block content %}
 <div class="content">
-    <h3>Latest posts</h3>
+    <h3 display>Latest posts</h3>
     <ul>
       {% for post in object_list %}
       <li class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-        <h2>
+        <h2 class="display-5">
           <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
         </h2>
         <small> 
