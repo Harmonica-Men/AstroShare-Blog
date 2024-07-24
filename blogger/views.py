@@ -7,6 +7,8 @@ from django.urls import reverse_lazy, reverse
 from .forms import PostForm, CommentForm
 from django.db.models import Q
 
+import requests
+
 
 # from django.utils.text import slugify
 
@@ -123,3 +125,17 @@ class SearchView(View):
             'query': query,
         }
         return render(request, self.template_name, context)
+
+def nasa_picture_of_the_day(request):
+    api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'  # Replace with your NASA API key
+    url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
+    response = requests.get(url)
+    data = response.json()
+    
+    context = {
+        'title': data.get('title'),
+        'image_url': data.get('url'),
+        'explanation': data.get('explanation'),
+    }
+    
+    return render(request, 'nasa_picture.html', context)
