@@ -41,11 +41,11 @@ body {
 }
 
 .bg-d-gray {
-    background-color: rgb(105, 105, 105); 
+    background-color: rgb(236, 244, 92); 
 }
 
 
-.image-container {
+.image-container-APOD {
     position: relative;
     display: inline-block;
 }
