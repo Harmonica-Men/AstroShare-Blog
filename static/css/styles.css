@@ -43,3 +43,20 @@ body {
 .bg-d-gray {
     background-color: rgb(105, 105, 105); 
 }
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.centered-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Adjust color as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add background for better readability */
+    padding: 10px; /* Optional: Add padding for better readability */
+    text-align: center;
+}
