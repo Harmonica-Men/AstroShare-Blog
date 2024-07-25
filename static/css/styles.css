@@ -1,12 +1,23 @@
 /* styles.css */
-/* Body styling */
+
+
 body {
     /* background-image: url("{% static 'images/background.webp' %}"); */
+
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
     background-image: url("../images/background.webp");
 
     background-size: cover;
     color: hsl(0, 0%, 100%); /* Optional: to ensure text is readable on the background image */
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 /* styles.css - frontpage */
 .first-name, .last-name {
