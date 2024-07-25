@@ -60,3 +60,13 @@ body {
     padding: 10px; /* Optional: Add padding for better readability */
     text-align: center;
 }
+
+
+.left {
+    background-color: lightblue;
+}
+.right > div {
+    background-color: lightcoral;
+    margin: 2px;
+}
+    

@@ -145,19 +145,46 @@
 
   <a id="scroll-down"></a>
 
-
   <section>
-    <div class="container text-center">
-        <h1 class="mb-4">Astronomy Picture of the Day</h1>
-      
-        <div class="position-relative d-inline-block">
-            <img id="image" src="" alt="Astronomy Picture of the Day" 
-              class="img-fluid pb-4 steps__section-thumbnail" width="881" height="1190" loading="lazy">
-            <h2 id="title" class="position-absolute top-0 start-0 text-white bg-dark bg-opacity-50 p-1 small">Title Goes Here</h2>
-        </div>
-    </div>
-    <script src="/static/js/script.js"></script> 
-</section>
+    <div class="container-fluid text-white bg-yellow vh-100 d-flex">
+
+      <div class="row flex-grow-1 w-100">
+
+          <div class="col-9 left d-flex align-items-stretch">
+
+            
+            <div class="container-fluid text-center text-black bg-white">
+              <h1>big container</h1>
+              <div class="position-relative d-inline-block">
+                  <img id="image" src="" alt="Astronomy Picture of the Day" 
+                    class="img-fluid pb-4 steps__section-thumbnail" width="881" height="1190" loading="lazy">
+                  <h2 id="title" class="position-absolute top-0 start-0 
+                  text-white bg-dark bg-opacity-50 p-1 small">*</h2>
+              </div>
+              <h1 class="mb-4">
+                <a href="{% url 'nasa-picture-of-the-day' %}">Astronomy Picture of the Day</a>
+              </h1>
+              <p id="description">*</p>
+            </div>
+            <script src="/static/js/script.js"></script> 
+          </div>
+
+          <div class="col-3 right d-flex flex-column">
+              <div class="flex-fill"><h4>small container 1</h4></div>
+              <div class="flex-fill"><h4>small container 2</h4></div>
+              <div class="flex-fill"><h4>small container 3</h4></div>
+              <div class="flex-fill"><h4>small container 4</h4></div>
+          </div>
+
+      </div>
+  </div>
+
+
+
+
+  </section>
+
+
 
 
 
@@ -271,24 +298,7 @@
     </div>
   </section>
   <!-- Section Four End -->
-
-
-
-  <!-- Section Astronomy Picture of the Day -->
-  <section>
-    <h1>Astronomy Picture of the Day</h1>
-  
-    <div id="apod">
-        <h2 id="title"></h2>
-        <img id="image" src="" alt="Astronomy Picture of the Day">
-        <!-- <p id="description"></p> -->
-    </div>
-    <script src="/static/js/script.js"></script> 
-  </section>
-
-
-
-  
+ 
 
   <!-- Section ISS Location Widget -->
 
@@ -314,9 +324,7 @@
   </div>
   </section> -->
 
-  <button type="button" class="btn btn-primary"> 
-    <a href="{% url 'nasa-picture-of-the-day' %}">nasa-picture-of-the-day</a>
-  </button>
+  
 
   <button type="button" class="btn btn-secondary"> 
     <a href="{% url 'iss-location' %}">ISS Location</a>
