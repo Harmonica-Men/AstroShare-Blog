@@ -1,4 +1,4 @@
-asgiref==3.8.1
+asgiref==3.8.1 
 cloudinary==1.36.0
 Django==4.2.13
 gunicorn==20.1.0
