@@ -266,8 +266,14 @@ a:hover {
     margin: 0 auto;
 }
 
-.steps--background {
-    background-color: #FEF8F9;
+.steps--background-white {
+    background-color: white;
+    color: black; 
+}
+
+.steps--background-black {
+    background-color: black;
+    color: white;
 }
 
 @media (min-width: 544px) {

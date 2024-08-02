@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('title').textContent = data.title;
             document.getElementById('image').src = data.url;
             document.getElementById('description').textContent = data.explanation;
+            
         })
         .catch(error => console.error('Error fetching the APOD data:', error));
 });
