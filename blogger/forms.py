@@ -30,8 +30,10 @@ class CommentForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),
         }
 
-
 class NewsletterSubscriptionForm(forms.ModelForm):
     class Meta:
         model = NewsletterSubscription
         fields = ['email']
+        widgets = {
+            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email'}),
+        }
