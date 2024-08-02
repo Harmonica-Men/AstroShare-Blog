@@ -22,7 +22,7 @@ body {
     margin: 20px;
     background-image: url("../images/background.webp"); 
     background-size: cover;
-    color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 100%); 
 }
 
 /* Responsive image classes */

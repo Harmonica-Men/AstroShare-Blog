@@ -105,16 +105,72 @@
   </nav>
   <!-- Flyout Navigation End -->
 
+<!-- Category Hero -->
+<section class="hero">
+
+  <div class="hero__overlay"></div>
+
+  <!-- Video not included. Download: https://www.pexels.com/video/two-people-in-front-of-a-campfire-pouring-water-from-a-kettle-2675515/ -->
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero__video">
+    <source src="/static/images/857136-hd_1280_720_24fps.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero__content h-100 container-custom position-relative">
+    <div class="d-flex h-100 align-items-center hero__content-width">
+      <div class="text-white">
+        <h1 class="hero__heading fw-bold mb-4">share the latest news</h1>
+        <p class="lead mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
+          Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#scroll-down" class="hero__scroll-btn">
+    Explore <i class="bi bi-arrow-down-short"></i>
+  </a>
+
+</section>
+<!-- Hero End -->
+
+
+<section>
+  <div class="container-fluid text-center text-black bg-white">
+    <h1>big container</h1>
+    <div class="position-relative d-inline-block">
+        <img id="image" src="" alt="Astronomy Picture of the Day" 
+          class="img-fluid pb-4 steps__section-thumbnail" width="881" height="1190" loading="lazy">
+        <h2 id="title" class="position-absolute top-0 start-0 
+        text-white bg-dark bg-opacity-50 p-1 small">*</h2>
+    </div>
+    <h1 class="mb-4">
+      <a href="{% url 'nasa-picture-of-the-day' %}">Astronomy Picture of the Day</a>
+    </h1>
+    <p id="description">*</p>
+  </div>
+  <script src="/static/js/script.js"></script> 
+</div>
+
+
+
+</section>
+
+
+  
+
 <body>
   <div class="container">
 
     <div class="d-md-flex">
       <div class="black-border">
         <img src="/static/images/black-hole1.webp" alt="black-hole" width="553" height="746" class="img-fluid">
-        <h2>Astronomy Picture of the Day</h2>
 
-        <p>Primis nullam ut sit senectus himenaeos. Non gravida fringilla in libero commodo. </p>
 
+
+
+
+
+        
       </div>
       <div class="black-border">
         <h2>Latest post ...</h2>
