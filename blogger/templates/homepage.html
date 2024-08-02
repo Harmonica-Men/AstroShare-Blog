@@ -12,9 +12,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!--  Stylesheet -->
-  <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}">  -->
+  <!-- <link href="./assets/css/styles.css" rel="stylesheet"> -->
 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +32,43 @@
 </head>
 
 <body>
+    <div class="container">
+  
+      <div class="d-md-flex">
+        <div class="black-border">
+          <div class="black-border">
+         
+          <!--      <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" alt="black-hole"
+              class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
+          <img src="/static/images/pexels-pixabay-73910.jpg" alt="black-hole" width="553" height="746" class="img-fluid">
+          <h2>Astronomy Picture of the Day</h2>
+  
+          <p>Primis nullam ut sit senectus himenaeos. Non gravida fringilla in libero commodo. </p>
+  
+        </div>
+        <div class="black-border">
+          <h2>Latest post ...</h2>
+  
+          <div class="black-border">
+            <h2>post 1</h2>
+            <p>Elit per turpis metus commodo rutrum dis massa!</p>
+            <a href="#">read more</a>
+          </div>
+          <div class="black-border">
+            <h2>post 2</h2>
+            <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
+            <a href="#">read more</a>
+          </div>
+          <div class="black-border post-3">
+            <h2>post 3</h2>
+            <p>Quis mus elit inceptos mauris, risus habitasse elementum dui..</p>
+            <a href="#">read more</a>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
 
   <!-- Header Start -->
   <header class="header p-3 position-absolute start-0 top-0 end-0">
@@ -103,249 +141,6 @@
 
   </nav>
   <!-- Flyout Navigation End -->
-
-  
-  
-  <!-- Category Hero -->
-  <section class="hero">
-
-    <div class="hero__overlay"></div>
-
-    <!-- Video not included. Download: https://www.pexels.com/video/two-people-in-front-of-a-campfire-pouring-water-from-a-kettle-2675515/ -->
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero__video">
-      <source src="/static/images/857136-hd_1280_720_24fps.mp4" type="video/mp4">
-    </video>
-
-    <div class="hero__content h-100 container-custom position-relative">
-      <div class="d-flex h-100 align-items-center hero__content-width">
-        <div class="text-white">
-          <h1 class="hero__heading fw-bold mb-4">share the latest news</h1>
-          <p class="lead mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
-            Blog</a>
-        </div>
-      </div>
-    </div>
-
-    <a href="#scroll-down" class="hero__scroll-btn">
-      Explore <i class="bi bi-arrow-down-short"></i>
-    </a>
-
-  </section>
-  <!-- Hero End -->
-
-  <a id="scroll-down"></a>
-
-  <section>
-    <div class="container-fluid text-white bg-yellow vh-100 d-flex">
-
-      <div class="row flex-grow-1 w-100">
-
-          <div class="col-9 left d-flex align-items-stretch">
-
-            
-            <div class="container-fluid text-center text-black bg-white">
-              <h1>big container</h1>
-              <div class="position-relative d-inline-block">
-                  <img id="image" src="" alt="Astronomy Picture of the Day" 
-                    class="img-fluid pb-4 steps__section-thumbnail" width="881" height="1190" loading="lazy">
-                  <h2 id="title" class="position-absolute top-0 start-0 
-                  text-white bg-dark bg-opacity-50 p-1 small">*</h2>
-              </div>
-              <h1 class="mb-4">
-                <a href="{% url 'nasa-picture-of-the-day' %}">Astronomy Picture of the Day</a>
-              </h1>
-              <p id="description">*</p>
-            </div>
-            <script src="/static/js/script.js"></script> 
-          </div>
-
-          <div class="col-3 right d-flex flex-column">
-              <div class="flex-fill">
-                <h4>post 1</h4>
-                <p>
-                  deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
-                  cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, 
-                  id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
-                  Nam libero tempore, cum soluta nobis est eligendi
-                </p>
-              </div>
-              <div class="flex-fill">
-                <h4>post 2</h4>
-                <p>
-                  "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment,
-                  so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. 
-                  These cases are perfectly simple and easy to distinguish. 
-                </p>
-              </div>
-              <div class="flex-fill">
-                <h4>post 3</h4>
-                <p>
-                  and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. 
-                  The wise man therefore always holds in these matters to this principle of selection:  
-                </p>
-              </div>
-              <div class="flex-fill">
-                <h4>post 4</h4>
-                <p>
-                  blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, 
-                  id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.  
-                </p>
-              </div>
-          </div>
-
-      </div>
-  </div>
-
-
-
-
-  </section>
-
-
-
-
-
-<!--  Section Category Tree Start -->
- <section class="steps ">
-
-  <div class="row">
-    <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-      <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
-        <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
-    </div>
-
-    <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
-
-      <div class="steps__content-width text-white">
-        <span>step 03</span>
-        <h1 class="h2 mb-4">Category Section 3</h1>
-        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi! Quis
-          fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo mollitia
-          laborum.</p>
-        <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
-
-      </div>
-
-    </div>
-  </div>
-
-</section>
-<!-- Section Tree End -->
-
-  <!-- Section Category Two Start -->
-  <section class="steps steps--background">
-
-    <div class="container-custom">
-
-      <div class="row">
-        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
-          <img src="/static/images/pexels-pixabay-73910.jpg" class="img-responsive" alt="Missions Mars">
-            <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
-        </div>
-
-        <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
-          <div class="steps__content-width">
-            <span>Step 02</span>
-            <h1 class="h2 mb-4">Category Section 2</h1>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi!
-              Quis fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo
-              mollitia laborum.</p>
-            <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- Section Two End -->
-
-  <!-- Section Category Tree Start -->
-  <section class="steps container-custom">
-
-    <div class="row">
-      <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-        <img src="/static/images/particle-shower.jpg" class="img-responsive" alt="Particle Collisions">
-          <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
-      </div>
-
-      <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
-
-        <div class="steps__content-width text-white">
-          <span>step 03</span>
-          <h1 class="h2 mb-4">Category Section 3</h1>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi! Quis
-            fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo mollitia
-            laborum.</p>
-          <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
-
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-  <!-- Section Tree End -->
-
-
-  <!-- Section Category four Start -->
-  <section class="steps steps--background">
-
-    <div class="container-custom">
-
-      <div class="row">
-        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
-          <img src="/static/images/pexels-pixabay-87611.jpg" class="img-responsive" alt="Solar Corona"
-            class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
-        </div>
-
-        <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
-          <div class="steps__content-width">
-            <span>Step 04</span>
-            <h1 class="h2 mb-4">Category Section 4</h1>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi!
-              Quis fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo
-              mollitia laborum.</p>
-            <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- Section Four End -->
- 
-
-  <!-- Section ISS Location Widget -->
-
-  <section>
-    <div style='display:inline-block; border: 1px solid #CCC; border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; position: relative; overflow: hidden; width: 310px; height: 450px;'><iframe src='https://spotthestation.nasa.gov/widget/widget.cfm?country=Belgium&region=None&city=Waterloo' width='310' height='450' frameborder='0' ></iframe></div>
-
-  </section>
-
-  <section>
-    <iframe width="600" height="400" src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1" style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
-
-  </section>
-  <!-- <section>
-   
-    <div id="av-orbit">
-      <script>
-          var avOrbitProperties = {
-              size: 'large',
-              lang: 'en'
-          };
-      </script>
-      <script src="https://astroviewer.net/widgets/widgets/orbit.js"></script>
-  </div>
-  </section> -->
-
-  
-
-  <button type="button" class="btn btn-secondary"> 
-    <a href="{% url 'iss-location' %}">ISS Location</a>
-  </button>
-
 
 
 
