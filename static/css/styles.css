@@ -19,11 +19,13 @@ a {
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 20px;
-    background-image: url("../images/background.webp"); 
-    background-size: cover;
+    /* margin: 20px; */
+    /* background-image: url("../images/background.webp");  */
+    background-color: black;
+     background-size: cover;
     color: hsl(0, 0%, 100%); 
 }
+
 
 /* Responsive image classes */
 .img-responsive {
