@@ -122,6 +122,18 @@ a:hover {
 
 /* new styles.css */
 
+.black-border {
+    border: 1px solid black;
+
+    padding: 1.5rem;
+    margin: .75rem;
+}
+
+.h2 {
+    margin-top: 2rem;
+}
+
+
 @media (max-width: 1111px) {
     .post-3 {
         display: none;
