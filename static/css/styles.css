@@ -20,7 +20,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
-    /* background-image: url("../images/background.webp"); */
+    background-image: url("../images/background.webp"); 
     background-size: cover;
     color: hsl(0, 0%, 100%);
 }
