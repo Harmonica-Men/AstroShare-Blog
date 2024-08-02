@@ -6,6 +6,11 @@ from .models import Post, Category, Comment
 from django.urls import reverse_lazy, reverse
 from .forms import PostForm, CommentForm
 from django.db.models import Q
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import NewsletterSubscription
+from .forms import NewsletterSubscriptionForm
+
 
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -203,4 +208,26 @@ def iss_location(request):
     })
 
 
-    
+def subscribe(request):
+    if request.method == 'POST':
+        form = NewsletterSubscriptionForm(request.POST)
+        if form.is_valid():
+            subscription = form.save()
+            send_confirmation_email(subscription)
+            return render(request, 'newsletter/subscription_success.html')
+    else:
+        form = NewsletterSubscriptionForm()
+    return render(request, 'newsletter/subscribe.html', {'form': form})
+
+def confirm_subscription(request, code):
+    subscription = get_object_or_404(NewsletterSubscription, confirmation_code=code)
+    subscription.confirmed = True
+    subscription.save()
+    return render(request, 'newsletter/confirmation_success.html')
+
+def send_confirmation_email(subscription):
+    subject = 'Confirm your subscription'
+    message = f'Please confirm your subscription by clicking the following link: {settings.SITE_URL}/confirm/{subscription.confirmation_code}/'
+    from_email = settings.DEFAULT_FROM_EMAIL
+    recipient_list = [subscription.email]
+    send_mail(subject, message, from_email, recipient_list)
