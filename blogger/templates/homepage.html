@@ -12,8 +12,8 @@
 
   <!-- <link href="/static/css/main.css" rel="stylesheet"> -->
 
-  <link rel="stylesheet" href="{% static 'css/main.css' %}"> 
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
-  
+
   <!-- Script to load position ISS (api) -->
   <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
 
@@ -33,8 +33,8 @@
   <title>Astro Blog</title>
 </head>
 
- <!-- Header Start -->
- <header class="header p-3 position-absolute start-0 top-0 end-0">
+<!-- Header Start -->
+<header class="header p-3 position-absolute start-0 top-0 end-0">
   <div class="d-flex justify-content-between align-items-center">
     <a href="{% url 'frontpage-blogpost' %}" class="text-decoration-none text-white fs-5 fw-bold">Astro Blog</a>
 
@@ -52,58 +52,58 @@
 </header>
 <!-- Header End -->
 
-  <!-- Flyout Navigation Start -->
-  <nav class="collapse navbar-collapse dropdown-nav" id="navbar">
+<!-- Flyout Navigation Start -->
+<nav class="collapse navbar-collapse dropdown-nav" id="navbar">
 
-    <div class="dropdown-nav__container container-xxl d-flex align-items-start align-items-md-center">
+  <div class="dropdown-nav__container container-xxl d-flex align-items-start align-items-md-center">
 
-      <div class="row align-items-start">
+    <div class="row align-items-start">
 
-        <div class="col-12 col-sm-4 mt-4">
-          <a href="#" class="row text-decoration-none">
+      <div class="col-12 col-sm-4 mt-4">
+        <a href="#" class="row text-decoration-none">
 
-            <div class="col-10">
-              <h3>link 1</h3>
-              <p>bla blar</p>
-              <p>More bla <i class="bi bi-arrow-right-short"></i></p>
-            </div>
-          </a>
-        </div>
-        <div class="col-12 col-sm-4 mt-4">
-          <a href="#" class="row text-decoration-none">
-
-            <div class="col-10">
-              <h3>Link 2</h3>
-              <p>bla bla bla</p>
-              <p>lall lall <i class="bi bi-arrow-right-short"></i></p>
-            </div>
-          </a>
-        </div>
-        <div class="col-12 col-sm-4 mt-4">
-          <a href="#" class="row text-decoration-none">
-
-            <div class="col-10">
-              <h3>Link 3</h3>
-              <p>some text </p>
-              <p>bla bla <i class="bi bi-arrow-right-short"></i></p>
-            </div>
-          </a>
-        </div>
+          <div class="col-10">
+            <h3>link 1</h3>
+            <p>bla blar</p>
+            <p>More bla <i class="bi bi-arrow-right-short"></i></p>
+          </div>
+        </a>
       </div>
+      <div class="col-12 col-sm-4 mt-4">
+        <a href="#" class="row text-decoration-none">
 
-      <button class="navbar-toggler dropdown-nav__closeNavBtn" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-x"
-          viewBox="0 0 16 16">
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </button>
+          <div class="col-10">
+            <h3>Link 2</h3>
+            <p>bla bla bla</p>
+            <p>lall lall <i class="bi bi-arrow-right-short"></i></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-4 mt-4">
+        <a href="#" class="row text-decoration-none">
 
+          <div class="col-10">
+            <h3>Link 3</h3>
+            <p>some text </p>
+            <p>bla bla <i class="bi bi-arrow-right-short"></i></p>
+          </div>
+        </a>
+      </div>
     </div>
 
-  </nav>
-  <!-- Flyout Navigation End -->
+    <button class="navbar-toggler dropdown-nav__closeNavBtn" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-x"
+        viewBox="0 0 16 16">
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </button>
+
+  </div>
+
+</nav>
+<!-- Flyout Navigation End -->
 
 <!-- Category Hero -->
 <section class="hero">
@@ -134,7 +134,7 @@
 <!-- Hero End -->
 
 
-<section>
+<!-- <section>
   <div class="container-fluid text-center text-black bg-white">
     <h1>big container</h1>
     <div class="position-relative d-inline-block">
@@ -153,72 +153,78 @@
 
 
 
-</section>
+</section> -->
 
 
-  
+
 
 <body>
   <div class="container">
 
     <div class="d-md-flex">
       <div class="black-border">
-        <img src="/static/images/black-hole1.webp" alt="black-hole" width="553" height="746" class="img-fluid">
+        <!-- <img src="/static/images/black-hole1.webp" alt="black-hole" width="553" height="746" class="img-fluid"> -->
 
+        <img id="image" src="" alt="Astronomy Picture of the Day" class="img-fluid pb-4 steps__section-thumbnail"
+          width="553" height="746" loading="lazy">
+        <h2 id="title" class="position-absolute top-0 start-0 
+          text-white bg-dark bg-opacity-50 p-1 small">*</h2>
 
+        <h1 class="mb-3">
+          <a href="{% url 'nasa-picture-of-the-day' %}">Astronomy Picture of the Day</a>
+        </h1>
+        <p id="description">*</p> 
 
-
-
-
-        
+        <script src="/static/js/script.js"></script>
       </div>
-      <div class="black-border">
-        <h2>Latest post ...</h2>
+
 
         <div class="black-border">
-          <h2>post 1</h2>
-          <p>Elit per turpis metus commodo rutrum dis massa!</p>
-          <a href="#">read more</a>
+          <h2>Latest post ...</h2>
+
+          <div class="black-border">
+            <h2>post 1</h2>
+            <p>Elit per turpis metus commodo rutrum dis massa!</p>
+            <a href="#">read more</a>
+          </div>
+          <div class="black-border">
+            <h2>post 2</h2>
+            <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
+            <a href="#">read more</a>
+          </div>
+          <div class="black-border post-3">
+            <h2>post 3</h2>
+            <p>Quis mus elit inceptos mauris, risus habitasse elementum dui..</p>
+            <a href="#">read more</a>
+          </div>
         </div>
-        <div class="black-border">
-          <h2>post 2</h2>
-          <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
-          <a href="#">read more</a>
-        </div>
-        <div class="black-border post-3">
-          <h2>post 3</h2>
-          <p>Quis mus elit inceptos mauris, risus habitasse elementum dui..</p>
-          <a href="#">read more</a>
-        </div>
+
       </div>
-
     </div>
-  </div>
 
-   <!-- Footer Start -->
-   <footer class="footer bg-dark text-white">
-    <div class="container-custom d-flex justify-content-between align-items-center py-3 border-highlight">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="me-2 text-muted text-decoration-none">
-          <i class="bi bi-cup"></i>
-          <span>&copy; 2024 Astro Blog</span>
-        </a>
+    <!-- Footer Start -->
+    <footer class="footer bg-dark text-white">
+      <div class="container-custom d-flex justify-content-between align-items-center py-3 border-highlight">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="me-2 text-muted text-decoration-none">
+            <i class="bi bi-cup"></i>
+            <span>&copy; 2024 Astro Blog</span>
+          </a>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
+          <li class="ms-3 "><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
+        </ul>
       </div>
+    </footer>
+    <!-- Footer End -->
 
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
-        <li class="ms-3 "><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
-      </ul>
-    </div>
-  </footer>
-  <!-- Footer End -->
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous">
-  </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
