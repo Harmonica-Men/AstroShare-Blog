@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
 from cloudinary.models import CloudinaryField
-
+from django.utils.crypto import get_random_string
 
 # from ckeditor.fields import RichTextField
 # from django_ckeditor_5.fields import CKEditor5Field
@@ -91,3 +91,13 @@ class Comment(models.Model):
        #return '%s - %s' % str(self.post.title, self.name)
     def __str__(self):
         return f'{self.name} - {self.body[:20]}'
+
+        
+
+class NewsletterSubscription(models.Model):
+    email = models.EmailField(unique=True)
+    confirmed = models.BooleanField(default=False)
+    confirmation_code = models.CharField(max_length=32, default=get_random_string)
+
+    def __str__(self):
+        return self.email

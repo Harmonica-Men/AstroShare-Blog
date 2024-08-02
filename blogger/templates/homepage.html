@@ -315,6 +315,16 @@
   </div>
 </div>
 
+
+<div>
+<h1>Subscribe to our Newsletter</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+
 <!-- End section contributors -->
 
   <!-- Footer Start -->

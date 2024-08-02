@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, NewsletterSubscription
 
 
 # Hardcode the list
@@ -30,3 +30,8 @@ class CommentForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),
         }
 
+
+class NewsletterSubscriptionForm(forms.ModelForm):
+    class Meta:
+        model = NewsletterSubscription
+        fields = ['email']
