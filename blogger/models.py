@@ -92,12 +92,10 @@ class Comment(models.Model):
     def __str__(self):
         return f'{self.name} - {self.body[:20]}'
 
-        
-
-class NewsletterSubscription(models.Model):
+class Subscriber(models.Model):
     email = models.EmailField(unique=True)
-    confirmed = models.BooleanField(default=False)
-    confirmation_code = models.CharField(max_length=32, default=get_random_string)
+    is_confirmed = models.BooleanField(default=False)
+    confirmation_code = models.CharField(max_length=50)
 
     def __str__(self):
         return self.email

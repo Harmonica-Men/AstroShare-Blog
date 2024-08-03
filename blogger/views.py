@@ -1,15 +1,16 @@
+import uuid
+
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse, JsonResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views import View
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, Subscriber
 from django.urls import reverse_lazy, reverse
 from .forms import PostForm, CommentForm
 from django.db.models import Q
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import NewsletterSubscription
-from .forms import NewsletterSubscriptionForm
+
 
 
 import plotly.graph_objects as go
@@ -207,27 +208,34 @@ def iss_location(request):
         'longitude': longitude
     })
 
-
 def subscribe(request):
-    if request.method == 'POST':
-        form = NewsletterSubscriptionForm(request.POST)
-        if form.is_valid():
-            subscription = form.save()
-            send_confirmation_email(subscription)
-            return render(request, 'newsletter/subscription_success.html')
-    else:
-        form = NewsletterSubscriptionForm()
-    return render(request, 'newsletter/subscribe.html', {'form': form})
+    email = request.GET.get('email')
+    if not email:
+        return JsonResponse({'error': 'Email is required.'}, status=400)
 
-def confirm_subscription(request, code):
-    subscription = get_object_or_404(NewsletterSubscription, confirmation_code=code)
-    subscription.confirmed = True
-    subscription.save()
-    return render(request, 'newsletter/confirmation_success.html')
+    confirmation_code = str(uuid.uuid4())
+    subscriber, created = Subscriber.objects.get_or_create(email=email)
+    subscriber.confirmation_code = confirmation_code
+    subscriber.is_confirmed = False
+    subscriber.save()
 
-def send_confirmation_email(subscription):
-    subject = 'Confirm your subscription'
-    message = f'Please confirm your subscription by clicking the following link: {settings.SITE_URL}/confirm/{subscription.confirmation_code}/'
-    from_email = settings.DEFAULT_FROM_EMAIL
-    recipient_list = [subscription.email]
-    send_mail(subject, message, from_email, recipient_list)
+    confirmation_link = f"{request.scheme}://{request.get_host()}/newsletter/confirm/?code={confirmation_code}"
+    send_mail(
+        'Confirm your subscription',
+        f'Click the link to confirm your subscription: {confirmation_link}',
+        settings.DEFAULT_FROM_EMAIL,
+        [email],
+    )
+
+    return JsonResponse({'message': 'Confirmation email sent.'})
+
+def confirm_subscription(request):
+    code = request.GET.get('code')
+    if not code:
+        return JsonResponse({'error': 'Confirmation code is required.'}, status=400)
+
+    subscriber = get_object_or_404(Subscriber, confirmation_code=code)
+    subscriber.is_confirmed = True
+    subscriber.save()
+
+    return HttpResponse('Subscription confirmed. Thank you!')
