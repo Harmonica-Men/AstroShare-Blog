@@ -30,33 +30,3 @@ class CommentForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),
         }
 
-
-def subscribe(request):
-    email = request.GET.get('email')
-    if email:
-        subscriber, created = Subscriber.objects.get_or_create(email=email)
-        if created:
-            send_confirmation_email(subscriber)
-            return HttpResponse("Subscription successful! Please check your email to confirm.")
-        else:
-            return HttpResponse("This email is already subscribed.")
-    return HttpResponse("Please provide an email address.")
-
-def confirm_email(request, confirmation_code):
-    try:
-        subscriber = Subscriber.objects.get(confirmation_code=confirmation_code)
-        subscriber.is_confirmed = True
-        subscriber.save()
-        return HttpResponse("Email confirmed successfully!")
-    except Subscriber.DoesNotExist:
-        return HttpResponse("Invalid confirmation code.")
-
-def send_confirmation_email(subscriber):
-    confirmation_link = f"{settings.SITE_URL}/confirm/{subscriber.confirmation_code}/"
-    send_mail(
-        'Confirm your subscription',
-        f'Please confirm your subscription by clicking the following link: {confirmation_link}',
-        settings.DEFAULT_FROM_EMAIL,
-        [subscriber.email],
-        fail_silently=False,
-    )

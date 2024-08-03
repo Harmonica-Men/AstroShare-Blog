@@ -208,6 +208,7 @@ def iss_location(request):
         'longitude': longitude
     })
 
+
 def subscribe(request):
     email = request.GET.get('email')
     if not email:
@@ -219,7 +220,7 @@ def subscribe(request):
     subscriber.is_confirmed = False
     subscriber.save()
 
-    confirmation_link = f"{request.scheme}://{request.get_host()}/newsletter/confirm/?code={confirmation_code}"
+    confirmation_link = f"{request.scheme}://{request.get_host()}/blog/confirm/?code={confirmation_code}"
     send_mail(
         'Confirm your subscription',
         f'Click the link to confirm your subscription: {confirmation_link}',
