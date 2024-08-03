@@ -104,27 +104,7 @@
 
 </nav>
 <!-- Flyout Navigation End -->
-<section>
 
-
-<div>
-  <h1>Subscribe to our Newsletter</h1>
-  <section class="black-background">
-    <h1 class="h2 mb-4">Contact Us</h1>
-    <form method="POST" action="{% url 'subscribe' %}">
-        {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <p>test</p>
-        <input type="submit" value="Submit">
-    </form>
-</section>
-  </div>
-
-</section>
 <!-- Category Hero -->
 <section class="hero">
 
@@ -192,7 +172,7 @@
       </div>
     </div>
   </div>
-  
+
 
 
 
@@ -306,36 +286,60 @@
   <!-- Section Four End -->
 
 
-<!-- section contributors -->
+  <!-- section contributors -->
 
-<div class="container-custom steps--background-black">
-  <div class="d-md-flex justify-content-center">
-    <div class="black-border">
-      <h2>Our New Contributors ...</h2>
-      
+  <div class="container-custom steps--background-black">
+    <div class="d-md-flex justify-content-center">
       <div class="black-border">
-        <h3>Latest Contributor </h3>
+        <h2>Our New Contributors ...</h2>
+
+        <div class="black-border">
+          <h3>Latest Contributor </h3>
+          <p>Elit per turpis metus commodo rutrum dis massa!</p>
+          <a href="#">read more</a>
+        </div>
+
+        <div class="black-border">
+          <h3>Latest Contributor</h3>
+          <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
+          <a href="#">read more</a>
+        </div>
+
+      </div>
+      <div class="black-border">
+        <h3>Track The ISS </h3>
+        <iframe width="600" height="300"
+          src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
+          style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
         <p>Elit per turpis metus commodo rutrum dis massa!</p>
         <a href="#">read more</a>
       </div>
-
-      <div class="black-border">
-        <h3>Latest Contributor</h3>
-        <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
-        <a href="#">read more</a>
-      </div>
-     
-    </div>
-    <div class="black-border">
-      <h3>Track The ISS </h3>
-      <iframe width="600" height="300" src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1" style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
-      <p>Elit per turpis metus commodo rutrum dis massa!</p>
-      <a href="#">read more</a>
     </div>
   </div>
-</div>
 
-<!-- End section contributors -->
+  <!-- End section contributors -->
+
+
+<!-- newsletter subscribtion-->
+
+  <section class="black-background">
+    <h1>Subscribe to our Newsletter</h1>
+
+    <h1 class="h2 mb-4">Contact Us</h1>
+    <form method="POST" action="{% url 'subscribe' %}">
+      {% csrf_token %}
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <p>test</p>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+<!-- newsletter subscribtion end-->
+
 
   <!-- Footer Start -->
   <footer class="footer bg-dark text-white">
