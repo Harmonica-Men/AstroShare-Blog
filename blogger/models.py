@@ -11,6 +11,7 @@ from django.utils.crypto import get_random_string
 
 class Category(models.Model):
      name = models.CharField(max_length=200)
+     category_discription = models.TextField(blank=True, null=True)
 
      class Meta:
          ordering = ('name',)
