@@ -51,7 +51,7 @@ class Post(models.Model):
     
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null = True, blank= True)
-    title_tag = models.CharField(max_length=200)
+    # title_tag = models.CharField(max_length=200)
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     # slug = models.SlugField()
     # intro = models.TextField()
