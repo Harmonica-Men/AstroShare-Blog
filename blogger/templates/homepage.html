@@ -276,7 +276,7 @@
             <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi!
               Quis fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo
               mollitia laborum.</p>
-            <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
+            <a href="#">Read More <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -287,8 +287,9 @@
 
 
   <!-- section contributors -->
+  <section class="container-sub steps--background-white">
 
-  <div class="container-custom steps--background-black">
+
     <div class="d-md-flex justify-content-center">
       <div class="black-border">
         <h2>Our New Contributors ...</h2>
@@ -306,7 +307,7 @@
         </div>
 
       </div>
-      <div class="black-border">
+      <div class="container-custom black-border">
         <h3>Track The ISS </h3>
         <iframe width="600" height="300"
           src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
@@ -315,30 +316,34 @@
         <a href="#">read more</a>
       </div>
     </div>
-  </div>
+
+  </section>
 
   <!-- End section contributors -->
 
 
-<!-- newsletter subscribtion-->
-
-  <section class="black-background">
+  <!-- newsletter subscribtion-->
+  <section class="container-sub margin-sub">
+    <div class="row">
     <h1>Subscribe to our Newsletter</h1>
+    <!-- justify-content-center black-border steps--background-white -->
+    <div class="black-border">
+      <h2>Contact Us</h2>
+      <form method="POST" action="{% url 'subscribe' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-    <h1 class="h2 mb-4">Contact Us</h1>
-    <form method="POST" action="{% url 'subscribe' %}">
-      {% csrf_token %}
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <p>test</p>
-      <input type="submit" value="Submit">
-    </form>
   </section>
 
-<!-- newsletter subscribtion end-->
+  <!-- newsletter subscribtion end-->
 
 
   <!-- Footer Start -->

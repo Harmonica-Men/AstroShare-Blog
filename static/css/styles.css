@@ -1,6 +1,6 @@
 /* styles.css */
 :root {
-    --primary-color: #2a3138;
+    --primary-color: #c1c1c1;
     --attrib-color0: #3987a6;
     --attrib-color1: #969696;
     --primary-color-highlight: #69b9ff;
@@ -115,19 +115,26 @@ a:hover {
     background: #555;
 }
 
+.container-sub {
+    width: 100%;
+    padding: 1rem 1rem;
+    margin: 0 auto;
+
+}
+
+
+.margin-sub {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
 /* Custom Container */
 .container-custom {
     width: 100%;
     padding: 0 1rem;
     margin: 0 auto;
 }
-
-
-
-
-
-
-
 
 @media (min-width: 1200px) {
     .container-custom {
