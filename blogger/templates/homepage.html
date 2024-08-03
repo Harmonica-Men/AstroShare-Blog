@@ -118,8 +118,18 @@
   <div class="hero__content h-100 container-custom position-relative">
     <div class="d-flex h-100 align-items-center hero__content-width">
       <div class="text-white">
-        <h1 class="hero__heading fw-bold mb-4">share the latest news</h1>
-        <p class="lead mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <h1 class="hero__heading fw-bold mb-4">share the latest space news</h1>
+        <p class="lead mb-4">Welcome to Cosmic Chronicles,
+           your gateway to the wonders of the universe!
+            Whether you’re an avid stargazer,
+             an aspiring astronomer, 
+             or simply someone fascinated by the mysteries 
+             of the cosmos, this blog is your destination for all 
+             things space. 
+             
+             Here, we’ll explore the latest discoveries, delve into celestial events, and unravel the secrets of the stars and planets. Join us as we embark on a journey through the vast expanse of the universe, bringing the marvels of space right to your screen. Buckle up and get ready to ignite your curiosity about the infinite night sky!
+
+        </p>
         <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
           Blog</a>
       </div>
@@ -155,217 +165,242 @@
       <div class="black-border">
         <h2>Latest post ...</h2>
         <div class="black-border">
-          <h2>post 1</h2>
-          <p>Elit per turpis metus commodo rutrum dis massa!</p>
-          <a href="#">read more</a>
+          {% with posts|slice:":1" as first_post_list %}
+          {% if first_post_list.0 %}
+          <h4 class="container display-15">
+            <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
+          </h4>
+          {% else %}
+          <p>No post available.</p>
+          {% endif %}
+          {% endwith %}
         </div>
         <div class="black-border">
-          <h2>post 2</h2>
-          <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
-          <a href="#">read more</a>
+          {% with posts|slice:"1:2" as second_post_list %}
+          {% if second_post_list.0 %}
+          <h4 class="container display-15">
+            <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
+          </h4>
+          {% else %}
+          <p>No second post available.</p>
+          {% endif %}
+          {% endwith %}
         </div>
         <div class="black-border post-3">
-          <h2>post 3</h2>
-          <p>Quis mus elit inceptos mauris, risus habitasse elementum dui..</p>
-          <a href="#">read more</a>
+          {% with posts|slice:"2:3" as third_post_list %}
+          {% if third_post_list.0 %}
+          <h4 class="container display-15">
+            <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
+          </h4>
+          {% else %}
+          <p>No third post available.</p>
+          {% endif %}
+          {% endwith %}
         </div>
       </div>
     </div>
-  </div>
 
-  <!--  Section Category one Start -->
-  <section class="steps steps--background-white">
-
-    <div class="row">
-      <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-        <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
-        <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
-      </div>
-
-      <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
-
-        <div class="steps__content-width">
-          <span>step 01</span>
-          <h1 class="h2 mb-4">Category Section 1</h1>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi! Quis
-            fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo mollitia
-            laborum.</p>
-          <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
-
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-  <!-- Section one End -->
-
-  <!-- Section Category Two Start -->
-  <section class="steps steps--background-black">
-
-    <div class="container-custom">
+    <!--  Section Category one Start -->
+    <section class="steps steps--background-white">
 
       <div class="row">
-        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
-          <img src="/static/images/pexels-pixabay-73910.jpg" class="img-responsive" alt="Missions Mars">
+        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
+          <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
         </div>
 
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+
           <div class="steps__content-width">
-            <span>Step 02</span>
-            <h1 class="h2 mb-4">Category Section 2</h1>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi!
-              Quis fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo
-              mollitia laborum.</p>
-            <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
+            
+            <h1 class="h2 mb-4">Astro Physics</h1>
+            <p class="mb-4">Astrophysics is a branch of astronomy that focuses on understanding the physical properties and underlying processes of celestial objects and phenomena. It combines principles of physics and chemistry to study stars, planets, galaxies, black holes, and the universe as a whole. Through observational and theoretical methods, astrophysicists seek to uncover the nature of cosmic phenomena, the behavior of matter and energy in space,
+               and the fundamental laws governing the universe's structure and evolution. 
+              Topics in astrophysics include the life cycles of stars, 
+              the behavior of galaxies, 
+              the properties of dark matter and dark energy, 
+              and the origins and fate of the universe..
+            </p> 
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-  <!-- Section Two End -->
+    </section>
+    <!-- Section one End -->
 
-  <!-- Section Category Tree Start -->
-  <section class="steps steps--background-white">
+    <!-- Section Category Two Start -->
+    <section class="steps steps--background-black">
 
-    <div class="row">
-      <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-        <img src="/static/images/particle-shower.jpg" class="img-responsive" alt="Particle Collisions">
-        <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
-      </div>
+      <div class="container-custom">
 
-      <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+        <div class="row">
+          <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
+            <img src="/static/images/pexels-pixabay-73910.jpg" class="img-responsive" alt="Missions Mars">
+            <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
+          </div>
 
-        <div class="steps__content-width">
-          <span>step 03</span>
-          <h1 class="h2 mb-4">Category Section 3</h1>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi! Quis
-            fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo mollitia
-            laborum.</p>
-          <!-- <a href="#">Read More <i class="bi bi-arrow-right"></i></a> -->
-
+          <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+            <div class="steps__content-width">
+              <h1 class="h2 mb-4">Space Missions</h1>
+              <p class="mb-4">Space missions are complex and highly coordinated efforts 
+                aimed at exploring outer space and
+                 conducting scientific research beyond Earth’s atmosphere. 
+                They involve sending spacecraft, satellites, 
+                or probes to gather data, 
+                perform experiments, 
+                or achieve specific objectives.</p>
+              
+            </div>
+          </div>
         </div>
 
       </div>
-    </div>
+    </section>
+    <!-- Section Two End -->
 
-  </section>
-  <!-- Section Tree End -->
-
-
-  <!-- Section Category four Start -->
-  <section class="steps steps--background-black">
-
-    <div class="container-custom">
+    <!-- Section Category Tree Start -->
+    <section class="steps steps--background-white">
 
       <div class="row">
-        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
-          <img src="/static/images/pexels-pixabay-87611.jpg" class="img-responsive" alt="Solar Corona"
-            class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
+        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
+          <img src="/static/images/particle-shower.jpg" class="img-responsive" alt="Particle Collisions">
+          <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
         </div>
 
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+
           <div class="steps__content-width">
-            <span>Step 04</span>
-            <h1 class="h2 mb-4">Category Section 4</h1>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam dolorem quasi!
-              Quis fugiat totam id fuga non distinctio incidunt amet nesciunt itaque, tempore repellat eos natus quo
-              mollitia laborum.</p>
-            <a href="#">Read More <i class="bi bi-arrow-right"></i></a>
+          
+            <h1 class="h2 mb-4">Particle Physics</h1>
+            <p class="mb-4">
+              Particle physics is a branch of physics that studies 
+              the fundamental constituents of matter and radiation, 
+              and the interactions between them. It aims to understand 
+              the most basic building blocks of the universe 
+              and the forces that govern their behavior.
+            </p>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-  <!-- Section Four End -->
+    </section>
+    <!-- Section Tree End -->
 
 
-  <!-- section contributors -->
-  <section class="container-sub steps--background-white">
+    <!-- Section Category four Start -->
+    <section class="steps steps--background-black">
+
+      <div class="container-custom">
+
+        <div class="row">
+          <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
+            <img src="/static/images/pexels-pixabay-87611.jpg" class="img-responsive" alt="Solar Corona"
+              class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
+          </div>
+
+          <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+            <div class="steps__content-width">
+              <h1 class="h2 mb-4">Solar Storms</h1>
+              <p class="mb-4">
+                Solar storms, also known as space weather events,
+                 are disturbances on the Sun that can have significant effects
+                  on the solar system, including Earth. 
+                 These storms are primarily caused by solar activity such as solar flares and coronal mass ejections (CMEs).
+
+              </p>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- Section Four End -->
 
 
-    <div class="d-md-flex justify-content-center">
-      <div class="black-border">
-        <h2>Our New Contributors ...</h2>
+    <!-- section contributors -->
+    <section class="container-sub steps--background-white">
 
+
+      <div class="d-md-flex justify-content-center">
         <div class="black-border">
-          <h3>Latest Contributor </h3>
+          <h2>Our New Contributors ...</h2>
+
+          <div class="black-border">
+            <h3>Latest Contributor </h3>
+            <p>Elit per turpis metus commodo rutrum dis massa!</p>
+            <a href="#">read more</a>
+          </div>
+
+          <div class="black-border">
+            <h3>Latest Contributor</h3>
+            <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
+            <a href="#">read more</a>
+          </div>
+
+        </div>
+        <div class="container-custom black-border">
+          <h3>Track The ISS </h3>
+          <iframe width="600" height="300"
+            src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
+            style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
           <p>Elit per turpis metus commodo rutrum dis massa!</p>
           <a href="#">read more</a>
         </div>
+      </div>
 
+    </section>
+
+    <!-- End section contributors -->
+
+
+    <!-- newsletter subscribtion-->
+    <section class="container-sub margin-sub">
+      <div class="row">
+        <h1>Subscribe to our Newsletter</h1>
+        <!-- justify-content-center black-border steps--background-white -->
         <div class="black-border">
-          <h3>Latest Contributor</h3>
-          <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
-          <a href="#">read more</a>
+          <h2>Contact Us</h2>
+          <form method="POST" action="{% url 'subscribe' %}">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- newsletter subscribtion end-->
+
+
+    <!-- Footer Start -->
+    <footer class="footer bg-dark text-white">
+      <div class="container-custom d-flex justify-content-between align-items-center py-3 border-highlight">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="me-2 text-muted text-decoration-none">
+            <i class="bi bi-cup"></i>
+            <span>&copy; 2024 Astro Blog</span>
+          </a>
         </div>
 
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
+          <li class="ms-3 "><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
+        </ul>
       </div>
-      <div class="container-custom black-border">
-        <h3>Track The ISS </h3>
-        <iframe width="600" height="300"
-          src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
-          style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
-        <p>Elit per turpis metus commodo rutrum dis massa!</p>
-        <a href="#">read more</a>
-      </div>
-    </div>
+    </footer>
+    <!-- Footer End -->
 
-  </section>
-
-  <!-- End section contributors -->
-
-
-  <!-- newsletter subscribtion-->
-  <section class="container-sub margin-sub">
-    <div class="row">
-    <h1>Subscribe to our Newsletter</h1>
-    <!-- justify-content-center black-border steps--background-white -->
-    <div class="black-border">
-      <h2>Contact Us</h2>
-      <form method="POST" action="{% url 'subscribe' %}">
-        {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-  </div>
-
-  </section>
-
-  <!-- newsletter subscribtion end-->
-
-
-  <!-- Footer Start -->
-  <footer class="footer bg-dark text-white">
-    <div class="container-custom d-flex justify-content-between align-items-center py-3 border-highlight">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="me-2 text-muted text-decoration-none">
-          <i class="bi bi-cup"></i>
-          <span>&copy; 2024 Astro Blog</span>
-        </a>
-      </div>
-
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
-        <li class="ms-3 "><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
-      </ul>
-    </div>
-  </footer>
-  <!-- Footer End -->
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

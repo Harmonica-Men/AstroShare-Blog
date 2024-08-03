@@ -3,7 +3,7 @@ import logging
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpResponse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.views import View
 from .models import Post, Category, Comment, Subscriber
 from django.urls import reverse_lazy, reverse
@@ -41,8 +41,20 @@ def LikeView(request, pk):
     # post.likes.add(request.user)
     # return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
-def HomepageView(request): # Homepage view
-    return render(request, 'homepage.html')
+# def HomepageView(request): # Homepage view
+#     return render(request, 'homepage.html')
+class HomepageView(TemplateView):
+    model = Post
+    template_name = 'homepage.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = Post.objects.all()
+        return context
+
+    # def get(self, request):
+    #     posts = Post.objects.all()  # or however you're getting posts
+    #     return render(request, 'homepage.html', {'posts': posts})
 
 class FrontpageView(ListView): # Frontpage view for the Blog Post
     model = Post

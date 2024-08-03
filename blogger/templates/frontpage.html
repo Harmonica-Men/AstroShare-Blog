@@ -30,9 +30,9 @@
     <ul>
       {% for post in object_list %}
       <li class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-        <h2 class="display-5">
+        <h4 class="container display-15">
           <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
-        </h2>
+        </h4>
         <small> 
         </span> <p> Posted: {{ post.post_date }} Category: <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
           By: <span class="last-name">{{ post.author.last_name }}</span>, <span class="first-name">{{ post.author.first_name }}</p>

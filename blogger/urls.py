@@ -4,7 +4,7 @@ from .views import CategoryView, CategoryListView, LikeView, AddCommentView, Sea
 from .views import subscribe, confirm_subscription
 
 urlpatterns = [
-    path('', HomepageView, name= 'homepage'),
+    path('', HomepageView.as_view(), name= 'homepage'),
     path('add_newpost/', AddPostView.as_view(), name='add-newpost'),
     path('add_newcategory/', AddCategoryView.as_view(), name='add-newcategory'),
     path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
