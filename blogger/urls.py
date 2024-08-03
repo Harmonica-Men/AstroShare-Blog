@@ -19,5 +19,5 @@ urlpatterns = [
     path('nasa/', nasa_picture_of_the_day, name='nasa-picture-of-the-day'),
     path('iss_location/', iss_location, name='iss-location'),
     path('subscribe/', subscribe, name='subscribe'),
-    path('confirm/', confirm_subscription, name='confirm-subscription'),
+    path('confirm/', confirm_subscription, name='confirm_subscription'),
 ]

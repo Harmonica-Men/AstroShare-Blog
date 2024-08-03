@@ -30,3 +30,8 @@ class CommentForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),
         }
 
+class SubscriptionForm(forms.Form):
+    name = forms.CharField(max_length=100, required=True)
+    email = forms.EmailField(required=True)
+
+    

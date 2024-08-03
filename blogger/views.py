@@ -1,14 +1,15 @@
 import uuid
+import logging
 
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404, HttpResponseRedirect, HttpResponse, JsonResponse
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views import View
 from .models import Post, Category, Comment, Subscriber
 from django.urls import reverse_lazy, reverse
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, SubscriptionForm
 from django.db.models import Q
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 
 
@@ -209,31 +210,44 @@ def iss_location(request):
     })
 
 
+logger = logging.getLogger(__name__)
+
 def subscribe(request):
-    email = request.GET.get('email')
-    if not email:
-        return JsonResponse({'error': 'Email is required.'}, status=400)
+    if request.method == 'POST':
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            
+            confirmation_code = str(uuid.uuid4())
+            subscriber, created = Subscriber.objects.get_or_create(email=email)
+            subscriber.confirmation_code = confirmation_code
+            subscriber.is_confirmed = False
+            subscriber.save()
 
-    confirmation_code = str(uuid.uuid4())
-    subscriber, created = Subscriber.objects.get_or_create(email=email)
-    subscriber.confirmation_code = confirmation_code
-    subscriber.is_confirmed = False
-    subscriber.save()
+            confirmation_link = f"{request.scheme}://{request.get_host()}/blogger/confirm/?code={confirmation_code}"
+            subject = 'Confirm your subscription'
+            message = f'Hi {name},\n\nClick the link to confirm your subscription: {confirmation_link}'
+            from_email = settings.DEFAULT_FROM_EMAIL
+            
+            try:
+                send_mail(subject, message, from_email, [email])
+                return HttpResponse('Confirmation email sent.')
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            except Exception as e:
+                logger.error(f'Error sending email: {e}')
+                return HttpResponse(f'Error sending email: {e}')
+    else:
+        form = SubscriptionForm()
 
-    confirmation_link = f"{request.scheme}://{request.get_host()}/blog/confirm/?code={confirmation_code}"
-    send_mail(
-        'Confirm your subscription',
-        f'Click the link to confirm your subscription: {confirmation_link}',
-        settings.DEFAULT_FROM_EMAIL,
-        [email],
-    )
-
-    return JsonResponse({'message': 'Confirmation email sent.'})
+    return render(request, 'subscribe.html', {'form': form})
 
 def confirm_subscription(request):
     code = request.GET.get('code')
+
     if not code:
-        return JsonResponse({'error': 'Confirmation code is required.'}, status=400)
+        return HttpResponse('Confirmation code is required.', status=400)
 
     subscriber = get_object_or_404(Subscriber, confirmation_code=code)
     subscriber.is_confirmed = True
