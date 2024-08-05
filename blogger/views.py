@@ -52,7 +52,7 @@ class HomepageView(TemplateView):
         context['posts'] = Post.objects.all()
 
         # Add the latest 5 profile names to context by querying the related User's username
-        context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:5]
+        context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:7]
 
         return context
 
