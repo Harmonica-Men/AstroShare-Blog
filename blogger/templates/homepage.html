@@ -37,10 +37,10 @@
 <header class="header p-3 position-absolute start-0 top-0 end-0">
   <div class="d-flex justify-content-between align-items-center">
     <a href="{% url 'frontpage-blogpost' %}" class="text-decoration-none text-white fs-5 fw-bold">Astro Blog</a>
-
   </div>
 </header>
 <!-- Header End -->
+ 
 <!-- Category Hero -->
 <section class="hero" id="top-page">
 
@@ -103,13 +103,20 @@
       </div>
 
       <div class="black-border">
-        <h2>Latest post ...</h2>
+        <h3>Latest post ...</h3>
         <div class="black-border">
+          
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
-          <h4 class="container display-15">
+          
+          <small>
+            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }}, {{ first_post_list.0.author.first_name }} </p>
+          </small>
+
+          <h5 class="container">
             <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
-          </h4>
+          </h5>
+          
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -118,9 +125,15 @@
         <div class="black-border">
           {% with posts|slice:"1:2" as second_post_list %}
           {% if second_post_list.0 %}
-          <h4 class="container display-15">
+
+          <small>
+            <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }}, {{ second_post_list.0.author.first_name }} </p>
+          </small>
+
+          <h5 class="container">
             <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
-          </h4>
+          </h5>
+          
           {% else %}
           <p>No second post available.</p>
           {% endif %}
@@ -129,9 +142,14 @@
         <div class="black-border post-3">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
-          <h4 class="container display-15">
+
+          <small>
+            <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }}, {{ third_post_list.0.author.first_name }} </p>
+          </small>
+
+          <h5 class="container">
             <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
-          </h4>
+          </h5>
           {% else %}
           <p>No third post available.</p>
           {% endif %}
@@ -293,7 +311,6 @@
           <a href="#">read more</a>
         </div>
       </div>
-
     </section>
 
     <!-- End section contributors -->
