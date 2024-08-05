@@ -40,7 +40,7 @@
   </div>
 </header>
 <!-- Header End -->
- 
+
 <!-- Category Hero -->
 <section class="hero" id="top-page">
 
@@ -63,15 +63,15 @@
           of the cosmos, this blog is your destination for all
           things space.
 
-          Here, we’ll explore the latest discoveries, 
-          delve into celestial events, 
+          Here, we’ll explore the latest discoveries,
+          delve into celestial events,
           and unravel the secrets of the stars and planets.
-           Join us as we embark on a journey through the vast expanse of the universe,
-            bringing the marvels of space right to your screen.
+          Join us as we embark on a journey through the vast expanse of the universe,
+          bringing the marvels of space right to your screen.
           Buckle up and get ready to ignite your curiosity about the infinite night sky!
         </p>
-        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" 
-        role="button">Go To The Blog</a>
+        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
+          Blog</a>
       </div>
     </div>
   </div>
@@ -107,18 +107,19 @@
       <div class="black-border">
         <h3>Latest post ...</h3>
         <div class="black-border">
-          
+
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
-          
+
           <small>
-            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }}, {{ first_post_list.0.author.first_name }} </p>
+            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
+              {{ first_post_list.0.author.first_name }} </p>
           </small>
 
           <h5 class="container">
             <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
           </h5>
-          
+
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -129,13 +130,14 @@
           {% if second_post_list.0 %}
 
           <small>
-            <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }}, {{ second_post_list.0.author.first_name }} </p>
+            <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
+              {{ second_post_list.0.author.first_name }} </p>
           </small>
 
           <h5 class="container">
             <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
           </h5>
-          
+
           {% else %}
           <p>No second post available.</p>
           {% endif %}
@@ -146,7 +148,8 @@
           {% if third_post_list.0 %}
 
           <small>
-            <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }}, {{ third_post_list.0.author.first_name }} </p>
+            <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
+              {{ third_post_list.0.author.first_name }} </p>
           </small>
 
           <h5 class="container">
@@ -282,37 +285,31 @@
     </section>
     <!-- Section Four End -->
 
-
     <!-- section contributors -->
-    <section class="container-sub steps--background-white">
-
-
+    <section class="container-custom steps--background-white">
       <div class="d-md-flex justify-content-center">
         <div class="black-border">
-          <h2>Our New Contributors ...</h2>
-
-          <div class="black-border">
-            <h3>Latest Contributor </h3>
-            <p>test</p>
-
-            {% if page_user.website_url %} 
-              <a href="post.author.profile.website_url">Website</a> | 
-            {% endif %} 
-        
-
-            <a href="#">read more</a>
-          </div>
+          <h2>Our New Contributors</h2>
 
           <div class="black-border">
             <h3>Latest Contributor</h3>
-            <p>Dignissim posuere est lobortis neque luctus eget euismod laoreet sit.</p>
-            <a href="#">read more</a>
-          </div>
 
+            {% if profile_names %}
+            <ul>
+              {% for name in profile_names %}
+              <li>{{ name }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <p>No profiles available.</p>
+            {% endif %}
+          </div>
+          
         </div>
-        <div class="container-custom black-border">
-          <h3>Track The ISS </h3>
-          <iframe width="600" height="300"
+
+        <div class="container-custom justify-content-center">
+          <h3>Track The ISS</h3>
+          <iframe width="900" height="300"
             src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
             style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
           <p>Elit per turpis metus commodo rutrum dis massa!</p>
@@ -320,8 +317,8 @@
         </div>
       </div>
     </section>
-
     <!-- End section contributors -->
+
 
 
     <!-- newsletter subscribtion-->

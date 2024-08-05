@@ -7,48 +7,28 @@
 
 <h1>User Profile</h1>
 
-{{ page_user }}
-<section class="container-sub steps--background-white ">
+<!-- {{ page_user }} -->
+<section class="container steps--background-white">
     <div class="d-md-flex">
 
         <div class="black-border">
             {% if page_user.profile_pic.url %}
-            <img src="{{ page_user.profile_pic.url }}" class="img-thumbnail rounded-pill" alt="user-profile">
+                <img src="{{ page_user.profile_pic.url }}" class="img-thumbnail rounded-circle" alt="user-profile">
             {% else %}
-            <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-pill"
-                alt="user-profile-anonymous">
+                <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail-300 rounded-circle" alt="user-profile-anonymous">
             {% endif %}
         </div>
 
-        <div class="col-md-10">
-            <div class="card-body justify-content-start text-left">
-                <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
-                <p class="small text-muted">
-
-                    <p class="card-text">{{ page_user.bio }}</p>
-
-                    {% if page_user.website_url %}
-                    <a href="{{ page_user.website_url }}">Website</a> |
-                    {% endif %}
-                    {% if page_user.facebook_url %}
-                    <a href="{{ page_user.facebook_url }}">Facebook</a> |
-                    {% endif %}
-                    {% if page_user.instagram_url %}
-                    <a href="{{ page_user.instagram_url }}">Instagram</a> |
-                    {% endif %}
-                    {% if page_user.twitter_url %}
-                    <a href="{{ page_user.twitter_url }}">Twitter</a> |
-                    {% endif %}
-                    {% if page_user.pinterest_url %}
-                    <a href="{{ page_user.pinterest_url }}">Pinterest</a> |
-                    {% endif %}
+        <div class="col-md-8">
+            <div class="black-border">
+                <h4 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h4>
+                <p class="container-sm" style="text-align: left;">
+                    {{ page_user.bio }}
                 </p>
-
             </div>
         </div>
 
     </div>
 </section>
-
 
 {% endblock %}

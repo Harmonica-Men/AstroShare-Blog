@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.views import View
-from .models import Post, Category, Comment, Subscriber
+from .models import Post, Category, Comment, Subscriber, Profile
 from django.urls import reverse_lazy, reverse
 from .forms import PostForm, CommentForm, SubscriptionForm
 from django.db.models import Q
@@ -50,11 +50,11 @@ class HomepageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
-        return context
 
-    # def get(self, request):
-    #     posts = Post.objects.all()  # or however you're getting posts
-    #     return render(request, 'homepage.html', {'posts': posts})
+        # Add the latest 5 profile names to context by querying the related User's username
+        context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:5]
+
+        return context
 
 class FrontpageView(ListView): # Frontpage view for the Blog Post
     model = Post

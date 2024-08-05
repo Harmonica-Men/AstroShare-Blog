@@ -22,39 +22,106 @@ body {
     /* margin: 20px; */
     /* background-image: url("../images/background.webp");  */
     background-color: black;
-     background-size: cover;
-    color: hsl(0, 0%, 100%); 
+    background-size: cover;
+    color: hsl(0, 0%, 100%);
 }
 
 
 /* Styles for back-to-top-button */
 .back-to-top-button {
-    margin: 15px auto; /* Center the button */
-    text-align: center; /* Center text */
-    background: var(--accent-color); /* Set background color */
-    width: fit-content; /* Fit width to content */
-    border-radius: 7px; /* Add border radius */
-    border: solid var(--border-color); /* Set border */
-    border-style: ridge; /* Ridge border style */
-    font-family: 'Montserrat', sans-serif; /* Set font family */
-    font-size: large; /* Set font size */
-    font-weight: bolder; /* Set font weight */
-    padding: 10px 20px 10px 20px; /* Add padding */
-    text-decoration: none; /* Remove underline */
-  }
+    margin: 15px auto;
+    /* Center the button */
+    text-align: center;
+    /* Center text */
+    background: var(--accent-color);
+    /* Set background color */
+    width: fit-content;
+    /* Fit width to content */
+    border-radius: 7px;
+    /* Add border radius */
+    border: solid var(--border-color);
+    /* Set border */
+    border-style: ridge;
+    /* Ridge border style */
+    font-family: 'Montserrat', sans-serif;
+    /* Set font family */
+    font-size: large;
+    /* Set font size */
+    font-weight: bolder;
+    /* Set font weight */
+    padding: 10px 20px 10px 20px;
+    /* Add padding */
+    text-decoration: none;
+    /* Remove underline */
+}
 
 /* Styles for back-to-top-button hover state */
 .back-to-top-button:hover .a {
-    color: var(--main-text-color); /* Change text color on hover */
+    color: var(--main-text-color);
+    /* Change text color on hover */
+}
+
+
+@mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+    @if $enable-rounded {
+      border-radius: valid-radius($radius);
+    }
+    @else if $fallback-border-radius != false {
+      border-radius: $fallback-border-radius;
+    }
   }
-
-/* .img-thumbnail {
-    width: 100px;
-    height: 100px;
-    object-fit: cover; 
-    border-radius: 50%; 
-} */
-
+  
+  @mixin border-top-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+      border-top-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-end-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-top-right-radius: valid-radius($radius);
+      border-bottom-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-bottom-right-radius: valid-radius($radius);
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-start-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-top-start-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-top-end-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-top-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-end-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-bottom-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-start-radius($radius: $border-radius) {
+    @if $enable-rounded {
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
 
 /* Responsive image classes */
 .img-responsive {
@@ -118,7 +185,7 @@ body {
     background-color: lightblue;
 }
 
-.right > div {
+.right>div {
     background-color: lightcoral;
     margin: 2px;
 }
@@ -282,6 +349,7 @@ a:hover {
     from {
         transform: translateY(0px);
     }
+
     to {
         transform: translateY(-10px);
     }
@@ -306,7 +374,7 @@ a:hover {
 
 .steps--background-white {
     background-color: white;
-    color: black; 
+    color: black;
 }
 
 .steps--background-black {
