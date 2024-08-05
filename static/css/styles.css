@@ -27,6 +27,8 @@ body {
     background-color: black;
     background-size: cover;
     color: hsl(0, 0%, 100%);
+    
+    background-image: url("../images/background.webp");  
 
 }
 
@@ -228,6 +230,11 @@ a:hover {
     margin: 0 auto;
 }
 
+.container-banner {
+    width: 125%;
+    padding: 5rem;
+    margin: 0 auto;
+}
 
 .margin-sub {
     margin-top: 20px;
