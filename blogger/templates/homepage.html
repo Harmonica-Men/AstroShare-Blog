@@ -63,13 +63,15 @@
           of the cosmos, this blog is your destination for all
           things space.
 
-          Here, we’ll explore the latest discoveries, delve into celestial events, and unravel the secrets of the stars
-          and planets. Join us as we embark on a journey through the vast expanse of the universe, bringing the marvels
-          of space right to your screen. Buckle up and get ready to ignite your curiosity about the infinite night sky!
-
+          Here, we’ll explore the latest discoveries, 
+          delve into celestial events, 
+          and unravel the secrets of the stars and planets.
+           Join us as we embark on a journey through the vast expanse of the universe,
+            bringing the marvels of space right to your screen.
+          Buckle up and get ready to ignite your curiosity about the infinite night sky!
         </p>
-        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
-          Blog</a>
+        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" 
+        role="button">Go To The Blog</a>
       </div>
     </div>
   </div>
@@ -291,7 +293,13 @@
 
           <div class="black-border">
             <h3>Latest Contributor </h3>
-            <p>Elit per turpis metus commodo rutrum dis massa!</p>
+            <p>test</p>
+
+            {% if page_user.website_url %} 
+              <a href="post.author.profile.website_url">Website</a> | 
+            {% endif %} 
+        
+
             <a href="#">read more</a>
           </div>
 

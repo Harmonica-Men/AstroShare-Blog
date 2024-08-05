@@ -48,6 +48,13 @@ body {
     color: var(--main-text-color); /* Change text color on hover */
   }
 
+/* .img-thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; 
+    border-radius: 50%; 
+} */
+
 
 /* Responsive image classes */
 .img-responsive {

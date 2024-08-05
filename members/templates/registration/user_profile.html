@@ -5,58 +5,50 @@
 
 {% block content %}
 
-<h1>User Profile  ... </h1>
+<h1>User Profile</h1>
 
 {{ page_user }}
+<section class="container-sub steps--background-white ">
+    <div class="d-md-flex">
 
-<div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-2">
+        <div class="black-border">
+            {% if page_user.profile_pic.url %}
+            <img src="{{ page_user.profile_pic.url }}" class="img-thumbnail rounded-pill" alt="user-profile">
+            {% else %}
+            <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-pill"
+                alt="user-profile-anonymous">
+            {% endif %}
+        </div>
 
-          {% if page_user.profile_pic.url %}
+        <div class="col-md-10">
+            <div class="card-body justify-content-start text-left">
+                <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
+                <p class="small text-muted">
 
-                  <img src="{{ page_user.profile_pic.url }}" class="img">
-          {% else %}
-                  <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg'%}" class="img">
+                    <p class="card-text">{{ page_user.bio }}</p>
 
-          {% endif %}
-      </div>
-   </div>
-</div>
-</div>
-<div class="col-md-10">
-  <div class="card-body">
-    <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
-    <p class ="small text-muted">
+                    {% if page_user.website_url %}
+                    <a href="{{ page_user.website_url }}">Website</a> |
+                    {% endif %}
+                    {% if page_user.facebook_url %}
+                    <a href="{{ page_user.facebook_url }}">Facebook</a> |
+                    {% endif %}
+                    {% if page_user.instagram_url %}
+                    <a href="{{ page_user.instagram_url }}">Instagram</a> |
+                    {% endif %}
+                    {% if page_user.twitter_url %}
+                    <a href="{{ page_user.twitter_url }}">Twitter</a> |
+                    {% endif %}
+                    {% if page_user.pinterest_url %}
+                    <a href="{{ page_user.pinterest_url }}">Pinterest</a> |
+                    {% endif %}
+                </p>
 
-      {% if page_user.website_url %} 
-        <a href="post.author.profile.website_url">Website</a> | 
-      {% endif %} 
+            </div>
+        </div>
 
-      {% if page_user.website_url %} 
-        <a href="post.author.profile.website_url"></a> Facebook | 
-      {% endif %} 
+    </div>
+</section>
 
-      {% if page_user.website_url %} 
-        <a href="post.author.profile.website_url"></a> Instagram | 
-      {% endif %} 
 
-      {% if page_user.website_url %} 
-        <a href="post.author.profile.website_url"></a> Twitter | 
-      {% endif %} 
-
-      {% if page_user.website_url %} 
-        <a href="post.author.profile.website_url"></a> Instagram | 
-      {% endif %} 
-
-      {% if page_user.website_url %} 
-        <a href="post.author.profile.website_url"></a> Pinterest  | 
-      {% endif %} 
-
-      
-    <p class="card-text">{{ page_user.bio }}</p>
-    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-  </div>
-</div>
-</div>
 {% endblock %}
