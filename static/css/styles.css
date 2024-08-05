@@ -16,14 +16,17 @@ a {
     color: var(--primary-color);
 }
 
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    /* margin: 20px; */
-    background-image: url("../images/background.webp"); 
     background-color: black;
     background-size: cover;
     color: hsl(0, 0%, 100%);
+}
+
+body:not(.no-background) {
+    background-image: url("../images/background.webp");
 }
 
 

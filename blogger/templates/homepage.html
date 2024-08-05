@@ -87,7 +87,7 @@
 </section>
 <!-- Hero End -->
 
-<body>
+<body class="{% if request.path == '/' %}no-background{% endif %}">
   <div class="container-custom steps--background-black">
     <div class="d-md-flex justify-content-center">
       <div class="black-border">
@@ -272,7 +272,7 @@
     <!-- Section Four End -->
 
     <!-- section contributors -->
-    <section class="container steps--background-white">
+    <section class="steps steps--background-white">
       <div class="d-md-flex justify-content-center">
         <div class="black-border">
           <h4>Our Latest Contributors on the Blog</h4>
