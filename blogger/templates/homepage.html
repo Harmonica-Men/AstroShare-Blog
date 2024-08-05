@@ -39,21 +39,21 @@
     <a href="{% url 'frontpage-blogpost' %}" class="text-decoration-none text-white fs-5 fw-bold">Astro Blog</a>
 
     <div>
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+      <!-- <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" 
         aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list"
           viewBox="0 0 16 16">
           <path fill-rule="evenodd"
             d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
-      </button>
+      </button>  -->
     </div>
   </div>
 </header>
 <!-- Header End -->
 
 <!-- Flyout Navigation Start -->
-<nav class="collapse navbar-collapse dropdown-nav" id="navbar">
+<!-- <nav class="collapse navbar-collapse dropdown-nav" id="navbar">
 
   <div class="dropdown-nav__container container-xxl d-flex align-items-start align-items-md-center">
 
@@ -102,11 +102,11 @@
 
   </div>
 
-</nav>
+</nav> -->
 <!-- Flyout Navigation End -->
 
 <!-- Category Hero -->
-<section class="hero">
+<section class="hero" id="top-page">
 
   <div class="hero__overlay"></div>
 
@@ -136,8 +136,10 @@
     </div>
   </div>
 
-  <a href="#scroll-down" class="hero__scroll-btn">
-    Explore <i class="bi bi-arrow-down-short"></i>
+  <a href="#newsletter-subscribtion">
+    <div class="hero__scroll-btn">
+       Subscribe <i class="bi bi-arrow-down-short"></i>
+    </div>
   </a>
 
 </section>
@@ -355,7 +357,7 @@
 
 
     <!-- newsletter subscribtion-->
-    <section class="container-sub margin-sub">
+    <section class="container-sub margin-sub" id="newsletter-subscribtion">
       <div class="row">
         <h1>Subscribe to our Newsletter</h1>
         <!-- justify-content-center black-border steps--background-white -->
@@ -377,6 +379,9 @@
 
     <!-- newsletter subscribtion end-->
 
+    <div class="back-to-top-button">
+      <a href="#top-page">Back to Top</a>
+    </div>
 
     <!-- Footer Start -->
     <footer class="footer bg-dark text-white">

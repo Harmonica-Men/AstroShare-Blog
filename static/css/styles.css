@@ -27,6 +27,28 @@ body {
 }
 
 
+/* Styles for back-to-top-button */
+.back-to-top-button {
+    margin: 15px auto; /* Center the button */
+    text-align: center; /* Center text */
+    background: var(--accent-color); /* Set background color */
+    width: fit-content; /* Fit width to content */
+    border-radius: 7px; /* Add border radius */
+    border: solid var(--border-color); /* Set border */
+    border-style: ridge; /* Ridge border style */
+    font-family: 'Montserrat', sans-serif; /* Set font family */
+    font-size: large; /* Set font size */
+    font-weight: bolder; /* Set font weight */
+    padding: 10px 20px 10px 20px; /* Add padding */
+    text-decoration: none; /* Remove underline */
+  }
+
+/* Styles for back-to-top-button hover state */
+.back-to-top-button:hover .a {
+    color: var(--main-text-color); /* Change text color on hover */
+  }
+
+
 /* Responsive image classes */
 .img-responsive {
     width: 100%;
