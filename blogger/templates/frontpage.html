@@ -7,16 +7,14 @@
 <div class="content">
 
   <div class="d-flex justify-content-between align-items-center">
-    <h4>Latest posts</h4>
+    <h4>Latest posts,</h4>
     <span class="current mr-3">
       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span>
     <div class="pagination d-flex align-items-center">
-
-
       <span class="step-links">
         {% if page_obj.has_previous %}
-        <a href="?page=1" class="btn btn-primary">&laquo; first</a>
+        <a href="?page=1" class="btn btn-primary pagination-btn">&laquo; first</a>
         <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary pagination-btn">previous</a>
         {% endif %}
 
@@ -30,35 +28,44 @@
 
   <br>
 
-  <ol>
+  
     {% for post in posts %}
-    <li class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-      <h5 class="container-frontpage">
-        <p>{{ post.title }}</p>
-      </h5>
-      <div class="container">
-        {{ post.body|slice:":350" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read
-          more</a>
+    <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
+      <div class="d-md-flex">
+        <div class="black-border">
+          {% if post.image.url %}
+              <img src="{{ post.image.url }}" class="img-thumbnail-500 img-small" alt="post-image">
+          {% else %}
+              <img src="{% static 'blogger/images/no-image-available.jpg' %}" class="img-thumbnail-500 img-small" alt="no-image-available">
+          {% endif %}
+          
+        </div>
+        <div>
+          <h5 class="container-frontpage">
+            <p>{{ post.title }}</p>
+          </h5>
+          <div class="container">
+            {{ post.body|slice:":350" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read more</a>
+          </div>
+          <p class="italicize"> Posted: {{ post.post_date }} Category:
+            <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink">{{ post.category }}</a>
+            By:<small class="last-name">{{ post.author.last_name }}</small>,
+            <small class="first-name">{{ post.author.first_name }}</small>
+          </p>
+          {% if user.is_authenticated %}
+          <p>
+            <small>
+              <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
+              <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete Post</a>
+            </small>
+          </p>
+          {% endif %}
+        </div>
       </div>
-
-      <p class="italicize"> Posted: {{ post.post_date }} Category:
-        <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink">{{ post.category }}</a>
-        By:<small class="last-name">{{ post.author.last_name }}</small>,
-        <small class="first-name">{{ post.author.first_name }}</small>
-
-        {% if user.is_authenticated %}
-        <p>
-          <small>
-            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete Post</a>
-          </small>
-        </p>
-      </p>
-      {% endif %}
-    </li>
+    </section>
     <hr>
     {% endfor %}
-  </ol>
+  
 
   <br>
   <a href="{% url 'homepage' %}" class="btn btn-secondary pagination-btn" style="width: auto;">Back to homepage</a>
