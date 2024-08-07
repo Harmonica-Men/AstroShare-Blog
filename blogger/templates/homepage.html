@@ -52,7 +52,7 @@
             or simply someone fascinated by the mysteries
             of the cosmos, this blog is your destination for all
             things space.
-<br>
+            <br>
             Here, we’ll explore the latest discoveries,
             delve into celestial events,
             and unravel the secrets of the stars and planets.
@@ -96,13 +96,14 @@
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
           
-          <h5 class="container">
-            <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
-          </h5>
-          <small class="text-center italicize">
-            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
-              {{ first_post_list.0.author.first_name }} </p>
-          </small>
+            <h5>
+              <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
+            </h5>
+            <small class="text-left">
+              <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
+                {{ first_post_list.0.author.first_name }} </p>
+            </small>
+          
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -111,11 +112,11 @@
         <div class="black-border">
           {% with posts|slice:"1:2" as second_post_list %}
           {% if second_post_list.0 %}
-          
-          <h5 class="container">
+
+          <h5>
             <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
           </h5>
-          <small class="text-center italicize">
+          <small class="text-left">
             <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
               {{ second_post_list.0.author.first_name }} </p>
           </small>
@@ -127,11 +128,11 @@
         <div class="black-border">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
-          
-          <h5 class="container">
+
+          <h5>
             <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
           </h5>
-          <small class="text-center italicize">
+          <small class="text-left">
             <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
               {{ third_post_list.0.author.first_name }} </p>
           </small>

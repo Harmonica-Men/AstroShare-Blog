@@ -313,8 +313,10 @@ hero__text {
 
 @media (max-width: 380px) {
     span {
-        font-size: x-small;
+        font-size: small;
     }
+
+    
 
     .container-banner{
         /* text-align: left; */
@@ -325,7 +327,7 @@ hero__text {
 @media (max-width: 375px) {
     p {
         text-align: center;
-        font-size: small;
+        
     }
 
     span {
