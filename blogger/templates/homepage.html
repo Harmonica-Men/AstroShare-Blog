@@ -10,8 +10,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  
-
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -21,78 +19,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Montserrat:wght@400;700&display=swap"
     rel="stylesheet">
 
-
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
   <title>Astro Blog</title>
 </head>
 
-<!-- Header Start -->
-<header class="header p-3 position-absolute start-0 top-0 end-0">
-  <div class="d-flex justify-content-between align-items-center">
-    <a href="{% url 'frontpage-blogpost' %}" class="text-decoration-none text-white fs-5 fw-bold">Astro Blog</a>
-  </div>
-</header>
-<!-- Header End -->
+<body>
+  <!-- Header Start -->
+  <header class="header p-3 position-absolute start-0 top-0 end-0">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="{% url 'frontpage-blogpost' %}" class="text-decoration-none text-white fs-5 fw-bold">Astro Blog</a>
+    </div>
+  </header>
+  <!-- Header End -->
 
-<!-- Category Hero -->
-<section class="hero" id="top-page">
+  <!-- Category Hero -->
+  <section class="hero" id="top-page">
+    <div class="hero__overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero__video">
+      <source src="/static/images/857136-hd_1280_720_24fps.mp4" type="video/mp4">
+    </video>
 
-  <div class="hero__overlay"></div>
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero__video">
-    <source src="/static/images/857136-hd_1280_720_24fps.mp4" type="video/mp4">
-  </video>
+    <div class="hero__content h-100 container-custom position-relative">
+      <div class="d-flex h-100 align-items-center hero__content-width">
+        <div class="container-banner text-white">
+          <h1 class="hero__heading fw-bold mb-4">share the latest space news</h1>
+          <p class="lead mb-4">Welcome to Cosmic Chronicles,
+            your gateway to the wonders of the universe!
+            Whether you’re an avid stargazer,
+            an aspiring astronomer,
+            or simply someone fascinated by the mysteries
+            of the cosmos, this blog is your destination for all
+            things space.
 
-  <div class="hero__content h-100 container-custom position-relative">
-    <div class="d-flex h-100 align-items-center hero__content-width">
-      <div class="container-banner text-white">
-        <h1 class="hero__heading fw-bold mb-4">share the latest space news</h1>
-        <p class="lead mb-4">Welcome to Cosmic Chronicles,
-          your gateway to the wonders of the universe!
-          Whether you’re an avid stargazer,
-          an aspiring astronomer,
-          or simply someone fascinated by the mysteries
-          of the cosmos, this blog is your destination for all
-          things space.
-
-          Here, we’ll explore the latest discoveries,
-          delve into celestial events,
-          and unravel the secrets of the stars and planets.
-          Join us as we embark on a journey through the vast expanse of the universe,
-          bringing the marvels of space right to your screen.
-          Buckle up and get ready to ignite your curiosity about the infinite night sky!
-        </p>
-        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
-          Blog</a>
+            Here, we’ll explore the latest discoveries,
+            delve into celestial events,
+            and unravel the secrets of the stars and planets.
+            Join us as we embark on a journey through the vast expanse of the universe,
+            bringing the marvels of space right to your screen.
+            Buckle up and get ready to ignite your curiosity about the infinite night sky!
+          </p>
+          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
+            Blog</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <a href="#newsletter-subscribtion">
-    <div class="hero__scroll-btn">
-      Subscribe <i class="bi bi-arrow-down-short"></i>
-    </div>
-  </a>
+    <a href="#newsletter-subscribtion">
+      <div class="hero__scroll-btn">
+        Subscribe <i class="bi bi-arrow-down-short"></i>
+      </div>
+    </a>
+  </section>
+  <!-- Hero End -->
 
-</section>
-<!-- Hero End -->
-
-<body>
   <div class="container-custom steps--background-black">
     <div class="d-md-flex justify-content-center">
       <div class="black-border">
-        
-          <div class="row justify-content-center">
-            <div class="col-md-9 text-center">
-              <h4>Astronomy Picture of the Day</h4>
-              <img id="image" src="" alt="Astronomy Picture of the Day" class="img-fluid pb-4 steps__section-thumbnail"
-                width="553" height="746" loading="lazy">
-              <h6 id="title">*</h6>
-              <a href="{% url 'nasa-picture-of-the-day' %}">read more</a>
-              <!-- <p id="description">*</p> -->
-            </div>
-        
+        <div class="row justify-content-center">
+          <div class="col-md-9 text-center">
+            <h4>Astronomy Picture of the Day</h4>
+            <img id="image" src="" alt="Astronomy Picture of the Day" class="img-fluid pb-4 steps__section-thumbnail"
+              width="553" height="746" loading="lazy">
+            <h6 id="title">*</h6>
+            <a href="{% url 'nasa-picture-of-the-day' %}">read more</a>
+            <!-- <p id="description">*</p> -->
+          </div>
         </div>
         <script src="/static/js/script.js"></script>
       </div>
@@ -100,19 +93,15 @@
       <div class="black-border">
         <h3>Latest post ...</h3>
         <div class="black-border">
-
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
-
           <small>
             <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
               {{ first_post_list.0.author.first_name }} </p>
           </small>
-
           <h5 class="container">
             <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
           </h5>
-
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -121,16 +110,13 @@
         <div class="black-border">
           {% with posts|slice:"1:2" as second_post_list %}
           {% if second_post_list.0 %}
-
           <small>
             <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
               {{ second_post_list.0.author.first_name }} </p>
           </small>
-
           <h5 class="container">
             <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
           </h5>
-
           {% else %}
           <p>No second post available.</p>
           {% endif %}
@@ -139,12 +125,10 @@
         <div class="black-border">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
-
           <small>
             <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
               {{ third_post_list.0.author.first_name }} </p>
           </small>
-
           <h5 class="container">
             <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
           </h5>
@@ -158,17 +142,13 @@
 
     <!--  Section Category one Start -->
     <section class="steps steps--background-white">
-
       <div class="row black-border">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
           <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
         </div>
-
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
-
           <div class="steps__content-width">
-
             <h1 class="h2 mb-4">Astro Physics</h1>
             <p class="mb-4">Astrophysics is a branch of astronomy that focuses on understanding the physical properties
               and underlying processes of celestial objects and phenomena. It combines principles of physics and
@@ -184,7 +164,6 @@
           </div>
         </div>
       </div>
-
     </section>
     <!-- Section one End -->
 
@@ -209,7 +188,6 @@
           </div>
         </div>
       </div>
-
     </section>
     <!-- Section Two End -->
 
@@ -236,7 +214,6 @@
     </section>
     <!-- Section Tree End -->
 
-
     <!-- Section Category four Start -->
     <section class="steps steps--background-black">
       <div class="container-custom">
@@ -261,7 +238,6 @@
       </div>
     </section>
     <!-- Section Four End -->
-
 
     <!-- section contributors -->
     <section class="container-sub steps--background-white">
@@ -292,8 +268,6 @@
       </div>
     </section>
 
-
-
     <!-- newsletter subscribtion-->
     <section class="container-sub margin-sub" id="newsletter-subscribtion">
       <div class="row">
@@ -312,9 +286,7 @@
           </form>
         </div>
       </div>
-
     </section>
-
     <!-- newsletter subscribtion end-->
 
     <div class="back-to-top-button">
@@ -331,10 +303,10 @@
           </a>
         </div>
 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
-          <li class="ms-3 "><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex color-hyperlink">
+          <li class="ms-3 "><a class="color-hyperlink" href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-facebook"></i></a></li>
         </ul>
       </div>
     </footer>
@@ -344,6 +316,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+  </div>
 </body>
 
 </html>

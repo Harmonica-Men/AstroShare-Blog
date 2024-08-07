@@ -4,14 +4,15 @@
 {% block title %}Astro Share Blog!!{% endblock %}
 
 {% block content %}
-<h4>Latest posts,</h4>
+<h4 class="text-center">Latest Posts ...</h4>
+
 <div class="content">
   <div class="d-flex justify-content-between align-items-center">
     
     <span class="current mr-3">
       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span>
-    <container class="pagination d-flex align-items-center">
+    <div class="pagination d-flex align-items-center">
       <span class="step-links">
         {% if page_obj.has_previous %}
         <a href="?page=1">&laquo; first</a>
@@ -29,11 +30,10 @@
         <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
       </span>
-    </container>
+    </div>
   </div>
 
   <br>
-
 
   {% for post in posts %}
   <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
@@ -45,12 +45,9 @@
         <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail-500 img-small"
           alt="no-image-available">
         {% endif %}
-
       </div>
       <div>
-        <h5 class="container-frontpage">
-          <p>{{ post.title }}</p>
-        </h5>
+        <h5 class="container-frontpage">{{ post.title }}</h5>
         <div class="container">
           {{ post.body|slice:":350" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read
             more</a>
@@ -73,6 +70,8 @@
   </section>
   <hr>
   {% endfor %}
- 
-
+  <div class="back-to-top-button">
+    <a href="#">Back to Top</a>
+  </div>
+</div>
 {% endblock %}

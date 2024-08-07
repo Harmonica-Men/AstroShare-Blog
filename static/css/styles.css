@@ -53,6 +53,8 @@ body {
     margin-bottom: 20px;
 }
 
+
+
 /* Styles for back-to-top-button */
 .back-to-top-button {
     margin: 15px auto;
@@ -191,6 +193,9 @@ body {
     text-transform: uppercase;
 }
 
+.container-footer {
+    max-width: 100%;
+}
 
 .container-frontpage {
     font-size: x-large;
@@ -431,6 +436,7 @@ a:hover {
         max-width: 100%;
 
     }
+    
 }
 
 
@@ -485,8 +491,9 @@ a:hover {
 .hero {
     position: relative;
     height: 100vh;
-    background-color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0);
     overflow: hidden;
+    --primary-color:#ffffff00;
 }
 
 @media (min-width: 1400px) {
