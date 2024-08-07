@@ -56,16 +56,16 @@ class HomepageView(TemplateView):
 
         return context
 
-class FrontpageView(ListView): # Frontpage view for the Blog Post
+class FrontpageView(ListView):
     model = Post
-    template_name = 'frontpage.html'
-    cats = Category.objects.all()
-    ordering = ['-post_date'] #show post on publication date reverse
+    template_name = 'frontpage.html'  # Ensure this is the correct template for the front page
+    context_object_name = 'posts'
+    ordering = ['-post_date']
+    paginate_by = 5  # Display 5 posts per page
 
     def get_context_data(self, *args, **kwargs):
-        cat_menu = Category.objects.all()
         context = super(FrontpageView, self).get_context_data(*args, **kwargs)
-        context["cat_menu"] = cat_menu
+        context["cat_menu"] = Category.objects.all()
         return context
 
 # function 
