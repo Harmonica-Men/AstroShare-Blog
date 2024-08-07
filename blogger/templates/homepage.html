@@ -44,15 +44,15 @@
     <div class="hero__content h-100 container-custom position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="container-banner text-white">
-          <h1 class="hero__heading fw-bold mb-4">share the latest space news</h1>
-          <p class="lead mb-4">Welcome to Cosmic Chronicles,
+          <h1 class="hero__head">share the latest space news</h1>
+          <p class="hero__text">Welcome to Cosmic Chronicles,
             your gateway to the wonders of the universe!
             Whether you’re an avid stargazer,
             an aspiring astronomer,
             or simply someone fascinated by the mysteries
             of the cosmos, this blog is your destination for all
             things space.
-
+<br>
             Here, we’ll explore the latest discoveries,
             delve into celestial events,
             and unravel the secrets of the stars and planets.
@@ -91,17 +91,18 @@
       </div>
 
       <div class="black-border">
-        <h3>Latest post ...</h3>
+        <h3 class="text-center">Latest post ...</h3>
         <div class="black-border">
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
-          <small>
-            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
-              {{ first_post_list.0.author.first_name }} </p>
-          </small>
+          
           <h5 class="container">
             <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
           </h5>
+          <small class="text-center italicize">
+            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
+              {{ first_post_list.0.author.first_name }} </p>
+          </small>
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -110,13 +111,14 @@
         <div class="black-border">
           {% with posts|slice:"1:2" as second_post_list %}
           {% if second_post_list.0 %}
-          <small>
-            <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
-              {{ second_post_list.0.author.first_name }} </p>
-          </small>
+          
           <h5 class="container">
             <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
           </h5>
+          <small class="text-center italicize">
+            <p>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
+              {{ second_post_list.0.author.first_name }} </p>
+          </small>
           {% else %}
           <p>No second post available.</p>
           {% endif %}
@@ -125,13 +127,14 @@
         <div class="black-border">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
-          <small>
-            <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
-              {{ third_post_list.0.author.first_name }} </p>
-          </small>
+          
           <h5 class="container">
             <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
           </h5>
+          <small class="text-center italicize">
+            <p>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
+              {{ third_post_list.0.author.first_name }} </p>
+          </small>
           {% else %}
           <p>No third post available.</p>
           {% endif %}
