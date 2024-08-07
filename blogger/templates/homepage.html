@@ -82,17 +82,17 @@
   <div class="container-custom steps--background-black">
     <div class="d-md-flex justify-content-center">
       <div class="black-border">
-        <div class="container">
+        
           <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-              <h3>Astronomy Picture of the Day</h3>
+            <div class="col-md-9 text-center">
+              <h4>Astronomy Picture of the Day</h4>
               <img id="image" src="" alt="Astronomy Picture of the Day" class="img-fluid pb-4 steps__section-thumbnail"
                 width="553" height="746" loading="lazy">
-              <h3 id="title">*</h3>
+              <h6 id="title">*</h6>
               <a href="{% url 'nasa-picture-of-the-day' %}">read more</a>
               <!-- <p id="description">*</p> -->
             </div>
-          </div>
+        
         </div>
         <script src="/static/js/script.js"></script>
       </div>
@@ -136,7 +136,7 @@
           {% endif %}
           {% endwith %}
         </div>
-        <div class="black-border post-3">
+        <div class="black-border">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
 
@@ -159,7 +159,7 @@
     <!--  Section Category one Start -->
     <section class="steps steps--background-white">
 
-      <div class="row">
+      <div class="row black-border">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
           <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
@@ -190,7 +190,7 @@
 
     <!-- Section Category Two Start -->
     <section class="steps steps--background-black">
-      <div class="row">
+      <div class="row black-border">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
           <img src="/static/images/pexels-pixabay-73910.jpg" class="img-responsive" alt="Missions Mars">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
@@ -215,7 +215,7 @@
 
     <!-- Section Category Tree Start -->
     <section class="steps steps--background-white">
-      <div class="row">
+      <div class="row black-border">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
           <img src="/static/images/particle-shower.jpg" class="img-responsive" alt="Particle Collisions">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
@@ -240,7 +240,7 @@
     <!-- Section Category four Start -->
     <section class="steps steps--background-black">
       <div class="container-custom">
-        <div class="row">
+        <div class="row black-border">
           <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
             <img src="/static/images/pexels-pixabay-87611.jpg" class="img-responsive" alt="Solar Corona"
               class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
@@ -262,35 +262,35 @@
     </section>
     <!-- Section Four End -->
 
-    
-<!-- section contributors -->
-<section class="container-sub steps--background-white">
-  <div class="d-md-flex justify-content-center">
-    <div class="black-border">
-      <h4>Our Latest Contributors on the Blog</h4>
-      <div class="black-border">
-        {% if profile_names %}
-        <ul>
-          {% for name in profile_names %}
-          <li>{{ name }}</li>
-          {% endfor %}
-        </ul>
-        {% else %}
-        <p>No profiles available.</p>
-        {% endif %}
+
+    <!-- section contributors -->
+    <section class="container-sub steps--background-white">
+      <div class="d-md-flex justify-content-center">
+        <div class="black-border">
+          <h4 class="text-center">Our Latest Contributors on the Blog</h4>
+          <div class="black-border">
+            {% if profile_names %}
+            <ul>
+              {% for name in profile_names %}
+              <li>{{ name }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <p>No profiles available.</p>
+            {% endif %}
+          </div>
+        </div>
+        <div class="container-custom black-border">
+          <h4>Track The ISS</h4>
+          <div class="iframe-container">
+            <iframe class="responsive-iframe"
+              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
+              style=" border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
+          </div>
+          <a href="{% url 'iss-location' %}" class="text-muted">Go To the ISS</a>
+        </div>
       </div>
-    </div>
-    <div class="container-custom black-border">
-      <h3>Track The ISS</h3>
-      <div class="iframe-container">
-        <iframe class="responsive-iframe"
-          src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
-          style=" border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
-      </div>
-      <a href="#">read more</a>
-    </div>
-  </div>
-</section>
+    </section>
 
 
 
@@ -299,7 +299,7 @@
       <div class="row">
         <h1>Subscribe to our Newsletter</h1>
         <!-- justify-content-center black-border steps--background-white -->
-        <div class="black-border">
+        <div>
           <h2>Contact Us</h2>
           <form method="POST" action="{% url 'subscribe' %}">
             {% csrf_token %}

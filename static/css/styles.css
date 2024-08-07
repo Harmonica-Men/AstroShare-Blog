@@ -27,12 +27,14 @@ body {
     background-color: black;
     background-size: cover;
     color: hsl(0, 0%, 100%);
-    
-    background-image: url("../images/background.webp");  
+
+    background-image: url("../images/background.webp");
 
 }
 
-
+.black-border {
+    text-align: left;
+}
 
 .margin-top-bottom-iss {
     margin-top: 20px;
@@ -231,6 +233,7 @@ a:hover {
 }
 
 .container-banner {
+    text-align: left;
     width: 100%;
     padding: 5rem;
     margin: 0 auto;
@@ -244,6 +247,7 @@ a:hover {
 
 /* Custom Container */
 .container-custom {
+    text-align: center;
     width: 100%;
     padding: 0 1rem;
     margin: 0 auto;
@@ -256,61 +260,75 @@ a:hover {
 /* Add this CSS to your stylesheet */
 .iframe-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
     position: relative;
     width: 100%;
-    max-width: 100%; /* Ensure container does not exceed parent width */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 0; /* No padding for larger screens */
-  }
-  
-  .responsive-iframe {
+    max-width: 100%;
+    /* Ensure container does not exceed parent width */
+    margin: 0 auto;
+    /* Center the container horizontally */
+    padding: 0;
+    /* No padding for larger screens */
+}
+
+.responsive-iframe {
     width: 100%;
     height: 100%;
     border: 0;
-  }
-  
-  /* Media queries for responsiveness */
-  @media (max-width: 375px) {
-    .iframe-container {
-      
-      height: auto; 
-      max-width: 100%; 
-    }
-  }
-  
-  @media (max-width: 1200px) {
-    .iframe-container {
-      height: 175px; /* Reset height */
-      max-width: 100%; /* Ensure container fits screen */
-    }
-  }
+}
 
-  @media (max-width: 1600px) {
+
+
+/* Media queries for responsiveness */
+@media (max-width: 375px) {
     .iframe-container {
-     
-        height: 300px; /* Reset height */
-        max-width: 100%; /* Ensure container fits screen */
+
+        height: auto;
+        max-width: 100%;
     }
-  }
-  
-  
-  /* For screens larger than 1600px */
+}
+
+@media (max-width: 1200px) {
+    .iframe-container {
+        height: 175px;
+        /* Reset height */
+        max-width: 100%;
+        /* Ensure container fits screen */
+    }
+}
+
+@media (max-width: 1600px) {
+    .iframe-container {
+
+        height: 300px;
+        /* Reset height */
+        max-width: 100%;
+        /* Ensure container fits screen */
+    }
+}
+
+
+/* For screens larger than 1600px */
 @media (min-width: 1600px) {
     .iframe-container {
-      max-width: 900px;
-      height: 300px;
-      margin: 0 auto; /* Center the container horizontally */
-      padding: 0; /* No padding for larger screens */
-      box-sizing: border-box; /* Include border and padding in the element's total width and height */
+        max-width: 900px;
+        height: 300px;
+        margin: 0 auto;
+        /* Center the container horizontally */
+        padding: 0;
+        /* No padding for larger screens */
+        box-sizing: border-box;
+        /* Include border and padding in the element's total width and height */
     }
-  
+
     .responsive-iframe {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
     }
-  }
+}
 
 
 
