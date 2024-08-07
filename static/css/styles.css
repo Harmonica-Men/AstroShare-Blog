@@ -1,9 +1,8 @@
 /* styles.css */
 :root {
-    --primary-color: #f08e8e67;
-    --attrib-color0: #3987a6;
-    --attrib-color1: #969696;
-    --primary-color-highlight: #69b9ff;
+    --primary-color: #ffffff;
+    --attrib-color: #3987a6;
+    --primary-color-highlight: #c07f7f6b;
     --bs-body-bg: #000000;
     --bs-body-font-family: 'Montserrat', sans-serif;
 }
@@ -21,6 +20,7 @@ a {
 }
 
 
+
 body {
     font-family: Arial, sans-serif;
     text-align: left;
@@ -35,15 +35,12 @@ body {
 .black-border {
     text-align: left;
 }
-
 .bg-l-gray {
-    background-color: #8e8e8e;
-    /* light gray color */
+    background-color: rgba(142, 142, 142, 0.67);
 }
 
 .bg-d-gray {
-    background-color: #767575;
-    /* dark gray color */
+    background-color: rgba(118, 117, 117, 0.67);
 }
 
 .margin-top-bottom-iss {
@@ -156,15 +153,38 @@ body {
 
 
 /* Frontpage */
+.color-hyperlink {
+    color: yellow;
+    
+}
+
+
 .first-name,
 .last-name {
-    color: rgb(128, 128, 128);
+    font-size: small;
+    
     text-transform: capitalize;
 }
 
 .last-name {
     text-transform: uppercase;
 }
+
+
+.container-frontpage {
+    font-size: x-large;
+    font-weight: bolder;
+    text-decoration: underline; /* Added to underline the text */
+
+  }
+
+  .italicize {
+    padding-top: 1rem;
+    font-style: italic;
+    text-align: right; /* Added to align text to the right */
+    
+}
+ 
 
 /* Content styling */
 .content {
@@ -177,8 +197,11 @@ body {
 /* Styling for individual posts */
 .post {
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 10px; 
     border-radius: 5px;
+    /* border: 2px solid black; */
+    border-style: solid;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
 }
 
 /* Alternating background colors for posts */
@@ -190,9 +213,19 @@ body {
     background-color: rgb(236, 244, 92);
 }
 
+.pagination-btn {
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
 .image-container-APOD {
     position: relative;
     display: inline-block;
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .centered-title {
