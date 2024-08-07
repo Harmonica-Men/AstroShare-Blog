@@ -194,8 +194,10 @@ body {
 
 .container-frontpage {
     font-size: x-large;
+    color: orange;
+    text-align: center;
     font-weight: bolder;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     /* Added to underline the text */
 
 }
@@ -239,7 +241,7 @@ body {
 .pagination-btn {
     width: 100px;
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -372,6 +374,11 @@ a:hover {
 
     }
 
+    span {
+        font-size: x-small;
+    }
+
+
     .container {
         text-align: center;
         font-size: x-small;
@@ -393,7 +400,16 @@ a:hover {
 
 }
 
+@media (max-width: 380px) {
+    span {
+        font-size: x-small;
+    }
+}
+
+
 @media (max-width: 1200px) {
+
+
     .iframe-container {
         height: 175px;
         max-width: 100%;
