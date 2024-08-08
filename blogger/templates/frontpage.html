@@ -8,29 +8,32 @@
 
 <div class="content">
   <div class="d-flex justify-content-between align-items-center">
-    
+
     <!-- <span class="current mr-3">
       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span> -->
     <div class="d-flex align-items-center">
       <span class="step-links">
         {% if page_obj.has_previous %}
-        <a href="?page=1" class="color-hyperlink">&laquo; first</a>
-
-        <!-- <a href="?page=1">&laquo; first</a> -->
-        <a href="?page={{ page_obj.previous_page_number }}" class="color-hyperlink">previous</a>
+        <button onclick="window.location.href='?page=1'" class="btn btn-primary">&laquo; First</button>
+        <button onclick="window.location.href='?page={{ page_obj.previous_page_number }}'"
+          class="btn btn-primary">&lt; Prev.</button>
         {% else %}
-        <a href="?page=1" class="color-hyperlink">&laquo; first</a>
-        <span>previous</span>
+        <button onclick="window.location.href='?page=1'" class="btn btn-primary" disabled>&laquo; First</button>
+        <button class="btn btn-secondary" disabled>&lt; Prev.</button>
         {% endif %}
 
         {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}"class="color-hyperlink">next</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}"class="color-hyperlink">last &raquo;</a>
+        <button onclick="window.location.href='?page={{ page_obj.next_page_number }}'"
+          class="btn btn-primary">Next 	&gt;</button>
+        <button onclick="window.location.href='?page={{ page_obj.paginator.num_pages }}'" class="btn btn-primary">Last
+          &raquo;</button>
         {% else %}
-        <span>next</span>
-        <a href="?page={{ page_obj.paginator.num_pages }}"class="color-hyperlink">last &raquo;</a>
+        <button class="btn btn-secondary" disabled>Next &gt;</button>
+        <button onclick="window.location.href='?page={{ page_obj.paginator.num_pages }}'" class="btn btn-primary"
+          disabled>Last &raquo;</button>
         {% endif %}
+
       </span>
     </div>
   </div>
@@ -44,12 +47,11 @@
         {% if post.image.url %}
         <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image">
         {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail"
-          alt="no-image-available">
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available">
         {% endif %}
       </div>
       <div>
-        <h6 class="container-frontpage">{{ post.title }}</h6>
+        <h5 class="container-frontpage">{{ post.title }}</h5>
         <div class="container">
           {{ post.body|slice:":310" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read
             more</a>
@@ -60,12 +62,12 @@
           <small class="first-name">{{ post.author.first_name }}</small>
         </p>
         {% if user.is_authenticated %}
-        <p>
-          <small>
-            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete Post</a>
-          </small>
-        </p>
+        {% if user == post.author %}
+        <div class="container">
+          <a href="{% url 'update-post' post.pk %}" class="btn btn-warning ">Edit</a>
+          <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
         {% endif %}
       </div>
     </div>
