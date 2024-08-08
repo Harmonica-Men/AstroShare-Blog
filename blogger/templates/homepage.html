@@ -76,7 +76,7 @@
 
   <div class="container-custom steps--background-black">
     <div class="d-md-flex justify-content-center">
-      <div class="black-border">
+      <!-- <div class="black-border"> -->
         <div class="row justify-content-center">
           <div class="col-md-9 text-center">
             <h4>Astronomy Picture of the Day</h4>
@@ -88,11 +88,11 @@
           </div>
         </div>
         <script src="/static/js/script.js"></script>
-      </div>
+      <!-- </div> -->
 
-      <div class="black-border">
+      <div class="container">
         <h3 class="text-center">Latest post ...</h3>
-        <div class="black-border">
+        <div class="container">
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
 
@@ -109,7 +109,7 @@
           {% endif %}
           {% endwith %}
         </div>
-        <div class="black-border">
+        <div class="container">
           {% with posts|slice:"1:2" as second_post_list %}
           {% if second_post_list.0 %}
 
@@ -125,7 +125,7 @@
           {% endif %}
           {% endwith %}
         </div>
-        <div class="black-border">
+        <div class="container">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
 
@@ -146,7 +146,7 @@
 
     <!--  Section Category one Start -->
     <section class="steps steps--background-white">
-      <div class="row black-border">
+      <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
           <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
@@ -173,7 +173,7 @@
 
     <!-- Section Category Two Start -->
     <section class="steps steps--background-black">
-      <div class="row black-border">
+      <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
           <img src="/static/images/pexels-pixabay-73910.jpg" class="img-responsive" alt="Missions Mars">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
@@ -197,7 +197,7 @@
 
     <!-- Section Category Tree Start -->
     <section class="steps steps--background-white">
-      <div class="row black-border">
+      <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
           <img src="/static/images/particle-shower.jpg" class="img-responsive" alt="Particle Collisions">
           <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
@@ -221,7 +221,7 @@
     <!-- Section Category four Start -->
     <section class="steps steps--background-black">
       <div class="container-custom">
-        <div class="row black-border">
+        <div class="row container">
           <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
             <img src="/static/images/pexels-pixabay-87611.jpg" class="img-responsive" alt="Solar Corona"
               class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
@@ -246,9 +246,9 @@
     <!-- section contributors -->
     <section class="container-sub steps--background-white">
       <div class="d-md-flex justify-content-center">
-        <div class="black-border">
+        <div class="container">
           <h4 class="text-center">Our Latest Contributors on the Blog</h4>
-          <div class="black-border">
+          <div class="container-custom">
             {% if profile_names %}
             <ul>
               {% for name in profile_names %}
@@ -260,7 +260,7 @@
             {% endif %}
           </div>
         </div>
-        <div class="container-custom black-border">
+        <div class="container-custom">
           <h4>Track The ISS</h4>
           <div class="iframe-container">
             <iframe class="responsive-iframe"

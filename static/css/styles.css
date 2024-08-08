@@ -30,6 +30,11 @@ h4 {
     font-weight: bolder;
 }
 
+ul {
+    list-style-type: none;
+    
+}
+
 
 /* a {
     color: var(--primary-color);
