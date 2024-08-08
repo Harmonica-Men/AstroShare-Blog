@@ -40,18 +40,18 @@
   {% for post in posts %}
   <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
     <div class="d-md-flex">
-      <div class="black-border">
+      <div class="container">
         {% if post.image.url %}
-        <img src="{{ post.image.url }}" class="img-thumbnail-500 img-small" alt="post-image">
+        <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image">
         {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail-500 img-small"
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail"
           alt="no-image-available">
         {% endif %}
       </div>
       <div>
-        <h5 class="container-frontpage">{{ post.title }}</h5>
+        <h6 class="container-frontpage">{{ post.title }}</h6>
         <div class="container">
-          {{ post.body|slice:":350" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read
+          {{ post.body|slice:":310" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read
             more</a>
         </div>
         <p class="italicize"> Posted: {{ post.post_date }} Category:

@@ -1,34 +1,65 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %} User Profile {% endblock %}
+{% block title %} User Profiles {% endblock %}
 
 {% block content %}
 
 <h1>User Profile</h1>
 
-<!-- {{ page_user }} -->
-<section class="container steps--background-white">
-    <div class="d-md-flex">
+<section class="container-profile">
 
-        <div class="black-border">
-            {% if page_user.profile_pic.url %}
-                <img src="{{ page_user.profile_pic.url }}" class="img-thumbnail rounded-circle" alt="user-profile">
+    <div class="d-md-flex steps--background-white rounded-4 black-border">
+
+        <div class="align-items-center">
+            <div class="container-sub">
+                {% if user.profile.profile_pic.url %}
+                <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle" alt="user-profile">
+                {% else %}
+                <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle"
+                    alt="user-profile-anonymous">
+                {% endif %}
+            </div>
+            <!-- <div class="flex-grow-1 ms-3">
+            This is some content from a media component. You can replace this with any content and adjust it as needed.
+        </div> -->
+        </div>
+
+
+        <div class="col-md-8">
+            
+            <h4 class="card-title">{{ user.first_name }} {{ user.last_name }}</h4>
+            <p class="container-lg" style="text-align: left;">
+                {{ user.profile.bio }}
+            </p>
+        
+        </div>
+    </div>
+        <!-- <div class="d-md-flex steps--background-white rounded mb-4 black-border">
+
+        <div class="justify-content-between">
+
+            {% if user.profile.profile_pic.url %}
+                <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle" alt="user-profile">
             {% else %}
-                <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail-300 rounded-circle" alt="user-profile-anonymous">
+                <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle" alt="user-profile-anonymous">
             {% endif %}
         </div>
 
         <div class="col-md-8">
-            <div class="black-border">
-                <h4 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h4>
-                <p class="container-sm" style="text-align: left;">
-                    {{ page_user.bio }}
+            
+                <h4 class="card-title">{{ user.first_name }} {{ user.last_name }}</h4>
+                <p class="container-lg" style="text-align: left;">
+                    {{ user.profile.bio }}
                 </p>
-            </div>
+            
         </div>
 
-    </div>
+    </div> -->
+
 </section>
+
+
+<h2 class="container-profile">User joined at {{ user.date_joined|date:"F j, Y" }}</h2>
 
 {% endblock %}

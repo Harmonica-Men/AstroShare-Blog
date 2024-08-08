@@ -14,6 +14,7 @@ from django.conf import settings
 
 
 
+
 import plotly.graph_objects as go
 import plotly.io as pio
 
@@ -266,3 +267,4 @@ def confirm_subscription(request):
     subscriber.save()
 
     return HttpResponse('Subscription confirmed. Thank you!')
+
