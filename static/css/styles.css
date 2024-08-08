@@ -37,10 +37,10 @@ body {
 
 .black-border {
     text-align: left;
-    border-color: #000000;
+    /* border-color: #000000; */
     padding: 20px;
     border-radius: 10px;
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 .bg-l-gray {
@@ -172,12 +172,7 @@ body {
     background-color: rgb(236, 244, 92);
 }
 
-.pagination-btn {
-    width: 100px;
-    text-align: center;
-    border: 2px solid white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
+
 
 .image-container-APOD {
     position: relative;
