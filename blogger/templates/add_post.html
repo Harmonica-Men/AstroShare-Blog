@@ -3,73 +3,68 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<h4>Add Post ...  </h4>
+<h4>Add Post ... </h4>
+<section class="content">
+    <div class="card steps--background-white">
+        <div class="row">
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
+                    {% csrf_token %}
+                    <div class="m-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="title of the post"
+                            required>
+                    </div>
 
-<div class="full-height">
-    <section>
-    <!-- <section class="content container-login"> -->
-        <div class="card steps--background-white">
-            <div class="row">
-                <div class="form-group">
-                    <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
-                        {% csrf_token %}
-                        <div class="container-sub mb-3">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="title of the post" required>
-                        </div>
+                    <div class="m-3">
+                        <label for="title_tag" class="form-label">Title Tag</label>
+                        <input type="text" class="form-control" id="title_tag" name="title_tag"
+                            placeholder="title-tag of the post" required>
+                    </div>
 
-                        <div class="container-sub mb-3">
-                            <label for="title_tag" class="form-label">Title Tag</label>
-                            <input type="text" class="form-control" id="title_tag" name="title_tag" placeholder="title-tag of the post" required>
-                        </div>
+                    <div class="m-3">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" class="form-control" id="author" name="author" placeholder="author"
+                            value="{{ user.username }}" required readonly>
+                    </div>
 
-                        <!-- <div class="container-sub mb-3">
-                            <label for="author" class="form-label">Author</label>
-                            <input type="text" class="form-control" id="author" name="author" placeholder="user name" required>
-                        </div> -->
 
-                        <div class="container-sub mb-3">
-                            <label for="author" class="form-label">Author</label>
-                            <input type="text" class="form-control" id="author" name="author" placeholder="author" value="{{ user.username }}" required readonly>
-                        </div>
-                        
+                    <div class="m-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-control" id="category" name="category" placeholder="choice">
+                            {% for choice in choices %}
+                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
 
-                        <div class="container-sub mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <select class="form-control" id="category" name="category" placeholder="choice">
-                                {% for choice in choices %}
-                                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
+                    <div class="m-3">
+                        <label for="body" class="form-label">Body</label>
+                        <textarea class="form-control" id="body" name="body" rows="5" placeholder="Post content"
+                            required></textarea>
+                    </div>
 
-                        <div class="container-sub mb-3">
-                            <label for="body" class="form-label">Body</label>
-                            <textarea class="form-control" id="body" name="body" rows="5" placeholder="Post content" required></textarea>
-                        </div>
-
-                        <div class="container-sub mb-3">
-                            <label for="image" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="image" name="image">
-                        </div>
-
-                        <button class="btn btn-secondary">Post</button>
-                    </form>
-                </div>
+                    <div class="m-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                    <div class="m-3">
+                        <input type="submit" value="Post" class="btn btn-primary rounded custom-submit color-hyperlink">
+                    </div>
+                </form>
             </div>
         </div>
-    </section> 
-</div>
+    </div>
+</section>
+
 
 <script>
     var name = "{{ user.id }}";
     document.getElementById("js_id").value = name;
 </script>
-
-<hr>
 {% else %}
-    <div>
-        <h2>No access to this page</h2>
-    </div>
+<div>
+    <h2>No access to this page</h2>
+</div>
 {% endif %}
 {% endblock %}

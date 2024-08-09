@@ -297,6 +297,11 @@ a:hover {
     margin-bottom: 20px;
 }
 
+.padding-20 {
+    padding: 20px;
+}
+
+
 .container-login {
     text-align: center;
     width: 100%;
