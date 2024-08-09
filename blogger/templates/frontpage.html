@@ -53,12 +53,12 @@
       <div>
         <h5 class="container-frontpage">{{ post.title }}</h5>
         <div class="container">
-          {{ post.body|slice:":310" }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">read
-            more</a>
+          {{ post.body|slice:":310" }} ... <a href="{% url 'article-detail' post.pk %}" 
+          class="color-hyperlink"><small><strong>read more</strong></small></a>
         </div>
         <p class="italicize"> Posted: {{ post.post_date }} Category:
-          <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink">{{ post.category }}</a>
-          By:<small class="last-name">{{ post.author.last_name }}</small>,
+          <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
+          By: <small class="last-name">{{ post.author.last_name }}</small>,
           <small class="first-name">{{ post.author.first_name }}</small>
         </p>
         {% if user.is_authenticated %}
@@ -75,7 +75,6 @@
   <hr>
   {% endfor %}
   <div class="back-to-top-button">
-    <a href="#" class="color-hyperlink">Back to Top</a>
-  </div>
+    <a href="#" class="btn btn-primary color-hyperlink">Back to Top</a>
 </div>
 {% endblock %}

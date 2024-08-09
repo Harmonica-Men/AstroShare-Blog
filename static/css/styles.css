@@ -32,7 +32,7 @@ h4 {
 
 ul {
     list-style-type: none;
-    
+
 }
 
 
@@ -89,7 +89,7 @@ body {
     padding-top: 10px;
 }
 
-.card-title  {
+.card-title {
     padding-top: 15px;
     padding-left: 10px;
 }
@@ -141,7 +141,7 @@ body {
 }
 
 .color-hyperlink {
-    color: rgb(255, 255, 255);
+    color: black;
 }
 
 .color-hyperlink:hover {
@@ -208,7 +208,7 @@ body {
 
 .btn {
     margin-top: 5px;
-    margin-right: 25px; 
+    margin-right: 25px;
     width: 140px;
 }
 
@@ -280,7 +280,7 @@ a:hover {
 .container-banner {
     text-align: left;
     width: 100%;
-    padding: 5rem;
+    padding: 2rem;
     margin: 0 auto;
 }
 
@@ -295,7 +295,10 @@ a:hover {
     width: 100%;
     padding: 0 1rem;
     padding-bottom: 0.85rem;
-    margin: 0 auto; 
+    margin: 0 auto;
+    /* display: flex;
+    justify-content: space-between; */
+
 
 }
 
@@ -516,7 +519,7 @@ a:hover {
         height: auto;
     }
 
- 
+
 
 
 
@@ -531,7 +534,7 @@ a:hover {
         font-size: 0.85rem;
     }
 
-    
+
 
     .container-banner {
         /* text-align: left; */
@@ -540,7 +543,7 @@ a:hover {
 }
 
 @media (max-width: 375px) {
-    
+
 
     p {
         text-align: center;
@@ -571,7 +574,7 @@ a:hover {
 
 
 @media (max-width: 370px) {
-   
+
 
     .black-border {
         padding: 0;
@@ -603,7 +606,7 @@ a:hover {
     }
 
     .card-title {
-        
+
         text-align: center;
     }
 
@@ -613,5 +616,5 @@ a:hover {
     .btn {
         line-height: 1;
     }
-    
+
 }
