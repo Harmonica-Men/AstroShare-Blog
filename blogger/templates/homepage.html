@@ -60,7 +60,7 @@
             bringing the marvels of space right to your screen.
             Buckle up and get ready to ignite your curiosity about the infinite night sky!
           </p>
-          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-lg btn-outline-light" role="button">Go To The
+          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light" role="button">Go To The
             Blog</a>
         </div>
       </div>
@@ -80,17 +80,19 @@
         <div class="row justify-content-center">
           <div class="col-md-9 text-center">
             <h4>Astronomy Picture of the Day</h4>
-            <img id="image" src="" alt="Astronomy Picture of the Day" class="img-fluid pb-4 steps__section-thumbnail"
-              width="553" height="746" loading="lazy">
+            <img id="image" src="" alt="Astronomy Picture of the Day" class="img-thumbnail" loading="lazy">
             <h6 id="title">*</h6>
+<div class="container-custom">
             <a href="{% url 'nasa-picture-of-the-day' %}">read more</a>
+          </div>
+            
             <!-- <p id="description">*</p> -->
           </div>
         </div>
         <script src="/static/js/script.js"></script>
       <!-- </div> -->
 
-      <div class="container">
+      <div class="container-banner">
         <h3 class="text-center">Latest post ...</h3>
         <div class="container">
           {% with posts|slice:":1" as first_post_list %}
@@ -301,7 +303,7 @@
       </div>
     </section>
     <!-- newsletter subscribtion end-->
-    <div class="back-to-top-button">
+    <div class="container-custom back-to-top-button">
       <a href="#" class="color-hyperlink">Back to Top</a>
     </div>
 
