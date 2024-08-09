@@ -5,23 +5,24 @@
 {% block content %}
 
 <h4>Add Comment ...</h4>
+<div class="content">
 
-<section class="container-profile">
-    <div class="card steps--background-white" style="width: auto;">
-        <div class="card-body">
-            <div class="form-group">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="container-banner">
-                        <button class="btn btn-primary">Add Comment</button>
-                    </div>
-                </form>
+    <section class="container-sub">
+
+        <div class="card steps--background-white" style="width: auto;">
+            <div class="card-body">
+                <div class="form-group">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="container-banner">
+                            <button class="btn btn-primary">Add Comment</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
-    </div>
-
-</section>
-
+    </section>
+</div>
 {% endblock %}

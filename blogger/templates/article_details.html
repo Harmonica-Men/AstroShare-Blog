@@ -2,93 +2,99 @@
 {% load static %}
 {% block title %} This is article details {% endblock %}
 {% block content %}
+<!-- 
+<h4>Article ...</h4> -->
 
-<h4>Article ...</h4>
-
-<section class="container-profile">
-    <div class="card steps--background-white" style="width: auto;">
-        <div class="container-custom">
-            <h3 class="container-frontpage">{{ post.title }}</h3>
-            {% if post.image.url %}
-            <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image">
-            {% else %}
-            <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available">
-            {% endif %}
-        </div>
-
-        <div class="card-body">
+<div class="content">
+    <section class="container-sub">
+        <div class="card steps--background-white" style="width: auto;">
             <div class="container-custom">
-                <small>Posted: <strong>{{ post.post_date }}</strong> By: </small>
-                <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
-                <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>
-                <small>Category: <strong>{{ post.category }}</strong> </small>
-            </div>
-
-            <div class="container-sub">
-                {{ post.body }}
-            </div>
-        </div>
-
-
-        {% if user.is_authenticated %}
-        {% if user == post.author %}
-        <div class="container-custom">
-            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
-        </div>
-        {% endif %}
-        {% endif %}
-
-        <div class="container-sub">
-            <form action="{% url 'like-post' post.pk %}" method="POST">
-                {% csrf_token %}
-                {% if user.is_authenticated %}
-
-                {% if liked %}
-                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger btn-sm">Unlike</button>
+                <h3 class="container-frontpage">{{ post.title }}</h3>
+                {% if post.image.url %}
+                <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image">
                 {% else %}
-                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
+                <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available">
                 {% endif %}
-                {% else %}
-                <small class="italicize">&#40;must be logged in to like&#41;</small>
-                {% endif%}
-                <div class="container-custom"><small> <strong> {{ total_likes }}</strong> Likes</small></div>
+            </div>
 
-            </form>
-            <hr>
-            <div class="container-banner">
-                <h4>Comments ....</h4>
-
-
-                <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary"><strong>Add
-                        Comment</strong></a>
-
-
-
-                {% if not post.comments.exists %}
-                <div class="container-sub"><strong>
-                        <p>No Comments Yet</p>
-                    </strong></div>
-
-
-                {% else %}
-                {% for comment in post.comments.all %}
-                <div class="container-sub">
-                    <div class="container-custom">
-                        <small>By: <strong>{{ comment.name }}</strong></small> <small>Date Added:</small>
-                        <small><strong>{{ comment.date_added }}</strong></small>
-                    </div>
-                    <div class="container">
-                        <small>{{ comment.body }}</small>
-                    </div>
+            <div class="card-body">
+                <div class="container-custom">
+                    <small>Posted: <strong>{{ post.post_date }}</strong> By: </small>
+                    <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
+                    <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>
+                    <small>Category: <strong>{{ post.category }}</strong> </small>
                 </div>
-                {% endfor %}
-                {% endif %}
+
+                <div class="container-sub">
+                    {{ post.body }}
+                </div>
+            </div>
+
+
+            {% if user.is_authenticated %}
+            {% if user == post.author %}
+            <div class="container-custom">
+                <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+            </div>
+            {% endif %}
+            {% endif %}
+
+            <div class="container-custom">
+                <form action="{% url 'like-post' post.pk %}" method="POST">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+
+                    {% if liked %}
+                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-hand-thumbs-down"></i> Unlike
+                    </button>
+                    {% else %}
+                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-secondary btn-sm">
+                        <i class="bi bi-hand-thumbs-up"></i> Like
+                    </button>
+                    {% endif %}
+                    {% else %}
+                    <small class="italicize">&#40;must be logged in to like&#41;</small>
+                    {% endif %}
+
+                    <small> <strong>{{ total_likes }}</strong> Likes</small>
+
+                </form>
+                <hr>
+                <div class="container-banner">
+                    <h4>Comments ....</h4>
+
+
+                    <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary">Add
+                        Comment</a>
+
+
+
+                    {% if not post.comments.exists %}
+                    <div class="container-sub"><strong>
+                            <p>No Comments Yet</p>
+                        </strong></div>
+
+
+                    {% else %}
+                    {% for comment in post.comments.all %}
+                    <div class="container-sub">
+                        <div class="container-custom">
+                            <small>By: <strong>{{ comment.name }}</strong></small> <small>Date Added:</small>
+                            <small><strong>{{ comment.date_added }}</strong></small>
+                        </div>
+                        <div class="container">
+                            <small>{{ comment.body }}</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
+</div>
 
 
 

@@ -4,8 +4,7 @@
 {% block title %}Astro Share Blog!!{% endblock %}
 
 {% block content %}
-<h4 class="text-center">Latest Posts ...</h4>
-
+<h4>Latest Posts ...</h4> 
 <div class="content">
   <div class="d-md-flex justify-content-evenly">
 
@@ -25,7 +24,7 @@
 
         {% if page_obj.has_next %}
         <button onclick="window.location.href='?page={{ page_obj.next_page_number }}'"
-          class="btn btn-primary">Next 	&gt;</button>
+          class="btn btn-primary">Next &gt;</button>
         <button onclick="window.location.href='?page={{ page_obj.paginator.num_pages }}'" class="btn btn-primary">Last
           &raquo;</button>
         {% else %}
@@ -76,5 +75,6 @@
   {% endfor %}
   <div class="back-to-top-button">
     <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a>
-</div>
+  </div> <!-- Closing the div properly -->
+</div> <!-- Closing the content div properly -->
 {% endblock %}

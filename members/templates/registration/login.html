@@ -1,23 +1,39 @@
 {% extends 'base.html' %}
-{% block title %} Create a new blog post! {% endblock %}
+{% block title %}Login Page{% endblock %}
 {% block content %}
 
-<h1>Login ...  </h1>
-<br>
-<br>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Login</button>
-    </form>
+<h4>Login ... </h4>
+<div class="content">
+    <section class="container-custom">
+        <div class="card steps--background-white" style="width: auto;">
+            <div class="card-body">
+                <div class="form-group">
+
+                    <form method="POST" action="{% url 'subscribe' %}">
+                        {% csrf_token %}
+                        <div class="container mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Username: </label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" name="login" placeholder="your username">
+                        </div>
+                        <div class="container mb-3">
+                          <label for="email">Password:</label>
+                          <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email" placeholder="name@example.com" required>
+                          <br>
+                          <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
+                        </div>
+                      </form>
+
+
+<!-- 
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-secondary">Login</button>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-
-<hr>
-
-<br>
-<a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a>
-<br>
-
 
 {% endblock %}
