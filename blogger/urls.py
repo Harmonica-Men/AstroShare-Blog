@@ -12,11 +12,7 @@ urlpatterns = [
     path('article/edit/<int:pk>', UpdatePostView.as_view(), name= 'update-post'),
     path('article/<int:pk>/delete', DeletePostView.as_view(), name= 'delete-post'),
     path('like/<int:pk>', LikeView, name='like-post'),
-
-
     path('article/<int:pk>/comment/', AddCommentView.as_view(), name= 'add-comment'),
-
-
     path('category/<str:cats>/', CategoryView, name='category'),
     path('category_list/', CategoryListView, name='category-list'),
     path('search/', SearchView.as_view(), name='search'),

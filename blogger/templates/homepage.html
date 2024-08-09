@@ -10,7 +10,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
   <!-- Google Fonts -->
@@ -38,13 +37,13 @@
   <section class="hero" id="top-page">
     <div class="hero__overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero__video">
-      <source src="/static/images/857136-hd_1280_720_24fps.mp4" type="video/mp4">
+      <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
     </video>
 
     <div class="hero__content container-custom position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="container-banner text-white">
-          <h1 class="hero__head">share the latest space news</h1>
+          <h1 class="hero__head">Share the latest space news</h1>
           <p class="hero__text">Welcome to Cosmic Chronicles,
             your gateway to the wonders of the universe!
             Whether you’re an avid stargazer,
@@ -76,28 +75,23 @@
 
   <div class="container-custom steps--background-black">
     <div class="d-md-flex justify-content-center">
-      <!-- <div class="black-border"> -->
-        <div class="row justify-content-center">
-          <div class="col-md-9 text-center">
-            <h4>Astronomy Picture of the Day</h4>
-            <img id="image" src="" alt="Astronomy Picture of the Day" class="img-thumbnail" loading="lazy">
-            <h6 id="title">*</h6>
-<div class="container-custom">
-            <a href="{% url 'nasa-picture-of-the-day' %}">read more</a>
-          </div>
-            
-            <!-- <p id="description">*</p> -->
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+          <h4>Astronomy Picture of the Day</h4>
+          <img id="image" src="" alt="Astronomy Picture of the Day" class="img-thumbnail" loading="lazy">
+          <h6 id="title">*</h6>
+          <div class="container-custom">
+            <a href="{% url 'nasa-picture-of-the-day' %}">Read more</a>
           </div>
         </div>
-        <script src="/static/js/script.js"></script>
-      <!-- </div> -->
+      </div>
+      <script src="{% static 'js/script.js' %}"></script>
 
       <div class="container-banner">
         <h3 class="text-center">Latest post ...</h3>
         <div class="container">
           {% with posts|slice:":1" as first_post_list %}
           {% if first_post_list.0 %}
-
           <h5>
             <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
           </h5>
@@ -105,7 +99,6 @@
             <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
               {{ first_post_list.0.author.first_name }} </p>
           </small>
-
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -114,7 +107,6 @@
         <div class="container">
           {% with posts|slice:"1:2" as second_post_list %}
           {% if second_post_list.0 %}
-
           <h5>
             <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
           </h5>
@@ -130,7 +122,6 @@
         <div class="container">
           {% with posts|slice:"2:3" as third_post_list %}
           {% if third_post_list.0 %}
-
           <h5>
             <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
           </h5>
@@ -146,12 +137,11 @@
       </div>
     </div>
 
-    <!--  Section Category one Start -->
+    <!-- Section Category One Start -->
     <section class="steps steps--background-white">
       <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-          <img src="/static/images/pexels-chuck-conway-350496-2890467.jpg" class="img-responsive" alt="black-hole">
-          <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
+          <img src="{% static 'images/pexels-chuck-conway-350496-2890467.jpg' %}" class="img-responsive" alt="black-hole">
         </div>
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
           <div class="steps__content-width">
@@ -165,20 +155,19 @@
               Topics in astrophysics include the life cycles of stars,
               the behavior of galaxies,
               the properties of dark matter and dark energy,
-              and the origins and fate of the universe..
+              and the origins and fate of the universe.
             </p>
           </div>
         </div>
       </div>
     </section>
-    <!-- Section one End -->
+    <!-- Section One End -->
 
     <!-- Section Category Two Start -->
     <section class="steps steps--background-black">
       <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
-          <img src="/static/images/pexels-pixabay-73910.jpg" class="img-responsive" alt="Missions Mars">
-          <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
+          <img src="{% static 'images/pexels-pixabay-73910.jpg' %}" class="img-responsive" alt="Missions Mars">
         </div>
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
           <div class="steps__content-width">
@@ -197,12 +186,11 @@
     </section>
     <!-- Section Two End -->
 
-    <!-- Section Category Tree Start -->
+    <!-- Section Category Three Start -->
     <section class="steps steps--background-white">
       <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-          <img src="/static/images/particle-shower.jpg" class="img-responsive" alt="Particle Collisions">
-          <!-- class="pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> -->
+          <img src="{% static 'images/particle-shower.jpg' %}" class="img-responsive" alt="Particle Collisions">
         </div>
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
           <div class="steps__content-width">
@@ -218,14 +206,14 @@
         </div>
       </div>
     </section>
-    <!-- Section Tree End -->
+    <!-- Section Three End -->
 
-    <!-- Section Category four Start -->
+    <!-- Section Category Four Start -->
     <section class="steps steps--background-black">
       <div class="container-custom">
         <div class="row container">
           <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
-            <img src="/static/images/pexels-pixabay-87611.jpg" class="img-responsive" alt="Solar Corona"
+            <img src="{% static 'images/pexels-pixabay-87611.jpg' %}" class="img-responsive" alt="Solar Corona"
               class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
           </div>
           <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
@@ -245,7 +233,7 @@
     </section>
     <!-- Section Four End -->
 
-    <!-- section contributors -->
+    <!-- Section Contributors -->
     <section class="container-sub steps--background-white">
       <div class="d-md-flex justify-content-center">
         <div class="container">
@@ -266,43 +254,35 @@
           <h4>Track The ISS</h4>
           <div class="iframe-container">
             <iframe class="responsive-iframe"
-              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
-              style=" border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
+              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1"
+              style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"></iframe>
           </div>
           <a href="{% url 'iss-location' %}" class="text-muted">Go To the ISS</a>
         </div>
       </div>
     </section>
 
-    <!-- newsletter subscribtion-->
+    <!-- Newsletter Subscription -->
     <section class="container-sub margin-sub" id="newsletter-subscribtion">
       <div class="row">
         <h1>Subscribe to our Newsletter</h1>
-        
-
-          <form method="POST" action="{% url 'subscribe' %}">
-            {% csrf_token %}
-
-            <div class="container mb-3"> 
-
-              <label for="exampleFormControlInput1" class="form-label">Login: </label>
-              
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="your name">
-            </div>
-
-            <div class="container mb-3">
-
-              <label for="email">Email:</label>
-              <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="name@example.com" required>
-              <br>
-              <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
-            </div>
-
-          </form>
-        
+        <form method="POST" action="{% url 'subscribe' %}">
+          {% csrf_token %}
+          <div class="container mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Login: </label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="login" placeholder="your name">
+          </div>
+          <div class="container mb-3">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email" placeholder="name@example.com" required>
+            <br>
+            <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
+          </div>
+        </form>
       </div>
     </section>
-    <!-- newsletter subscribtion end-->
+    <!-- Newsletter Subscription End -->
+
     <div class="container-custom back-to-top-button">
       <a href="#" class="color-hyperlink">Back to Top</a>
     </div>
@@ -316,9 +296,8 @@
             <span>&copy; 2024 Astro Blog</span>
           </a>
         </div>
-
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex color-hyperlink">
-          <li class="ms-3 "><a class="color-hyperlink" href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-twitter"></i></a></li>
           <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-instagram"></i></a></li>
           <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-facebook"></i></a></li>
         </ul>
