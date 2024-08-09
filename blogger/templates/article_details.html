@@ -50,7 +50,7 @@
                 <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
                 {% endif %}
                 {% else %}
-                <small class="italicize">must be logged in to like</small>
+                <small class="italicize">&#40;must be logged in to like&#41;</small>
                 {% endif%}
                 <div class="container-custom"><small> <strong> {{ total_likes }}</strong> Likes</small></div>
 
@@ -58,8 +58,11 @@
             <hr>
             <div class="container-banner">
                 <h4>Comments ....</h4>
-                <a href="{% url 'add-comment' post.pk %}"><small class="container color-hyperlink"><strong>Add
-                            Comment</strong></small></a>
+
+
+                <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary"><strong>Add
+                        Comment</strong></a>
+
 
 
                 {% if not post.comments.exists %}

@@ -141,12 +141,13 @@ body {
 }
 
 .color-hyperlink {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .color-hyperlink:hover {
-    color: rgb(255, 0, 0);
+    color: rgb(154, 16, 16);
 }
+
 
 
 .first-name,

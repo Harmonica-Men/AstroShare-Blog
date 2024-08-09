@@ -26,8 +26,8 @@ class CommentForm(forms.ModelForm):
         # fields = ('title', 'title_tag', 'author', 'category', 'body', 'image')
 
         widgets = {
-            'name' : forms.TextInput(attrs={'class': 'form-control', 'placeholder' : 'placeholder test'}),
-            'body' : forms.Textarea(attrs={'class': 'form-control'}),
+            'name' : forms.TextInput(attrs={'class': 'form-control', 'placeholder' : 'enter your name'}),
+            'body' : forms.Textarea(attrs={'class': 'form-control', 'placeholder' : 'write your comment'}),
         }
 
 class SubscriptionForm(forms.Form):
