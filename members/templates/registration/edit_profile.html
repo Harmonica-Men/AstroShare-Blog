@@ -25,19 +25,42 @@
                         {% endif %}
 
 
+                        <div class="m-3">
+                            <label for="title" class="form-label">Username</label>
+                            <input type="CharField" class="form-control" id="title" name="username"
+                                placeholder="enter username" required>
+                        </div>
 
-                        {{ form.as_p }}
-                        <button class="btn btn-primary">Update Profile</button>
+                        <div class="m-3">
+                            <label for="first_name" class="form-label">Frist-name</label>
+                            <input type="CharField" class="form-control" id="first_name" name="first_name"
+                                placeholder="enter first name" required>
+                        </div>
+
+                        <div class="m-3">
+                            <label for="last_name" class="form-label">Last-name</label>
+                            <input type="CharField" class="form-control" id="last_name" name="last_name"
+                                placeholder="enter last name" required>
+                        </div>
+
+                        <div class="m-3">
+                            <label for="email" class="form-label">email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="enter email"
+                                required>
+                        </div>
+
+                        <div class="m-3">
+                            <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-sm">Change
+                                Password</a>
+                        </div>
+
+                        <div class="container-custom">
+                            <button class="btn btn-primary">Update Profile</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <!-- <hr>
-    <br>
-    <a href="{% url 'password-change' user.pk %}">Change Password</a>
-
-    <hr>
-    <br> -->
 </div>
 {% endblock %}
