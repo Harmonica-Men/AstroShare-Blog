@@ -16,7 +16,7 @@
                     <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle"
                         alt="user-profile">
                     <div class="container-custom">
-                        <small>User joined at {{ user.date_joined|date:"F j, Y" }}</small>
+                        <small>Joined at {{ user.date_joined|date:"F j, Y" }}</small>
                     </div>
                     {% else %}
                     <img src="{% static 'blogger/images/Anonymous-Profile-pic.jpg' %}"
