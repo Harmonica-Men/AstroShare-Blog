@@ -1,28 +1,32 @@
 {% extends 'base.html' %}
-
-{% block title %} Edit My Blog Post {% endblock %}
-
+{% block title %} Edit & Update Post {% endblock %}
 {% block content %}
 
 {% if user.is_authenticated %}
-<h1>Update Post</h1>
-<br>
-<br>
-<div class="from-group">
-    {% load static %}
-    <!-- <script src="{% static 'django_ckeditor_5/ckeditor5/ckeditor.js' %}"></script> -->
+<h4>Update Post ...</h4>
+<div class="container-sub">
+    <div class="d-flex justify-content-center steps--background-white rounded">
+        <div class="container-sub">
+            <div class="from-group">
+                {% load static %}
+                <!-- <script src="{% static 'django_ckeditor_5/ckeditor5/ckeditor.js' %}"></script> -->
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Update</button>
-    </form>
-</div>
-<hr>
-<br>
-{% else %}
-    <div>
-        <h2>No access to this page</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="container-custom">
+
+                        <button class="btn btn-primary">Update</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+{% else %}
+<div>
+    <h2>No access to this page</h2>
+</div>
 {% endif %}
 {% endblock %}
