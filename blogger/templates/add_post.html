@@ -3,53 +3,54 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<h4>Add Post ... </h4>
+<h4>Add Blog Post </h4>
 <section class="content">
     <div class="card steps--background-white">
         <div class="row">
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
                     {% csrf_token %}
+                    
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    <li>{{ field }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
                     <div class="m-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="title of the post"
-                            required>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="title of the post" required>
                     </div>
 
                     <div class="m-3">
                         <label for="title_tag" class="form-label">Title Tag</label>
-                        <input type="text" class="form-control" id="title_tag" name="title_tag"
-                            placeholder="title-tag of the post" required>
+                        <input type="text" class="form-control" id="title_tag" name="title_tag" placeholder="title-tag of the post" required>
                     </div>
 
-                    <div class="m-3">
-                        <label for="author" class="form-label">Author</label>
-                        <input type="text" class="form-control" id="author" name="author" placeholder="author"
-                            value="{{ user.username }}" required readonly>
-                    </div>
-
-
-                    <div class="m-3">
-                        <label for="category" class="form-label">Category</label>
-                        <select class="form-control" id="category" name="category" placeholder="choice">
-                            {% for choice in choices %}
-                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                    {{ form.author }}  
+                    <div class="m-3">{{ form.category }}</div>
+                    
+                    
+                            
 
                     <div class="m-3">
                         <label for="body" class="form-label">Body</label>
-                        <textarea class="form-control" id="body" name="body" rows="5" placeholder="Post content"
-                            required></textarea>
+                        <textarea class="form-control" id="body" name="body" rows="5" placeholder="Post content" required></textarea>
                     </div>
 
                     <div class="m-3">
                         <label for="image" class="form-label">Image</label>
                         <input type="file" class="form-control" id="image" name="image">
                     </div>
-                    <div class="m-3">
-                        <input type="submit" value="Post" class="btn btn-primary rounded custom-submit color-hyperlink">
+
+                    <div class="container-custom m-3">
+                        <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
                     </div>
                 </form>
             </div>
@@ -57,11 +58,12 @@
     </div>
 </section>
 
-
 <script>
     var name = "{{ user.id }}";
     document.getElementById("js_id").value = name;
 </script>
+
+<hr>
 {% else %}
 <div>
     <h2>No access to this page</h2>

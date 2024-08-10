@@ -59,8 +59,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogger',
-    'members',
+    'members',   
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -172,3 +173,4 @@ EMAIL_HOST_USER = 'filip.vanelslande@gmail.com'
 EMAIL_HOST_PASSWORD = 'xfmz ofjm gvib ljvu'
 DEFAULT_FROM_EMAIL = 'filip.vanelslande@gmail.com'
 SITE_URL = 'https://mail.vanelslande.com:444'
+

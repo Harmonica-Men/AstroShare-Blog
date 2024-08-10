@@ -100,21 +100,17 @@ class ArticleDetailView(DetailView):
        return context
 
 
-# class AddPostView(CreateView):
-#     model = Post
-#     form_class = PostForm
-#     template_name = 'add_post.html'
 
 class AddPostView(CreateView):
-    model = Category
+    model = Post
     form_class = PostForm
     template_name = 'add_post.html'
-    success_url = reverse_lazy('post_list') 
+    success_url = reverse_lazy('frontpage-blogpost')  
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['choices'] = Category.objects.all().values_list('name', 'name')
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['choices'] = Category.objects.all().values_list('name', 'name')
+    #     return context
 
 class AddCommentView(CreateView):
     model = Comment
