@@ -4,7 +4,7 @@
 
 {% if user.is_authenticated %}
 <h4>Add Blog Post </h4>
-<section>
+<section class="full-height">
     <div class="card steps--background-white">
         <div class="row">
             <div class="form-group">
@@ -62,8 +62,6 @@
     var name = "{{ user.id }}";
     document.getElementById("js_id").value = name;
 </script>
-
-<hr>
 {% else %}
 <div>
     <h2>No access to this page</h2>
