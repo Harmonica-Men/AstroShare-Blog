@@ -1,28 +1,43 @@
 {% extends 'base.html' %}
-
 {% block title %} Edit Profile Page {% endblock %}
-
 {% block content %}
 
+<h4>Edit Settings ... </h4>
+<!-- user : {{ user.profile.id }}  -->
+<div class="full-height">
+    <section class="content">
+        <div class="card steps--background-white">
+            <div class="row container-banner">
+                <div class="from-group">
+                    <form method="POST">
+                        {% csrf_token %}
 
-<h1>Edit Settings ... </h1>
-<br>
-user : {{ user.profile.id }} 
-<br>
-<div class="from-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Update Profile</button>
-    </form>
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                <li>{{ field }}: {{ error }}</li>
+                                {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+
+
+                        {{ form.as_p }}
+                        <button class="btn btn-primary">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <hr>
+    <br>
+    <a href="{% url 'password-change' user.pk %}">Change Password</a>
+
+    <hr>
+    <br> -->
 </div>
-
-
-<hr>
-<br>
-<a href="{% url 'password-change' user.pk %}">Change Password</a>
-
-<hr>
-<br>
-    
 {% endblock %}
