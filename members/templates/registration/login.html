@@ -2,34 +2,35 @@
 {% block title %}Login Page{% endblock %}
 {% block content %}
 
-<h4>Login ... </h4> 
-<div class="full-height">
-    
-    <section class=" container-login">
-        <div class="card steps--background-white">
-            <div class="row">
-                <div class="form-group">
+<h4>Login ... </h4>
+<div>
+    <div class="container-login">
+        <div>
+            <div>
+                <div>
+                    <div class="form-group">
 
-                    <form method="POST" action="{% url 'login' %}">
-                        {% csrf_token %}
-                        <div class="container-sub mb-3">
-                            <label for="username" class="form-label">Username: </label>
-                            <input type="text" class="form-control" id="username" name="username"
-                                placeholder="your username" required>
-                        </div>
-                        <div class="container-sub mb-3">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password"
-                                placeholder="your password" required>
-                            <br>
-                            <input type="submit" value="Login"
-                                class="btn btn-primary rounded custom-submit color-hyperlink">
-                        </div>
-                    </form>
+                        <form method="POST" action="{% url 'subscribe' %}">
+                            {% csrf_token %}
+                            <div class="container-sub mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Username: </label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="login"
+                                    placeholder="your username">
+                            </div>
+                            <div class="container-sub mb-3">
+                                <label for="email">Password:</label>
+                                <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email"
+                                    placeholder="name@example.com" required>
+                                <br>
+                                <input type="submit" value="Submit"
+                                    class="btn btn-primary rounded custom-submit color-hyperlink">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </div>
 
 {% endblock %}
