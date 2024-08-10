@@ -3,12 +3,11 @@
 {% block content %}
 
 <h4>Edit Settings ... </h4>
-<!-- user : {{ user.profile.id }}  -->
 <div class="full-height">
-    <section class="content">
+    <section>
         <div class="card steps--background-white">
             <div class="row container-banner">
-                <div class="from-group">
+                <div class="form-group">
                     <form method="POST">
                         {% csrf_token %}
 
@@ -24,35 +23,38 @@
                         </div>
                         {% endif %}
 
-
+                        <!-- Render the form fields with current user data -->
                         <div class="m-3">
-                            <label for="title" class="form-label">Username</label>
-                            <input type="CharField" class="form-control" id="title" name="username"
-                                placeholder="enter username" required>
+                            <label for="id_username" class="form-label">Username</label>
+                            {{ form.username }}
                         </div>
 
                         <div class="m-3">
-                            <label for="first_name" class="form-label">Frist-name</label>
-                            <input type="CharField" class="form-control" id="first_name" name="first_name"
-                                placeholder="enter first name" required>
+                            <label for="id_first_name" class="form-label">First Name</label>
+                            {{ form.first_name }}
                         </div>
 
                         <div class="m-3">
-                            <label for="last_name" class="form-label">Last-name</label>
-                            <input type="CharField" class="form-control" id="last_name" name="last_name"
-                                placeholder="enter last name" required>
+                            <label for="id_last_name" class="form-label">Last Name</label>
+                            {{ form.last_name }}
                         </div>
 
                         <div class="m-3">
-                            <label for="email" class="form-label">email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="enter email"
-                                required>
+                            <label for="id_email" class="form-label">Email</label>
+                            {{ form.email }}
                         </div>
 
                         <div class="m-3">
                             <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-sm">Change
                                 Password</a>
+                            <div>
+                                <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
+                            </div>
+                            <div>
+                                <small>{{ user.last_login }}</small>
+                            </div>
                         </div>
+
 
                         <div class="container-custom">
                             <button class="btn btn-primary">Update Profile</button>
