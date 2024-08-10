@@ -4,22 +4,54 @@
 
 {% if user.is_authenticated %}
     {% if user.id == profile.user.id %}
-    <h4>Edit Profile Page</h4>
-    <div class="full-height">
-        <section class="container-sub">
-            <div class="card steps--background-white">
-                <div class="container-banner">
-                    <div class="form-group">
-                        <form method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit" class="btn btn-secondary">Update Profile</button>
-                        </form>
+        <h4>Edit Profile Page</h4>
+        <div class="full-height">
+            <section class="container-sub">
+                <div class="card steps--background-white">
+                    <div class="container-banner">
+                        <div class="form-group">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="m-3">
+                                    <label for="bio" class="form-label">Bio</label>
+                                    <textarea class="form-control" id="bio" name="bio" rows="4" 
+                                        placeholder="Bio of the post" required>{{ profile.bio }}</textarea>
+                                </div>
+
+                                <div class="m-3">
+                                    <label for="website_url" class="form-label">Website URL</label>
+                                    <input type="text" class="form-control" id="website_url" name="website_url"
+                                        placeholder="Website URL" value="{{ profile.website_url }}" required>
+                                </div>
+
+                                <div class="m-3">
+                                    <label for="twitter_url" class="form-label">Twitter URL</label>
+                                    <input type="text" class="form-control" id="twitter_url" name="twitter_url"
+                                        placeholder="Twitter URL" value="{{ profile.twitter_url }}" required>
+                                </div>
+
+                                <div class="m-3">
+                                    <label for="instagram_url" class="form-label">Instagram URL</label>
+                                    <input type="text" class="form-control" id="instagram_url" name="instagram_url"
+                                        placeholder="Instagram URL" value="{{ profile.instagram_url }}" required>
+                                </div>
+
+                                <div class="m-3">
+                                    <label for="facebook_url" class="form-label">Facebook URL</label>
+                                    <input type="text" class="form-control" id="facebook_url" name="facebook_url"
+                                        placeholder="Facebook URL" value="{{ profile.facebook_url }}" required>
+                                </div>
+
+                                <div class="container-custom">
+                                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
 
     {% else %}
 
