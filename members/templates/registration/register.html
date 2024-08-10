@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
-
-{% block title %} Do Register here{% endblock %}
-
+{% block title %}Register Page{% endblock %}
 {% block content %}
+<h4>Register here ...</h4>
+<div class="container-sub">
 
+    <div class="d-flex justify-content-center steps--background-white rounded">
+        <div class="container-sub">
+            <!-- style="font-size: 14px;" -->
+            <div class="form-group">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
 
-<h1>Register and Join the Blog</h1>
-<br>
-<br>
-<div class="from-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Register</button>
-    </form>
+                    <div class="container-custom">
+
+                        <input type="submit" value="Submit"
+                            class="btn btn-primary rounded custom-submit color-hyperlink">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-<hr>
-<br>
-    
 {% endblock %}
