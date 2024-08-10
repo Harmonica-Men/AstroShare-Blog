@@ -3,31 +3,29 @@
 {% block content %}
 
 <h4>Login ... </h4>
-<div>
-    <div class="container-login">
-        <div>
-            <div>
-                <div>
-                    <div class="form-group">
-
-                        <form method="POST" action="{% url 'subscribe' %}">
-                            {% csrf_token %}
-                            <div class="container-sub mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Username: </label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="login"
-                                    placeholder="your username">
-                            </div>
-                            <div class="container-sub mb-3">
-                                <label for="email">Password:</label>
-                                <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email"
-                                    placeholder="name@example.com" required>
-                                <br>
-                                <input type="submit" value="Submit"
-                                    class="btn btn-primary rounded custom-submit color-hyperlink">
-                            </div>
-                        </form>
+<div class="full-height">
+    <div class="d-flex justify-content-center steps--background-white rounded">
+        <div class="container-sub" style="width:85%;">
+            <div class="form-group">
+                <form method="POST" action="{% url 'subscribe' %}">
+                    {% csrf_token %}
+                    <div class="row m-3">
+                        <label for="exampleFormControlInput1" class="form-label">Username: </label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="login"
+                            placeholder="your username">
                     </div>
-                </div>
+                    <br>
+                    <div class="row m-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" name="password"
+                            placeholder="your password" required>
+                    </div>
+                    
+                    <div class="container-custom">
+                        <input type="submit" value="Submit"
+                            class="btn btn-primary rounded custom-submit color-hyperlink">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -306,15 +306,23 @@ a:hover {
     padding: 20px;
 }
 
-
-.container-login {
+/* .container-custom {
     background-color: white;
-    text-align: left;
     width: 35%;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    margin: 0 auto;
-}
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+
+/* .container-login {
+    background-color: white;
+    width: 35%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
 
 /* Custom Container */
 .container-custom {
@@ -325,8 +333,6 @@ a:hover {
     margin: 0 auto;
     /* display: flex;
     justify-content: space-between; */
-
-
 }
 
 /* Add this CSS to your stylesheet */
