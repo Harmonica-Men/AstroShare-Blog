@@ -9,3 +9,26 @@
     <p>Please check your email to confirm your subscription.</p>
 </body>
 </html>
+
+{% extends 'base.html' %}
+{% block title %}TY subscription{% endblock %}
+{% block content %}
+
+<h4>Thank you for subscribing!</h4>
+<div class="full-height">
+    <section>
+        <div class="card steps--background-white">
+            <div class="container-custom">
+                <div class="container-sub">
+                    <p><strong><p>Please check your email to confirm your subscription.</p></strong></p>
+                    <img src="/static/images/TY-for-subcribing.jpg" class="img-thumbnail w-25" alt="404 - black hole">
+                </div>
+                <div class="container-custom">
+                    <strong><a href="/">Return to homepage</a></strong>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
