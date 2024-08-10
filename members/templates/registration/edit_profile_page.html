@@ -1,33 +1,36 @@
 {% extends 'base.html' %}
-
-{% block title %} Edit Profile page {% endblock %}
-
+{% block title %} Edit Profile Page {% endblock %}
 {% block content %}
-    {% if user.is_authenticated %}
 
-        {% if user.id == profile.user.id %}
-        
-            <h1>Edit Profile page</h1>
-            <br><br>
-            <div class="form-group">
-                
-
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="btn btn-secondary">Update Profile page</button>
-                </form>
+{% if user.is_authenticated %}
+    {% if user.id == profile.user.id %}
+    <h4>Edit Profile Page</h4>
+    <div class="full-height">
+        <section class="container-sub">
+            <div class="card steps--background-white">
+                <div class="container-banner">
+                    <div class="form-group">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-secondary">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            
-            <hr>
-            <br>
+        </section>
+    </div>
 
-        {% else %}
-            
-            <p>Sorry no access </p>
-        {% endif %}
-        
     {% else %}
-    <p>You need to <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to make changes.</p>
+
+    <p>Sorry, you do not have access to this page.</p>
+
     {% endif %}
+
+{% else %}
+
+<p>You need to <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to make changes.</p>
+
+{% endif %}
+
 {% endblock %}
