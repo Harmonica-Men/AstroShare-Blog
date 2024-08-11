@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'homepage' %}">
@@ -36,6 +35,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
         <ul class="navbar-nav me-auto">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
+          </li>
+          {% endif %}
           {% if cat_menu %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
@@ -57,24 +61,22 @@
             <a class="nav-link" href="{% url 'category-list' %}">Category List Menu</a>
           </li>
           {% endif %}
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
-          </li>
-
-          {% endif %}
         </ul>
 
         <ul class="navbar-nav ms-auto">
           {% if user.is_authenticated %}
           {% if user.profile.id %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'edit-profile' %}">ID: {{ user.first_name }}</a>
+            <a class="nav-link" href="{% url 'edit-profile-page' user.profile.id %}">
+              Logged in as:<strong style="color: white;"> {{ user.first_name }}</strong></a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create-profile-page' %}">
+              Logged in as:<strong style="color: white;"> {{ user.first_name }}</strong></a>
           </li>
           {% endif %}
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
@@ -90,8 +92,6 @@
       </div>
     </div>
   </nav>
-
-
 
   <div class="container mt-4">
     {% block content %}
