@@ -36,7 +36,7 @@
   <!-- Category Hero -->
   <section class="hero" id="top-page">
     <div class="hero__overlay"></div>
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero__video">
+    <video playsinline autoplay muted loop loading="lazy" class="hero__video">
       <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
     </video>
 
@@ -78,14 +78,28 @@
       <div class="row justify-content-center">
         <div class="col-md-9 text-center">
           <h4>Astronomy Picture of the Day</h4>
-          <img id="image" src="" alt="Astronomy Picture of the Day" class="img-thumbnail" loading="lazy">
+
+          <!-- Container for the media -->
+          <div id="media-container" class="img-thumbnail">
+            <!-- Image element, hidden initially -->
+            <img id="image" src="" alt="Astronomy Picture of the Day" class="img-fluid d-none" loading="lazy">
+
+            <!-- Video element, hidden initially -->
+            <video id="video" controls class="img-fluid d-none" loading="lazy">
+              <source id="video-source" src="" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
           <h6 id="title">*</h6>
           <div class="container-custom">
-            <a href="{% url 'nasa-picture-of-the-day' %}"><small><strong>Read more</strong></small></a>
+            <a href="{% url 'nasa-picture-of-the-day' %}">Read more</a>
           </div>
         </div>
       </div>
+
       <script src="{% static 'js/script.js' %}"></script>
+
 
       <div class="container-banner">
         <h3 class="text-center">Latest post ...</h3>
@@ -141,7 +155,8 @@
     <section class="steps steps--background-white">
       <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
-          <img src="{% static 'images/pexels-chuck-conway-350496-2890467.jpg' %}" class="img-responsive" alt="black-hole">
+          <img src="{% static 'images/pexels-chuck-conway-350496-2890467.jpg' %}" class="img-responsive"
+            alt="black-hole">
         </div>
         <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
           <div class="steps__content-width">
@@ -274,7 +289,8 @@
           </div>
           <div class="container mb-3">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email" placeholder="name@example.com" required>
+            <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email"
+              placeholder="name@example.com" required>
             <br>
             <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
           </div>
