@@ -263,6 +263,7 @@ def subscribe(request):
 
     return render(request, 'subscribe.html', {'form': form})
 
+
 def confirm_subscription(request):
     code = request.GET.get('code')
 
@@ -273,5 +274,4 @@ def confirm_subscription(request):
     subscriber.is_confirmed = True
     subscriber.save()
 
-    return HttpResponse('Subscription confirmed. Thank you!')
-
+    return render(request, 'confirm_subscription.html')
