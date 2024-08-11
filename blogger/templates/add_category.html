@@ -1,33 +1,52 @@
 {% extends 'base.html' %}
-{% block title %} Create a new blog Category {% endblock %}
+{% block title %} Create a new Blog Category {% endblock %}
 {% block content %}
 
 {% if user.is_authenticated %}
-<h1>Add Category ...  </h1>
-<br>
-<br>
-<div class="form-group">
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Add Category</button>
-    </form>
-</div>
-<script>
-    var name = "{{ user.id }}";
-    document.getElementById("js_id").value = name;
-</script>
+<h1>Add Category ... </h1>
+<section class="full-height">
+    <div class="d-flex justify-content-center steps--background-white rounded">
+        <div class="container-sub">
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-<hr>
-{% else %}
-    <div>
-        <h2>No access to this page</h2>
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                            <li>{{ field }}: {{ error }}</li>
+                            {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <div class="m-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name of the post"
+                            required>
+                    </div>
+
+                    <div class="m-3">
+                        <label for="category_description" class="form-label">Description</label>
+                        <textarea class="form-control" id="category_description" name="category_description" rows="5"
+                            placeholder="Post content" required></textarea>
+                    </div>
+
+                    <div class="container-custom m-3">
+                        <input type="submit" value="Submit"
+                            class="btn btn-primary rounded custom-submit color-hyperlink">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</section>
+{% else %}
+<div>
+    <h2>No access to this page</h2>
+</div>
 {% endif %}
-
-<br>
-<a href="{% url 'homepage' %}" class="alert alert-secondary">Back to homepage</a>
-<br>
-
-
 {% endblock %}

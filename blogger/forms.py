@@ -2,8 +2,8 @@ from django import forms
 from .models import Post, Category, Comment, Subscriber
 
 
-from django import forms
-from .models import Post, Category
+# from django import forms
+# from .models import Post, Category
 
 
 
