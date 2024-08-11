@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISS Location</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Plotly JS CDN -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .card {
+            background-color: #1c1c1c;
+            border: none;
+        }
+        .alert-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .alert-info {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Current Location of the ISS</h1>
-    <div>{{ plot_html|safe }}</div>
-    <p>Latitude: {{ latitude }}</p>
-    <p>Longitude: {{ longitude }}</p>
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="display-4">Current Location of the ISS</h1>
+            <p class="lead">Tracking the real-time location of the International Space Station</p>
+        </div>
+
+        <div class="card my-4 shadow-sm">
+            <div class="card-body">
+                <div id="iss-plot">
+                    {{ plot_html|safe }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-6">
+                <div class="alert alert-primary" role="alert">
+                    <strong>Latitude:</strong> {{ latitude }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-info" role="alert">
+                    <strong>Longitude:</strong> {{ longitude }}
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <strong>
+                <p class="text-muted">Timestamp: {{ timestamp }} UTC</p>
+                <strong><a href="{% url 'frontpage-blogpost' %}">Return to blogpost</a></strong>
+            </strong>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

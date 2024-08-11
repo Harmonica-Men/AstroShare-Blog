@@ -11,6 +11,7 @@ from .forms import PostForm, CommentForm, SubscriptionForm
 from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
+from datetime import datetime
 
 
 
@@ -171,6 +172,11 @@ def nasa_picture_of_the_day(request):
     return render(request, 'nasa_picture.html', context)
 
 
+from django.shortcuts import render
+import requests
+from datetime import datetime
+import plotly.graph_objects as go
+import plotly.io as pio
 
 def iss_location(request):
     # Fetch current ISS location data
@@ -179,56 +185,36 @@ def iss_location(request):
     latitude = float(data['iss_position']['latitude'])
     longitude = float(data['iss_position']['longitude'])
 
-    # Define an endpoint to fetch recent ISS positions (for trajectory)
-    # Here we simulate the trajectory data; in a real scenario, you would fetch it from an appropriate data source
-    trajectory = [
-      
-        {'latitude': latitude, 'longitude': longitude},
-        {'latitude': latitude - 1, 'longitude': longitude + 2},
-        {'latitude': latitude - 2, 'longitude': longitude + 4},
-        {'latitude': latitude - 3, 'longitude': longitude + 8},
-
-    ]
-    
-    lats = [point['latitude'] for point in trajectory]
-    lons = [point['longitude'] for point in trajectory]
-
-    # Create Plotly figure
+    # Create Plotly figure for the ISS current location only
     fig = go.Figure()
 
     # Plot the ISS current location
     fig.add_trace(go.Scattergeo(
         lon=[longitude],
         lat=[latitude],
-        text="Current ISS Location",
+        # text="Current ISS Location",
         mode='markers',
         marker=dict(size=10, color='red')
     ))
 
-    # Plot the ISS trajectory
-    fig.add_trace(go.Scattergeo(
-        lon=lons,
-        lat=lats,
-        mode='lines',
-        line=dict(width=2, color='blue'),
-        name='ISS Trajectory'
-    ))
-
     fig.update_layout(
-        title='Current Location and Trajectory of the ISS',
+        title='Current Location of the ISS',
         geo_scope='world',
     )
 
     # Convert the figure to HTML
     fig_html = pio.to_html(fig, full_html=False)
 
-    # Render the template with the plot and ISS coordinates
+    # Get the current timestamp
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    # Render the template with the plot, ISS coordinates, and timestamp
     return render(request, 'iss_location.html', {
         'plot_html': fig_html,
         'latitude': latitude,
-        'longitude': longitude
+        'longitude': longitude,
+        'timestamp': timestamp
     })
-
 
 logger = logging.getLogger(__name__)
 
@@ -275,3 +261,5 @@ def confirm_subscription(request):
     subscriber.save()
 
     return render(request, 'confirm_subscription.html')
+
+
