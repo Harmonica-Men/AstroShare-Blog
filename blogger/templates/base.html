@@ -26,7 +26,6 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="{% url 'homepage' %}">Home Page</a> -->
       <a class="navbar-brand" href="{% url 'homepage' %}">
         <i class="bi bi-house"></i>
       </a>
@@ -36,55 +35,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'frontpage-blogpost' %}">Front Page Blog</a>
-          </li>
-
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Profile
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li>
-                <a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Settings</a>
-              </li>
-              <li>
-                {% if user.profile.id %}
-                <a class="dropdown-item" href="{% url 'edit-profile-page' user.profile.id %}">Edit Profile Page</a>
-                {% else %}
-                <a class="dropdown-item" href="{% url 'create-profile-page' %}">Create Profile Page</a>
-                {% endif %}
-              </li>
-              <li>
-                {% if user.profile.id %}
-                <a class="dropdown-item" href="{% url 'show-profile-page' user.profile.id %}">Show Profile Page</a>
-                {% else %}
-                <a class="dropdown-item" href="{% url 'create-profile-page' %}">Create Profile Page</a>
-                {% endif %}
-              </li>
-            </ul>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          {% endif %}
-
+        <ul class="navbar-nav me-auto">
           {% if cat_menu %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
@@ -106,29 +57,41 @@
             <a class="nav-link" href="{% url 'category-list' %}">Category List Menu</a>
           </li>
           {% endif %}
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-newcategory' %}">Add Category</a>
+          </li>
+
+          {% endif %}
         </ul>
 
-        <div class="d-flex">
-          <form method="get" action="{% url 'search' %}">
-            <div class="control has-icons-left">
-              <input class="input is-rounded" name="query" type="text" placeholder="Search">
-              <span class="icon is-left">
-                <i class="fa fa-search"></i>
-              </span>
-            </div>
-          </form>
-        </div>
-
-        {% if user.is_authenticated and user.profile.id %}
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
+          {% if user.profile.id %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'edit-profile' %}">ID: {{ user.first_name }}</a>
           </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          {% endif %}
         </ul>
-        {% endif %}
       </div>
     </div>
   </nav>
+
+
 
   <div class="container mt-4">
     {% block content %}
@@ -137,10 +100,10 @@
 
   <!-- Footer Start -->
 
-  
-   <!-- Footer Start -->
-  
-   <footer class="footer bg-dark">
+
+  <!-- Footer Start -->
+
+  <footer class="footer bg-dark">
     <div class="d-flex justify-content-between align-items-center py-3 border-highlight">
       <div class="col-md-4 d-flex align-items-center">
         <a href="/" class="me-2 text-muted text-decoration-none">
@@ -157,7 +120,7 @@
     </div>
   </footer>
   <!-- Footer End -->
-  
+
 
   <!-- Footer End -->
 

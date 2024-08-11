@@ -2,6 +2,7 @@
 {% block title %} Edit Profile Page {% endblock %}
 {% block content %}
 
+
 <h4>Edit Settings ... </h4>
 <div class="full-height">
     <section>
@@ -49,15 +50,22 @@
                                 Password</a>
                             <div>
                                 <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
-                            </div>
-                            <div>
+
                                 <small>{{ user.last_login }}</small>
                             </div>
                         </div>
 
 
                         <div class="container-custom">
-                            <button class="btn btn-primary">Update Profile</button>
+                            <button class="btn btn-primary w-25">Update Profile</button>
+
+
+                            {% if user.profile.id %}
+                            <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25">
+                                Show Profile</a>
+                            {% else %}
+                            <a href="{% url 'create-profile-page' %}" class="btn btn-primary w-25">Create Profile</a>
+                            {% endif %}
                         </div>
                     </form>
                 </div>
