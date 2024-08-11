@@ -172,12 +172,6 @@ def nasa_picture_of_the_day(request):
     return render(request, 'nasa_picture.html', context)
 
 
-from django.shortcuts import render
-import requests
-from datetime import datetime
-import plotly.graph_objects as go
-import plotly.io as pio
-
 def iss_location(request):
     # Fetch current ISS location data
     response = requests.get('http://api.open-notify.org/iss-now.json')
@@ -192,13 +186,13 @@ def iss_location(request):
     fig.add_trace(go.Scattergeo(
         lon=[longitude],
         lat=[latitude],
-        # text="Current ISS Location",
+        text="Current ISS Location",
         mode='markers',
-        marker=dict(size=10, color='red')
+        marker=dict(size=12, color='red')  # Increased marker size for visibility
     ))
 
     fig.update_layout(
-        title='Current Location of the ISS',
+        # title='Current Location of the ISS',
         geo_scope='world',
     )
 

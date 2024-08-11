@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/styles.css" rel="stylesheet">
     <title>ISS Location</title>
     
     <!-- Bootstrap CSS CDN -->
@@ -10,32 +11,19 @@
     
     <!-- Plotly JS CDN -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    
-    <!-- Custom styles -->
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-        .card {
-            background-color: #1c1c1c;
-            border: none;
-        }
-        .alert-primary {
-            background-color: #007bff;
-            color: #fff;
-        }
-        .alert-info {
-            background-color: #17a2b8;
-            color: #fff;
-        }
-    </style>
+        
 </head>
 <body>
     <div class="container mt-5">
-        <div class="text-center">
+        <div class="text-center" style="color: white;">
             <h1 class="display-4">Current Location of the ISS</h1>
             <p class="lead">Tracking the real-time location of the International Space Station</p>
+        </div>
+
+        <div class="text-center mt-4" style="color: white;">
+            <strong>
+                <p>Timestamp: {{ timestamp }} UTC</p>
+            </strong>
         </div>
 
         <div class="card my-4 shadow-sm">
@@ -60,10 +48,7 @@
         </div>
 
         <div class="text-center mt-4">
-            <strong>
-                <p class="text-muted">Timestamp: {{ timestamp }} UTC</p>
-                <strong><a href="{% url 'frontpage-blogpost' %}">Return to blogpost</a></strong>
-            </strong>
+            <strong><a href="{% url 'homepage' %}">Return to blogpost</a></strong>
         </div>
 
     </div>
