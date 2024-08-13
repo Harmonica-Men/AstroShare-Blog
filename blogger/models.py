@@ -20,6 +20,7 @@ class Category(models.Model):
 
      def __str__(self):
          return self.name
+         return self.category_discription
 
      def get_absolute_url(self):
          return reverse('frontpage-blogpost') 
@@ -59,7 +60,7 @@ class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
-    category = models.CharField(max_length=200, default='coding')
+    category = models.CharField(max_length=200)
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
 
     def total_likes(self):

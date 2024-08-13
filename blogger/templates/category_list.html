@@ -8,6 +8,7 @@
         <div class="container-sub">
             {% for item in cat_menu_list %}
             <small>
+                
                 <a class="dropdown-item" href="{% url 'category' item|slugify %}">
                     {{ item }}
                 </a>
