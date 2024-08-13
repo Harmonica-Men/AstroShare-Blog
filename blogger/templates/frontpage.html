@@ -56,7 +56,8 @@
           class="color-hyperlink"><small><strong>read more</strong></small></a>
         </div>
         <p class="italicize"> Posted: {{ post.post_date }} Category:
-          <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
+          <!-- <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a> -->
+          <a href="{% url 'category' post.category %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
           By: <small class="last-name">{{ post.author.last_name }}</small>,
           <small class="first-name">{{ post.author.first_name }}</small>
         </p>

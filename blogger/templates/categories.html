@@ -2,7 +2,7 @@
 {% block title %} {{ post.title }} {% endblock %}
 {% block content %}
 
-test
+
 {{ post.category_posts }}
 
 {% if category_posts %}
@@ -10,31 +10,37 @@ test
 
 
 <h1>Posts in {{ cats }}</h1>
-<div class="full-height">
+<div class="container-banner">
     <ul>
         {% for post in category_posts %}
-        <li>{{ post.title }}
-            <a href="{% url 'article-detail' post.pk %}">
-                {{ post.category }}
-                {{ post.title }}</a> {{ post.auth }} <br>
+        <li>
+            <h4><strong>{{ post.title }}</strong></h4>
+
             author: {{ post.author }} <br>
             cat: {{ post.category }} - {{ post.post_date }}
-
             <br>
 
             {% if user.is_authenticated %}
             {% if user.id == post.author.id %}
 
-            <a href="{% url 'update-post' post.pk %}">EDIT</a> --
+            <p>
+                <a href="{% url 'update-post' post.pk %}"> Edit </a> or
 
-            <a href="{% url 'delete-post' post.pk %}">DELETE POST</a>
+                <a href="{% url 'delete-post' post.pk %}">Delete Post</a>
+            </p>
             {% endif %}
 
             {% endif %}
 
-            {{ post.body }}
-
+            <!-- {{ post.body }} -->
             <br>
+            {{ post.body|slice:":200" }}
+            <br>
+
+            <a href="{% url 'article-detail' post.pk %}">
+                <strong>read more</strong></a> {{ post.auth }} <br>
+
+
             <hr>
 
 
