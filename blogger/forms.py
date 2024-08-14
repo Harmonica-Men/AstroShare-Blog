@@ -1,11 +1,8 @@
 from django import forms
-from .models import Post, Category, Comment, Subscriber
+from .models import Comment, Subscriber
+from .models import Post, Category
 
-
-# from django import forms
 # from .models import Post, Category
-
-
 
 class PostForm(forms.ModelForm):
     category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Select Category")

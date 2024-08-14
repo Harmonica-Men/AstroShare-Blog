@@ -10,20 +10,21 @@ from django.utils.crypto import get_random_string
 
 
 class Category(models.Model):
-     name = models.CharField(max_length=200)
-     category_discription = models.TextField(blank=True, null=True)
+ 
+    name = models.CharField(max_length=254, primary_key=True)
+    # slug = models.SlugField(unique=True)
+    category_discription = models.TextField(blank=True, null=True)
 
-     class Meta:
-         ordering = ('name',)
-        # verbose_name_plural = "bnaane"
-         verbose_name_plural = 'Categories'
+    class Meta:
+        ordering = ('name',)        
+        verbose_name_plural = 'Categories'
 
-     def __str__(self):
-         return self.name
-         return self.category_discription
+    def __str__(self):
+        return self.name
+        return self.category_discription
 
-     def get_absolute_url(self):
-         return reverse('frontpage-blogpost') 
+    def get_absolute_url(self):
+        return reverse('frontpage-blogpost') 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
@@ -40,6 +41,8 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('frontpage-blogpost') 
+
+# class Post begins
 
 class Post(models.Model):
     ACTIVE = 'active'
@@ -60,7 +63,9 @@ class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
-    category = models.CharField(max_length=200)
+    category = models.CharField(max_length=254, default='UAP')
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE, to_field='name')
+
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
 
     def total_likes(self):
@@ -73,13 +78,12 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    
-
     def get_absolute_url(self):
         # return reverse('article-detail', args=(str(self.id)))
         return reverse('frontpage-blogpost') 
         # return f'/{self.category.slug}/{self.slug}/'
 
+# class Post ends
 
 
 class Comment(models.Model):

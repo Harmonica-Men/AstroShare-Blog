@@ -9,7 +9,8 @@
             {% for item in cat_menu_list %}
             <small>
                 
-                <a class="dropdown-item" href="{% url 'category' item|slugify %}">
+                <!-- <a class="dropdown-item" href="{% url 'category' item|slugify %}"> -->
+                    <a class="dropdown-item" href="{% url 'category' item %}">    
                     {{ item }}
                 </a>
             </small>

@@ -1,30 +1,25 @@
 import uuid
 import logging
+import plotly.graph_objects as go
+import plotly.io as pio
+import requests
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.views import View
-from .models import Post, Category, Comment, Subscriber, Profile
+from .models import Comment, Subscriber, Profile
+from .models import Post, Category
+
 from django.urls import reverse_lazy, reverse
-from .forms import PostForm, CommentForm, SubscriptionForm
+from .forms import CommentForm, SubscriptionForm
+from .forms import PostForm
 from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from datetime import datetime
 
-
-
-
-import plotly.graph_objects as go
-import plotly.io as pio
-
-import requests
-
-
-# from django.utils.text import slugify
-
-
+from django.utils.text import slugify
 
 def LikeView(request, pk):
     # post = get_object_or_404(Post, id=request.POST.get('post_id'))
@@ -43,8 +38,7 @@ def LikeView(request, pk):
     # post.likes.add(request.user)
     # return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
-# def HomepageView(request): # Homepage view
-#     return render(request, 'homepage.html')
+
 class HomepageView(TemplateView):
     model = Post
     template_name = 'homepage.html'
@@ -57,6 +51,24 @@ class HomepageView(TemplateView):
         context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:7]
 
         return context
+
+
+# blogger/views.py
+
+# class FrontpageView(ListView):
+#     model = Post
+#     template_name = 'frontpage.html'
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         category_slug = self.request.GET.get('category')
+#         if category_slug:
+#             try:
+#                 category = Category.objects.get(slug=category_slug)
+#                 context['category_name'] = category.name
+#             except Category.DoesNotExist:
+#                 context['category_name'] = 'Unknown Category'
+#         return context
 
 class FrontpageView(ListView):
     model = Post
@@ -80,7 +92,27 @@ def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
     return render(request, 'categories.html', {'cats':cats.title, 'category_posts': category_posts})
     # return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
- 
+
+# class CategoryView(View):
+    # template_name = 'categories.html'
+
+    # def get(self, request, cats):
+    #     print(f"Original cats: {cats}")
+    #     category_name = cats.replace('-', ' ')
+    #     print(f"Category name: {category_name}")
+           
+    #     # category_slug = slugify(category_name)
+    #     # print(f"Category slug: {category_slug}")
+           
+    #     category_posts = Post.objects.filter(category__iexact=category_name)
+           
+    #     context = {
+    #         'cats': category_name.title(),
+    #         'category_posts': category_posts
+    #     }
+    #     return render(request, self.template_name, context)
+
+
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article_details.html'
@@ -140,7 +172,7 @@ class DeletePostView(DeleteView):
 
 class AddCategoryView(CreateView):
     model = Category
-    # form_class = PostForm
+    form_class = PostForm
     template_name = 'add_category.html'
     fields = '__all__'
 
@@ -256,5 +288,3 @@ def confirm_subscription(request):
     subscriber.save()
 
     return render(request, 'confirm_subscription.html')
-
-
