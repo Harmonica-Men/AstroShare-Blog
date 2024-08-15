@@ -22,6 +22,12 @@ h1 {
     font-weight: bolder;
 }
 
+h2 {
+    color: white;
+    font-weight: bolder;
+}
+
+
 h3 {
     margin-top: 0.5rem;
 }
@@ -43,13 +49,19 @@ ul {
 
 body {
     font-family: 'Montserrat', Arial, sans-serif;
-
+    height: 100%;
+    margin: 0;
     text-align: left;
     background-color: black;
     /* background-size: cover;
     color: hsl(0, 0%, 100%);
     background-image: url("../images/background.webp"); */
 }
+
+html {
+    height: 100%;
+    margin: 0;
+  }
 
 .black-border {
     text-align: left;
@@ -154,14 +166,24 @@ body {
     color: rgb(255, 0, 0);
 }
 
-.full-height {
+/* .full-height {
     height: 80vh; 
     display: flex;
     flex-direction: column;
     justify-content: center; 
-}
+} */
 
+.full-height {
+    height: 100%;
+    background: yellow;
+  }
 
+  /* .container-blank {
+    text-align: left;
+    
+    padding: 8rem;
+    margin: 0 auto;
+} */
 
 .first-name,
 .last-name {
@@ -185,7 +207,7 @@ body {
 }
 
 .container-footer {
-    max-width: 100%;
+    max-width: vh100;
 }
 
 .container-frontpage {
@@ -286,7 +308,7 @@ a:hover {
 }
 
 .max-height {
-    height: auto;
+    height: vh100;
 }
 
 .container-sub {
@@ -302,6 +324,9 @@ a:hover {
     padding: 2rem;
     margin: 0 auto;
 }
+
+
+
 
 .margin-sub {
     margin-top: 20px;

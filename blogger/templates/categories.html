@@ -1,51 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} {{ cats }} {% endblock %}
 {% block content %}
 
-{% if category_posts %}
-<h1>Posts in {{ cats }}</h1>
-<div class="max-height"> 
-<div class="container-sub">
-    <ul>
-        {% for post in category_posts %}
-        <!-- <a href="{% url 'category' cats=post.category|slugify %}">{{ post.category }}</a> -->
-        <li>
-            <div class="steps--background-white rounded">
-                <div class="container-sub">
-                    <h4><strong>{{ post.title }}</strong></h4>
-                    Author: <strong>{{ post.author }}</strong> Category: <strong>{{ post.category }}</strong> Posted:
-                    <strong>{{ post.post_date }}</strong>
-                    <br>
-                    {% if user.is_authenticated %}
-                    {% if user.id == post.author.id %}
-                    <p>
-                        <a href="{% url 'update-post' post.pk %}"> Edit </a> or
-                        <a href="{% url 'delete-post' post.pk %}">Delete Post</a>
-                    </p>
-                    {% endif %}
-                    {% endif %}
-                    <br>
-                    {{ post.body|slice:":200" }}
-                    <br>
-                    <a href="{% url 'article-detail' post.pk %}">
-                        <strong>read more</strong></a> {{ post.auth }}
-                </div>
-            </div>
-            <br>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-</div>
-{% else %}
 
-<div class="max-height"> 
-    
-    
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
+    {% if category_posts %}
+        <h2>Posts in {{ cats }}</h2>
+        <div class="container-sub">
+            <ul>
+                {% for post in category_posts %}
+                <li>
+                    <div class="steps--background-white rounded">
+                        <div class="container-sub" >
+                            <div class="container-custom">
+                                {% if post.image.url %}
+                        
+                                <img src="{{ post.image.url }}" class="img-thumbnail w-25" alt="post-image" style="height: vh100">
+                        
+                                {% else %}
+                                <img src="{% static 'images/no-image-available.jpg' %}"
+                                  class="img-thumbnail.max-width: 25% height: auto; no-image-available">
+                                {% endif %}
+                              </div>
+                            <h3><strong>{{ post.title }}</strong></h3>
+                            Author: <strong>{{ post.author }}</strong> Category: <strong>{{ post.category }}</strong>
+                            Posted: <strong>{{ post.post_date }}</strong>
+                            <br>
+                            {% if user.is_authenticated %}
+                                {% if user.id == post.author.id %}
+                                    <p>
+                                        <a href="{% url 'update-post' post.pk %}"> Edit </a> or
+                                        <a href="{% url 'delete-post' post.pk %}">Delete Post</a>
+                                    </p>
+                                {% endif %}
+                            {% endif %}
+                            <br>
+                            <!-- {{ post.body }} -->
+                            {{ post.body|slice:":900" }} ...
+                            <br>
+                            <a href="{% url 'article-detail' post.pk %}"><strong>read more</strong></a> 
+                        </div>
+                    </div>
+                    <br>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+    <div class="container-sub" style="height: 100vh;">
         <h2>No Posts Found for {{ cats }}</h2>
-    
     </div>
+    {% endif %}
 
 
-{% endif %}
+</div>
+{% endwith %}
+
+
 {% endblock %}

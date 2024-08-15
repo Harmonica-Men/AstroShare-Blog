@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block title %}Astro Share Blog{% endblock %}
-
 {% block content %}
-<!-- Inner container -->
+
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="container wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
   <h4>Latest Posts ...</h4>
 
@@ -64,7 +61,7 @@
       <div>
         <h5 class="container-frontpage">{{ post.title }}</h5>
         <div class="container">
-          {{ post.body|slice:":250" }} ... <a href="{% url 'article-detail' post.pk %}"
+          {{ post.body|slice:":300" }} ... <a href="{% url 'article-detail' post.pk %}"
             class="color-hyperlink"><small><strong>read more</strong></small></a>
         </div>
         <p class="italicize"> Posted: {{ post.post_date }} Category:
