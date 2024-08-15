@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Page Not Found{% endblock %}
 {% block content %}
 
 <h4>404 - Page Not Found</h4>
-<div class="full-height">
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <section>
         <div class="card steps--background-white">
             <div class="container-custom">
@@ -18,5 +20,5 @@
         </div>
     </section>
 </div>
-
+{% endwith %}
 {% endblock %}

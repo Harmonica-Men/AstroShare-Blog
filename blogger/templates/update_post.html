@@ -1,32 +1,38 @@
 {% extends 'base.html' %}
 {% block title %} Edit & Update Post {% endblock %}
+{% load static%}
 {% block content %}
 
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 {% if user.is_authenticated %}
 <h4>Update Post ...</h4>
-<div class="container-sub">
-    <div class="d-flex justify-content-center steps--background-white rounded">
-        <div class="container-sub">
-            <div class="from-group">
-                {% load static %}
-                <!-- <script src="{% static 'django_ckeditor_5/ckeditor5/ckeditor.js' %}"></script> -->
 
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="container-custom">
+    <div class="container-sub">
+        <div class="d-flex justify-content-center steps--background-white rounded">
+            <div class="container-sub">
+                <div class="from-group">
+                    {% load static %}
+                    <!-- <script src="{% static 'django_ckeditor_5/ckeditor5/ckeditor.js' %}"></script> -->
 
-                        <button class="btn btn-primary">Update</button>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="container-custom">
 
-                    </div>
-                </form>
+                            <button class="btn btn-primary">Update</button>
+
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    {% else %}
+    <div>
+        <h2>No access to this page</h2>
+    </div>
+    {% endif %}
 </div>
-{% else %}
-<div>
-    <h2>No access to this page</h2>
-</div>
-{% endif %}
+{% endwith %}
 {% endblock %}

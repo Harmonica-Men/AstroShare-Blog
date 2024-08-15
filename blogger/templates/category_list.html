@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static%}
 {% block title %} Blog categories {% endblock %}
 {% block content %}
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
 
 <h4>Blog categories ... </h4>
 <div class="full-height">
@@ -18,5 +22,9 @@
         </div>
     </div>
 </div>
+
+</div>
+{% endwith %}
+
 
 {% endblock %}

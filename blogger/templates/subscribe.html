@@ -1,21 +1,29 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe to our Newsletter</title>
 </head>
+
 <body>
-    <div>
-        <h1>Subscribe to our Newsletter</h1>
-        <section class="black-background">
-            <h1 class="h2 mb-4">Contact Us</h1>
-            <form method="POST" action="{% url 'subscribe' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Submit">
-            </form>
-        </section>
+    {% with image_url='/images/background.webp' %}
+    <div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+        <div>
+            <h1>Subscribe to our Newsletter</h1>
+            <section class="black-background">
+                <h1 class="h2 mb-4">Contact Us</h1>
+                <form method="POST" action="{% url 'subscribe' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+        </div>
     </div>
+    {% endwith %}
 </body>
+
 </html>

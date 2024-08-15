@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
+{% load static%}
 {% block title %}Delete Blog Post{% endblock %}
 {% block content %}
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
 {% if user.is_authenticated %}
 
+
 <h4>Delete Blog Post</h4>
 
-    <section class="content">
-        <div class="card steps--background-white">
-            <div class="row container-banner">
+    <section>
+       
+        <div class="container mb-4 steps--background-white rounded">
+            <div class="row container-sub">
                 <h3><strong>Delete post: </strong> <i> {{ post.title }} </i> </h3>
                 <div class="form-group">
                     <form method="POST">
@@ -24,9 +29,13 @@
                     </form>
                 </div>
             </div>
-        </div>
+       
+    </div>
     </section>
 
 {% endif %}
+
+</div>
+{% endwith %}
 
 {% endblock %}

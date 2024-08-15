@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,12 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         
 </head>
+
+
+
 <body>
+    {% with image_url='/images/background.webp' %}
+    <div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container mt-5">
         <div class="text-center" style="color: white;">
             <h1 class="display-4">Current Location of the ISS</h1>
@@ -53,9 +59,15 @@
 
     </div>
 
+</div>
+{% endwith %}
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </body>
+
 </html>

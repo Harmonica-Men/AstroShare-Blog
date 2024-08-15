@@ -58,8 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogger',
-    'crispy_forms',
+    'blogger',    
     'members',
 ]
 
@@ -93,8 +92,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AstroShareBlog.wsgi.application'
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

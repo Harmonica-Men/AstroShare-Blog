@@ -5,7 +5,9 @@
 <!-- 
 <h4>Article ...</h4> -->
 
-<div class="content">
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
     <section class="container-sub">
         <div class="card steps--background-white" style="width: auto;">
             <div class="container-custom">
@@ -96,6 +98,9 @@
     </section>
 </div>
 
+
+</div>
+{% endwith %}
 
 
 
