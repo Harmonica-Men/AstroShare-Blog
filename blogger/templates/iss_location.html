@@ -17,7 +17,7 @@
 
 
 
-<body>
+<body style="background-color: black;">
     {% with image_url='/images/background.webp' %}
     <div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container mt-5">
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="text-center mt-4">
+        <div class="text-center mt-4" style="padding: 1.5rem;">
             <strong><a href="{% url 'homepage' %}">Return to blogpost</a></strong>
         </div>
 
