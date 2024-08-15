@@ -22,8 +22,13 @@
             <div class="card-body">
                 <div class="container-custom">
                     <small>Posted: <strong>{{ post.post_date }}</strong> By: </small>
+                    
                     <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
-                    <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>
+                    <!-- <small class="last-name"><strong>{{ post.author.last_name }}</strong></small> -->
+                    <a href="{% url 'show-profile-page' post.author.id %}">
+                        <strong>{{ post.author.last_name }}</strong>
+                    </a>
+                    
                     <small>Category: <strong>{{ post.category }}</strong> </small>
                 </div>
 
