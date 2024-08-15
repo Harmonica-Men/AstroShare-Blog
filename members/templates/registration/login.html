@@ -6,9 +6,9 @@
 <div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
 <h4>Login</h4>
-<div class="container-banner">
+<div class="container-banner" style="padding: 12rem;">
     <div class="d-flex justify-content-center steps--background-white rounded">
-        <div class="container-sub" style="width: 85%;">
+        <div class="container-sub">
             <div class="form-group">
                 <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
