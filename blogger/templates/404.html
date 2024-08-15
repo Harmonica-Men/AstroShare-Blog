@@ -3,12 +3,16 @@
 {% block title %}Page Not Found{% endblock %}
 {% block content %}
 
-<h4>404 - Page Not Found</h4>
+
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <section>
-        <div class="card steps--background-white">
-            <div class="container-custom">
+
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <h2 style="padding-left: 7rem;">404 - Page Not Found</h2>    
+    <section class="container-banner"  style="padding: 10rem;">
+
+        
+        <div class="container-custom steps--background-white rounded">
+            <div class="container-sub">
                 <div class="container-sub">
                     <p><strong>There is nothing here</strong></p>
                     <img src="/static/images/black-hole1.webp" class="img-thumbnail w-25" alt="404 - black hole">
