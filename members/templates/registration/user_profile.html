@@ -5,6 +5,11 @@
 
 {% block content %}
 
+
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
+
 <h4>User Profile ...</h4>
 
 <section class="full-height">
@@ -38,6 +43,7 @@
 </section>
 
 
-
+</div>
+{% endwith %}
 
 {% endblock %}
