@@ -2,21 +2,18 @@
 {% block title %}Register Page{% endblock %}
 {% block content %}
 <h4>Register here ...</h4>
-<div class="container-sub">
+<div class="container-banner">
 
-    <div class="d-flex justify-content-center steps--background-white rounded">
+    <div class="steps--background-white rounded">
         <div class="container-sub">
             <!-- style="font-size: 14px;" -->
             <div class="form-group">
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
-
-                    <div class="container-custom">
-
+                    
                         <button class="btn btn-primary">Register</button>
-
-                    </div>
+              
                 </form>
             </div>
         </div>

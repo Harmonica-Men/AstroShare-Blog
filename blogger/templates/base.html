@@ -23,107 +23,21 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'homepage' %}">
-        <i class="bi bi-house"></i>
-      </a>
+  <!-- Header -->
+  {% include 'header.html' %}
+  <!-- Content -->
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
-        aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-        <ul class="navbar-nav me-auto">
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add-newpost' %}">Add Post</a>
-          </li>
-          {% endif %}
-          {% if cat_menu %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Categories List
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              {% for item in cat_menu %}
-              <li>
-                <a class="dropdown-item" href="{% url 'category' item|slugify %}">
-                  {{ item }}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'category-list' %}">Category List Menu</a>
-          </li>
-          {% endif %}
-        </ul>
 
-        <ul class="navbar-nav ms-auto">
-          {% if user.is_authenticated %}
-          {% if user.profile.id %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'edit-profile-page' user.profile.id %}">
-              Logged in as:<strong style="color: white;"> {{ user.first_name }}</strong></a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'create-profile-page' %}">
-              Logged in as:<strong style="color: white;"> {{ user.first_name }}</strong></a>
-          </li>
-          {% endif %}
+  
+  <main>
+    <div class="m-4">
+      {% block content %}
 
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
+      {% endblock %}
     </div>
-  </nav>
+  </main>
 
-  <div class="m-4">
-    {% block content %}
-    
-    {% endblock %}
-  </div>
-
-  <!-- Footer Start -->
-
-
-  <!-- Footer Start -->
-
-  <footer class="footer bg-dark">
-    <div class="d-flex justify-content-between align-items-center py-3 border-highlight">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="me-2 text-muted text-decoration-none">
-          <i class="bi bi-cup"></i>
-          <span class="color-hyperlink">&copy; 2024 Astro Blog</span>
-        </a>
-      </div>
-
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3 "><a class="color-hyperlink" href="#"><i class="bi bi-twitter"></i></a></li>
-        <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-instagram"></i></a></li>
-        <li class="ms-3"><a class="color-hyperlink" href="#"><i class="bi bi-facebook"></i></a></li>
-      </ul>
-    </div>
-  </footer>
-  <!-- Footer End -->
-
-
-  <!-- Footer End -->
+  {% include 'footer.html' %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
