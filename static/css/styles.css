@@ -5,7 +5,7 @@
     --primary-color-highlight: #bdbdbd;
     --bs-body-bg: #9e9e9e4e;
     --bs-body-font-family: 'Montserrat', sans-serif;
-    --accent-color: #9e9e9e;
+    --accent-color: #ffffff;
     /* Example definition */
     --border-color: #000000;
     /* Example definition */
@@ -27,6 +27,7 @@ h3 {
 }
 
 h4 {
+    color: white;
     font-weight: bolder;
 }
 
@@ -57,11 +58,11 @@ body {
 }
 
 .bg-l-gray {
-    background-color: rgba(142, 142, 142, 0.67);
+    background-color: rgba(228, 228, 228, 0.67);
 }
 
 .bg-d-gray {
-    background-color: rgba(118, 117, 117, 0.67);
+    background-color: rgba(143, 143, 143, 0.67);
 }
 
 .margin-top-bottom-iss {
