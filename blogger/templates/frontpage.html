@@ -1,30 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}Astro Share Blog{% endblock %}
 
 {% block content %}
-<h4>Latest Posts ...</h4> 
-<div class="content">
+<!-- Inner container -->
+{% with image_url='/images/background.webp' %}
+<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
+  <h4 style="color: white;">Latest Posts ...</h4>
+
+
+
   <div class="d-md-flex justify-content-evenly">
 
     <!-- <span class="current mr-3">
-      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-    </span> -->
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </span> -->
     <div class="d-md-flex justify-content-evenly">
       <span class="step-links">
         {% if page_obj.has_previous %}
         <button onclick="window.location.href='?page=1'" class="btn btn-primary">&laquo; First</button>
-        <button onclick="window.location.href='?page={{ page_obj.previous_page_number }}'"
-          class="btn btn-primary">&lt; Prev.</button>
+        <button onclick="window.location.href='?page={{ page_obj.previous_page_number }}'" class="btn btn-primary">&lt;
+          Prev.</button>
         {% else %}
         <button onclick="window.location.href='?page=1'" class="btn btn-primary" disabled>&laquo; First</button>
         <button class="btn btn-secondary" disabled>&lt; Prev.</button>
         {% endif %}
 
         {% if page_obj.has_next %}
-        <button onclick="window.location.href='?page={{ page_obj.next_page_number }}'"
-          class="btn btn-primary">Next &gt;</button>
+        <button onclick="window.location.href='?page={{ page_obj.next_page_number }}'" class="btn btn-primary">Next
+          &gt;</button>
         <button onclick="window.location.href='?page={{ page_obj.paginator.num_pages }}'" class="btn btn-primary">Last
           &raquo;</button>
         {% else %}
@@ -46,22 +53,24 @@
     <div class="d-md-flex">
       <div class="container-custom">
         {% if post.image.url %}
-        
+
         <img src="{{ post.image.url }}" class="img-thumbnail" class="img-thumbnail w-25" alt="post-image">
 
         {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail.max-width: 33% height: auto; no-image-available">
+        <img src="{% static 'images/no-image-available.jpg' %}"
+          class="img-thumbnail.max-width: 33% height: auto; no-image-available">
         {% endif %}
       </div>
       <div>
         <h5 class="container-frontpage">{{ post.title }}</h5>
         <div class="container">
-          {{ post.body|slice:":250" }} ... <a href="{% url 'article-detail' post.pk %}" 
-          class="color-hyperlink"><small><strong>read more</strong></small></a>
+          {{ post.body|slice:":250" }} ... <a href="{% url 'article-detail' post.pk %}"
+            class="color-hyperlink"><small><strong>read more</strong></small></a>
         </div>
         <p class="italicize"> Posted: {{ post.post_date }} Category:
           <!-- <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a> -->
-          <a href="{% url 'category' post.category %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
+          <a href="{% url 'category' post.category %}"
+            class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
           By: <small class="last-name">{{ post.author.last_name }}</small>,
           <small class="first-name">{{ post.author.first_name }}</small>
         </p>
@@ -78,8 +87,15 @@
   </section>
   <hr>
   {% endfor %}
-  <div class="back-to-top-button">
-    <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a>
-  </div> <!-- Closing the div properly -->
-</div> <!-- Closing the content div properly -->
+  <div class="container-custom">
+    <div class="back-to-top-button">
+      <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endwith %}
+
+
 {% endblock %}

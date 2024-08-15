@@ -45,9 +45,9 @@ body {
 
     text-align: left;
     background-color: black;
-    background-size: cover;
+    /* background-size: cover;
     color: hsl(0, 0%, 100%);
-    background-image: url("../images/background.webp");
+    background-image: url("../images/background.webp"); */
 }
 
 .black-border {
