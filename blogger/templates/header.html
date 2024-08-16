@@ -48,12 +48,12 @@
                     {% if user.profile.id %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'edit-profile-page' user.profile.id %}">
-                            Logged in as:<strong style="color: white;"> {{ user.first_name }}</strong></a>
+                            Logged in as:<strong style="color: white;"> {{ user.username }}</strong></a>
                     </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'create-profile-page' %}">
-                            Logged in as:<strong style="color: white;"> {{ user.first_name }}</strong></a>
+                            Logged in as:<strong style="color: white;"> {{ user.username }}</strong></a>
                     </li>
                     {% endif %}
 

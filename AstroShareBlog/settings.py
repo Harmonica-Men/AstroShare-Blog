@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 
-os.environ['CLOUDINARY_CLOUD_NAME'] = 'dtbji5cfz'
-os.environ['CLOUDINARY_API_KEY'] = '839441162297935'
-os.environ['CLOUDINARY_API_SECRET'] = 'eTQFu1X9X065YP1jycD8d4aMSJc'
+# os.environ['CLOUDINARY_CLOUD_NAME'] = 'dtbji5cfz'
+# os.environ['CLOUDINARY_API_KEY'] = '839441162297935'
+# os.environ['CLOUDINARY_API_SECRET'] = 'eTQFu1X9X065YP1jycD8d4aMSJc'
                                       
 
 from pathlib import Path
@@ -39,10 +39,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-#SECRET_KEY = 'django-insecure-1ieo2(r5opy@dl(xqzlm0^xti0vnz85)81chvvakz@$q@om!7)'
-DATABASE_URL = 'postgres://uwb4hdjzua9:7p5Hb6Ee1XKE@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/trait_shore_zero_528265'
+DATABASE_URL = "DATABASE_URL"
 
-SECRET_KEY = 'django-insecure-m@=5yl8r(&a%ez6c5#le$5%za(cqckq#53bvnl^)24-p3zgobe'
+SECRET_KEY = "SECRET_KEY"
 
 CLOUDINARY_URL = "CLOUDINARY_URL"
 
