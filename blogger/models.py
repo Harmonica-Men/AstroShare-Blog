@@ -4,6 +4,8 @@ from django.urls import reverse
 from datetime import datetime, date
 from cloudinary.models import CloudinaryField
 from django.utils.crypto import get_random_string
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 # from ckeditor.fields import RichTextField
 # from django_ckeditor_5.fields import CKEditor5Field
@@ -105,3 +107,12 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(instance, created, **kwargs):
+    """
+    Automatically create a user profile when a new user is created
+    """
+    if created:
+        Profile.objects.create(user=instance)

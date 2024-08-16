@@ -28,19 +28,12 @@ class ShowProfilePageView(DetailView):
     model = Profile
     template_name = 'registration/user_profile.html'
 
-    def get(self, request, *args, **kwargs):
-        try:
-            self.object = self.get_object()
-        except Profile.DoesNotExist:
-            return redirect(reverse('/frontpage-blogpost'))
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
-
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, *args, **kwargs):        
+        user = Profile.objects.get(user=self.kwargs['pk'])
         context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
-        page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
-        context["page_user"] = page_user
+        context["user"] = user
         return context
+        
 
 class UserRegisterView(generic.CreateView):
     # form_class = UserCreationForm
