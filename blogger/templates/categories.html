@@ -3,8 +3,7 @@
 {% block title %} {{ cats }} {% endblock %}
 {% block content %}
 
-
-{% with image_url='/images/background.webp' %}
+{% with image_url='images/background.webp' %}
 <div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if category_posts %}
     <h2>Posts in {{ cats }}</h2>
@@ -15,14 +14,10 @@
                 <div class="steps--background-white rounded">
                     <div class="container-sub">
                         <div class="container-custom">
-                            {% if post.image.url %}
-
-                            <img src="{{ post.image.url }}" class="img-thumbnail w-25" alt="post-image"
-                                style="height: vh100">
-
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}" class="img-thumbnail w-25" alt="post-image" style="height: 100vh;">
                             {% else %}
-                            <img src="{% static 'images/no-image-available.jpg' %}"
-                                class="img-thumbnail.max-width: 25% height: auto; no-image-available">
+                            <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" style="max-width: 25%; height: auto;" alt="no-image-available">
                             {% endif %}
                         </div>
                         <h3><strong>{{ post.title }}</strong></h3>
@@ -38,7 +33,6 @@
                         {% endif %}
                         {% endif %}
                         <br>
-                        <!-- {{ post.body }} -->
                         {{ post.body|slice:":900" }} ...
                         <br>
                         <a href="{% url 'article-detail' post.pk %}"><strong>read more</strong></a>
