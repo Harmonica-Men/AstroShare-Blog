@@ -5,17 +5,21 @@
 {% with image_url='images/background.webp' %}
 <div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
-    <h2 style="padding: 2rem;">Categories</h2>
-    <div class="container">
+    <h2 style="padding: 2rem;">Blog Posts Categories</h2>
+    <div class="container-sub">
         <ul>
             {% for category in cat_menu_list %}
             <li>
-                <div class="steps--background-white rounded">
+                <div class="container steps--background-white rounded">
                     <div class="container-sub mt-4">
-                        <strong>{{ category.name }}</strong>: {{ category.category_description }}
+                        <strong>{{ category.name }}</strong> 
+                        <div class="container-sub">
+                        {{ category.category_discription }}
+                        </div>
                     </div>
                 </div>
             </li>
+            <br>
             {% empty %}
             <li>
                 <div class="steps--background-white rounded">

@@ -47,6 +47,20 @@ def LikeView(request, pk):
     # return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
 
+# class HomepageView(TemplateView):
+#     model = Post
+#     template_name = 'homepage.html'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['posts'] = Post.objects.all()
+
+#         # Add the latest 5 profile names to context by querying the related User's username
+#         context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:7]
+
+#         return context
+
+
 class HomepageView(TemplateView):
     model = Post
     template_name = 'homepage.html'
@@ -55,8 +69,18 @@ class HomepageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
 
-        # Add the latest 5 profile names to context by querying the related User's username
-        context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:7]
+        # Fetch the latest 7 profiles with user details
+        profiles = Profile.objects.select_related('user').order_by('-user__date_joined')[:7]
+
+        # Extracting first name, last name, and username into a list of dictionaries
+        context['profile_names'] = [
+            {
+                'first_name': profile.user.first_name,
+                'last_name': profile.user.last_name,
+                'username': profile.user.username,
+            }
+            for profile in profiles
+        ]
 
         return context
 

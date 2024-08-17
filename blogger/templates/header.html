@@ -34,8 +34,11 @@
                                     {{ item }}
                                 </a>
                             </li>
+
                             {% endfor %}
-                            <a href="{% url 'category-list' %}">test</a>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'category-list' %}">Blog Post Categories</a></li>
+                            
                         </ul>
                                                 
                     </li>
