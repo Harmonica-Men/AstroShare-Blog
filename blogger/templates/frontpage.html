@@ -44,7 +44,6 @@
   <br>
 
   {% for post in posts %}
-  <!-- <a href="{% url 'category' cats=post.category %}">{{ post.category }}</a> -->
 
   <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
     <div class="d-md-flex">
@@ -55,7 +54,7 @@
 
         {% else %}
         <img src="{% static 'images/no-image-available.jpg' %}"
-          class="img-thumbnail.max-width: 33% height: auto; no-image-available">
+          class="img-thumbnail.max-width: 25% height: auto; no-image-available">
         {% endif %}
       </div>
       <div>
@@ -71,6 +70,7 @@
           By: <small class="last-name">{{ post.author.last_name }}</small>,
           <small class="first-name">{{ post.author.first_name }}</small>
         </p>
+      
         {% if user.is_authenticated %}
         {% if user == post.author %}
         <div class="container">

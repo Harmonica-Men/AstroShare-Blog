@@ -1,9 +1,9 @@
 from django.urls import path, include
 from .views import FrontpageView, HomepageView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView
 from .views import HomepageView
-from .views import CategoryView, CategoryListView, LikeView, AddCommentView, SearchView, nasa_picture_of_the_day, iss_location
+from .views import LikeView, AddCommentView, SearchView, nasa_picture_of_the_day, iss_location
 from .views import subscribe, confirm_subscription 
-from .views import AddCategoryView
+from .views import AddCategoryView, CategoryView
 
 urlpatterns = [
     path('', HomepageView.as_view(), name= 'homepage'),
@@ -15,10 +15,7 @@ urlpatterns = [
     path('article/<int:pk>/delete', DeletePostView.as_view(), name= 'delete-post'),
     path('like/<int:pk>', LikeView, name='like-post'),
     path('article/<int:pk>/comment/', AddCommentView.as_view(), name= 'add-comment'),
-    path('category/<str:cats>/', CategoryView, name='category'),
-    # path('category/<str:cats>/', CategoryView.as_view(), name='category'),
-    # path('category/<slug:cats>/', CategoryView.as_view(), name='category'),
-    path('category_list/', CategoryListView, name='category-list'),
+    path('category/<str:cats>/', CategoryView, name='category'),    
     path('search/', SearchView.as_view(), name='search'),
     path('nasa/', nasa_picture_of_the_day, name='nasa-picture-of-the-day'),
     path('iss_location/', iss_location, name='iss-location'),

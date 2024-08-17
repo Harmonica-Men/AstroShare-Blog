@@ -18,8 +18,13 @@ from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from datetime import datetime
-
 from django.utils.text import slugify
+
+
+def CategoryView(request, cats):
+    
+    return render(request, 'categories.html', {'cats': cats})
+
 
 def LikeView(request, pk):
     # post = get_object_or_404(Post, id=request.POST.get('post_id'))
@@ -81,37 +86,6 @@ class FrontpageView(ListView):
         context = super(FrontpageView, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = Category.objects.all()
         return context
-
-# function 
-def CategoryListView(request):
-    cat_menu_list = Category.objects.all()
-    return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
- 
-
-def CategoryView(request, cats):
-    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-    return render(request, 'categories.html', {'cats':cats.title, 'category_posts': category_posts})
-    # return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
-
-# class CategoryView(View):
-    # template_name = 'categories.html'
-
-    # def get(self, request, cats):
-    #     print(f"Original cats: {cats}")
-    #     category_name = cats.replace('-', ' ')
-    #     print(f"Category name: {category_name}")
-           
-    #     # category_slug = slugify(category_name)
-    #     # print(f"Category slug: {category_slug}")
-           
-    #     category_posts = Post.objects.filter(category__iexact=category_name)
-           
-    #     context = {
-    #         'cats': category_name.title(),
-    #         'category_posts': category_posts
-    #     }
-    #     return render(request, self.template_name, context)
-
 
 class ArticleDetailView(DetailView):
     model = Post
