@@ -3,44 +3,41 @@
 {% block title %} User Profiles {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-<h4>User Profile ...</h4>
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <h4>User Profile ...</h4>
 
-{% if user.is_authenticated %}
-<section class="container-banner" style="padding: 5rem;">
-    <div class="d-md-flex steps--background-white container-sub rounded">
-        <div class="align-items-center">
-            <div class="container-sub">
-                {% if user.profile.profile_pic.url %}
-                <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle" alt="user-profile">
-                <div class="container-custom">
-                    <small>Joined at {{ user.date_joined|date:"F j, Y" }}</small>
+    <section class="container-banner" style="padding: 5rem;">
+        <div class="d-md-flex steps--background-white container-sub rounded">
+            <div class="align-items-center">
+                <div class="container-sub">
+                    {% if user.profile.profile_pic.url %}
+                    <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle"
+                        alt="user-profile">
+                    <div class="container-custom">
+                        <small>Joined at {{ user.date_joined|date:"F j, Y" }}</small>
+                    </div>
+                    {% else %}
+                    <img src="{% static '/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle"
+                        alt="anonymous-profile-pic">"
+                    <div class="container-custom">
+                        <small>no profile image</small>
+                    </div>
+                    {% endif %}
                 </div>
-                {% else %}
-                <img src="{% static '/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle" alt="anonymous-profile-pic">"
-                <div class="container-custom">
-                    <small>no profile image</small>
-                </div>
-                {% endif %}
+               
             </div>
-            <div class="flex-grow-1 ms-3">
-            This is some content from a media component. You can replace this with any content and adjust it as needed.
-        </div>
-        </div>
 
 
-        <div class="col-md-8">
+            <div class="col-md-8">
 
-            <h4 class="card-title">fname: {{ user.first_name }} lname: {{ user.last_name }}</h4>
-            <p class="container-lg" style="text-align: left;">
-                {{ user.profile.bio }}
-            </p>
+                <h4 class="card-title">{{ user.first_name }} , {{ user.last_name }}</h4>
+                <p class="container-lg" style="text-align: left;">
+                    {{ user.profile.bio }}
+                </p>
+            </div>
         </div>
-    </div>
-</section>
-{% else %}
-<h2>No user profile is made </h2>
-{% endif %}
+    </section>
+
 
 
 </div>

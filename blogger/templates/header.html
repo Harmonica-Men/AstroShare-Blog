@@ -44,7 +44,7 @@
 
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
-                    {% if user.profile.id %}
+                    {% if user.profile.bio %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'edit-profile-page' user.profile.id %}">
                             Logged in as:<strong style="color: white;"> {{ user.username }}</strong></a>

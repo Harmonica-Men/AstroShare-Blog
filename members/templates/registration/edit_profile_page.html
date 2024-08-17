@@ -3,7 +3,7 @@
 {% block title %} Edit Profile Page {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
     {% if user.is_authenticated %}
     {% if user.id == profile.user.id %}
@@ -48,6 +48,7 @@
 
                             <div class="container-custom">
                                 <a href="{% url 'edit-profile' %}" class="btn btn-primary">Edit Profile</a>
+                                
                                 <button type="submit" class="btn btn-primary">Update Profile</button>
                             </div>
                         </form>

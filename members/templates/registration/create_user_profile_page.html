@@ -3,12 +3,12 @@
 {% block title %} Create a New Profile Page {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
 {% if user.is_authenticated %}
 
 <h2>Create Profile Page ... </h2>
-<section ass="full-height">
+<section>
     <div class="form-group">
         <div class="container-sub">
             <div class="card steps--background-white">
@@ -17,7 +17,7 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="container-custom">
-                            <button class="btn btn-primary w-25">Create Profile Page</button>
+                            <button type="submit" class="btn btn-primary w-25">Create Profile Page</button>
                         </div>
                     </form>
                 </div>
