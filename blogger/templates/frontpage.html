@@ -11,34 +11,28 @@
 
 
   <div class="d-md-flex justify-content-evenly">
-
-    <!-- <span class="current mr-3">
-        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-      </span> -->
     <div class="d-md-flex justify-content-evenly">
       <span class="step-links">
         {% if page_obj.has_previous %}
-        <button onclick="window.location.href='?page=1'" class="btn btn-primary">&laquo; First</button>
-        <button onclick="window.location.href='?page={{ page_obj.previous_page_number }}'" class="btn btn-primary">&lt;
-          Prev.</button>
+          <a href="?page=1">&laquo; First</a>
+          <a href="?page={{ page_obj.previous_page_number }}">&lt; Prev.</a>
         {% else %}
-        <button onclick="window.location.href='?page=1'" class="btn btn-primary" disabled>&laquo; First</button>
-        <button class="btn btn-secondary" disabled>&lt; Prev.</button>
+          <a href="?page=1" disabled>&laquo; First</a>
+          <a disabled style="color: rgb(255, 255, 255)">&lt; Prev.</a>
         {% endif %}
-
+    
         {% if page_obj.has_next %}
-        <button onclick="window.location.href='?page={{ page_obj.next_page_number }}'" class="btn btn-primary">Next
-          &gt;</button>
-        <button onclick="window.location.href='?page={{ page_obj.paginator.num_pages }}'" class="btn btn-primary">Last
-          &raquo;</button>
+          <a href="?page={{ page_obj.next_page_number }}">Next &gt;</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
         {% else %}
-        <button class="btn btn-secondary" disabled>Next &gt;</button>
-        <button onclick="window.location.href='?page={{ page_obj.paginator.num_pages }}'" class="btn btn-primary"
-          disabled>Last &raquo;</button>
+          <a disabled style="color: rgb(255, 255, 255)">Next &gt;</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}" disabled>Last &raquo;</a>
         {% endif %}
-
       </span>
     </div>
+    
+    
+    
   </div>
 
   <br>
@@ -84,8 +78,27 @@
   </section>
   <hr>
   {% endfor %}
+  <div class="d-md-flex justify-content-evenly">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; First</a>
+        <a href="?page={{ page_obj.previous_page_number }}">&lt; Prev.</a>
+      {% else %}
+        <a href="?page=1" disabled>&laquo; First</a>
+        <a disabled style="color: rgb(255, 255, 255)">&lt; Prev.</a>
+      {% endif %}
+  
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next &gt;</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+      {% else %}
+        <a disabled style="color: rgb(255, 255, 255)">Next &gt;</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" disabled>Last &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
   <div class="container-custom">
-    <div class="back-to-top-button">
+    <div class="back-to-top-button" style="padding-top: 1rem;">
       <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a>
     </div>
   </div>
