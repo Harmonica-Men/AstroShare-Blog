@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Blog categories {% endblock %}
+{% block content %}
+{% load static %}
+{% with image_url='images/background.webp' %}
+<div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
+    <h2 style="padding: 2rem;">Categories</h2>
+    <div class="container">
+        <ul>
+            {% for category in cat_menu_list %}
+            <li>
+                <div class="steps--background-white rounded">
+                    <div class="container-sub mt-4">
+                        <strong>{{ category.name }}</strong>: {{ category.category_description }}
+                    </div>
+                </div>
+            </li>
+            {% empty %}
+            <li>
+                <div class="steps--background-white rounded">
+                    <div class="container-sub mt-4">
+                        No categories available.
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endfor %}
+</ul>
+</div>
+</div>
+{% endwith %}
+{% endblock %}

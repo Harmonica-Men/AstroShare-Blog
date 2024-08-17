@@ -3,7 +3,7 @@ from .views import FrontpageView, HomepageView, ArticleDetailView, AddPostView, 
 from .views import HomepageView
 from .views import LikeView, AddCommentView, SearchView, nasa_picture_of_the_day, iss_location
 from .views import subscribe, confirm_subscription 
-from .views import AddCategoryView, CategoryView
+from .views import AddCategoryView, CategoryView, CategoryListView
 
 urlpatterns = [
     path('', HomepageView.as_view(), name= 'homepage'),
@@ -16,6 +16,7 @@ urlpatterns = [
     path('like/<int:pk>', LikeView, name='like-post'),
     path('article/<int:pk>/comment/', AddCommentView.as_view(), name= 'add-comment'),
     path('category/<str:cats>/', CategoryView, name='category'),    
+    path('category_list/', CategoryListView, name='category-list'),
     path('search/', SearchView.as_view(), name='search'),
     path('nasa/', nasa_picture_of_the_day, name='nasa-picture-of-the-day'),
     path('iss_location/', iss_location, name='iss-location'),

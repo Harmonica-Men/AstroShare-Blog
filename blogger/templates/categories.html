@@ -4,9 +4,9 @@
 {% block content %}
 
 {% with image_url='images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if category_posts %}
-    <h2>Posts in {{ cats }}</h2>
+    <h2>Posts in {{ cats }}  <a href="{% url 'category-list' %}">test</a>  </h2>
     <div class="container-sub">
         <ul>
             {% for post in category_posts %}
@@ -22,6 +22,7 @@
                         </div>
                         <h3><strong>{{ post.title }}</strong></h3>
                         Author: <strong>{{ post.author }}</strong> Category: <strong>{{ post.category }}</strong>
+                       
                         Posted: <strong>{{ post.post_date }}</strong>
                         <br>
                         {% if user.is_authenticated %}
@@ -33,7 +34,7 @@
                         {% endif %}
                         {% endif %}
                         <br>
-                        {{ post.body|slice:":900" }} ...
+                        {{ post.body }} ...
                         <br>
                         <a href="{% url 'article-detail' post.pk %}"><strong>read more</strong></a>
                     </div>

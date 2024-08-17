@@ -24,9 +24,11 @@ from django.utils.text import slugify
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
     return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
+
+def CategoryListView(request):
+    cat_menu_list = Category.objects.all()
+    return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
  
-
-
 def LikeView(request, pk):
     # post = get_object_or_404(Post, id=request.POST.get('post_id'))
     post = get_object_or_404(Post, pk=pk)

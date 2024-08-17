@@ -22,7 +22,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     def __str__(self):
-        return self.name
+        # return self.name
         return self.category_discription
 
     def get_absolute_url(self):
