@@ -5,24 +5,25 @@
 
 {% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-  <h4>Latest Posts ...</h4>
-  <div class="d-md-flex justify-content-evenly">
-    <div class="d-md-flex justify-content-evenly">
-      <span class="step-links">
+  <h4>Latest Posts</h4>
+  <div class="d-flex justify-content-evenly">
+    <div class="d-md-flex justify-content-evenly steps--background-white rounded">
+
+      <span class="step-links m-1">
         {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; First</a>
-          <a href="?page={{ page_obj.previous_page_number }}">&lt; Prev.</a>
+        <a href="?page=1"><strong>&laquo; First</strong></a>
+        <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
         {% else %}
-          <a href="?page=1" disabled>&laquo; First</a>
-          <a disabled style="color: rgb(255, 255, 255)">&lt; Prev.</a>
+        <a href="?page=1" disabled><strong>&laquo; First</strong></a>
+        <a disabled style="color: rgb(0, 4, 119)"><strong>&lt; Prev.</strong></a>
         {% endif %}
-    
+
         {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">Next &gt;</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
         {% else %}
-          <a disabled style="color: rgb(255, 255, 255)">Next &gt;</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}" disabled>Last &raquo;</a>
+        <a disabled style="color: rgb(0, 4, 119)"><strong>Next &gt;</strong></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
         {% endif %}
       </span>
     </div>
@@ -30,63 +31,66 @@
 
   <br>
 
+
   {% for post in posts %}
-
-  <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-    <div class="d-md-flex">
-      <div class="container-custom">
-        {% if post.image.url %}
-
-        <img src="{{ post.image.url }}" class="img-thumbnail" class="img-thumbnail w-25" alt="post-image">
-
-        {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}"
-          class="img-thumbnail.max-width: 25% height: auto; no-image-available">
-        {% endif %}
+<section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
+  <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
+    <div class="image-container">
+      {% if post.image.url %}
+      <div class="container">
+        <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image" width="300" height=auto>
       </div>
-      <div>
-        <h5 class="container-frontpage">{{ post.title }}</h5>
-        <div class="container">
-          {{ post.body|slice:":300" }} ... <a href="{% url 'article-detail' post.pk %}"
-            class="color-hyperlink"><small><strong>read more</strong></small></a>
-        </div>
-        <p class="italicize"> Posted: {{ post.post_date }} Category:
-          <!-- <a href="{% url 'category' post.category|slugify %}" class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a> -->
-          <a href="{% url 'category' post.category %}"
-            class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
-          By: <small class="last-name">{{ post.author.last_name }}</small>,
-          <small class="first-name">{{ post.author.first_name }}</small>
-        </p>
-      
-        {% if user.is_authenticated %}
-        {% if user == post.author %}
-        <div class="container">
-          <a href="{% url 'update-post' post.pk %}" class="btn btn-warning ">Edit</a>
-          <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
-        </div>
-        {% endif %}
-        {% endif %}
+      {% else %}
+      <div class="container">
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available"
+        width="300" height=auto>
       </div>
+      {% endif %}
     </div>
-  </section>
-  <hr>
-  {% endfor %}
+    <div class="content-container">
+      <h3>{{ post.title }}</h3>
+      <div class="container">
+        {{ post.body|slice:":300" }} ... <a href="{% url 'article-detail' post.pk %}"
+          class="color-hyperlink"><small><strong>read more</strong></small></a>
+      </div>
+      <p class="italicize"> Posted: {{ post.post_date }} Category:
+        <a href="{% url 'category' post.category %}"
+          class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
+        By: <small class="last-name">{{ post.author.last_name }}</small>,
+        <small class="first-name">{{ post.author.first_name }}</small>
+      </p>
+
+      {% if user.is_authenticated %}
+      {% if user == post.author %}
+      <div class="container">
+        <a href="{% url 'update-post' post.pk %}" class="btn btn-warning ">Edit</a>
+        <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+      </div>
+      {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+<hr>
+{% endfor %}
+
+
   <div class="d-md-flex justify-content-evenly">
     <span class="step-links">
       {% if page_obj.has_previous %}
-        <a href="?page=1">&laquo; First</a>
-        <a href="?page={{ page_obj.previous_page_number }}">&lt; Prev.</a>
+      <a href="?page=1">&laquo; First</a>
+      <a href="?page={{ page_obj.previous_page_number }}">&lt; Prev.</a>
       {% else %}
-        <a href="?page=1" disabled>&laquo; First</a>
-        <a disabled style="color: rgb(255, 255, 255)">&lt; Prev.</a>
+      <a href="?page=1" disabled>&laquo; First</a>
+      <a disabled style="color: rgb(255, 255, 255)">&lt; Prev.</a>
       {% endif %}
-  
+
       {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Next &gt;</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+      <a href="?page={{ page_obj.next_page_number }}">Next &gt;</a>
+      <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
       {% else %}
-        <a disabled style="color: rgb(255, 255, 255)">Next &gt;</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}" disabled>Last &raquo;</a>
+      <a disabled style="color: rgb(255, 255, 255)">Next &gt;</a>
+      <a href="?page={{ page_obj.paginator.num_pages }}" disabled>Last &raquo;</a>
       {% endif %}
     </span>
   </div>

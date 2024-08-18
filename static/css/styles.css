@@ -60,7 +60,7 @@ body {
 html {
     height: 100%;
     margin: 0;
-  }
+}
 
 .black-border {
     text-align: left;
@@ -165,24 +165,26 @@ html {
     color: rgb(255, 0, 0);
 }
 
-/* .full-height {
-    height: 80vh; 
+
+.d-md-flex {
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
-} */
+    align-items: center;
+}
 
-.full-height {
-    height: 100%;
-    background: yellow;
-  }
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
 
-  /* .container-blank {
-    text-align: left;
-    
-    padding: 8rem;
-    margin: 0 auto;
-} */
+.image-container {
+    flex: 0 0 auto;
+    margin: 10px;
+}
+
+.content-container {
+    flex: 1 1 auto;
+    margin: 10px;
+}
+
 
 .first-name,
 .last-name {
@@ -209,12 +211,6 @@ html {
     max-width: vh100;
 }
 
-.container-frontpage {
-    /* font-size: x-large; */
-    color: orange;
-    text-align: center;
-    font-weight: bolder;
-}
 
 .italicize {
     /* padding-top: 0.75rem; */
@@ -311,7 +307,7 @@ a:hover {
 }
 
 .container-sub {
-     
+
     width: 100%;
     padding: 1.25rem 1.25rem;
     margin: 0 auto;
@@ -512,7 +508,7 @@ a:hover {
 
 .steps--background-white {
     background-color: rgba(255, 255, 255, 0.8);
-    color:black;
+    color: black;
 }
 
 .steps--background-black {
