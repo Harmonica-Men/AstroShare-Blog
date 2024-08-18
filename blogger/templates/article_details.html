@@ -23,10 +23,14 @@
                 <div class="container-custom">
                     <small>Posted: <strong>{{ post.post_date }}</strong> By: </small>
                     
-                    <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
+                    <!-- <small class="first-name"><strong>{{ post.author.first_name }}</strong></small> -->
+
+                    <a href="{% url 'author-profile' post.author.id %}">
+                        <small> <strong>{{ post.author.first_name }}</strong></small>
+                     </a>
                     
                     <a href="{% url 'author-profile' post.author.id %}">
-                        <strong>{{ post.author.last_name }}</strong>
+                       <small> <strong>{{ post.author.last_name }}</strong></small>
                     </a>
                     
                     <small>Category: <strong>{{ post.category }}</strong> </small>
