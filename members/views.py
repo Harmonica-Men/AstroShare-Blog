@@ -42,8 +42,13 @@ class ShowProfilePageView(DetailView):
         context["page_user"] = page_user
         return context 
 
+class AuthorProfileView(DetailView):
+    model = Profile
+    template_name = 'registration/author_profile.html'
+    context_object_name = 'profile'
 
-       
+    def get_object(self):
+        return get_object_or_404(Profile, user__id=self.kwargs['id'])           
 
 class UserRegisterView(generic.CreateView):
     # form_class = UserCreationForm

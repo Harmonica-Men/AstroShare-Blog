@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ profile.user.username }}'s Profile</title>
+</head>
+<body>
+    <h1>{{ profile.user.username }}'s Profile</h1>
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    <p><strong>Website:</strong> <a href="{{ profile.website_url }}">{{ profile.website_url }}</a></p>
+    <p><strong>Twitter:</strong> <a href="{{ profile.twitter_url }}">{{ profile.twitter_url }}</a></p>
+    <p><strong>Instagram:</strong> <a href="{{ profile.instagram_url }}">{{ profile.instagram_url }}</a></p>
+    <p><strong>Facebook:</strong> <a href="{{ profile.facebook_url }}">{{ profile.facebook_url }}</a></p>
+    <p><strong>Pinterest:</strong> <a href="{{ profile.pinterest }}">{{ profile.pinterest }}</a></p>
+    {% if profile.profile_pic %}
+        <img src="{{ profile.profile_pic.url }}" alt="{{ profile.user.username }}'s profile picture">
+    {% endif %}
+</body>
+</html>

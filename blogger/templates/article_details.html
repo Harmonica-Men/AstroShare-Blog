@@ -25,7 +25,7 @@
                     
                     <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
                     
-                    <a href="{% url 'show-profile-page' post.author.id %}">
+                    <a href="{% url 'author-profile' post.author.id %}">
                         <strong>{{ post.author.last_name }}</strong>
                     </a>
                     
@@ -106,6 +106,10 @@
 
 </div>
 {% endwith %}
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("js_id").value = name;
+</script>
 
 
 
