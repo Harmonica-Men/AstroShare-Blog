@@ -7,22 +7,21 @@
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
   <h4>Latest Posts</h4>
   <div class="d-flex justify-content-evenly">
-    <div class="d-md-flex justify-content-evenly steps--background-white rounded">
-
+    <div class="d-md-flex justify-content-evenly steps--background-black rounded">
       <span class="step-links m-1">
         {% if page_obj.has_previous %}
         <a href="?page=1"><strong>&laquo; First</strong></a>
         <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
         {% else %}
         <a href="?page=1" disabled><strong>&laquo; First</strong></a>
-        <a disabled style="color: rgb(0, 4, 119)"><strong>&lt; Prev.</strong></a>
+        <a disabled style="color: cyan"><strong>&lt; Prev.</strong></a>
         {% endif %}
 
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
         <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
         {% else %}
-        <a disabled style="color: rgb(0, 4, 119)"><strong>Next &gt;</strong></a>
+        <a disabled style="color: cyan"><strong>Next &gt;</strong></a>
         <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
         {% endif %}
       </span>
@@ -53,11 +52,9 @@
         {{ post.body|slice:":300" }} ... <a href="{% url 'article-detail' post.pk %}"
           class="color-hyperlink"><small><strong>read more</strong></small></a>
       </div>
-      <p class="italicize"> Posted: {{ post.post_date }} Category:
-        <a href="{% url 'category' post.category %}"
-          class="color-hyperlink"><small><strong>{{ post.category }}</strong></small></a>
-        By: <small class="last-name">{{ post.author.last_name }}</small>,
-        <small class="first-name">{{ post.author.first_name }}</small>
+      <p class="italicize"> Posted: <strong>{{ post.post_date }}</strong> Category: <strong>{{ post.category }}</strong> 
+        By: <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>,
+        <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
       </p>
 
       {% if user.is_authenticated %}
@@ -75,25 +72,28 @@
 {% endfor %}
 
 
-  <div class="d-md-flex justify-content-evenly">
-    <span class="step-links">
+<div class="d-flex justify-content-evenly">
+  <div class="d-md-flex justify-content-evenly steps--background-black rounded">
+    <span class="step-links m-1">
       {% if page_obj.has_previous %}
-      <a href="?page=1">&laquo; First</a>
-      <a href="?page={{ page_obj.previous_page_number }}">&lt; Prev.</a>
+      <a href="?page=1"><strong>&laquo; First</strong></a>
+      <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
       {% else %}
-      <a href="?page=1" disabled>&laquo; First</a>
-      <a disabled style="color: rgb(255, 255, 255)">&lt; Prev.</a>
+      <a href="?page=1" disabled><strong>&laquo; First</strong></a>
+      <a disabled style="color: cyan"><strong>&lt; Prev.</strong></a>
       {% endif %}
 
       {% if page_obj.has_next %}
-      <a href="?page={{ page_obj.next_page_number }}">Next &gt;</a>
-      <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+      <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
+      <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
       {% else %}
-      <a disabled style="color: rgb(255, 255, 255)">Next &gt;</a>
-      <a href="?page={{ page_obj.paginator.num_pages }}" disabled>Last &raquo;</a>
+      <a disabled style="color: cyan"><strong>Next &gt;</strong></a>
+      <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
       {% endif %}
     </span>
   </div>
+</div>
+
   <div class="container-custom">
     <div class="back-to-top-button" style="padding-top: 1rem;">
       <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a>
