@@ -1,18 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ profile.user.username }}'s Profile</title>
-</head>
-<body>
-    <h1>{{ profile.user.username }}'s Profile</h1>
-    <p><strong>Bio:</strong> {{ profile.bio }}</p>
-    <p><strong>Website:</strong> <a href="{{ profile.website_url }}">{{ profile.website_url }}</a></p>
-    <p><strong>Twitter:</strong> <a href="{{ profile.twitter_url }}">{{ profile.twitter_url }}</a></p>
-    <p><strong>Instagram:</strong> <a href="{{ profile.instagram_url }}">{{ profile.instagram_url }}</a></p>
-    <p><strong>Facebook:</strong> <a href="{{ profile.facebook_url }}">{{ profile.facebook_url }}</a></p>
-    <p><strong>Pinterest:</strong> <a href="{{ profile.pinterest }}">{{ profile.pinterest }}</a></p>
-    {% if profile.profile_pic %}
-        <img src="{{ profile.profile_pic.url }}" alt="{{ profile.user.username }}'s profile picture">
-    {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} User Profiles {% endblock %}
+{% block content %}
+{% with image_url='/images/background.webp' %}
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
+    <h4>{{ profile.user.username }}'s Profile</h4>
+
+    <section class="container-sub" style="padding: 5rem;">
+        <div class="d-md-flex steps--background-white container-sub rounded">
+            <div class="align-items-center">
+                <div class="container-sub">
+                    {% if profile.profile_pic %}
+                    <img src="{{ profile.profile_pic.url }}" alt="{{ profile.user.username }}'s profile picture"
+                        class="img-thumbnail w-20 rounded-circle">
+                    {% else %}
+                    <img src="{% static '/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle"
+                        alt="anonymous-profile-pic">"
+                    <div class="container-custom">
+                        <small>no profile image</small>
+                    </div>
+                    {% endif %}
+                    <ul class="nav col-md-4 justify-content-center list-unstyled d-flex steps--background-black">
+                        
+                        <li class="ms-3 "><a class="color-hyperlink" href="{{ profile.twitter_url }}"><i class="bi bi-twitter"></i></a></li>
+                        <li class="ms-3"><a class="color-hyperlink" href="{{ profile.instagram_url }}"><i class="bi bi-instagram"></i></a></li>
+                        <li class="ms-3"><a class="color-hyperlink" href="{{ profile.facebook_url }}"><i class="bi bi-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-sub">
+                <p><strong>Bio:</strong> {{ profile.bio }}</p>
+            </div>
+
+            <!-- <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                test
+                <li class="ms-3 "><a class="color-hyperlink" href="{{ profile.twitter_url }}"><i class="bi bi-twitter"></i></a></li>
+                <li class="ms-3"><a class="color-hyperlink" href="{{ profile.instagram_url }}"></i></a></li>
+                <li class="ms-3"><a class="color-hyperlink" href="{{ profile.facebook_url }}"><i class="bi bi-facebook"></i></a></li>
+            </ul> -->
+
+            <!-- <div class="container">
+                <p><strong>Website:</strong> <a href="{{ profile.website_url }}" class="btn btn-outline-primary" target="_blank"><i class="fas fa-globe"></i> {{ profile.website_url }}</a></p>
+                <p><strong>Twitter:</strong> <a href="{{ profile.twitter_url }}" class="btn btn-outline-info" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></p>
+                <p><strong>Instagram:</strong> <a href="{{ profile.instagram_url }}" class="btn btn-outline-danger" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></p>
+                <p><strong>Facebook:</strong> <a href="{{ profile.facebook_url }}" class="btn btn-outline-primary" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></p>
+                <p><strong>Pinterest:</strong> <a href="{{ profile.pinterest }}" class="btn btn-outline-danger" target="_blank"><i class="fab fa-pinterest"></i> Pinterest</a></p>
+            </div> -->
+
+
+            
+        </div>
+    </section>
+</div>
+
+{% endwith %}
+
+{% endblock %}

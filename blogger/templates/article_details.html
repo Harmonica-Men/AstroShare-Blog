@@ -6,14 +6,14 @@
 <h4>Article ...</h4> -->
 
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
     <section class="container-sub">
-        <div class="card steps--background-white" style="width: auto;">
+        <div class="steps--background-white rounded">
             <div class="container-custom">
-                <h3 class="container-frontpage">{{ post.title }}</h3>
+                <h3 class="mt-6">{{ post.title }}</h3>
                 {% if post.image.url %}
-                <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image">
+                <img src="{{ post.image.url }}" class="img-thumbnail w-50" alt="post-image">
                 {% else %}
                 <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available">
                 {% endif %}

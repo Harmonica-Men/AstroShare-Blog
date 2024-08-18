@@ -27,9 +27,12 @@ h2 {
     font-weight: bolder;
 }
 
+/* title article-detail */
 
 h3 {
-    margin-top: 0.5rem;
+    padding-top: 1rem;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h4 {
@@ -508,12 +511,12 @@ a:hover {
 }
 
 .steps--background-white {
-    background-color: white;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    color:black;
 }
 
 .steps--background-black {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
 }
 

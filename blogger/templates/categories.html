@@ -6,7 +6,7 @@
 {% with image_url='images/background.webp' %}
 <div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if category_posts %}
-    <h2>Posts in {{ cats }}  <a href="{% url 'category-list' %}">test</a>  </h2>
+    <h2 style="padding: 2rem;">Posts in {{ cats }}</h2>
     <div class="container-sub">
         <ul>
             {% for post in category_posts %}
@@ -15,7 +15,7 @@
                     <div class="container-sub">
                         <div class="container-custom">
                             {% if post.image %}
-                            <img src="{{ post.image.url }}" class="img-thumbnail w-25" alt="post-image" style="height: 100vh;">
+                            <img src="{{ post.image.url }}" class="img-thumbnail w-25" alt="post-image {{ post.image.url }}">
                             {% else %}
                             <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" style="max-width: 25%; height: auto;" alt="no-image-available">
                             {% endif %}
