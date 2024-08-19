@@ -280,7 +280,7 @@ class CheckEmailView(TemplateView):
     template_name = 'registration/check_email.html'
 
 
-def confirm_subscription(request):
+def ConfirmSubscription(request):
     code = request.GET.get('code')
 
     if not code:
@@ -290,4 +290,4 @@ def confirm_subscription(request):
     subscriber.is_confirmed = True
     subscriber.save()
 
-    return render(request, 'confirm_subscription.html')
+    return render(request, 'registration/confirm_subscription.html')

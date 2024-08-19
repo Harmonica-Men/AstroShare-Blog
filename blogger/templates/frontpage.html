@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load truncate_html %}
+
 {% block title %}Astro Share Blog{% endblock %}
 {% block content %}
 
@@ -30,79 +32,76 @@
 
   <br>
 
-
   {% for post in posts %}
-<section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-  <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
-    <div class="image-container">
-      {% if post.image.url %}
-      <div class="container">
-        <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image" width="300" height=auto>
+  <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
+    <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
+      <div class="image-container">
+        {% if post.image.url %}
+        <div class="container">
+          <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image" width="300" height="auto">
+        </div>
+        {% else %}
+        <div class="container">
+          <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available"
+          width="300" height="auto">
+        </div>
+        {% endif %}
       </div>
-      {% else %}
-      <div class="container">
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available"
-        width="300" height=auto>
-      </div>
-      {% endif %}
-    </div>
-    <div class="content-container">
-      <h3>{{ post.title }}</h3>
-      <div class="container">
-        {{ post.body|slice:":300" }} ... <a href="{% url 'article-detail' post.pk %}"
-          class="color-hyperlink"><small><strong>read more</strong></small></a>
-      </div>
-      <p class="italicize"> Posted: <strong>{{ post.post_date }}</strong> Category: <strong>{{ post.category }}</strong> 
-        By: <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>,
-        <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
-      </p>
+      <div class="content-container">
+        <h3>{{ post.title }}</h3>
+        <div class="container">
+          {{ post.body|truncate_html:300 }} ... <a href="{% url 'article-detail' post.pk %}"
+            class="color-hyperlink"><small><strong>read more</strong></small></a>
+        </div>
+        <p class="italicize"> Posted: <strong>{{ post.post_date }}</strong> Category: <strong>{{ post.category }}</strong> 
+          By: <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>,
+          <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
+        </p>
 
-      {% if user.is_authenticated %}
-      {% if user == post.author %}
-      <div class="container">
-        <a href="{% url 'update-post' post.pk %}" class="btn btn-warning ">Edit</a>
-        <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+        {% if user.is_authenticated %}
+        {% if user == post.author %}
+        <div class="container">
+          <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
+          <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
+        {% endif %}
       </div>
-      {% endif %}
-      {% endif %}
+    </div>
+  </section>
+  <hr>
+  {% endfor %}
+
+  <div class="d-flex justify-content-evenly">
+    <div class="d-md-flex justify-content-evenly steps--background-black rounded">
+      <span class="step-links m-1">
+        {% if page_obj.has_previous %}
+        <a href="?page=1"><strong>&laquo; First</strong></a>
+        <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
+        {% else %}
+        <a href="?page=1" disabled><strong>&laquo; First</strong></a>
+        <a disabled style="color: cyan"><strong>&lt; Prev.</strong></a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
+        {% else %}
+        <a disabled style="color: cyan"><strong>Next &gt;</strong></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
+        {% endif %}
+      </span>
     </div>
   </div>
-</section>
-<hr>
-{% endfor %}
-
-
-<div class="d-flex justify-content-evenly">
-  <div class="d-md-flex justify-content-evenly steps--background-black rounded">
-    <span class="step-links m-1">
-      {% if page_obj.has_previous %}
-      <a href="?page=1"><strong>&laquo; First</strong></a>
-      <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
-      {% else %}
-      <a href="?page=1" disabled><strong>&laquo; First</strong></a>
-      <a disabled style="color: cyan"><strong>&lt; Prev.</strong></a>
-      {% endif %}
-
-      {% if page_obj.has_next %}
-      <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
-      <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
-      {% else %}
-      <a disabled style="color: cyan"><strong>Next &gt;</strong></a>
-      <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
-      {% endif %}
-    </span>
-  </div>
-</div>
 
   <div class="container-custom">
     <div class="back-to-top-button" style="padding-top: 1rem;">
       <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a>
     </div>
   </div>
-</div>
 
+  </div>
 </div>
 {% endwith %}
-
 
 {% endblock %}

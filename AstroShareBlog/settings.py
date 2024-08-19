@@ -10,11 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-
-# os.environ['CLOUDINARY_CLOUD_NAME'] = 'dtbji5cfz'
-# os.environ['CLOUDINARY_API_KEY'] = '839441162297935'
-# os.environ['CLOUDINARY_API_SECRET'] = 'eTQFu1X9X065YP1jycD8d4aMSJc'
-                                      
+                     
 
 from pathlib import Path
 import cloudinary
@@ -64,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_summernote',
     'blogger',    
     'members',
 ]
@@ -159,6 +156,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+X_FRAME_OPTIONS = 'SAMEORIGIN' 
 
 
 STATICFILES_DIRS = [

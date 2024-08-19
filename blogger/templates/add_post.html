@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 
 {% block title %} Create a new blog post! {% endblock %}
 {% block content %}
@@ -46,7 +46,8 @@
 
                     <div class="m-3">
                         <label for="body" class="form-label">Body</label>
-                        <textarea class="form-control" id="body" name="body" rows="5" placeholder="Post content"
+                        <!-- Apply Summernote to this textarea -->
+                        <textarea id="summernote" name="body" rows="5" class="form-control" placeholder="Post content"
                             required></textarea>
                     </div>
 
@@ -62,10 +63,26 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script>
         var name = "{{ user.id }}";
         document.getElementById("js_id").value = name;
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 300, // Set the height of the editor
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                ]
+            });
+        });
     </script>
+
     {% else %}
     <div>
         <h2>No access to this page</h2>

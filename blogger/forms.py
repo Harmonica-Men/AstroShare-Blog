@@ -1,22 +1,19 @@
 from django import forms
-from .models import Comment, Subscriber
-from .models import Post, Category
-
-# from .models import Post, Category
+from django_summernote.widgets import SummernoteWidget
+from .models import Post, Category, Comment
 
 class PostForm(forms.ModelForm):
     category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Select Category")
+    body = forms.CharField(widget=SummernoteWidget())  # Using SummernoteWidget for the body field
 
     class Meta:
         model = Post
         fields = ['title', 'title_tag', 'author', 'category', 'body', 'image']
-
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
-            'author' : forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'user name', 'id': 'js_id', 'type': 'hidden'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'user name', 'id': 'js_id', 'type': 'hidden'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
-            'body': forms.Textarea(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
