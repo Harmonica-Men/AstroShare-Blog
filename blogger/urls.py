@@ -2,8 +2,8 @@ from django.urls import path, include
 from .views import FrontpageView, HomepageView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView
 from .views import HomepageView
 from .views import LikeView, AddCommentView, SearchView, nasa_picture_of_the_day, iss_location
-from .views import subscribe, confirm_subscription 
-from .views import AddCategoryView, CategoryView, CategoryListView
+from .views import SubscribeView, confirm_subscription 
+from .views import AddCategoryView, CategoryView, CategoryListView, CheckEmailView
 
 urlpatterns = [
     path('', HomepageView.as_view(), name= 'homepage'),
@@ -20,6 +20,9 @@ urlpatterns = [
     path('search/', SearchView.as_view(), name='search'),
     path('nasa/', nasa_picture_of_the_day, name='nasa-picture-of-the-day'),
     path('iss_location/', iss_location, name='iss-location'),
-    # path('subscribe/', subscribe, name='subscribe'),
+    path('subscribe/', SubscribeView.as_view(), name='Subscribe'),
+    path('check-email/', CheckEmailView.as_view(), name='check_email'),
+
+    # path('', Subscribe, name='subscribe'),
     path('confirm/', confirm_subscription, name='confirm_subscription'),
 ]

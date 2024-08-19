@@ -6,10 +6,10 @@ import requests
 
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpResponse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView, FormView
 from django.views import View
-from .models import Comment, Subscriber, Profile
-from .models import Post, Category
+from .models import Comment, Profile
+from .models import Post, Category, Subscriber
 
 from django.urls import reverse_lazy, reverse
 from .forms import CommentForm, SubscriptionForm
@@ -246,36 +246,38 @@ def iss_location(request):
 
 logger = logging.getLogger(__name__)
 
-def subscribe(request):
-    if request.method == 'POST':
-        form = SubscriptionForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            
-            confirmation_code = str(uuid.uuid4())
-            subscriber, created = Subscriber.objects.get_or_create(email=email)
-            subscriber.confirmation_code = confirmation_code
-            subscriber.is_confirmed = False
-            subscriber.save()
+class SubscribeView(FormView):
+    form_class = SubscriptionForm
+    template_name = 'homepage.html'  # The form will be displayed on the homepage
 
-            confirmation_link = f"{request.scheme}://{request.get_host()}/blogger/confirm/?code={confirmation_code}"
-            subject = 'Confirm your subscription'
-            message = f'Hello {name},\n\nClick the link to confirm your subscription: {confirmation_link}'
-            from_email = settings.DEFAULT_FROM_EMAIL
-            
-            try:
-                send_mail(subject, message, from_email, [email])
-                return HttpResponse('Confirmation email sent.')
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            except Exception as e:
-                logger.error(f'Error sending email: {e}')
-                return HttpResponse(f'Error sending email: {e}')
-    else:
-        form = SubscriptionForm()
+    def form_valid(self, form):
+        login = form.cleaned_data['login']
+        email = form.cleaned_data['email']
+        
+        confirmation_code = str(uuid.uuid4())
+        subscriber, created = Subscriber.objects.get_or_create(email=email)
+        subscriber.confirmation_code = confirmation_code
+        subscriber.is_confirmed = False
+        subscriber.save()
 
-    return render(request, 'subscribe.html', {'form': form})
+        confirmation_link = f"{self.request.scheme}://{self.request.get_host()}/blogger/confirm/?code={confirmation_code}"
+        subject = 'Confirm your subscription'
+        message = f'Hello {login},\n\nClick the link to confirm your subscription: {confirmation_link}'
+        from_email = settings.DEFAULT_FROM_EMAIL
+        
+        try:
+            send_mail(subject, message, from_email, [email])
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        except Exception as e:
+            logger.error(f'Error sending email: {e}')
+            return HttpResponse(f'Error sending email: {e}')
+
+        return HttpResponseRedirect(reverse_lazy('check_email'))
+
+
+class CheckEmailView(TemplateView):
+    template_name = 'registration/check_email.html'
 
 
 def confirm_subscription(request):

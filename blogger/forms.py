@@ -117,7 +117,22 @@ class CommentForm(forms.ModelForm):
         }
 
 class SubscriptionForm(forms.Form):
-    name = forms.CharField(max_length=100, required=True)
-    email = forms.EmailField(required=True)
+    login = forms.CharField(
+        max_length=100,
+        label='Login',
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'your name'
+        })
+    )
+    email = forms.EmailField(
+        label='Email',
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'name@example.com',
+            'required': True
+        })
+    )
+
 
     
