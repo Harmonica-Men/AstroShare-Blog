@@ -279,26 +279,36 @@
     </section>
 
     <!-- Newsletter Subscription -->
-    <section class="container-sub margin-sub" id="newsletter-subscribtion">
-      <div class="row">
-        <h1>Subscribe to our Newsletter</h1>
-        <form method="POST" action="{% url 'subscribe' %}">
-          {% csrf_token %}
-          <div class="container mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Login: </label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="login" placeholder="your name">
-          </div>
-          <div class="container mb-3">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email"
-              placeholder="name@example.com" required>
-            <br>
-            <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
-          </div>
-        </form>
+<section class="container-sub margin-sub" id="newsletter-subscribtion">
+  <div class="row">
+    <h1>Subscribe to our Newsletter</h1>
+    <form method="POST" action="{% url 'subscribe' %}">
+      {% csrf_token %}
+      <div class="container mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Login: </label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="login" placeholder="your name">
       </div>
-    </section>
-    <!-- Newsletter Subscription End -->
+      <div class="container mb-3">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="exampleFormControlTextarea1" name="email"
+          placeholder="name@example.com" required>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit">
+      </div>
+    </form>
+    {% if message %}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    {% endif %}
+    {% if error %}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    {% endif %}
+  </div>
+</section>
+<!-- Newsletter Subscription End -->
 
     <div class="container-custom back-to-top-button">
       <a href="#" class="color-hyperlink">Back to Top</a>

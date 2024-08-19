@@ -20,6 +20,6 @@ urlpatterns = [
     path('search/', SearchView.as_view(), name='search'),
     path('nasa/', nasa_picture_of_the_day, name='nasa-picture-of-the-day'),
     path('iss_location/', iss_location, name='iss-location'),
-    path('subscribe/', subscribe, name='subscribe'),
+    # path('subscribe/', subscribe, name='subscribe'),
     path('confirm/', confirm_subscription, name='confirm_subscription'),
 ]

@@ -261,7 +261,7 @@ def subscribe(request):
 
             confirmation_link = f"{request.scheme}://{request.get_host()}/blogger/confirm/?code={confirmation_code}"
             subject = 'Confirm your subscription'
-            message = f'Hi {name},\n\nClick the link to confirm your subscription: {confirmation_link}'
+            message = f'Hello {name},\n\nClick the link to confirm your subscription: {confirmation_link}'
             from_email = settings.DEFAULT_FROM_EMAIL
             
             try:
