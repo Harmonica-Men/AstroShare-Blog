@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load truncate_html %}
 
 {% block title %} Create a new blog post! {% endblock %}
 {% block content %}
@@ -78,6 +79,9 @@
                     ['font', ['bold', 'italic', 'underline', 'clear']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
         });
@@ -91,4 +95,8 @@
 
 </div>
 {% endwith %}
+
+<div class="container">
+    {{ post.body|truncate_html:300 }} ... 
+</div>
 {% endblock %}
