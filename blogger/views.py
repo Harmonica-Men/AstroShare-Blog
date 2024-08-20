@@ -177,20 +177,28 @@ class AddCategoryView(CreateView):
     template_name = 'add_category.html'
     fields = '__all__'
 
-class SearchView(View):
-    template_name = 'search.html'
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Post
 
-    def get(self, request):
-        query = request.GET.get('query', '')
-        posts = Post.objects.filter(status=Post.ACTIVE).filter(
-            Q(title__icontains=query) | Q(intro__icontains=query) | Q(body__icontains=query)
-        )
-        context = {
-            'posts': posts,
-            'query': query,
-        }
-        return render(request, self.template_name, context)
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Post
 
+def search_view(request):
+    query = request.GET.get('query', '')
+    posts = Post.objects.filter(status=Post.ACTIVE).filter(
+        Q(title__icontains=query) | Q(body__icontains=query)
+    )
+    context = {
+        'posts': posts,
+        'query': query,
+    }
+    return render(request, 'search.html', context)
+
+
+
+   
 def nasa_picture_of_the_day(request):
     api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'  # Replace with your NASA API key
     url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
