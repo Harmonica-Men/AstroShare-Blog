@@ -1,38 +1,43 @@
 {% extends 'base.html' %}
 {% block title %} Edit & Update Post {% endblock %}
-{% load static%}
+{% load static %}
 {% block content %}
 
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-{% if user.is_authenticated %}
-<h4>Update Post ...</h4>
 
-    <div class="container-sub">
-        <div class="d-flex justify-content-center steps--background-white rounded">
-            <div class="container-sub">
-                <div class="from-group">
-                    {% load static %}
-                    <!-- <script src="{% static 'django_ckeditor_5/ckeditor5/ckeditor.js' %}"></script> -->
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="container-custom">
+    {% if user.is_authenticated %}
+        {% if user == post.author %}
 
-                            <button class="btn btn-primary">Update</button>
-
-                        </div>
-                    </form>
+        <h4>Update Post ...</h4>
+        
+        <div class="container-sub">
+            <div class="d-flex justify-content-center steps--background-white rounded">
+                <div class="container-sub">
+                    <div class="from-group">                        
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="container-custom">
+                                <button class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        {% else %}
+        <!-- Render the 403 template for forbidden access -->
+        {% include '403.html' %}
+        {% endif %}
     {% else %}
-    <div>
-        <h2>No access to this page</h2>
-    </div>
+        <!-- Render the 403 template for unauthenticated access -->
+        {% include '403.html' %}
     {% endif %}
+
 </div>
+
 {% endwith %}
 {% endblock %}

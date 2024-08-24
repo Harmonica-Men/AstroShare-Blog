@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 {% block title %}Login Page{% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
@@ -10,6 +10,16 @@
     <div class="d-flex justify-content-center steps--background-white rounded">
         <div class="container-sub">
             <div class="form-group">
+
+                <!-- Display warning messages if login fails -->
+                {% if messages %}
+                    <div class="alert alert-warning" role="alert">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
                 <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
                     

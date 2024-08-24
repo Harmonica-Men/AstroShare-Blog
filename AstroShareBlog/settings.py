@@ -17,7 +17,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
-# from cloudinary.models import CloudinaryField
 
 
 if os.path.exists("env.py"):
@@ -42,7 +41,7 @@ SECRET_KEY = "SECRET_KEY"
 CLOUDINARY_URL = "CLOUDINARY_URL"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-harmonicame-astroshareb-tykmah5chi5.ws.codeinstitute-ide.net',
                  '.herokuapp.com']

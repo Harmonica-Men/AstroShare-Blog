@@ -18,6 +18,7 @@ from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from datetime import datetime
+from django.http import HttpResponseForbidden
 from django.utils.text import slugify
 
 
@@ -158,10 +159,24 @@ class AddCommentView(CreateView):
         return super().form_valid(form)
 
 class UpdatePostView(UpdateView):
-    model = Post   
+    model = Post
     form_class = PostForm
     template_name = 'update_post.html'
-#    fields = ('title', 'title_tag', 'body')
+
+    def dispatch(self, request, *args, **kwargs):
+        post = self.get_object()
+
+        if request.user.is_authenticated:
+            if request.user == post.author:
+                return super().dispatch(request, *args, **kwargs)
+            else:
+                return render(request, '403.html', status=403)
+        else:
+            return render(request, '403.html', status=403)
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Post, pk=pk)
 
 class DeletePostView(DeleteView):
     model = Post   
