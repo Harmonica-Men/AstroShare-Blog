@@ -314,3 +314,6 @@ def ConfirmSubscription(request):
     subscriber.save()
 
     return render(request, 'registration/confirm_subscription.html')
+
+# def custom_500_error(request):
+#     return render(request, '500.html', status=500)
