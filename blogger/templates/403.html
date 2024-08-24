@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Page Not Found{% endblock %}
+{% block content %}
+
+
+{% with image_url='/images/background.webp' %}
+
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <h2 style="padding-left: 7rem;">403 - No Access Forbidden</h2>    
+    <section class="container-banner"  style="padding: 10rem;">
+
+        
+        <div class="container-custom steps--background-white rounded">
+            <div class="container-sub">
+                <div class="container-sub">
+                    <p><strong>There is nothing here</strong></p>
+                    <img src="/static/images/black-hole1.webp" class="img-thumbnail w-25" alt="404 - black hole">
+                </div>
+                <div class="container-custom">
+                    <strong><a href="/">Return to homepage</a></strong>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endwith %}
+{% endblock %}
