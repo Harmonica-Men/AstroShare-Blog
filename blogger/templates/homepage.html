@@ -41,12 +41,9 @@
   <!-- Category Hero -->
   <section class="hero" id="top-page">
     <div class="hero__overlay"></div>
-    <video playsinline autoplay muted loop class="hero__video" poster="{% static 'images/placeholder.jpg' %}">
-
-
+    <video playsinline autoplay muted loop loading="lazy" class="hero__video">
       <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
     </video>
-
     <div class="hero__content container-custom position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="container-banner text-white">
@@ -82,30 +79,19 @@
   <div class="container-custom steps--background-black">
     <h4>Astronomy Picture of the Day</h4>
     <div class="d-md-flex justify-content-center">
-
       <!-- <div class="black-border"> -->
       <div class="row justify-content-center">
-
         <div class="col-md-9 text-center">
-
-          <img id="image" src="{% static 'path_to_default_image.jpg' %}" alt="Astronomy Picture of the Day" class="img-thumbnail pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
-
+          <img id="image" src="" alt="Astronomy Picture of the Day" class="img-thumbnail pb-4 steps__section-thumbnail"
+            width="553" height="746" loading="lazy">
           <p id="description" style="display: none;">*</p>
-
           <p id="title">*</p>
-
           <div class="container-custom">
-
             <a href="{% url 'nasa-picture-of-the-day' %}"><strong>read more</strong></a>
           </div>
-
         </div>
-
       </div>
-
       <script src="{% static 'js/script.js' %}"></script>
-      <!-- </div> -->
-
 
       <div class="container-sub">
         <h3 class="text-center">Latest post ...</h3>
