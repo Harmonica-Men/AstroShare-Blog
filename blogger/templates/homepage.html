@@ -41,7 +41,9 @@
   <!-- Category Hero -->
   <section class="hero" id="top-page">
     <div class="hero__overlay"></div>
-    <video autoplay muted loop class="hero__video">
+    <video playsinline autoplay muted loop class="hero__video" poster="{% static 'images/placeholder.jpg' %}">
+
+
       <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
     </video>
 
@@ -86,8 +88,8 @@
 
         <div class="col-md-9 text-center">
 
-          <img id="image" src="" alt="Astronomy Picture of the Day" class="img-thumbnail pb-4 steps__section-thumbnail"
-            width="553" height="746" loading="lazy">
+          <img id="image" src="{% static 'path_to_default_image.jpg' %}" alt="Astronomy Picture of the Day" class="img-thumbnail pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
+
           <p id="description" style="display: none;">*</p>
 
           <p id="title">*</p>
@@ -114,9 +116,9 @@
             <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
           </h5>
           <small class="text-left">
-            <p>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
-              {{ first_post_list.0.author.first_name }} </p>
+            Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }}, {{ first_post_list.0.author.first_name }}
           </small>
+        
           {% else %}
           <p>No post available.</p>
           {% endif %}
@@ -274,11 +276,9 @@
         <div class="container-custom">
           <h3>Track The ISS</h3>
           <div class="iframe-container">
-            <iframe class="responsive-iframe"
-              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1"
-              style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;" title="myFrame">
-              frame iss
+            <iframe class="responsive-iframe" src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1" style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;" title="myFrame">
             </iframe>
+            
           </div>
           <a href="{% url 'iss-location' %}" class="text-muted">Go To the ISS</a>
         </div>
