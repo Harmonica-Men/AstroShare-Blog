@@ -38,17 +38,15 @@
   {% for post in posts %}
   <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
     <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
+     
       <div class="image-container">
         {% if post.image.url %}
-        <div class="container">
-          <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image"  loading="lazy">
-        </div>
+        <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image" width="200" height="92" loading="lazy">
         {% else %}
-        <div class="container">
-          <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available" loading="lazy">
-        </div>
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available" width="200" height="92" loading="lazy">
         {% endif %}
-      </div>
+     </div>
+     
       <div class="content-container">
         <h3>{{ post.title }}</h3>
         <div class="container">
@@ -105,5 +103,4 @@
 
 
 {% endwith %}
-
 {% endblock %}
