@@ -96,8 +96,8 @@ ul {
     margin-top: 12px;
     margin-bottom: 12px;
     margin-left: 0;     
-    width: 200px;
-    height: 92px;
+    width: 300px;
+    height: auto;
 }
 
 .delete-post {
@@ -506,6 +506,10 @@ a:hover {
 }
 
 @media (max-width: 1200px) {
+    .img-thumbnail {
+        width: 150px;
+    }
+
     .iframe-container {
         height: 175px;
         max-width: 100%;
@@ -547,6 +551,7 @@ a:hover {
 }
 
 @media (min-width: 544px) {
+    
     .steps {
         padding: 80px 0;
     }
@@ -556,6 +561,10 @@ a:hover {
 }
 
 @media (max-width: 380px) {
+    .img-thumbnail {
+        display: none;
+    }
+    
     span, h5 {
         font-size: small;
     }
