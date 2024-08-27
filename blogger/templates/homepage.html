@@ -5,12 +5,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; media-src 'self'; frame-src 'self' https://isstracker.pl;">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; media-src 'self'; frame-src 'self' https://isstracker.pl;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Cosmic Chronicles is your gateway to the wonders of the universe! 
   Explore the latest discoveries, celestial events, and the secrets of the cosmos in our Astro Blog.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="icon" href="{% static 'images/iss.ico' %}">
 
@@ -63,8 +64,7 @@
             bringing the marvels of space right to your screen.
             Buckle up and get ready to ignite your curiosity about the infinite night sky!
           </p>
-          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light" 
-           role="button">Go To The Blog</a>
+          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light" role="button">Go To The Blog</a>
         </div>
       </div>
     </div>
@@ -186,8 +186,8 @@
     <section class="steps steps--background-black">
       <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex col order-sm-1">
-          <img src="{% static 'images/pexels-pixabay-73910.webp' %}" alt="Missions Mars" 
-          class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
+          <img src="{% static 'images/pexels-pixabay-73910.webp' %}" alt="Missions Mars"
+            class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
         </div>
         <div class="col-12 col-sm-6  col">
           <div class="steps__content-width">
@@ -210,7 +210,7 @@
     <section class="steps steps--background-white">
       <div class="row container">
         <div class="col-12 col-sm-6 d-md-flex col">
-          <img src="{% static 'images/particle-shower.webp' %}" alt="Particle Collisions" 
+          <img src="{% static 'images/particle-shower.webp' %}" alt="Particle Collisions"
             class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
         </div>
         <div class="col-12 col-sm-6  col">
@@ -274,9 +274,9 @@
         <div class="container-custom">
           <h3>Track The ISS</h3>
           <div class="iframe-container">
-            <iframe class="responsive-iframe" 
+            <iframe class="responsive-iframe"
               src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1"
-              style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;"  title="myFrame">
+              style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;" title="myFrame">
               frame iss
             </iframe>
           </div>
@@ -286,24 +286,24 @@
     </section>
 
     <!-- Newsletter Subscription -->
-<section class="container-sub margin-sub" id="newsletter-subscribtion">
-  <div class="row">
-    <h1>Subscribe to our Newsletter</h1>
-    <form method="POST" action="{% url 'Subscribe' %}">
-        {% csrf_token %}
-        <div class="container mb-3">
+    <section class="container-sub margin-sub" id="newsletter-subscribtion">
+      <div class="row">
+        <h1>Subscribe to our Newsletter</h1>
+        <form method="POST" action="{% url 'Subscribe' %}">
+          {% csrf_token %}
+          <div class="container mb-3">
             <label for="id_login" class="form-label">Login: </label>
             <input type="text" class="form-control" id="id_login" name="login" placeholder="your name" required>
-        </div>
-        <div class="container mb-3">
+          </div>
+          <div class="container mb-3">
             <label for="id_email" class="form-label">Email:</label>
             <input type="email" class="form-control" id="id_email" name="email" placeholder="name@example.com" required>
-        </div>
-        <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
-    </form>
-  </div>
-</section>
-<!-- Newsletter Subscription End -->
+          </div>
+          <input type="submit" value="Submit" class="btn btn-primary rounded custom-submit color-hyperlink">
+        </form>
+      </div>
+    </section>
+    <!-- Newsletter Subscription End -->
 
     <div class="container-custom back-to-top-button">
       <a href="#" class="color-hyperlink">Back to Top</a>
@@ -328,10 +328,10 @@
     <!-- Footer End -->
 
     <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
-<script src="{% static 'js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
