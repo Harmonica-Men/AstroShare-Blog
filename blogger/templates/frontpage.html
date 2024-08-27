@@ -3,6 +3,9 @@
 {% load truncate_html %}
 
 {% block title %}Astro Share Blog{% endblock %}
+{% block meta %}
+  <meta name="description" content="A blog about astronomy, latest posts, and insights into the universe. Stay updated with the latest in the world of astronomy.">
+{% endblock %}
 {% block content %}
 
 {% with image_url='/images/background.webp' %}
@@ -15,16 +18,16 @@
         <a href="?page=1"><strong>&laquo; First</strong></a>
         <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
         {% else %}
-        <a href="?page=1" disabled><strong>&laquo; First</strong></a>
-        <a disabled style="color: cyan"><strong>&lt; Prev.</strong></a>
+        <a href="?page=1"><strong>&laquo; First</strong></a>
+        <span style="color: cyan"><strong>&lt; Prev.</strong></span>
         {% endif %}
 
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
         <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
         {% else %}
-        <a disabled style="color: cyan"><strong>Next &gt;</strong></a>
-        <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
+        <span style="color: cyan"><strong>Next &gt;</strong></span>
+        <a href="?page={{ page_obj.paginator.num_pages }}" ><strong>Last &raquo;</strong></a>
         {% endif %}
       </span>
     </div>
@@ -38,24 +41,22 @@
       <div class="image-container">
         {% if post.image.url %}
         <div class="container">
-          <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image" width="300" height="auto">
+          <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image"  loading="lazy">
         </div>
         {% else %}
         <div class="container">
-          <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available"
-          width="300" height="auto">
+          <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available" loading="lazy">
         </div>
         {% endif %}
       </div>
       <div class="content-container">
         <h3>{{ post.title }}</h3>
         <div class="container">
-          {{ post.body|truncate_html:300 }} ... <a href="{% url 'article-detail' post.pk %}"
-            class="color-hyperlink"><small><strong>read more</strong></small></a>
+          {{ post.body|truncate_html:300 }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
+          <small><strong>Read more about {{ post.title }}</strong></small></a>
         </div>
-        <p class="italicize"> Posted: <strong>{{ post.post_date }}</strong> Category: <strong>{{ post.category }}</strong> 
-          By: <small class="last-name"><strong>{{ post.author.last_name }}</strong></small>,
-          <small class="first-name"><strong>{{ post.author.first_name }}</strong></small>
+        <p class="italicize">Posted: <strong>{{ post.post_date }}</strong> Category: <strong>{{ post.category }}</strong> 
+          By: <strong>{{ post.author.last_name }}</strong>, <strong>{{ post.author.first_name }}</strong>
         </p>
 
         {% if user.is_authenticated %}
@@ -79,16 +80,16 @@
         <a href="?page=1"><strong>&laquo; First</strong></a>
         <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
         {% else %}
-        <a href="?page=1" disabled><strong>&laquo; First</strong></a>
-        <a disabled style="color: cyan"><strong>&lt; Prev.</strong></a>
+        <a href="?page=1" ><strong>&laquo; First</strong></a>
+        <span style="color: cyan"><strong>&lt; Prev.</strong></span>
         {% endif %}
 
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
         <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
         {% else %}
-        <a disabled style="color: cyan"><strong>Next &gt;</strong></a>
-        <a href="?page={{ page_obj.paginator.num_pages }}" disabled><strong>Last &raquo;</strong></a>
+        <span style="color: cyan"><strong>Next &gt;</strong></span>
+        <a href="?page={{ page_obj.paginator.num_pages }}" ><strong>Last &raquo;</strong></a>
         {% endif %}
       </span>
     </div>
@@ -102,6 +103,7 @@
 
   </div>
 </div>
+
 {% endwith %}
 
 {% endblock %}

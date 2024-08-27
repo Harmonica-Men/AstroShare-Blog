@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_summernote',
+    'django_summernote',    
     'blogger',    
     'members',
 ]
@@ -72,8 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
+    'whitenoise.middleware.WhiteNoiseMiddleware',        
+    ]
 
 ROOT_URLCONF = 'AstroShareBlog.urls'
 
@@ -95,15 +95,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AstroShareBlog.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -166,8 +158,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = 'frontpage-blogpost'
 LOGOUT_REDIRECT_URL = 'frontpage-blogpost'
-
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
