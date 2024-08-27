@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-evenly">
+    <div class="d-md-flex justify-content-evenly steps--background-black rounded">
+      <span class="step-links m-1">
+        {% if page_obj.has_previous %}
+        <a href="?page=1"><strong>&laquo; First</strong></a>
+        <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
+        {% else %}
+        <a href="?page=1"><strong>&laquo; First</strong></a>
+        <span style="color: cyan"><strong>&lt; Prev.</strong></span>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
+        {% else %}
+        <span style="color: cyan"><strong>Next &gt;</strong></span>
+        <a href="?page={{ page_obj.paginator.num_pages }}" ><strong>Last &raquo;</strong></a>
+        {% endif %}
+      </span>
+    </div>
+  </div>

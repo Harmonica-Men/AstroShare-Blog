@@ -11,28 +11,9 @@
 {% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
   <h4>Latest Posts</h4>
-  <div class="d-flex justify-content-evenly">
-    <div class="d-md-flex justify-content-evenly steps--background-black rounded">
-      <span class="step-links m-1">
-        {% if page_obj.has_previous %}
-        <a href="?page=1"><strong>&laquo; First</strong></a>
-        <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
-        {% else %}
-        <a href="?page=1"><strong>&laquo; First</strong></a>
-        <span style="color: cyan"><strong>&lt; Prev.</strong></span>
-        {% endif %}
 
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
-        <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
-        {% else %}
-        <span style="color: cyan"><strong>Next &gt;</strong></span>
-        <a href="?page={{ page_obj.paginator.num_pages }}" ><strong>Last &raquo;</strong></a>
-        {% endif %}
-      </span>
-    </div>
-  </div>
-
+  {% include 'pagination.html' %}
+  
   <br>
 
   {% for post in posts %}
@@ -46,7 +27,7 @@
         <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available" width="200" height="92" loading="lazy">
         {% endif %}
      </div>
-     
+
       <div class="content-container">
         <h3>{{ post.title }}</h3>
         <div class="container">
@@ -71,27 +52,7 @@
   <hr>
   {% endfor %}
 
-  <div class="d-flex justify-content-evenly">
-    <div class="d-md-flex justify-content-evenly steps--background-black rounded">
-      <span class="step-links m-1">
-        {% if page_obj.has_previous %}
-        <a href="?page=1"><strong>&laquo; First</strong></a>
-        <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
-        {% else %}
-        <a href="?page=1" ><strong>&laquo; First</strong></a>
-        <span style="color: cyan"><strong>&lt; Prev.</strong></span>
-        {% endif %}
-
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
-        <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
-        {% else %}
-        <span style="color: cyan"><strong>Next &gt;</strong></span>
-        <a href="?page={{ page_obj.paginator.num_pages }}" ><strong>Last &raquo;</strong></a>
-        {% endif %}
-      </span>
-    </div>
-  </div>
+  {% include 'pagination.html' %}
 
   <div class="container-custom">
     <div class="back-to-top-button" style="padding-top: 1rem;">
