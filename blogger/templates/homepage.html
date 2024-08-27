@@ -92,55 +92,56 @@
         </div>
       </div>
       <script src="{% static 'js/script.js' %}"></script>
-    </div>
 
-    <div class="container-sub">
-      <h3 class="text-center">Latest post ...</h3>
-      <div class="container">
-        {% with posts|slice:":1" as first_post_list %}
-        {% if first_post_list.0 %}
-        <h5>
-          <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
-        </h5>
-        <small class="text-left">
-          Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
-          {{ first_post_list.0.author.first_name }}
-        </small>
 
-        {% else %}
-        <p>No post available.</p>
-        {% endif %}
-        {% endwith %}
-      </div>
-      <div class="container">
-        {% with posts|slice:"1:2" as second_post_list %}
-        {% if second_post_list.0 %}
-        <h5>
-          <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
-        </h5>
-        <small class="text-left">
-          Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
-          {{ second_post_list.0.author.first_name }}
-        </small>
-        {% else %}
-        <p>No second post available.</p>
-        {% endif %}
-        {% endwith %}
-      </div>
-      <div class="container">
-        {% with posts|slice:"2:3" as third_post_list %}
-        {% if third_post_list.0 %}
-        <h5>
-          <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
-        </h5>
-        <small class="text-left">
-          Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
-          {{ third_post_list.0.author.first_name }}
-        </small>
-        {% else %}
-        <p>No third post available.</p>
-        {% endif %}
-        {% endwith %}
+      <div class="container-sub">
+        <h3 class="text-center">Latest post ...</h3>
+        <div class="container">
+          {% with posts|slice:":1" as first_post_list %}
+          {% if first_post_list.0 %}
+          <h5>
+            <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
+          </h5>
+          <small class="text-left">
+            Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
+            {{ first_post_list.0.author.first_name }}
+          </small>
+
+          {% else %}
+          <p>No post available.</p>
+          {% endif %}
+          {% endwith %}
+        </div>
+        <div class="container">
+          {% with posts|slice:"1:2" as second_post_list %}
+          {% if second_post_list.0 %}
+          <h5>
+            <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
+          </h5>
+          <small class="text-left">
+            Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
+            {{ second_post_list.0.author.first_name }}
+          </small>
+          {% else %}
+          <p>No second post available.</p>
+          {% endif %}
+          {% endwith %}
+        </div>
+        <div class="container">
+          {% with posts|slice:"2:3" as third_post_list %}
+          {% if third_post_list.0 %}
+          <h5>
+            <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
+          </h5>
+          <small class="text-left">
+            Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
+            {{ third_post_list.0.author.first_name }}
+          </small>
+          {% else %}
+          <p>No third post available.</p>
+          {% endif %}
+          {% endwith %}
+        </div>
       </div>
     </div>
   </div>
