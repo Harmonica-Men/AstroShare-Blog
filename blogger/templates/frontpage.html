@@ -8,26 +8,23 @@
 {% endblock %}
 {% block content %}
 
-{% with image_url='/images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="container-sub" style="background: url('{% static 'images/background.webp' %}') no-repeat fixed top right / cover;">
   <h4>Latest Posts</h4>
 
   {% include 'pagination.html' %}
-  
+
   <br>
 
   {% for post in posts %}
   <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
     <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
-     
       <div class="image-container">
         {% if post.image.url %}
-        <img src="{{ post.image.url }}" class="img-thumbnail" alt="post-image" width="200" height="92" loading="lazy">
+        <img src="{{ post.image.url }}" class="img-thumbnail" alt="Image for {{ post.title }}" width="200" height="92" loading="lazy">
         {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available" width="200" height="92" loading="lazy">
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="No image available" width="200" height="92" loading="lazy">
         {% endif %}
-     </div>
-
+      </div>
       <div class="content-container">
         <h3>{{ post.title }}</h3>
         <div class="container">
@@ -38,13 +35,11 @@
           By: <strong>{{ post.author.last_name }}</strong>, <strong>{{ post.author.first_name }}</strong>
         </p>
 
-        {% if user.is_authenticated %}
-        {% if user == post.author %}
+        {% if user.is_authenticated and user == post.author %}
         <div class="container">
           <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
           <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
         </div>
-        {% endif %}
         {% endif %}
       </div>
     </div>
@@ -62,6 +57,4 @@
 
 </div>
 
-
-{% endwith %}
 {% endblock %}
