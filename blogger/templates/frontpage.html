@@ -8,8 +8,8 @@
 {% endblock %}
 {% block content %}
 
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-  <h4>Latest Posts</h4>
+{% with image_url='/images/background.webp' %}
+<div class="container wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">  <h4>Latest Posts</h4>
 
   {% include 'pagination.html' %}
 
@@ -20,9 +20,9 @@
     <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
       <div class="image-container">
         {% if post.image.url %}
-        <img src="{{ post.image.url }}" class="img-thumbnail" alt="Image for {{ post.title }}" width="200" height="92" loading="lazy">
+        <img src="{{ post.image.url }}" class="img-thumbnail" alt="Image for {{ post.title }}"  loading="lazy">
         {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="No image available" width="200" height="92" loading="lazy">
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="No image available" loading="lazy">
         {% endif %}
       </div>
       <div class="content-container">
@@ -56,5 +56,6 @@
   </div>
 
 </div>
+{% endwith %}
 
 {% endblock %}

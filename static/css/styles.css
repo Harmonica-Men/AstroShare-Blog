@@ -96,6 +96,8 @@ ul {
     margin-top: 12px;
     margin-bottom: 12px;
     margin-left: 0;     
+    width: 200px;
+    height: 92px;
 }
 
 .delete-post {
