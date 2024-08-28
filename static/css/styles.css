@@ -564,6 +564,10 @@ a:hover {
     .img-thumbnail {
         display: none;
     }
+
+    /* .img-fluid {
+        display: none;
+    } */
     
     span, h5 {
         font-size: small;

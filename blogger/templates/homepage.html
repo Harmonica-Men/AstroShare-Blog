@@ -77,72 +77,64 @@
   </section>
   <!-- Hero End -->
 
-  <div class="container-custom steps--background-white" >
-    <h3>Astronomy Picture of the Day</h3>
-    <div class="d-md-flex justify-content-center">
-
-      <!-- <div class="black-border"> -->
-      <div class="row container-banner justify-content-center">
-        <div class="col-md-10 text-center">
-          <img src="{% static 'images/apod-logo.webp'%}" class="img-fluid" alt="Astronomy Picture of the Day" loading="lazy">
-
-        </div>
-        <div class="container-custom mt-4">
-          <a href="{% url 'nasa-picture-of-the-day' %}"><strong>read more</strong></a>
+  <!-- section APOD -->
+  <section class="steps steps--background-black">
+    <div class="row container-custom">
+      <div class="col-12">
+        <h3>Astronomy Picture of the Day</h3>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="row container-banner justify-content-center">
+          <div class="col-md-10 text-center">
+            <img src="{% static 'images/apod-logo.webp'%}" class="img-fluid" alt="Astronomy Picture of the Day"
+              loading="lazy">
+          </div>
+          <div class="container-custom mt-4">
+            <a href="{% url 'nasa-picture-of-the-day' %}"><strong>Read more</strong></a>
+          </div>
         </div>
       </div>
-    
-      <div class="container-custom">
-        <h3 class="text-center">Latest post ...</h3>
-        <div class="container">
-          {% with posts|slice:":1" as first_post_list %}
-          {% if first_post_list.0 %}
-          <h5>
-            <a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a>
-          </h5>
-          <small class="text-left">
-            Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
-            {{ first_post_list.0.author.first_name }}
-          </small>
-
-          {% else %}
-          <p>No post available.</p>
-          {% endif %}
-          {% endwith %}
-        </div>
-        <div class="container">
-          {% with posts|slice:"1:2" as second_post_list %}
-          {% if second_post_list.0 %}
-          <h5>
-            <a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a>
-          </h5>
-          <small class="text-left">
-            Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
-            {{ second_post_list.0.author.first_name }}
-          </small>
-          {% else %}
-          <p>No second post available.</p>
-          {% endif %}
-          {% endwith %}
-        </div>
-        <div class="container">
-          {% with posts|slice:"2:3" as third_post_list %}
-          {% if third_post_list.0 %}
-          <h5>
-            <a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a>
-          </h5>
-          <small class="text-left">
-            Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
-            {{ third_post_list.0.author.first_name }}
-          </small>
-          {% else %}
-          <p>No third post available.</p>
-          {% endif %}
-          {% endwith %}
+      <div class="col-12 col-sm-6">
+        <div class="container-sub">
+          <h3 class="text-center">Latest post ...</h3>
+          <div class="container">
+            {% with posts|slice:":1" as first_post_list %}
+            {% if first_post_list.0 %}
+            <h5><a href="{% url 'article-detail' first_post_list.0.pk %}">{{ first_post_list.0.title }}</a></h5>
+            <small>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
+              {{ first_post_list.0.author.first_name }}</small>
+            {% else %}
+            <p>No post available.</p>
+            {% endif %}
+            {% endwith %}
+          </div>
+          <div class="container-sub">
+            {% with posts|slice:"1:2" as second_post_list %}
+            {% if second_post_list.0 %}
+            <h5><a href="{% url 'article-detail' second_post_list.0.pk %}">{{ second_post_list.0.title }}</a></h5>
+            <small>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
+              {{ second_post_list.0.author.first_name }}</small>
+            {% else %}
+            <p>No second post available.</p>
+            {% endif %}
+            {% endwith %}
+          </div>
+          <div class="container-sub">
+            {% with posts|slice:"2:3" as third_post_list %}
+            {% if third_post_list.0 %}
+            <h5><a href="{% url 'article-detail' third_post_list.0.pk %}">{{ third_post_list.0.title }}</a></h5>
+            <small>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
+              {{ third_post_list.0.author.first_name }}</small>
+            {% else %}
+            <p>No third post available.</p>
+            {% endif %}
+            {% endwith %}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- section APOD end -->
 
   <!-- Section Category One Start -->
   <section class="steps steps--background-white">
@@ -275,36 +267,40 @@
   </section>
 
   <!-- Newsletter Subscription -->
-  <section class="container-custom margin-sub mt-4" id="newsletter-subscribtion">
-    <div class="row">
-      <h2>Subscribe to our Newsletter</h2>
-      <form method="POST" action="{% url 'Subscribe' %}">
-        {% csrf_token %}
-        <div class="container mb-3">
-          <label for="id_login" class="form-label">Login: </label>
-          <input type="text" class="form-control" id="id_login" name="login" placeholder="your name" required>
+  <section class="steps steps--background-black">
+    <div class="row container-sub margin-sub mt-4" id="newsletter-subscription">
+        <div class="col-12 container-custom">
+            <h2>Subscribe to our Newsletter</h2>
         </div>
-        <div class="container mb-3">
-          <label for="id_email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="id_email" name="email" placeholder="name@example.com" required>
+        <div class="col-12">
+            <form method="POST" action="{% url 'Subscribe' %}" class="col-12 col-md-8 mx-auto">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_login" class="form-label">Login:</label>
+                    <input type="text" class="form-control" id="id_login" name="login" placeholder="Your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="id_email" name="email" placeholder="name@example.com" required>
+                    
+                    
+                     
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary custom-submit">
+            </form>
+            
         </div>
-       
-          <input type="submit" value="Submit" class="btn btn-primary custom-submit margin-sub me-0 color-hyperlink">
-      
-      
-      
-      </form>
-      <div class="container-sub back-to-top-button">
-        <a href="#" class="color-hyperlink">Back to Top</a>
-      </div>
-    
+        
     </div>
+    <div class="container-custom back-to-top-button text-center">
+      <a href="#top-page" class="color-hyperlink">Back to Top</a>
+  </div>
+</section>
 
-  </section>
- 
+
   <!-- Newsletter Subscription End -->
 
-  
+
   <!-- Footer Start -->
   <footer class="footer bg-dark text-white">
     <div class="d-flex justify-content-between align-items-center py-3 border-highlight">
