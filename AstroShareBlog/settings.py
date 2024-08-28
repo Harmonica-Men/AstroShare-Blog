@@ -22,7 +22,7 @@ import dj_database_url
 if os.path.exists("env.py"):
     import env
 
-
+NASA_API_KEY = os.getenv('NASA_API_KEY', 'Pvg4IKHgTOf7K0xGvKa0Y2jXxcAcFUi80JhZuq0K')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -98,7 +98,8 @@ WSGI_APPLICATION = 'AstroShareBlog.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    # 'CONN_MAX_AGE': 600,  
 }
 
 

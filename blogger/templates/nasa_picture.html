@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} This is article details {% endblock %}
+{% load truncate_html %}
+
+{% block title %} APOD {% endblock %}
 {% block content %}
 
-{% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
     <div class="container">
         <h4 style="color: white;"><strong>{{ title }}</strong></h4>
 
-        <div class="d-flex justify-content-center steps--background-white rounded">
-            <div class="container-sub">
-                <img src="{{ image_url }}" alt="NASA Picture of the Day" class="img-thumbnail">
+        <div class="container-sub steps--background-white"> 
+            {% if media_type == 'image' %}
+            <div class="container-custom">
+                <img src="{{ image_url }}" class="img-thumbnail" alt="{{ title }}" style="max-width: 100%;">
             </div>
-
-            <div class="container-sub">
-                <div class="container-banner">
-                    <p>{{ explanation }}</p>
-                </div>
-            </div>
+            {% elif media_type == 'video' %}
+                <iframe src="{{ image_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 400px;"></iframe>
+            {% endif %}
+            <p><strong>Date:</strong> {{ date }}</p>
+            <p>{{ explanation }}</p>
         </div>
+        
 
         <div class="text-center mt-4">
             <strong><a href="{% url 'frontpage-blogpost' %}">Return to blogpost</a></strong>
@@ -27,5 +29,5 @@
     </div>
 
 </div>
-{% endwith %}
+
 {% endblock %}

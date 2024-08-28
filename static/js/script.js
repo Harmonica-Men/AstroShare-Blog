@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiKey = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'; // Replace with your NASA API key
+    const apiKey = 'YOUR_NASA_API_KEY';
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('title').textContent = data.title;
-            document.getElementById('image').src = data.url;
-            document.getElementById('description').textContent = data.explanation;
+            const mediaContainer = document.getElementById('apod-media-container');
+
+            if (data.media_type === 'image') {
+                mediaContainer.innerHTML = `<img src="${data.url}" alt="${data.title}" style="max-width: 100%;">`;
+            } else if (data.media_type === 'video') {
+                mediaContainer.innerHTML = `<iframe src="${data.url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 400px;"></iframe>`;
+            }
+            document.getElementById('apod-title').textContent = data.title;
+            document.getElementById('apod-explanation').textContent = data.explanation;
         })
-        .catch(error => console.error('Error fetching the APOD data:', error));
+        .catch(error => console.error('Error fetching APOD data:', error));
 });

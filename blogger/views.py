@@ -21,6 +21,23 @@ from datetime import datetime
 from django.http import HttpResponseForbidden
 from django.utils.text import slugify
 
+class ApodView(View):
+    def get(self, request, *args, **kwargs):
+        # NASA API URL with your API key
+        url = f"https://api.nasa.gov/planetary/apod?api_key={settings.NASA_API_KEY}"
+        response = requests.get(url)
+        data = response.json()
+
+        # Pass the data to the template
+        context = {
+            'title': data.get('title'),
+            'image_url': data.get('url'),
+            'explanation': data.get('explanation'),
+            'date': data.get('date'),
+            'media_type': data.get('media_type'),  # For checking if it's a video or image
+        }
+
+        return render(request, 'nasa_picture.html', context)
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
@@ -70,8 +87,8 @@ class HomepageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
 
-        # Fetch the latest 7 profiles with user details
-        profiles = Profile.objects.select_related('user').order_by('-user__date_joined')[:7]
+        # Fetch the latest 9 profiles with user details
+        profiles = Profile.objects.select_related('user').order_by('-user__date_joined')[:9]
 
         # Extracting first name, last name, and username into a list of dictionaries
         context['profile_names'] = [
@@ -86,7 +103,7 @@ class HomepageView(TemplateView):
         return context
 
 
-# blogger/views.py
+
 
 # class FrontpageView(ListView):
 #     model = Post
