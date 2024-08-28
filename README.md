@@ -1,8 +1,6 @@
 # AstroShare Blog
 
-"Discover the cosmos with AstroShare, the ultimate online community for astronomy enthusiasts! Our blog is a hub where you can sign up, collaborate, and interact with fellow stargazers. Share stunning photos, insightful articles, and engaging discussions about all things astronomical. Whether you're a novice star-watcher or a seasoned astronomer, AstroShare makes it easy to connect, learn, and grow. Join us today and be a part of a vibrant community that’s exploring the universe, one post at a time!"
-
-A live version of the project can be accessed here: 
+AstroShare Blog is a fictional blog post news site, where information about Astronomical related subjects can be disscussed a where vverified user can blog posts. There number of fix categories to choice from and the idea is to gather as many space enthusiasts into discussions there are comment section below every post. In fact the gual is to make the ultimate space blog and discussion hub for enthusiasts, experts, and curious minds alike! Here, users can post, read, and comment on the latest news stories about space exploration, astronomy, and beyond. Each post is tagged by topic, allowing easy navigation through categories like "Astronomy," "Space Missions," "Astrophysics," and more. Posts can be upvoted or downvoted, helping highlight the most engaging content. Users can also leave comments on posts to join the conversation. Every post and comment includes a timestamp, fostering real-time discussions and building a vibrant, interactive community around space topics.
 
 (responsiveness image)
 
@@ -27,11 +25,37 @@ A live version of the project can be accessed here:
     - [Database](#database)
     - Features
     - Bugs
-    - Testing
     - Deployment
     - Credits
 
+    - [Validator Testing](#validator-tests)
+        - [W3C](#w3c)
+        - [PEP8](#pep8)
+        - [JSHint](#jshint)
+      - [Accessibility & Performance](#accessibility--performance)
+        - [WAVE](#wave)
+        - [Lighthouse](#lighthouse)
+
   # UX  
+
+
+
+## Validator Testing
+
+### W3C
+All pages have been passed through the [W3C HTML Validator](https://validator.w3.org/) successfully save for a few minor issues which have been left 'as is' as attempts to correct them proved unsuccessful and lead to results which devalued the user experience. Specifically, these were:
+
+- The use of a 'background' attribute in the body tag of base.html. The validator suggested to replace this with CSS but attempts to do so meant the background image failed to load
+- The use of iframe styling attributes on the location.html page. Again, the validator suggested CSS replacements but these caused the map to display incorrectly and almost be unreadable
+
+### PEP8
+All Python files in the booking_sys and eaststreet apps, as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
+
+### JSHint
+The small JavaScript snippet under the footer of base.html has been passed through [JShint](https://jshint.com/) without issue.
+
+
+## Accessibility & Performance
 
 
 ## User Experience

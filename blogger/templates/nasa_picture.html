@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load truncate_html %}
-
 {% block title %} APOD {% endblock %}
-
 {% block content %}
 
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
     <div class="container-custom">
         <h4 style="color: white;"><strong>{{ title }}</strong></h4>
-
         <div class="container-sub steps--background-white"> 
             {% if media_type == 'image' %}
             <div class="container-custom">
@@ -22,14 +18,9 @@
             <p><strong>Date:</strong> {{ date }}</p>
             <p>{{ explanation }}</p>
         </div>
-        
-
         <div class="text-center mt-4">
             <strong><a href="{% url 'frontpage-blogpost' %}">Return to blogpost</a></strong>
         </div>
     </div>
-
 </div>
-
-
 {% endblock %}
