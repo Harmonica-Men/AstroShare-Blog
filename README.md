@@ -1,14 +1,18 @@
 # AstroShare Blog
 
-AstroShare Blog is a fictional blog post news site, where information about Astronomical related subjects can be disscussed a where vverified user can blog posts. There number of fix categories to choice from and the idea is to gather as many space enthusiasts into discussions there are comment section below every post. In fact the gual is to make the ultimate space blog and discussion hub for enthusiasts, experts, and curious minds alike! Here, users can post, read, and comment on the latest news stories about space exploration, astronomy, and beyond. Each post is tagged by topic, allowing easy navigation through categories like "Astronomy," "Space Missions," "Astrophysics," and more. Posts can be upvoted or downvoted, helping highlight the most engaging content. Users can also leave comments on posts to join the conversation. Every post and comment includes a timestamp, fostering real-time discussions and building a vibrant, interactive community around space topics.
+AstroShare Blog is a fictional blog posting news site where information on astronomically related topics can be discussed and verified users can blog posts. There are a number of categories to choose from. There is a comments section below each post. The idea is basically to create the ultimate space blog and discussion center for enthusiasts, experts and curious minds alike! Here users can post, read and comment on the latest news stories about space exploration, astronomy and much more. Each post is tagged by topic, making it easy to navigate through categories like 'Astronomy', 'Space Emissions', 'Astrophysics' and more. Posts can be voted up or down, with the most engaging content highlighted. Users can also leave comments on posts to join the conversation. Every post and comment is timestamped, which promotes real-time discussions and builds a vibrant, interactive community around space topics.
+
+A live version of the project can be accessed here: [AstroShare Blog](https://astroshare-blog-6a7ca9d34749.herokuapp.com/)
+
 
 (responsiveness image)
 
 
+
 # Table Of Contents
   - [AstroShare Blog](#astroshare-blog)
-  
-  - User Experience Design
+  - [Table Of Contents](#table-of-contents)
+  - [User Experience Design](#user-experience-design)
     - [User Experience (UX)](#ux)    
     - [User Demographic](#user-demographic-table-of-contents)
     - [User Stories & Epics](#user-stories-and-epics)
@@ -36,29 +40,56 @@ AstroShare Blog is a fictional blog post news site, where information about Astr
         - [WAVE](#wave)
         - [Lighthouse](#lighthouse)
 
-  # UX  
+
+# User Experience Design
+## User Demographic
+This website is intended for:
+
+- Users with a strong interest in astronomy and space exploration.
+- Space enthusiasts looking to stay updated on the latest news and discoveries.
+- Experts in astronomy or related fields who want to share insights or research.
+- Curious minds eager to learn more about space and engage in discussions.
+- Users interested in a community-driven space where they can discuss and debate astronomical topics.
+
+## User Stories
+As a User of this website:
+
+- I want to easily navigate through different categories such as 'Astronomy', 'Space Emissions', and 'Astrophysics' to find relevant posts.
+- I want to read the latest blog posts about space exploration, astronomy, and related topics.
+- I want to create and publish blog posts to share my knowledge or opinions on space-related topics.
+- I want to vote on posts, so the most engaging content is highlighted for others.
+- I want to leave comments on blog posts to join the conversation and share my thoughts.
+- I want to be able to see timestamps on posts and comments to understand the timeline of the discussions.
+- I want to receive notifications or updates when someone replies to my comments or when there are new posts in categories I follow.
+- I want to search for specific topics or keywords to quickly find posts of interest.
+- I want to manage my account settings, including updating my profile, changing my password, and adjusting notification preferences.
+- I want to report any inappropriate content or comments to the site admin for review.
+- I want to follow specific bloggers or topics to stay informed about new content that matches my interests.
+- I want to share interesting posts on social media to engage my network in discussions.
 
 
 
-## Validator Testing
-
-### W3C
-All pages have been passed through the [W3C HTML Validator](https://validator.w3.org/) successfully save for a few minor issues which have been left 'as is' as attempts to correct them proved unsuccessful and lead to results which devalued the user experience. Specifically, these were:
-
-- The use of a 'background' attribute in the body tag of base.html. The validator suggested to replace this with CSS but attempts to do so meant the background image failed to load
-- The use of iframe styling attributes on the location.html page. Again, the validator suggested CSS replacements but these caused the map to display incorrectly and almost be unreadable
-
-### PEP8
-All Python files in the booking_sys and eaststreet apps, as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
-
-### JSHint
-The small JavaScript snippet under the footer of base.html has been passed through [JShint](https://jshint.com/) without issue.
 
 
-## Accessibility & Performance
 
 
-## User Experience
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 A user story is an explanation of a software feature written from the perspective of the end user. Its purpose is to articulate how a software feature will provide value to the customer. User stories were created with the help of GitHub issues. Each user story contains:
 * Title - Short description of the user story. 
@@ -681,3 +712,42 @@ sluggyfy could have (maybe)
 1to1 edit profile
 
 update readme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Validator Testing
+
+### W3C
+All pages have been passed through the [W3C HTML Validator](https://validator.w3.org/) successfully save for a few minor issues which have been left 'as is' as attempts to correct them proved unsuccessful and lead to results which devalued the user experience. Specifically, these were:
+
+- The use of a 'background' attribute in the body tag of base.html. The validator suggested to replace this with CSS but attempts to do so meant the background image failed to load
+- The use of iframe styling attributes on the location.html page. Again, the validator suggested CSS replacements but these caused the map to display incorrectly and almost be unreadable
+
+### PEP8
+All Python files in the booking_sys and eaststreet apps, as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
+
+### JSHint
+The small JavaScript snippet under the footer of base.html has been passed through [JShint](https://jshint.com/) without issue.
+
+
+## Accessibility & Performance
