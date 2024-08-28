@@ -146,16 +146,7 @@
       <div class="col-12 col-sm-6  col">
         <div class="steps__content-width">
           <h1 class="h2 mb-4">Astro Physics</h1>
-          <p class="mb-4">Astrophysics is a branch of astronomy that focuses on understanding the physical properties
-            and underlying processes of celestial objects and phenomena. It combines principles of physics and
-            chemistry to study stars, planets, galaxies, black holes, and the universe as a whole. Through
-            observational and theoretical methods, astrophysicists seek to uncover the nature of cosmic phenomena, the
-            behavior of matter and energy in space,
-            and the fundamental laws governing the universe's structure and evolution.
-            Topics in astrophysics include the life cycles of stars,
-            the behavior of galaxies,
-            the properties of dark matter and dark energy,
-            and the origins and fate of the universe.
+          <p class="mb-4">Astrophysics is a branch of astronomy that studies the physical properties and processes of celestial objects and phenomena. It combines physics and chemistry to explore stars, planets, galaxies, black holes, and the universe. Astrophysicists use observational and theoretical methods to understand cosmic phenomena, matter, energy, and the universe's structure and evolution, covering topics like star life cycles, galaxy behavior, dark matter, dark energy, and the universe's origins and fate.
           </p>
         </div>
       </div>
@@ -235,12 +226,15 @@
   </section>
   <!-- Section Four End -->
 
-  <!-- Section Contributors -->
   <section class="container-sub steps--background-white">
-    <div class="d-md-flex justify-content-center">
-      <div class="container-banner">
-        <h3 class="text-center" style="padding-bottom: 1.25rem;">Our Latest Contributors on the Blog</h3>
+
+    
+    <div class="row container-custom">
+      <h3 class="text-center" style="padding-bottom: 1.25rem;">Our Latest Contributors on the Blog</h3>
+      <div class="col-12 col-sm-6 d-md-flex col">
+        
         <div class="container-custom">
+          
           {% if profile_names %}
           <ul>
             {% for profile in profile_names %}
@@ -252,20 +246,22 @@
           {% endif %}
         </div>
       </div>
-      <div class="container-custom">
-        <h3>Track The ISS</h3>
-        <div class="iframe-container">
-          <iframe class="responsive-iframe"
-            src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1"
-            style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;" title="myFrame">
-          </iframe>
-
+      <!-- Adding another grid column for the second section -->
+      <div class="col-12 col-sm-6">
+        <div class="container-custom">
+          <h3>Track The ISS</h3>
+          <div class="iframe-container">
+            <iframe class="responsive-iframe"
+              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1"
+              style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;" title="myFrame">
+            </iframe>
+          </div>
+          <a href="{% url 'iss-location' %}" class="text-muted">Go To the ISS</a>
         </div>
-        <a href="{% url 'iss-location' %}" class="text-muted">Go To the ISS</a>
       </div>
     </div>
   </section>
-
+  
   <!-- Newsletter Subscription -->
   <section class="steps steps--background-black">
     <div class="row container-custom margin-sub mt-4" id="newsletter-subscription">
