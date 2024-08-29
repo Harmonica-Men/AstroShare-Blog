@@ -4,89 +4,198 @@ AstroShare Blog is a fictional blog posting news site where information on astro
 
 A live version of the project can be accessed here: [AstroShare Blog](https://astroshare-blog-6a7ca9d34749.herokuapp.com/)
 
-
-(responsiveness image)
-
+![responsiveness image](static/images/readme-images/amiresponsive.webp)
 
 
 # Table Of Contents
   - [AstroShare Blog](#astroshare-blog)
-  - [Table Of Contents](#table-of-contents)
+  - [UX Table Of Contents](#the-ux-table-of-contents)
+  - [User Demographic Table of Contents](#user-demographic-table-of-contents)
+  - [User Stories and Epics](#user-stories-and-epics)
+  
   - [User Experience Design](#user-experience-design)
-    - [User Experience (UX)](#ux)    
-    - [User Demographic](#user-demographic-table-of-contents)
-    - [User Stories & Epics](#user-stories-and-epics)
-    - [Flowchart](#flowchart)
-    - [Entity Relationship Diagram](#entity-relationship-diagram)
+    
+  ## The UX Table Of Contents
+  1. [Welcome and Introduction](#1-welcome-and-introduction)
+  2. [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
+  3. [Sign-Up Process](#3-sign-up-process)
+  4. [Navigation and Exploration](#4-navigation-and-exploration)
+  5. [Creating and Sharing Content](#5-creating-and-sharing-content)
+  6. [Interaction and Collaboration](#6-interaction-and-collaboration)
+  7. [Profile and Community Building](#7-profile-and-community-building)
+  8. [Ease of Use and Accessibility](#8-ease-of-use-and-accessibility)
+  9. [Continuous Engagement](#9-continuous-engagement)
+  10. [Conclusion](#10-conclusion)
 
-    - [Agile User Stories Epics Milestones](#agile)
-    - Wireframes
-    - Images
-    - Logo
-    - Favicon
-    - Colour scheme
-    - Fonts
-    - [Database](#database)
-    - Features
-    - Bugs
-    - Deployment
-    - Credits
+  ## 1. Welcome and Introduction
+  **User opens the blog website:**
 
-    - [Validator Testing](#validator-tests)
-        - [W3C](#w3c)
-        - [PEP8](#pep8)
-        - [JSHint](#jshint)
-      - [Accessibility & Performance](#accessibility--performance)
-        - [WAVE](#wave)
-        - [Lighthouse](#lighthouse)
+  - **Landing Page:**
+    - A visually appealing landing page with a background video of the night sky or a space theme.
+    - A welcoming headline: "Share the latest space news - Welcome to Cosmic Chronicles, your gateway to the wonders of the universe!".
+    - On the landing page there is no nav-bar but only "Go The Blog" button to navigate to the blogpost.
+    - There extra features build in like a "Astronomy Picture of the Day"  whit a link to NASA APODs.
+    - Subscribtion section for newsletter sign up.
+    - A snap of the most popular categories of this blog.
+    - The most recent contributors are displayed in the homepage.
+    - A widget that tracks the International Space Station whit a redirect link that actual plot the ISS in real time on a map.
 
+  - **Call to Action:**
+    - "Go To The Blog" button leads you the blogpost frontpage.
+    - There are links where you interact whit API of "Astronomy Picture of the Day" and the International Space Station or ISS worldmap plotter.
+    - Fill in the subscription and a confirmation mail will be sent.
+    - Subscription is no registration to the blogpost.
 
-# User Experience Design
-## User Demographic
-This website is intended for:
+  ## 2. Frontpage of the Blogpost
+  - **User clicks on "Go To The Blog" or "Astro Blog":**
+    - All registered users can add post on the blog.
+    - All post listed at there post date and shows a short list of text.
+    - On "Read more" hyperlinks there is redirect to blog post details where every aspect of the post can be read.
 
-- Users with a strong interest in astronomy and space exploration.
-- Space enthusiasts looking to stay updated on the latest news and discoveries.
-- Experts in astronomy or related fields who want to share insights or research.
-- Curious minds eager to learn more about space and engage in discussions.
-- Users interested in a community-driven space where they can discuss and debate astronomical topics.
+  - **Call to Action:**
+    - All non-autheticad users can access the blog post, but can not add posts.
+    - All autheticad users can add posts, they can also delete or edit there posts.
+    - Pagination to easy access other blog post.
 
-## User Stories
-As a User of this website:
+  ## 3. Nav-bar 
+  - **User clicks access to Navigation Bar"**
+    - The users can see any time login status in right upper corner.
+    - The users can access if logged in there creditials.
+    - The users can easy search trougout the blogpost.
+    - Categories lists feature to display post per category.
+    - Content of the categories.
+    - Arrow icon left redirect always the blogpost frontpage.
+    - House icon redirect always to the landing page.
 
-- I want to easily navigate through different categories such as 'Astronomy', 'Space Emissions', and 'Astrophysics' to find relevant posts.
-- I want to read the latest blog posts about space exploration, astronomy, and related topics.
-- I want to create and publish blog posts to share my knowledge or opinions on space-related topics.
-- I want to vote on posts, so the most engaging content is highlighted for others.
-- I want to leave comments on blog posts to join the conversation and share my thoughts.
-- I want to be able to see timestamps on posts and comments to understand the timeline of the discussions.
-- I want to receive notifications or updates when someone replies to my comments or when there are new posts in categories I follow.
-- I want to search for specific topics or keywords to quickly find posts of interest.
-- I want to manage my account settings, including updating my profile, changing my password, and adjusting notification preferences.
-- I want to report any inappropriate content or comments to the site admin for review.
-- I want to follow specific bloggers or topics to stay informed about new content that matches my interests.
-- I want to share interesting posts on social media to engage my network in discussions.
+  - **Call to Action**
+    - The users can easy login or logout.
+    - The users can update and/or manipulate there profile.    
+    - The users can search for certain key words to access and find posts.
+    - Display all posts relevant to the category.
+    - Show all categories and there content in Blog Post Categories.
+    - Subpage of the blogpost is the frontpage of the blogpost.
+    - Mainpage of the blogpost is the homepage of the blogpost.
 
+  ## 3. Sign-Up Process
+  **User clicks on "Sign Up":**
 
+  - **Sign-Up Form:**
+    - On the blog frontpage there is on the right upper corner a "Register" button.
+    - Simple form requesting essential information: Username, Email, Password, and Confirm Password.
+    - Optional feature is to sign up using social media accounts (Google, Facebook). 
 
+  - **Profile Setup:**
+    - After signing up, there is the possibility to complete their profile "Create Profile Page" button:
+      - Write a short bio.
+      - Upload a profile picture.      
+      - Add links to personal websites or social media profiles (optional).
+    - If needed the user can always update there profile afterwards.
 
+  ## 4. Creating and Sharing Content
+  **User clicks on "Add Post":**
 
+  - **Add Post Page:**
+    - Simple and intuitive editor for creating posts:
+      - Title field.
+      - Content field with rich text formatting options.
+      - Option to add photos (drag and drop or upload from device).
+      - Tags field for categorizing the post (e.g., Planets, Stars, Telescopes, Space Missions).
+    - "Post" button to publish the content.
 
+  ## 5. Interaction and Collaboration
+  **User interacts with a post:**
 
+  - **Commenting:**
+    - Users can leave comments on posts.
+    - Comment section with a clear text field, and an "Add Comment" button.
+    - Ability to reply to comments and like/dislike comments.
 
+  - **Collaborative Features:**
+    - Option to invite other users to collaborate on a post.
+    - Real-time collaboration with a shared editor for multiple contributors.
 
+  ## 6. Profile and Community Building
+  **User explores their profile and connects with others:**
 
+  - **User Profile:**
+    - Profile page displaying user information: profile picture, bio, posts, and activity.
+    - Edit Profile button for updating information and settings.
 
+  - **Community Engagement:**
+    - Explore page with user search functionality.
+    - Follow other users on their posts and activities.
+    - Direct messaging feature for private conversations.
+  
+  ## 7. Ease of Use and Accessibility
+  **User enjoys a seamless experience:**
 
+  - **Responsive Design:**
+    - Blog is fully responsive and works seamlessly on desktop, tablet, and mobile devices.
+    - Fast loading times and smooth transitions between pages.
 
+  - **Accessibility:**
+    - High contrast mode and text resizing options for visually impaired users.
+    - Keyboard navigable interface and screen reader compatibility.
 
+  ## 8. Continuous Engagement
+  **User stays engaged and returns to the blog:**
 
+  - **Content Recommendations:**
+    - Personalized content recommendations based on user’s interests and activity.
+    - Regular email updates with highlights from the blog and upcoming astronomical events.
 
+  - **Events and Challenges:**
+    - Community events such as virtual star-gazing sessions, photo contests, and Q&A sessions with astronomy experts.
+    - Interactive challenges and quizzes to keep users engaged and learning.
 
+  ## 9. Conclusion
+  AstroShare offers a user-friendly, engaging, and collaborative platform for astronomy enthusiasts to share knowledge, interact with the community, and enjoy a seamless and enriching experience.
 
+  [Back to UX Table of Contents](#the-ux-table-of-contents)
 
+  [Back to Top](#astroshare-blog)
 
+  ## User Demographic Table of Contents
+  1. [Age Group](#1-age-group)
+  2. [Interest](#2-interest)
+  3. [Education Level](#3-education-level)
+  4. [Technological Proficiency](#4-technological-proficiency)
+  5. [Geographic Location](#5-geographic-location)
+  6. [Behavioral Traits](#6-behavioral-traits)
+  7. [Accessibility Needs](#7-accessibility-needs)
+  
+  ## 1. Age Group
+  - Primarily adults and young adults (18-65 years old) who have a keen interest in astronomy and space exploration.
+  - This demographic is likely to be tech-savvy and comfortable using digital platforms for both learning and social interaction.
 
+  ## 2. Interest
+  - Individuals who are passionate about astronomy, including amateur astronomers, space enthusiasts, students studying astronomy or related sciences, and professionals working in the field.
+
+  ## 3. Education Level
+  - Varied, but likely to include individuals with at least a high school education and a strong interest in science, particularly astronomy and space sciences.
+  - Some users may have advanced degrees or be pursuing careers in astronomy or related fields.
+
+  ## 4. Technological Proficiency
+  - Users who are comfortable with technology, including social media platforms, online communities, and content creation tools.
+  - They are likely to engage actively in online discussions, share content, and collaborate with others on the platform.
+
+  ## 5. Geographic Location
+  - The platform may attract users globally, given the universal interest in astronomy.
+  - However, regions with active amateur astronomy communities, space research institutes, or strong educational programs in astronomy may have a higher concentration of users.
+
+  ## 6. Behavioral Traits
+  - Users who enjoy sharing knowledge, participating in discussions, and engaging with multimedia content such as photos and videos related to astronomy.
+  - They may also value community building, collaborative projects, and staying updated with the latest astronomical discoveries and events.
+
+  ## 7. Accessibility Needs
+  - While primarily targeting users comfortable with digital platforms, efforts should be made to ensure accessibility features such as high contrast mode, text resizing, and screen reader compatibility to accommodate users with visual impairments or disabilities.
+
+  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
+
+  [Back to Top](#astroshare-blog)
+
+## User Stories and Epics
+Astro Blog Share is for those who are interested in Astronomical subjects and like to share there toughs in a deticated blog. The blog can be used as a discussion platform for anybody who have a special affliation whit astronomy.
 
 
 
@@ -111,17 +220,11 @@ The Kanban board can be seen [here](https://github.com/users/Harmonica-Men/proje
 The project was divided into three milestones, each containing the corresponding epics and user stories:<br>
 1. [Setting Up The Project @ Bear minimums](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/1)
 - Task: Set up the project repository and initialize Django project.
-  - Create a new repository on GitHub, GitLab
+  - Create a new repository on GitHub, GitPod.
   - Set up the virtual environment and install Django.
   - Initialize a new Django project and create a base application.
-  - Configure settings for the project  static files, static and README.md
+  - Configure settings for the project  static files, static and README.md 
   - Deploy early to a hosting platform Heroku
-
-<details>
-<summary></summary>
-<br>
-
-</details>
 
 2. [Basic Blog Functionality]()
   - Task: Implement basic blog functionality including models, views, and templates.
@@ -190,226 +293,6 @@ Below is an example of how the user stories where structured for this project.
 
 
 
-
-
-
-  #### The UX Table of Contents
-  1. [Welcome and Introduction](#1-welcome-and-introduction)
-  2. [Sign-Up Process](#2-sign-up-process)
-  3. [Navigation and Exploration](#3-navigation-and-exploration)
-  4. [Creating and Sharing Content](#4-creating-and-sharing-content)
-  5. [Interaction and Collaboration](#5-interaction-and-collaboration)
-  6. [Profile and Community Building](#6-profile-and-community-building)
-  7. [Ease of Use and Accessibility](#7-ease-of-use-and-accessibility)
-  8. [Continuous Engagement](#8-continuous-engagement)
-  9. [Conclusion](#9-conclusion)
-  ## 1. Welcome and Introduction
-  **User opens the blog website:**
-
-  - **Landing Page:**
-    - A visually appealing landing page with a background image of the night sky or a space theme.
-    - A welcoming headline: "Welcome to AstroShare - Your Space for Astronomical Insights and Community".
-    - Brief introduction: "Join our community of astronomy enthusiasts, share your insights, post photos, and engage in enlightening discussions."
-
-  - **Call to Action:**
-    - Prominent "Sign Up" and "Log In" buttons.
-    - Short introductory video or animation showcasing the features of the blog.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-
-  ## 2. Sign-Up Process
-  **User clicks on "Sign Up":**
-
-  - **Sign-Up Form:**
-    - Simple form requesting essential information: Username, Email, Password, and Confirm Password.
-    - Option to sign up using social media accounts (Google, Facebook).
-
-  - **Profile Setup:**
-    - After signing up, the user is prompted to complete their profile:
-      - Upload a profile picture.
-      - Write a short bio.
-      - Add links to personal websites or social media profiles (optional).
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-  
-  [Back to Top](#astroshare-blog)
-
-
-  ## 3. Navigation and Exploration
-  **User completes sign-up and is directed to the main dashboard:**
-
-  - **Main Dashboard:**
-    - Personalized greeting: "Hello, [Username]! Welcome to AstroShare."
-    - Easy-to-navigate menu with options: Home, Explore, Create Post, My Profile, Notifications, Settings, and Log Out.
-
-  - **Home Feed:**
-    - A feed of the latest posts from users, featuring photos, articles, and discussions about various astronomical topics.
-    - Each post includes the author’s profile picture, name, post title, content preview, and interaction buttons (Like, Comment, Share).
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 4. Creating and Sharing Content
-  **User clicks on "Create Post":**
-
-  - **Create Post Page:**
-    - Simple and intuitive editor for creating posts:
-      - Title field.
-      - Content field with rich text formatting options.
-      - Option to add photos (drag and drop or upload from device).
-      - Tags field for categorizing the post (e.g., Planets, Stars, Telescopes, Space Missions).
-    - "Post" button to publish the content.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 5. Interaction and Collaboration
-  **User interacts with a post:**
-
-  - **Commenting:**
-    - Users can leave comments on posts.
-    - Comment section with a clear text field, and an "Add Comment" button.
-    - Ability to reply to comments and like/dislike comments.
-
-  - **Collaborative Features:**
-    - Option to invite other users to collaborate on a post.
-    - Real-time collaboration with a shared editor for multiple contributors.
-
-  - **Notifications:**
-    - Users receive notifications for new comments, likes, and collaboration invites.
-    - Notification bell icon in the menu bar with a dropdown list of recent notifications.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 6. Profile and Community Building
-  **User explores their profile and connects with others:**
-
-  - **User Profile:**
-    - Profile page displaying user information: profile picture, bio, posts, and activity.
-    - Edit Profile button for updating information and settings.
-
-  - **Community Engagement:**
-    - Explore page with user search functionality.
-    - Follow other users to receive updates on their posts and activities.
-    - Direct messaging feature for private conversations.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 7. Ease of Use and Accessibility
-  **User enjoys a seamless experience:**
-
-  - **Responsive Design:**
-    - Blog is fully responsive and works seamlessly on desktop, tablet, and mobile devices.
-    - Fast loading times and smooth transitions between pages.
-
-  - **Accessibility:**
-    - High contrast mode and text resizing options for visually impaired users.
-    - Keyboard navigable interface and screen reader compatibility.
-
-  - **Help and Support:**
-    - Easily accessible help section with FAQs and tutorials.
-    - Contact support option for direct assistance.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 8. Continuous Engagement
-  **User stays engaged and returns to the blog:**
-
-  - **Content Recommendations:**
-    - Personalized content recommendations based on user’s interests and activity.
-    - Regular email updates with highlights from the blog and upcoming astronomical events.
-
-  - **Events and Challenges:**
-    - Community events such as virtual star-gazing sessions, photo contests, and Q&A sessions with astronomy experts.
-    - Interactive challenges and quizzes to keep users engaged and learning.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 9. Conclusion
-  AstroShare offers a user-friendly, engaging, and collaborative platform for astronomy enthusiasts to share knowledge, interact with the community, and enjoy a seamless and enriching experience.
-
-  [Back to UX Table of Contents](#the-ux-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## User Demographic Table of Contents
-  1. [Age Group](#1-age-group)
-  2. [Interest](#2-interest)
-  3. [Education Level](#3-education-level)
-  4. [Technological Proficiency](#4-technological-proficiency)
-  5. [Geographic Location](#5-geographic-location)
-  6. [Behavioral Traits](#6-behavioral-traits)
-  7. [Accessibility Needs](#7-accessibility-needs)
-  
-  ## 1. Age Group
-  - Primarily adults and young adults (18-45 years old) who have a keen interest in astronomy and space exploration.
-  - This demographic is likely to be tech-savvy and comfortable using digital platforms for both learning and social interaction.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 2. Interest
-  - Individuals who are passionate about astronomy, including amateur astronomers, space enthusiasts, students studying astronomy or related sciences, and professionals working in the field.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 3. Education Level
-  - Varied, but likely to include individuals with at least a high school education and a strong interest in science, particularly astronomy and space sciences.
-  - Some users may have advanced degrees or be pursuing careers in astronomy or related fields.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 4. Technological Proficiency
-  - Users who are comfortable with technology, including social media platforms, online communities, and content creation tools.
-  - They are likely to engage actively in online discussions, share content, and collaborate with others on the platform.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 5. Geographic Location
-  - The platform may attract users globally, given the universal interest in astronomy.
-  - However, regions with active amateur astronomy communities, space research institutes, or strong educational programs in astronomy may have a higher concentration of users.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 6. Behavioral Traits
-  - Users who enjoy sharing knowledge, participating in discussions, and engaging with multimedia content such as photos and videos related to astronomy.
-  - They may also value community building, collaborative projects, and staying updated with the latest astronomical discoveries and events.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-  ## 7. Accessibility Needs
-  - While primarily targeting users comfortable with digital platforms, efforts should be made to ensure accessibility features such as high contrast mode, text resizing, and screen reader compatibility to accommodate users with visual impairments or disabilities.
-
-  [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-  [Back to Top](#astroshare-blog)
-
-## User Stories and Epics
-Astro Blog Share is for those who are interested in Astronomical subjects and like to share there toughs in a deticated blog. The blog can be used as a discussion platform for anybody who have a special affliation whit astronomy.
  <br>
 
 List of Epics: <br>
