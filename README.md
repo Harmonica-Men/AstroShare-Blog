@@ -652,10 +652,10 @@ The small JavaScript snippet under the footer of base.html has been passed throu
 
 The following site-maps show how the site is structured to logged in users whitout a profile, logged in users whit a profile and not logged in users .
 
-![Site Map - Logged In whitout a Profile](/docs/sitemap-logged.png) 
+![Site Map - Logged In whitout a Profile](static/images/readme-images/ProfilePage_Exist.jpg)
 
-![Site Map - Logged In whit a Profile](/docs/sitemap-logged.png)
+![Site Map - Logged In whit a Profile](static/images/readme-images/ProfilePage_No_Exist.jpg)
 
-![Site Map - Not Logged In](/docs/sitemap-notlogged.png) 
+![Site Map - Not Logged In](static/images/readme-images/Not_Logged.jpg) 
 
 
