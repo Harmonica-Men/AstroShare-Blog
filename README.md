@@ -12,8 +12,8 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   - [UX Table Of Contents](#the-ux-table-of-contents)
   - [User Demographic Table of Contents](#user-demographic-table-of-contents)
   - [User Stories and Epics](#user-stories-and-epics)
-  
-  - [User Experience Design](#user-experience-design)
+  - [The Structure Plane](#the-structure-plane)
+
     
   ## The UX Table Of Contents
   1. [Welcome and Introduction](#1-welcome-and-introduction)
@@ -634,3 +634,28 @@ The small JavaScript snippet under the footer of base.html has been passed throu
 
 
 ## Accessibility & Performance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## The Structure Plane
+
+The following site-maps show how the site is structured to logged in users whitout a profile, logged in users whit a profile and not logged in users .
+
+![Site Map - Logged In whitout a Profile](/docs/sitemap-logged.png) 
+
+![Site Map - Logged In whit a Profile](/docs/sitemap-logged.png)
+
+![Site Map - Not Logged In](/docs/sitemap-notlogged.png) 
+
+
