@@ -38,37 +38,40 @@
 
 
   <section class="hero" id="top-page">
-    
+
     <div class="hero__overlay"></div>
-      <video autoplay muted loop class="hero__video">
-        <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
-      </video>
+    <video autoplay muted loop class="hero__video">
+      <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
+    </video>
     </div>
 
     <div class="hero__content m-2 container-banner position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
-        <div class="container-banner mt-5 text-white hero__text-bg">
-          <h1 >Astro Blog</h1>
-          <h2 class="hero__head">Share the latest space news</h2>
-          <p class="hero__text">
-            Welcome to Cosmic Chronicles,
-            your gateway to the wonders of the universe!
-            Whether you’re an avid stargazer,
-            an aspiring astronomer,
-            or simply someone fascinated by the mysteries
-            of the cosmos, this blog is your destination for all
-            things space.
-            <br>
-            Here, we’ll explore the latest discoveries,
-            delve into celestial events,
-            and unravel the secrets of the stars and planets.
-            Join us as we embark on a journey through the vast expanse of the universe,
-            bringing the marvels of space right to your screen.
-            <br>
-            Buckle up and get ready to ignite your curiosity about the infinite night sky!
-          </p>
-          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light btn-contrast" role="button">
-            Go To The Blog</a>
+        <div class="container-banner text-white hero__text-bg">
+          <h1>Astro Blog</h1>
+          <div class="container-sub">
+
+            <h2 class="hero__head">Share the latest space news</h2>
+            <p class="hero__text">
+              Welcome to Cosmic Chronicles,
+              your gateway to the wonders of the universe!
+              Whether you’re an avid stargazer,
+              an aspiring astronomer,
+              or simply someone fascinated by the mysteries
+              of the cosmos, this blog is your destination for all
+              things space.
+              <br>
+              Here, we’ll explore the latest discoveries,
+              delve into celestial events,
+              and unravel the secrets of the stars and planets.
+              Join us as we embark on a journey through the vast expanse of the universe,
+              bringing the marvels of space right to your screen.
+              <br>
+              Buckle up and get ready to ignite your curiosity about the infinite night sky!
+            </p>
+            <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light btn-contrast" role="button">
+              Go To The Blog</a>
+          </div>
         </div>
       </div>
     </div>
