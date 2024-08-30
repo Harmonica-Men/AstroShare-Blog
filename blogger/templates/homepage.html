@@ -146,7 +146,11 @@
       <div class="col-12 col-sm-6  col">
         <div class="steps__content-width">
           <h1 class="h2 mb-4">Astro Physics</h1>
-          <p class="mb-4">Astrophysics is a branch of astronomy that studies the physical properties and processes of celestial objects and phenomena. It combines physics and chemistry to explore stars, planets, galaxies, black holes, and the universe. Astrophysicists use observational and theoretical methods to understand cosmic phenomena, matter, energy, and the universe's structure and evolution, covering topics like star life cycles, galaxy behavior, dark matter, dark energy, and the universe's origins and fate.
+          <p class="mb-4">Astrophysics is a branch of astronomy that studies the physical properties and processes of
+            celestial objects and phenomena. It combines physics and chemistry to explore stars, planets, galaxies,
+            black holes, and the universe. Astrophysicists use observational and theoretical methods to understand
+            cosmic phenomena, matter, energy, and the universe's structure and evolution, covering topics like star life
+            cycles, galaxy behavior, dark matter, dark energy, and the universe's origins and fate.
           </p>
         </div>
       </div>
@@ -228,13 +232,13 @@
 
   <section class="container-sub steps--background-white">
 
-    
+
     <div class="row container-custom">
       <h3 class="text-center" style="padding-bottom: 1.25rem;">Our Latest Contributors on the Blog</h3>
       <div class="col-12 col-sm-6 d-md-flex col">
-        
+
         <div class="container-custom">
-          
+
           {% if profile_names %}
           <ul>
             {% for profile in profile_names %}
@@ -261,40 +265,32 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Newsletter Subscription -->
   <section class="steps steps--background-black" id="newsletter-subscription">
     <div class="row container-custom margin-sub mt-4">
-        <div class="col-12">
-            <h2>Subscribe to our Newsletter</h2>
-        </div>
-        <div class="col-12">
-            <form method="POST" action="{% url 'Subscribe' %}" class="col-12 col-md-8 mx-auto">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_login" class="form-label">Login:</label>
-                    <input type="text" class="form-control" id="id_login" name="login" placeholder="Your name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="id_email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="id_email" name="email" placeholder="name@example.com" required>
-                    
-                    
-                     
-                </div>
-                <div style="text-align: center;">
-                  <input type="submit" value="Submit" class="btn btn-primary custom-submit color-hyperlink me-0">
-              </div>
-              
-            </form>
-            
-        </div>
-        
+      <div class="col-12">
+        <h2>Subscribe to our Newsletter</h2>
+      </div>
+      <div class="col-12">
+        <form method="POST" action="{% url 'Subscribe' %}" class="col-12 col-md-8 mx-auto">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="id_login" class="form-label">Login:</label>
+            <input type="text" class="form-control" id="id_login" name="login" placeholder="Your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="id_email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="id_email" name="email" placeholder="name@example.com" required>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-primary custom-submit color-hyperlink me-0">
+        </form>
+      </div>
     </div>
     <div class="container-custom back-to-top-button text-center mt-4">
       <a href="#top-page" class="color-hyperlink">Back to Top</a>
-  </div>
-</section>
+    </div>
+  </section>
 
 
   <!-- Newsletter Subscription End -->

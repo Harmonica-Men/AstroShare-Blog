@@ -1,42 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load truncate_html %}
-
 {% block title %}Astro Share Blog{% endblock %}
 {% block meta %}
-  <meta name="description" content="A blog about astronomy, latest posts, and insights into the universe. Stay updated with the latest in the world of astronomy.">
+<meta name="description"
+  content="A blog about astronomy, latest posts, and insights into the universe. Stay updated with the latest in the world of astronomy.">
 {% endblock %}
 {% block content %}
 
 {% with image_url='/images/background.webp' %}
-<div class="container wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">  <h4>Latest Posts</h4>
-
-  {% include 'pagination.html' %}
-
-  <br>
-
+<div class="container-custom wapper"
+  style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+  <h1>Latest Posts</h1>
   {% for post in posts %}
-  <section class="post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-    <div class="d-md-flex {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
-      <div class="image-container">
+  <section class="row post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
+    <div
+      class="col-12 d-flex flex-wrap align-items-start container-banner {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
+
+      <!-- Image Column -->
+      <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1">
         {% if post.image.url %}
-        <img src="{{ post.image.url }}" class="img-thumbnail" alt="Image for {{ post.title }}"  loading="lazy">
+        <img src="{{ post.image.url }}" class="img-thumbnail w-100" alt="Image for {{ post.title }}" loading="lazy">
         {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="No image available" loading="lazy">
+        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail w-100" alt="No image available"
+          loading="lazy">
         {% endif %}
       </div>
-      <div class="content-container">
-        <h3>{{ post.title }}</h3>
-        <div class="container">
-          {{ post.body|truncate_html:300 }} ... <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
-          <small><strong>Read more about {{ post.title }}</strong></small></a>
+
+      <!-- Content Column -->
+      <div class="col-sm-6 col-md-8 order-1 order-sm-2">
+        <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3>
+        <div class="container-sub">
+          {{ post.body|truncate_html:300 }} <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
+            <small><strong>[Read more]</strong></small></a>
+
+            <p class="italicize">Posted: <strong>{{ post.post_date }}</strong> Category:
+              <strong>{{ post.category }}</strong>
+              By: <strong>{{ post.author.last_name }}</strong>, <strong>{{ post.author.first_name }}</strong>
+            </p>
         </div>
-        <p class="italicize">Posted: <strong>{{ post.post_date }}</strong> Category: <strong>{{ post.category }}</strong> 
-          By: <strong>{{ post.author.last_name }}</strong>, <strong>{{ post.author.first_name }}</strong>
-        </p>
 
         {% if user.is_authenticated and user == post.author %}
-        <div class="container">
+        <div class="container-sub">
           <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
           <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
         </div>
@@ -44,6 +49,9 @@
       </div>
     </div>
   </section>
+
+
+
   <hr>
   {% endfor %}
 

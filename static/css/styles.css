@@ -24,13 +24,19 @@ html {
     margin: 0;
 }
 
-h1, h2, h3, h4 {
-    margin: 1rem;
+h1, h3, h4 {
+    text-align: left;    
     font-weight: bolder;
+    padding-top: 1rem; 
+    /* margin: 0.5rem; */
 }
 
-h2, h4 {
+/* h1, h4 {
     color: white;
+} */
+
+h2 {
+    font-weight: bolder;
 }
 
 h3 {
@@ -145,17 +151,6 @@ ul {
     flex-direction: row-reverse;
 }
 
-.image-container {
-    flex: 0 0 auto;
-    margin: 10px;
-}
-
-.content-container {
-    flex: 1 1 auto;
-    margin: 10px;
-}
-
-
 .first-name,
 .last-name {
     font-size: small;
@@ -166,11 +161,43 @@ ul {
     text-transform: uppercase;
 }
 
+.image-container {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    margin: 10px;
+}
+
+.content-container {
+    text-align: left;
+    flex: 1 1 auto;
+    margin: 10px;
+}
+
+.container-sub {
+    width: 100%;
+    padding: 1.25rem 1.25rem;
+    margin: 0 auto;
+}
+
+.container-banner {
+    text-align: left;
+    width: 100%;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.container-custom {
+    text-align: center;
+    width: 100%;
+    padding: 0 3.5rem;
+    padding-bottom: 0.85rem;
+    margin: 0 auto;
+}
+
 .container-profile {
     background: rgba(13, 110, 253, 0.25);
     padding: 80px;
     border-radius: 10px;
-
 }
 
 .container-lg {
@@ -182,8 +209,7 @@ ul {
 }
 
 
-.italicize {
-    /* padding-top: 0.75rem; */
+.italicize {    
     padding-top: 10px;
     padding-right: 10px;
     font-size: smaller;
@@ -209,13 +235,10 @@ ul {
 
 .btn {
     margin-top: 5px;
-    margin-right: 25px;
-    width: 140px;
+    /* margin-right: 25px; */
+    width: 160px;
 }
 
-
-
-/* Alternating background colors for posts */
 .bg-light-gray {
     background-color: rgb(137, 137, 137);
 }
@@ -276,23 +299,6 @@ a:hover {
     height: vh100;
 }
 
-.container-sub {
-
-    width: 100%;
-    padding: 1.25rem 1.25rem;
-    margin: 0 auto;
-}
-
-.container-banner {
-    text-align: left;
-    width: 100%;
-    padding: 2rem;
-    margin: 0 auto;
-}
-
-
-
-
 .margin-sub {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -302,19 +308,6 @@ a:hover {
     padding: 20px;
 }
 
-
-
-.container-custom {
-    text-align: center;
-    width: 100%;
-    padding: 0 1rem;
-    padding-bottom: 0.85rem;
-    margin: 0 auto;
-    /* display: flex;
-    justify-content: space-between; */
-}
-
-/* Add this CSS to your stylesheet */
 .iframe-container {
     display: flex;
     justify-content: center;
@@ -484,22 +477,15 @@ a:hover {
     font-size: 1.65rem;
 }
 
-
-
-
-/* Media queries for responsiveness */
-
-@media (max-width: 1600px) {
+/* Media queries for responsiveness */@media (max-width: 1600px) {
     .iframe-container {
         height: 300px;
         max-width: 100%;
     }
-
     .hero__head {
         font-size: 2rem;
         font-weight: bolder;
     }
-
     .hero__text {
         font-size: 1.2rem;
     }
@@ -509,41 +495,13 @@ a:hover {
     .img-thumbnail {
         width: 150px;
     }
-
     .iframe-container {
         height: 175px;
         max-width: 100%;
     }
-
     .hero__head {
         font-size: 1.9rem;
         font-weight: bold;
-    }
-
-    .hero__text {
-        font-size: 0.85rem;
-    }
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1600px) {
-    .iframe-container {
-        height: 300px;
-    }
-    .hero__head {
-        font-size: 2rem;
-    }
-    .hero__text {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 1200px) {
-    .iframe-container {
-        height: 175px;
-    }
-    .hero__head {
-        font-size: 1.9rem;
     }
     .hero__text {
         font-size: 0.85rem;
@@ -551,9 +509,8 @@ a:hover {
 }
 
 @media (min-width: 544px) {
-    
     .steps {
-        padding: 80px 0;
+        padding: 40px 0;
     }
     .steps__section-thumbnail {
         height: auto;
@@ -561,19 +518,14 @@ a:hover {
 }
 
 @media (max-width: 380px) {
-    .img-thumbnail {
-        display: none;
-    }
-
-    /* .img-fluid {
-        display: none;
-    } */
-    
     span, h5 {
         font-size: small;
     }
     .container-banner {
         padding: 1px;
         margin: 1px;
+    }
+    .img-thumbnail, .frontpage-image {
+        display: none;
     }
 }
