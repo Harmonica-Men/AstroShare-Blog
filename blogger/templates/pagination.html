@@ -1,21 +1,38 @@
 <div class="d-flex justify-content-evenly">
-    <div class="black-border d-md-flex justify-content-evenly steps--background-black rounded">
+  <div class="black-border d-md-flex justify-content-evenly steps--background-black rounded">
       <span class="step-links m-1">
-        {% if page_obj.has_previous %}
-        <a href="?page=1"><strong>&laquo; First</strong></a>
-        <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
-        {% else %}
-        <a href="?page=1"><strong>&laquo; First</strong></a>
-        <span><strong>&lt; Prev.</strong></span>
-        {% endif %}
+          <!-- {% if page_obj.has_previous %}
+              
+              <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
+          {% else %}
+              
+              <span><strong>&lt; Prev.</strong></span>
+          {% endif %} -->
 
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}"><strong>Next &gt;</strong></a>
-        <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
-        {% else %}
-        <span><strong>Next &gt;</strong></span>
-        <a href="?page={{ page_obj.paginator.num_pages }}" ><strong>Last &raquo;</strong></a>
-        {% endif %}
+          <!-- Page numbers -->
+          <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                  {% for page_num in page_obj.paginator.page_range %}
+                      {% if page_num == page_obj.number %}
+                          <li class="page-item active" aria-current="page">
+                              <span class="page-link">{{ page_num }}</span>
+                          </li>
+                      {% else %}
+                          <li class="page-item">
+                              <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                          </li>
+                      {% endif %}
+                  {% endfor %}
+              </ul>
+          </nav>
+
+          <!-- {% if page_obj.has_next %}
+              
+              <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
+          {% else %}
+              <span><strong>Next &gt;</strong></span>
+              <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
+          {% endif %} -->
       </span>
-    </div>
+  </div>
 </div>
