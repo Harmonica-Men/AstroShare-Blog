@@ -6,8 +6,13 @@
     --bs-body-font-family: 'Montserrat', sans-serif;
     --accent-color: #ffffff;
     --border-color: #000000;
-    --main-text-color: #ffffff;
+    --main-text-color: #e0e0e0;
+    /* Slightly lighter than pure white */
+    --highlight-text-color: #ffcc00;
+    /* High contrast color for highlights */
     --padding-small: 10px;
+    --bg-light: #333333;
+    /* Darker gray for a softer background */
 }
 
 body {
@@ -15,7 +20,9 @@ body {
     height: 100%;
     margin: 0;
     text-align: left;
-    background-color: black;
+    background-color: var(--bg-light);
+    color: var(--main-text-color);
+    /* Set a default text color */
 }
 
 html {
@@ -24,19 +31,13 @@ html {
     margin: 0;
 }
 
-h1, h3, h4 {
-    text-align: left;    
-    font-weight: bolder;
-    padding-top: 1rem; 
-    /* margin: 0.5rem; */
-}
 
-/* h1, h4 {
-    color: white;
-} */
-
-h2 {
-    font-weight: bolder;
+h1,
+h2,
+h3,
+h4 {
+    color: var(--main-text-color);
+    /* Ensure headers are visible */
 }
 
 h3 {
@@ -55,11 +56,13 @@ ul {
 }
 
 .bg-l-gray {
-    background-color: rgba(240, 240, 240, 0.67);
+    background-color: rgba(240, 240, 240, 0.15);
+    /* Reduced opacity for better contrast */
 }
 
 .bg-d-gray {
-    background-color: rgba(210, 210, 210, 0.67);
+    background-color: rgba(210, 210, 210, 0.15);
+    /* Same here */
 }
 
 .margin-top-bottom-iss {
@@ -68,7 +71,7 @@ ul {
 }
 
 /* Styles for back-to-top-button */
-.button-custom {
+/* .button-custom {
     margin: 7px auto;
     text-align: center;
     background: var(--accent-color);
@@ -81,6 +84,12 @@ ul {
     font-weight: bolder;
     padding: 10px 20px;
     text-decoration: none;
+} */
+
+.button-custom {
+    color: var(--main-text-color);
+    background: var(--primary-color-highlight);
+    border-color: var(--border-color);
 }
 
 .img {
@@ -101,7 +110,7 @@ ul {
 .img-thumbnail {
     margin-top: 12px;
     margin-bottom: 12px;
-    margin-left: 0;     
+    margin-left: 0;
     width: 300px;
     height: auto;
 }
@@ -135,11 +144,11 @@ ul {
 
 .color-hyperlink {
     color: white;
-} 
+}
 
 .color-hyperlink:hover {
     color: red;
-} 
+}
 
 .d-md-flex {
     display: flex;
@@ -208,7 +217,7 @@ ul {
 }
 
 
-.italicize {    
+.italicize {
     padding-top: 10px;
     padding-right: 10px;
     font-size: smaller;
@@ -239,17 +248,20 @@ ul {
     color: yellow;
 }
 
+/* Contrast enhancements for buttons */
 .btn-contrast {
     color: #000;
-    background-color: #fff; /* High contrast button */
-    border-color: #fff;
-  }
+    background-color: #ffcc00;
+    /* High contrast button background */
+    border-color: #ffcc00;
+}
 
-  .btn-contrast:hover {
+.btn-contrast:hover {
     color: #fff;
-    background-color: #000;
-    border-color: #000;
-  }
+    background-color: #ff6600;
+    /* Hover state contrast */
+    border-color: #ff6600;
+}
 
 .bg-light-gray {
     background-color: rgb(137, 137, 137);
@@ -258,6 +270,19 @@ ul {
 .bg-dark-gray {
     background-color: rgb(236, 244, 92);
 }
+
+a,
+.color-hyperlink {
+    color: var(--highlight-text-color);
+    /* High contrast for links */
+}
+
+a:hover,
+.color-hyperlink:hover {
+    color: #ff6600;
+    /* Even higher contrast on hover */
+}
+
 
 .image-container-APOD {
     position: relative;
@@ -284,10 +309,6 @@ ul {
 .right>div {
     background-color: lightcoral;
     margin: 2px;
-}
-
-a:hover {
-    color: var(--primary-color);
 }
 
 /* Custom Scrollbar */
@@ -407,14 +428,15 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Increased opacity */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Increased opacity */
     z-index: 1;
-  }
+}
 
-  .hero__content {
+.hero__content {
     position: relative;
     z-index: 2;
-  }
+}
 
 .hero__content-width {
     max-width: 540px;
@@ -458,10 +480,13 @@ a:hover {
 }
 
 .hero__text-bg {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better contrast */
+    background-color: rgba(0, 0, 0, 0.65);
+    /* More contrast on hero text */
+    color: var(--main-text-color);
+    /* Text color adapted to background */
     padding: 20px;
     border-radius: 5px;
-  }
+}
 
 @keyframes bounce {
     from {
@@ -496,8 +521,10 @@ a:hover {
 }
 
 .steps--background-black {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Darker background for more contrast */
+    color: var(--highlight-text-color);
+    /* High contrast text color */
 }
 
 /* Footer */
@@ -508,15 +535,18 @@ a:hover {
 
 
 
-/* Media queries for responsiveness */@media (max-width: 1600px) {
+/* Media queries for responsiveness */
+@media (max-width: 1600px) {
     .iframe-container {
         height: 300px;
         max-width: 100%;
     }
+
     .hero__head {
         font-size: 2rem;
         font-weight: bolder;
     }
+
     .hero__text {
         font-size: 1.2rem;
     }
@@ -526,14 +556,17 @@ a:hover {
     .img-thumbnail {
         width: 150px;
     }
+
     .iframe-container {
         height: 175px;
         max-width: 100%;
     }
+
     .hero__head {
         font-size: 1.9rem;
         font-weight: bold;
     }
+
     .hero__text {
         font-size: 0.85rem;
     }
@@ -543,20 +576,26 @@ a:hover {
     .steps {
         padding: 40px 0;
     }
+
     .steps__section-thumbnail {
         height: auto;
     }
 }
 
 @media (max-width: 380px) {
-    span, h5 {
+
+    span,
+    h5 {
         font-size: small;
     }
+
     .container-banner {
         padding: 1px;
         margin: 1px;
     }
-    .img-thumbnail, .frontpage-image {
+
+    .img-thumbnail,
+    .frontpage-image {
         display: none;
     }
 }
