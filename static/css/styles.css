@@ -31,9 +31,9 @@ h1, h3, h4 {
     /* margin: 0.5rem; */
 }
 
-/* h1, h4 {
+h1, h4 {
     color: white;
-} */
+}
 
 h2 {
     font-weight: bolder;
@@ -389,14 +389,14 @@ a:hover {
 
 
 .hero__head {
-    font-size: 4rem;
+    /* font-size: 6rem; */
     /* font-weight: bolder; */
     color: white;
 }
 
 
 .hero__text {
-    font-size: 3.5rem;
+    /* font-size: 5rem; */
     /* font-weight: bolder; */
     color: white;
 }
