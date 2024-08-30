@@ -11,7 +11,9 @@
 {% with image_url='/images/background.webp' %}
 <div class="container-custom wapper"
   style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-  <h1>Latest Posts</h1>
+  <div class="container-sub">
+    <h1 style="color:var(--main-text-color)">Latest Posts</h1>
+  </div>
   {% for post in posts %}
   <section class="row post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
     <div
