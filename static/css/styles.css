@@ -8,6 +8,7 @@
     --border-color: #000000;
     --main-text-color: #ffffff;
     --main-text-color-invers: #000000;
+    --danger-text-color: red;
     --padding-small: 10px;
 }
 
@@ -102,7 +103,7 @@ ul {
 }
 
 .delete-post {
-    color: red;
+    color: var(--danger-text-color);
     font-size: 1.75rem;
 }
 
@@ -129,7 +130,7 @@ ul {
 }
 
 .color-hyperlink {
-    color: white;
+    color: var(--main-text-color);
 }
 
 .color-hyperlink:hover {
@@ -260,7 +261,7 @@ ul {
 .image-container-APOD {
     position: relative;
     display: inline-block;
-    border: 2px solid black;
+    border: 2px solid var(--main-text-color-invers);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -269,18 +270,18 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--main-text-color);
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     text-align: center;
 }
 
 .left {
-    background-color: lightblue;
+    background-color: var(--accent-color);
 }
 
 .right>div {
-    background-color: lightcoral;
+    background-color: var(--attrib-color);
     margin: 2px;
 }
 
