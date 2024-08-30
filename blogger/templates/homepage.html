@@ -32,51 +32,57 @@
 <body>
   <!-- Header Start -->
   <header class="header p-3 position-absolute start-0 top-0 end-0">
-    <!-- <div class="d-flex justify-content-between align-items-center">
-      <a href="{% url 'frontpage-blogpost' %}" class="text-decoration-none fs-1 fw-bold color-hyperlink">Astro Blog</a>
-    </div> -->
+
+    <div style="background-color: black; padding: 20px;">
+      <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light btn-contrast" role="button">Astro
+        Blog</a>
+    </div>
+
+
   </header>
   <!-- Header End -->
 
   <!-- Category Hero -->
-<section class="hero" id="top-page">
-  <div class="hero__overlay"></div>
-  <video autoplay muted loop class="hero__video">
-    <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
-  </video>
+  <section class="hero" id="top-page">
+    <div class="hero__overlay"></div>
+    <video autoplay muted loop class="hero__video">
+      <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
+    </video>
 
-  <div class="hero__content container-banner position-relative">
-    <div class="d-flex h-100 align-items-center hero__content-width">
-      <div class="container-banner mt-5 text-white hero__text-bg">
-        <h1 class="hero__head">Share the latest space news</h1>
-        <p class="hero__text">
-          Welcome to Cosmic Chronicles,
-          your gateway to the wonders of the universe!
-          Whether you’re an avid stargazer,
-          an aspiring astronomer,
-          or simply someone fascinated by the mysteries
-          of the cosmos, this blog is your destination for all
-          things space.
-          <br>
-          Here, we’ll explore the latest discoveries,
-          delve into celestial events,
-          and unravel the secrets of the stars and planets.
-          Join us as we embark on a journey through the vast expanse of the universe,
-          bringing the marvels of space right to your screen.
-          Buckle up and get ready to ignite your curiosity about the infinite night sky!
-        </p>
-        <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light btn-contrast" role="button">Go To The Blog</a>
+    <div class="hero__content container-banner position-relative">
+      <div class="d-flex h-100 align-items-center hero__content-width">
+        <div class="container-banner mt-5 text-white hero__text-bg" style="background-color: black; padding: 20px;">
+          <h1 class="hero__head">Share the latest space news</h1>
+          <p class="hero__text">
+            Welcome to Cosmic Chronicles,
+            your gateway to the wonders of the universe!
+            Whether you’re an avid stargazer,
+            an aspiring astronomer,
+            or simply someone fascinated by the mysteries
+            of the cosmos, this blog is your destination for all
+            things space.
+            <br>
+            Here, we’ll explore the latest discoveries,
+            delve into celestial events,
+            and unravel the secrets of the stars and planets.
+            Join us as we embark on a journey through the vast expanse of the universe,
+            bringing the marvels of space right to your screen.
+            Buckle up and get ready to ignite your curiosity about the infinite night sky!
+          </p>
+          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light btn-contrast" role="button">
+            Go To The Blog</a>
+        </div>
+
       </div>
     </div>
-  </div>
 
-  <a href="#newsletter-subscription">
-    <div class="hero__scroll-btn">
-      Subscribe <i class="bi bi-arrow-down-short"></i>
-    </div>
-  </a>
-</section>
-<!-- Hero End -->
+    <a href="#newsletter-subscription">
+      <div class="hero__scroll-btn">
+        Subscribe <i class="bi bi-arrow-down-short"></i>
+      </div>
+    </a>
+  </section>
+  <!-- Hero End -->
 
   <!-- section APOD -->
   <section class="steps steps--background-black">
