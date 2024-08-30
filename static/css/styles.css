@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #ffffff;
+    --primary-color: #352F44;
     --attrib-color: #3987a6;
     --primary-color-highlight: #bdbdbd;
     --bs-body-bg: #9e9e9e4e;
@@ -76,7 +76,7 @@ ul {
     border-radius: 7px;
     border: solid var(--border-color);
     border-style: solid;
-    font-family: 'Montserrat', sans-serif;
+    font-family: --bs-body-font-family;
     font-size: small;
     font-weight: bolder;
     padding: 10px 20px;
