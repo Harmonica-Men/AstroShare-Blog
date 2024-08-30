@@ -8,6 +8,7 @@
     --border-color: #000000;
     --main-text-color: #ffffff;
     --padding-small: 10px;
+    --main-text-color-invers: #000000;
 }
 
 body {
@@ -24,26 +25,20 @@ html {
     margin: 0;
 }
 
-h1, h3, h4 {
+ 
+h1 {
     text-align: left;    
     font-weight: bolder;
     padding-top: 1rem; 
-    /* margin: 0.5rem; */
+    color: var(--main-text-color);
 }
 
-h1, h4 {
-    color: white;
-}
-
-h2 {
-    font-weight: bolder;
-}
 
 h3 {
     padding-top: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
+ 
 ul {
     list-style-type: none;
 }
@@ -458,7 +453,7 @@ a:hover {
 }
 
 .hero__text-bg {
-    background-color: rgba(0, 0, 0); 
+    background-color: var(--main-text-color-invers);
     padding: 20px;
     border-radius: 5px;
   }
@@ -491,13 +486,13 @@ a:hover {
 }
 
 .steps--background-white {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
+    background-color: var(--main-text-color);
+    color: var(--main-text-color-invers);
 }
 
 .steps--background-black {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    background-color: var(--main-text-color-invers);
+    color: var(--main-text-color);
 }
 
 /* Footer */
