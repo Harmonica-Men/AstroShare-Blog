@@ -133,14 +133,13 @@ ul {
     padding-bottom: 10px;
 }
 
-/* .color-hyperlink {
+.color-hyperlink {
     color: white;
-}
+} 
 
 .color-hyperlink:hover {
-    color: rgb(255, 0, 0);
-} */
-
+    color: red;
+} 
 
 .d-md-flex {
     display: flex;
@@ -237,7 +236,20 @@ ul {
     margin-top: 5px;
     /* margin-right: 25px; */
     width: 160px;
+    color: yellow;
 }
+
+.btn-contrast {
+    color: #000;
+    background-color: #fff; /* High contrast button */
+    border-color: #fff;
+  }
+
+  .btn-contrast:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+  }
 
 .bg-light-gray {
     background-color: rgb(137, 137, 137);
@@ -325,14 +337,6 @@ a:hover {
     border: 0;
 }
 
-.hero__head {
-    font-size: 4rem;
-    font-weight: bolder;
-}
-
-.hero__text {
-    font-size: 3.5rem;
-}
 
 /* Main Header */
 .header {
@@ -383,20 +387,34 @@ a:hover {
     transform: translateX(-50%) translateY(-50%);
 }
 
-.hero__overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--primary-color);
-    opacity: 0.5;
-    z-index: 1;
+
+.hero__head {
+    font-size: 4rem;
+    /* font-weight: bolder; */
+    color: white;
 }
 
-.hero__content {
-    z-index: 1;
+
+.hero__text {
+    font-size: 3.5rem;
+    /* font-weight: bolder; */
+    color: white;
 }
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Increased opacity */
+    z-index: 1;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
 
 .hero__content-width {
     max-width: 540px;
@@ -408,11 +426,15 @@ a:hover {
     bottom: 30px;
     transform: translateX(-50%);
     z-index: 1;
-    color: var(--bs-light);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
+    padding: 10px;
+    border-radius: 50px;
+    text-align: center;
 }
 
 .hero__scroll-btn:hover {
@@ -424,6 +446,22 @@ a:hover {
     transition-delay: 0.8s;
     animation: bounce 1s infinite alternate;
 }
+
+
+.hero__head {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.hero__text {
+    font-size: 1.65rem;
+}
+
+.hero__text-bg {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better contrast */
+    padding: 20px;
+    border-radius: 5px;
+  }
 
 @keyframes bounce {
     from {
@@ -468,14 +506,7 @@ a:hover {
     padding-top: 10px;
 }
 
-.hero__hea²d {
-    font-size: 2.5rem;
-    font-weight: bolder;
-}
 
-.hero__text {
-    font-size: 1.65rem;
-}
 
 /* Media queries for responsiveness */@media (max-width: 1600px) {
     .iframe-container {
