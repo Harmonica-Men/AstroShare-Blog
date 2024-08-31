@@ -7,8 +7,7 @@
 
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <h1 style="padding-left: 7rem; color:var(--main-text-color)">Update Posts</h1>
-    {% if user.is_authenticated %}
-    {% if user == post.author %}
+    {% if user.is_authenticated and user == post.author %}
     <div class="container-sub">
         <div class="d-flex justify-content-center steps--background-white rounded">
             <div class="container-sub">
@@ -24,17 +23,9 @@
             </div>
         </div>
     </div>
-
     {% else %}
-    <!-- Render the 403 template for forbidden access -->
     {% include '403.html' %}
     {% endif %}
-    {% else %}
-    <!-- Render the 403 template for unauthenticated access -->
-    {% include '403.html' %}
-    {% endif %}
-
 </div>
-
 {% endwith %}
 {% endblock %}
