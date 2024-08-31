@@ -1,31 +1,38 @@
 {% extends 'base.html' %}
-
-{% block title %}Search | {% endblock %}
-
+{% load static %}
+{% block title %}Search{% endblock %}
 {% block content %}
-    <h1>Search results</h1>
-    <h3>Query "{{ query }}"</h3>
+{% with image_url='/images/background.webp' %}
 
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <div class="container" style="height: 80vh;">
+        <h1 style="padding-left: 7rem; color:var(--main-text-color)">Search results</h1>
+        <h2 style="padding-left: 10rem; color:var(--main-text-color)">Query "{{ query }}"</h3>
+        {% for post in posts %}
 
-{% for post in posts %}
+        <div class="container-sub steps--background-white rounded">
+            <h3>{{ post.title }}</h3>
 
-    <a href="{% url 'article-detail' post.pk %}">
-        <div medium>
-            {{ post.created_at|timesince }} ago
-            {{ post.title }}
+            <small>{{ post.created_at|timesince }} ago</small>
+
+            <div class="container-banner">
+                <p>
+                    {{ post.body|slice:":200" }}{% if post.body|length > 200 %}...{% endif %}
+                    <a href="{% url 'article-detail' post.pk %}"><small><strong>[read more]</strong></small></a>
+
+                </p>
+
+            </div>
         </div>
-        
-        <small>
-        {{ post.body|slice:":20" }}{% if post.body|length > 20 %}...{% endif %}
-        </small>
-<hr>
-        <!-- <p>{{ post.body }}</p> -->
-    </a>
+        <br>
 
-{% empty %}
-<small>
-    <p>No result for the given query...</p>
-</small>
-{% endfor %}
 
-{% endblock %}
+        {% empty %}
+        <div class="container-custom steps--background-white rounded mt-4">
+            <h3>No result for the given query...</h3>
+        </div>
+        {% endfor %}
+    </div>
+
+        {% endwith %}
+        {% endblock %}
