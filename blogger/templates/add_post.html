@@ -48,9 +48,11 @@
 
                     <div class="m-3">
                         <label for="body" class="form-label">Body</label>
-                        <!-- Apply Summernote to this textarea -->
-                        <textarea id="summernote" name="body" rows="5" class="form-control" placeholder="Post content"
-                            required></textarea>
+                        <div class="container-sub rounded" style="background-color: var(--bs-body-bg);">
+                            <textarea id="summernote" name="body" rows="5" class="form-control"
+                                placeholder="Post content" required>
+                            </textarea>
+                        </div>
                     </div>
 
                     <div class="m-3">
@@ -74,15 +76,11 @@
         document.getElementById("js_id").value = name;
         $(document).ready(function () {
             $('#summernote').summernote({
-                height: 300, // Set the height of the editor
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
+                height: 220, // Set editor height
+                toolbar: [                    
+                    ['font', ['bold', 'italic', 'underline', 'clear']],                    
+                    ['para', ['ul', 'ol']],
+                    ['height', ['height']],                    
                 ]
             });
         });

@@ -35,6 +35,13 @@ h1 {
 }
 
 
+
+
+h2 {
+    padding-top: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 h3 {
     padding-top: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -287,6 +294,11 @@ ul {
 
 a:hover {
     color: var(--primary-color);
+}
+
+.note-editor .note-editable {
+    background-color: #f5f5f5;  /* Replace with your desired background color */
+    color: #333;  /* Optionally, set the text color to ensure readability */
 }
 
 /* Custom Scrollbar */
