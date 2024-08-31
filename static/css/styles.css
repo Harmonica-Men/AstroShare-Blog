@@ -176,6 +176,13 @@ ul {
     margin: 10px;
 }
 
+.container-forms {
+    padding-top: 5rem;
+    padding-left: 20rem; 
+    padding-right: 20rem; 
+    
+} 
+
 .container-sub {
     width: 100%;
     padding: 1.25rem 1.25rem;
@@ -238,7 +245,7 @@ ul {
 .post {
     margin: 1rem;
     margin-left: 3rem;
-    margin-right: 3rem;    
+    margin-right: 3rem;
     padding: 10px;
     border-radius: 5px;
     border-style: solid;
