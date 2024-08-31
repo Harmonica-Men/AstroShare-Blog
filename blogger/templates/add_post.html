@@ -8,57 +8,17 @@
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
     {% if user.is_authenticated %}
-    <!-- <div class="container-sub">
-        <h1 style="color:var(--main-text-color)">Add posts</h1>
-    </div> -->
 
     <div class="container steps--background-white rounded" style="padding: 2.5rem;">
         <div class="container-sub">
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
                     {% csrf_token %}
+                    
+                    <!-- Add hidden author field manually -->
+                    <input type="hidden" name="author" value="{{ user.id }}">
 
-                    {% if form.errors %}
-                    <div class="alert alert-danger">
-                        <ul>
-                            {% for field, errors in form.errors.items %}
-                            {% for error in errors %}
-                            <li>{{ field }}: {{ error }}</li>
-                            {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-
-                    <div class="m-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="title of the post"
-                            required>
-                    </div>
-
-                    <div class="m-3">
-                        <label for="title_tag" class="form-label">Title Tag</label>
-                        <input type="text" class="form-control" id="title_tag" name="title_tag"
-                            placeholder="title-tag of the post" required>
-                    </div>
-
-                    {{ form.author }}
-
-                    <div class="m-3">{{ form.category }}</div>
-
-                    <div class="m-3">
-                        <label for="body" class="form-label">Body</label>
-                        <div class="container-sub rounded" style="background-color: var(--bs-body-bg);">
-                            <textarea id="summernote" name="body" rows="5" class="form-control"
-                                placeholder="Post content" required>
-                            </textarea>
-                        </div>
-                    </div>
-
-                    <div class="m-3">
-                        <label for="image" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" name="image">
-                    </div>
+                    {{ form.as_p }}
 
                     <div class="container-custom mt-4">
                         <input type="submit" value="Post" class="btn btn-primary rounded custom-submit ">
@@ -70,37 +30,16 @@
             <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script>
-        var name = "{{ user.id }}";
-        document.getElementById("js_id").value = name;
-        $(document).ready(function () {
-            $('#summernote').summernote({
-                height: 220, // Set editor height
-                toolbar: [                    
-                    ['font', ['bold', 'italic', 'underline', 'clear']],                    
-                    ['para', ['ul', 'ol']],
-                    ['height', ['height']],                    
-                ]
-            });
-        });
-    </script>
-
+   
     {% else %}
     <div>
         <h1 style="color: var(--main-text-color);">No access to this page</h1>
         <div class="container-custom mt-4">
             <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
         </div>
-    
     </div>
-    
-    {% endif %}
-    
 
+    {% endif %}
 </div>
 {% endwith %}
 

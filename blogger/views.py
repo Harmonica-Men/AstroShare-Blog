@@ -122,6 +122,10 @@ class AddPostView(CreateView):
     template_name = 'add_post.html'
     success_url = reverse_lazy('frontpage-blogpost')  
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user  # Set the author to the current user
+        return super().form_valid(form)
+
 class AddCommentView(CreateView):
     model = Comment
     form_class = CommentForm
