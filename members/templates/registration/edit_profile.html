@@ -5,8 +5,8 @@
 {% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
+    <h1 style="color:var(--main-text-color)">Edit Settings</h1>
 
-<h4>Edit Settings .. </h4>
     <div class="container-banner">
         <div class="container-sub steps--background-white rounded">
             <div class="container-banner">
@@ -88,8 +88,13 @@
                         </div>
                     </form>
                 </div>
+                
+            </div>
+            <div class="container-custom">
+                <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
             </div>
         </div>
+        
     </div>
 
 </div>

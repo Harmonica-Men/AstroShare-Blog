@@ -81,7 +81,7 @@
                     <small class="italicize">&#40;must be logged in to comment&#41;</small>
 
                     {% endif %}
-                    
+
 
 
                     {% if not post.comments.exists %}
@@ -104,6 +104,9 @@
                     {% endfor %}
                     {% endif %}
                 </div>
+            </div>
+            <div class="container-custom">
+                <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
             </div>
         </div>
     </section>

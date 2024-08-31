@@ -7,7 +7,7 @@
 
 {% if user.is_authenticated %}
 
-<h2>Create Profile Page ... </h2>
+<h1 style="color: var(--main-text-color);">Create Profile Page</h1>
 <section>
     <div class="form-group">
         <div class="container-sub">
@@ -21,7 +21,11 @@
                         </div>
                     </form>
                 </div>
+                <div class="container-custom mb-3">
+                    <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
+                </div>
             </div>
+            
         </div>
 </section>
 {% endif %}

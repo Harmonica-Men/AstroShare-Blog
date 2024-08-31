@@ -4,12 +4,12 @@
 {% block content %}
 {% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
     {% if user.is_authenticated %}
-    {% if user.id == profile.user.id %}
-    <h4>Edit Profile Page ...</h4>
+    {% if user.id == profile.user.id %}    
+    <h1 style="color:var(--main-text-color)">Edit Profile Page</h1>
     <div class="container-banner">
         <section class="container-sub">
+            
             <div class="card steps--background-white">
                 <div class="container-banner">
                     <div class="form-group">
@@ -52,7 +52,12 @@
                                 <button type="submit" class="btn btn-primary">Update Profile</button>
                             </div>
                         </form>
+                        
                     </div>
+                    
+                </div>
+                <div class="container-custom mb-4">
+                    <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
                 </div>
             </div>
         </section>

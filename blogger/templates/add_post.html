@@ -66,6 +66,9 @@
                 </form>
             </div>
         </div>
+        <div class="container-custom">
+            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -88,9 +91,15 @@
 
     {% else %}
     <div>
-        <h2>No access to this page</h2>
+        <h1 style="color: var(--main-text-color);">No access to this page</h1>
+        <div class="container-custom mt-4">
+            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
+        </div>
+    
     </div>
+    
     {% endif %}
+    
 
 </div>
 {% endwith %}

@@ -31,9 +31,8 @@ h1 {
     text-align: left;
     font-weight: bolder;
     padding-left: 1rem;
-    
+    padding-top: 1rem;
 }
-
 
 h3 {
     padding-top: 1rem;
@@ -134,7 +133,15 @@ ul {
 }
 
 .color-hyperlink:hover {
-    color: var(--primary-color-highlight);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.color-hyperlink-article {
+    color: var(--main-text-color-invers);
+}
+
+.color-hyperlink-article:hover {
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .d-md-flex {
@@ -203,6 +210,11 @@ ul {
 .container-footer {
     max-width: vh100;
 }
+
+/* .container-register {
+    padding-left: 20rem; 
+    padding-right: 20rem;
+} */
 
 
 .italicize {
@@ -287,6 +299,11 @@ ul {
 
 a:hover {
     color: var(--primary-color);
+}
+
+.note-editor .note-editable {
+    background-color: #f5f5f5;  /* Replace with your desired background color */
+    color: #333;  /* Optionally, set the text color to ensure readability */
 }
 
 /* Custom Scrollbar */

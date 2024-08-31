@@ -28,10 +28,11 @@ html {
 
 
 h1 {
+    color: var(--main-text-color);
     text-align: left;
     font-weight: bolder;
     padding-left: 1rem;
-    
+    padding-top: 1rem;
 }
 
 h3 {
@@ -210,6 +211,11 @@ ul {
 .container-footer {
     max-width: vh100;
 }
+
+/* .container-register {
+    padding-left: 20rem; 
+    padding-right: 20rem;
+} */
 
 
 .italicize {

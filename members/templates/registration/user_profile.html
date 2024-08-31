@@ -7,7 +7,9 @@
     <h4>User Profile ...</h4>
 
     <section class="container-banner" style="padding: 5rem;">
-        <div class="d-md-flex steps--background-white container-sub rounded">
+        
+        <div class="steps--background-white container-sub rounded">
+        <div class="container-sub d-md-flex">
             <div class="align-items-center">
                 <div class="container-sub">
                     {% if user.profile.profile_pic.url %}
@@ -37,6 +39,14 @@
                 </p>
             </div>
         </div>
+    
+            <div class="container-custom">
+                <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
+            </div>
+        
+        </div>
+        
+        
     </section>
 
 
