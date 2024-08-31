@@ -60,25 +60,6 @@ def LikeView(request, pk):
 
     return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
-
-    # post.likes.add(request.user)
-    # return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
-
-
-# class HomepageView(TemplateView):
-#     model = Post
-#     template_name = 'homepage.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['posts'] = Post.objects.all()
-
-#         # Add the latest 5 profile names to context by querying the related User's username
-#         context['profile_names'] = Profile.objects.select_related('user').values_list('user__username', flat=True).order_by('-user__date_joined')[:7]
-
-#         return context
-
-
 class HomepageView(TemplateView):
     model = Post
     template_name = 'homepage.html'
@@ -102,23 +83,6 @@ class HomepageView(TemplateView):
 
         return context
 
-
-
-
-# class FrontpageView(ListView):
-#     model = Post
-#     template_name = 'frontpage.html'
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         category_slug = self.request.GET.get('category')
-#         if category_slug:
-#             try:
-#                 category = Category.objects.get(slug=category_slug)
-#                 context['category_name'] = category.name
-#             except Category.DoesNotExist:
-#                 context['category_name'] = 'Unknown Category'
-#         return context
 
 class FrontpageView(ListView):
     model = Post
@@ -152,18 +116,11 @@ class ArticleDetailView(DetailView):
        context["liked"] = liked
        return context
 
-
-
 class AddPostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'add_post.html'
     success_url = reverse_lazy('frontpage-blogpost')  
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['choices'] = Category.objects.all().values_list('name', 'name')
-    #     return context
 
 class AddCommentView(CreateView):
     model = Comment
@@ -200,22 +157,11 @@ class DeletePostView(DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('frontpage-blogpost')
 
-# def register(request):
-#     return render(request, 'register.html')
-
 class AddCategoryView(CreateView):
     model = Category
     form_class = PostForm
     template_name = 'add_category.html'
     fields = '__all__'
-
-from django.shortcuts import render
-from django.db.models import Q
-from .models import Post
-
-from django.shortcuts import render
-from django.db.models import Q
-from .models import Post
 
 def search_view(request):
     query = request.GET.get('query', '')
@@ -227,9 +173,6 @@ def search_view(request):
         'query': query,
     }
     return render(request, 'search.html', context)
-
-
-
    
 def nasa_picture_of_the_day(request):
     api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'  # Replace with your NASA API key
@@ -331,6 +274,3 @@ def ConfirmSubscription(request):
     subscriber.save()
 
     return render(request, 'registration/confirm_subscription.html')
-
-# def custom_500_error(request):
-#     return render(request, '500.html', status=500)

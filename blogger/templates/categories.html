@@ -7,7 +7,7 @@
 {% with image_url='images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if category_posts %}
-    <h1 style="padding: 2rem; color:var(--main-text-color)">Posts in {{ cats }}</h1>
+    <h1 style="padding: 1rem; color:var(--main-text-color)">Posts in {{ cats }}</h1>
     <div class="container-sub">
         <ul>
             {% for post in category_posts %}
@@ -60,7 +60,7 @@
         <br>
     </div>
     {% else %}
-    <div class="container" style="height: 85vh;">
+    <div class="container" style="height: 80vh;">
         <div class="container" style="padding-top: 5rem;">
             <div class="container-custom steps--background-white rounded">
 
