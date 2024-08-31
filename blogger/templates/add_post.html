@@ -9,8 +9,8 @@
 
     {% if user.is_authenticated %}
 
-    <div class="container steps--background-white rounded" style="padding: 2.5rem;">
-        <div class="container-sub">
+    <div class="container-form-lg">
+        <div class="container-banner steps--background-white rounded">
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
                     {% csrf_token %}
@@ -20,15 +20,16 @@
 
                     {{ form.as_p }}
 
-                    <div class="container-custom mt-4">
+                    <div class="container-custom mb-4">
                         <input type="submit" value="Post" class="btn btn-primary rounded custom-submit ">
                     </div>
                 </form>
             </div>
+            <div class="container-custom">
+                <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
+            </div>
         </div>
-        <div class="container-custom">
-            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
-        </div>
+        
     </div>
    
     {% else %}
@@ -42,8 +43,4 @@
     {% endif %}
 </div>
 {% endwith %}
-
-<div class="container">
-    {{ post.body|truncate_html:300 }} ...
-</div>
 {% endblock %}

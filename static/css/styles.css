@@ -176,12 +176,20 @@ ul {
     margin: 10px;
 }
 
-.container-forms {
+.container-form-sm {
     height: 80vh; 
     padding-top: 5rem;
     padding-left: 20rem; 
     padding-right: 20rem; 
 } 
+
+.container-form-lg {
+    
+    padding-top: 5rem;
+    padding-left: 22rem; 
+    padding-right: 22rem; 
+} 
+
 
 .container-sub {
     width: 100%;
