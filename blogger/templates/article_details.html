@@ -7,8 +7,10 @@
 
 {% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
-    <section class="container-sub">
+    <div class="container-sub">
+        <h1 style="color:var(--main-text-color)">Article Details</h1>
+    </div>
+    <section class="container">
         <div class="steps--background-white rounded">
             <div class="container-custom">
                 <h3 class="mt-6">{{ post.title }}</h3>
@@ -26,11 +28,7 @@
                     <!-- <small class="first-name"><strong>{{ post.author.first_name }}</strong></small> -->
 
                     <a href="{% url 'author-profile' post.author.id %}">
-                        <small> <strong>{{ post.author.first_name }}</strong></small>
-                     </a>
-                    
-                    <a href="{% url 'author-profile' post.author.id %}">
-                       <small> <strong>{{ post.author.last_name }}</strong></small>
+                        <small> <strong>{{ post.author.first_name }} {{ post.author.last_name }}</strong></small>
                     </a>
                     
                     <small>Category: <strong>{{ post.category }}</strong> </small>

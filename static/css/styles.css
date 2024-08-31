@@ -134,7 +134,7 @@ ul {
 }
 
 .color-hyperlink:hover {
-    color: var(--primary-color-highlight);
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .d-md-flex {
