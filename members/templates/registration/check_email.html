@@ -4,24 +4,22 @@
 {% block content %}
 {% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <h1 class="mt-3 mb-4"  style="color: var(--main-text-color);">Check Your Email</h1> 
+    <section class="container" style="height: 70vh;">
+        <div class="container-banner steps--background-white rounded">
+            <div class="container-custom">
+                <h3>Please check your email</h3>
+               
+                <img src="/static/images/Verification-Logo-PNG-HD.png" class="img-thumbnail w-25" alt="check-email">
 
-
-<h4>Check Your Email</h4>
-
-<section class="container-sub" style="padding-bottom: 2rem;">
-            <div class="container-sub steps--background-white rounded">
-                <div class="container-custom" style="padding-bottom: 2rem;">
-                    
-                    <h3>Please check your email</h3>
-                    <!-- https://www.pngmart.com/image/276564 -->
-                    <img src="/static/images/Verification-Logo-PNG-HD.png" class="img-thumbnail w-25" alt="check-email">
-                </div>
-                <div class="container-custom">
-                    <strong><a href="/">Return to homepage</a></strong>
-                </div>
             </div>
+            <div class="container-custom">
+                <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
+            </div>
+            
         </div>
-    </section>
+</div>
+</section>
 
 
 </div>

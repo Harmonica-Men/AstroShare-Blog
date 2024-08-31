@@ -16,8 +16,14 @@
                             {{ category.category_discription }}
                         </div>
                     </div>
+                    <div class="container-custom">
+                        <strong>
+                            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a>
+                        </strong>
+                    </div>
                 </div>
             </li>
+            
             <br>
             {% empty %}
             <li>
