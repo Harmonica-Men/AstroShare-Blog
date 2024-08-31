@@ -28,7 +28,8 @@ html {
 
 
 h1 {
-    text-align: left;
+    /* color: var(--main-text-color); */
+    /* text-align: left; */
     font-weight: bolder;
     padding-left: 1rem;
     padding-top: 1rem;
@@ -235,7 +236,9 @@ ul {
 
 /* Styling for individual posts */
 .post {
-    margin-bottom: 20px;
+    margin: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;    
     padding: 10px;
     border-radius: 5px;
     border-style: solid;

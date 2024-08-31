@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load truncate_html %}
 {% block title %} {{ cats }} {% endblock %}
 {% block content %}
 
 {% with image_url='images/background.webp' %}
-<div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if category_posts %}
-    <!-- <h1 style="padding: 2rem; color:var(--main-text-color)">Posts in {{ cats }}</h1> -->
+    <h1 style="padding: 2rem; color:var(--main-text-color)">Posts in {{ cats }}</h1>
     <div class="container-sub">
         <ul>
             {% for post in category_posts %}
@@ -15,14 +16,17 @@
                     <div class="container-sub">
                         <div class="container-custom">
                             {% if post.image %}
-                            <img src="{{ post.image.url }}" class="img-thumbnail w-25" alt="post-image {{ post.image.url }}">
+                            <img src="{{ post.image.url }}" class="img-thumbnail w-25"
+                                alt="post-image {{ post.image.url }}">
                             {% else %}
-                            <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" style="max-width: 25%; height: auto;" alt="no-image-available">
+                            <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail"
+                                style="max-width: 25%; height: auto;" alt="no-image-available">
                             {% endif %}
                         </div>
-                        <h3>{{ post.title }}</h3>
-                        <small>Author: <strong>{{ post.author }}</strong> Category: <strong>{{ post.category }}</strong></small>
-                       
+                        <h2>{{ post.title }}</h2>
+                        <small>Author: <strong>{{ post.author }}</strong> Category:
+                            <strong>{{ post.category }}</strong></small>
+
                         <small>Posted: <strong>{{ post.post_date }}</strong></small>
                         <br>
                         {% if user.is_authenticated and user.id == post.author.id %}
@@ -30,15 +34,22 @@
                             <a href="{% url 'update-post' post.pk %}"> Edit </a> or
                             <a href="{% url 'delete-post' post.pk %}">Delete Post</a>
                         </p>
-                        
+
                         {% endif %}
                         <br>
-                        {{ post.body }} ...
-                        <br>
-                        <a href="{% url 'article-detail' post.pk %}"><strong><small>[Read More]</small></strong></a>
+                        <div class="container"> 
+                            
+                            {{ post.body|truncate_html:300 }} ..
+                            <a href="{% url 'article-detail' post.pk %}"><strong><small>[Read More]</small></strong></a>
+                            
+                        </div>
                         
+                        <br>
+                        
+
                         <div class="container-custom">
-                            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
+                            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To
+                                    Blog</strong></a>
                         </div>
                     </div>
                 </div>
@@ -46,16 +57,21 @@
             </li>
             {% endfor %}
         </ul>
-       <br>
+        <br>
     </div>
     {% else %}
     <div class="container" style="height: 85vh;">
         <div class="container" style="padding-top: 5rem;">
-    <div class="container-custom steps--background-white rounded" >
-    
-        <h1>No Posts Found {{ cats }}</h1>
-    </div>
-    </div>
+            <div class="container-custom steps--background-white rounded">
+
+                <h1 style="text-align: center;">No Posts Found {{ cats }}</h1>
+
+                <div class="container-custom">
+                    <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To
+                            Blog</strong></a>
+                </div>
+            </div>
+        </div>
     </div>
     {% endif %}
 </div>

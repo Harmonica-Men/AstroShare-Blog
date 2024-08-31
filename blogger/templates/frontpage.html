@@ -9,10 +9,10 @@
 {% block content %}
 
 {% with image_url='/images/background.webp' %}
-<div class="container-custom wapper"
+<div class="container-sub wapper"
   style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
   <div class="container-sub">
-    <h1 style="color:var(--main-text-color)">Latest Posts</h1>
+    <h1 style="color: var(--main-text-color);">Latest Posts</h1>
   </div>
   {% for post in posts %}
   <section class="row post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
