@@ -6,28 +6,25 @@
 
 {% with image_url='/images/background.webp' %}
 <div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
-
-<h4>Add Comment ...</h4>
-<div>
-    <section class="container-sub">
-
-        <div class="container-sub steps--background-white rounded">
-            <div class="card-body" style="width: vh100;">
-                <div class="form-group">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="container-banner">
-                            <button type="submit" class="btn btn-primary">Add Comment</button>
-                        </div>
-                    </form>
+    <h1 style="color:var(--main-text-color)">Add Comment</h1>
+    <div>
+        <section class="container-sub">
+            <div class="container-sub steps--background-white rounded">
+                <div class="card-body" style="width: vh100;">
+                    <div class="form-group">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="container-banner">
+                                <button type="submit" class="btn btn-primary">Add Comment</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </section>
-</div>
+        </section>
+    </div>
 
 </div>
 {% endwith %}

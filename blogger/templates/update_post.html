@@ -6,35 +6,32 @@
 {% with image_url='/images/background.webp' %}
 
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
+    <h1 style="padding-left: 7rem; color:var(--main-text-color)">Update Posts</h1>
     {% if user.is_authenticated %}
-        {% if user == post.author %}
-
-        <h4>Update Post ...</h4>
-        
-        <div class="container-sub">
-            <div class="d-flex justify-content-center steps--background-white rounded">
-                <div class="container-sub">
-                    <div class="from-group">                        
-                        <form method="POST">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <div class="container-custom">
-                                <button class="btn btn-primary">Update</button>
-                            </div>
-                        </form>
-                    </div>
+    {% if user == post.author %}
+    <div class="container-sub">
+        <div class="d-flex justify-content-center steps--background-white rounded">
+            <div class="container-sub">
+                <div class="from-group">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="container-custom">
+                            <button class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        {% else %}
-        <!-- Render the 403 template for forbidden access -->
-        {% include '403.html' %}
-        {% endif %}
     {% else %}
-        <!-- Render the 403 template for unauthenticated access -->
-        {% include '403.html' %}
+    <!-- Render the 403 template for forbidden access -->
+    {% include '403.html' %}
+    {% endif %}
+    {% else %}
+    <!-- Render the 403 template for unauthenticated access -->
+    {% include '403.html' %}
     {% endif %}
 
 </div>

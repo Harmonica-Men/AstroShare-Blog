@@ -8,8 +8,9 @@
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
     {% if user.is_authenticated %}
-    <h4>Add Blog Post </h4>
-
+    <div class="container-sub">
+        <h1 style="color:var(--main-text-color)">Add posts</h1>
+    </div>
     <div class="container steps--background-white rounded" style="padding: 2.5rem;">
 
         <div class="container-sub">
@@ -71,7 +72,7 @@
     <script>
         var name = "{{ user.id }}";
         document.getElementById("js_id").value = name;
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#summernote').summernote({
                 height: 300, // Set the height of the editor
                 toolbar: [
@@ -97,6 +98,6 @@
 {% endwith %}
 
 <div class="container">
-    {{ post.body|truncate_html:300 }} ... 
+    {{ post.body|truncate_html:300 }} ...
 </div>
 {% endblock %}

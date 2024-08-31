@@ -4,8 +4,7 @@
 {% load static %}
 {% with image_url='images/background.webp' %}
 <div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
-    <h2 style="padding: 2rem;">Blog Posts Categories</h2>
+    <h1 style="padding: 2rem; color:var(--main-text-color)">Blog Posts Categories</h1>
     <div class="container-sub">
         <ul>
             {% for category in cat_menu_list %}
@@ -14,7 +13,7 @@
                     <div class="container-sub mt-4">
                         <h3>{{ category.name }}</h3>
                         <div class="container-sub">
-                        {{ category.category_discription }}
+                            {{ category.category_discription }}
                         </div>
                     </div>
                 </div>

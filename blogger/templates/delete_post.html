@@ -3,39 +3,33 @@
 {% block title %}Delete Blog Post{% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
-{% if user.is_authenticated %}
-
-
-<h4>Delete Blog Post</h4>
-
-    <section>
-       
-        <div class="container mb-4 steps--background-white rounded">
-            <div class="row container-sub">
-                <h3><strong>Delete post: </strong> <i> {{ post.title }} </i> </h3>
-                <div class="form-group">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="delete-post">
-                            <strong>Are you sure?</strong> 
-                        </div>    
-                        <br>
-                        <br>
-                        <div class="container-custom">
-                            <button type="submit" class="btn btn-primary">Delete Post</button>
-                        </div>
-                    </form>
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    
+        {% if user.is_authenticated %}
+        <h1 style="padding: 2rem; color:var(--main-text-color)">Delete Post</h1>
+        <section class="container-banner"  style="padding: 8rem;">
+            <div class="container-sub mb-4 steps--background-white rounded">
+                <div class="row container-sub">
+                    <h3><strong>Delete post: </strong> <i> {{ post.title }} </i> </h3>
+                    <div class="form-group">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="delete-post">
+                                <strong>Are you sure?</strong>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="container-custom">
+                                <button type="submit" class="btn btn-primary">Delete Post</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-       
-    </div>
-    </section>
-
-{% endif %}
-
+        </section>
+        {% endif %}
+    
 </div>
 {% endwith %}
-
 {% endblock %}
