@@ -7,94 +7,92 @@
 
     <!-- <h1 style="color:var(--main-text-color)">Edit Settings</h1> -->
 
-    <div class="container-banner">
-        <div class="container-sub steps--background-white rounded">
-            <div class="container-banner">
-                <div class="form-group">
-                    <form method="POST">
-                        {% csrf_token %}
-                        {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for field, errors in form.errors.items %}
-                                {% for error in errors %}
-                                <li>{{ field }}: {{ error }}</li>
-                                {% endfor %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        {% endif %}
+    <div class="container-form-lg">
+        <div class="container-banner steps--background-white rounded">
+            <div class="form-group">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                            <li>{{ field }}: {{ error }}</li>
+                            {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
 
 
-                        <!-- Render the form fields with current user data -->
-                        <div class="m-3">
-                            <label for="id_username" class="form-label">Username</label>
-                            {{ form.username }}
-                        </div>
-
-                        <div class="m-3">
-                            <label for="id_first_name" class="form-label">First Name</label>
-                            {{ form.first_name }}
-                        </div>
-
-                        <div class="m-3">
-                            <label for="id_last_name" class="form-label">Last Name</label>
-                            {{ form.last_name }}
-                        </div>
-
-                        <div class="m-3">
-                            <label for="id_email" class="form-label">Email</label>
-                            {{ form.email }}
-                        </div>
-
-                        <div class="m-3">
-                        <label for="profile_pic" class="form-label">Profile Picture</label>
-                        <input type="file" class="form-control" id="profile_pic" name="profile_pic" required>
-                         {{ form.profile_pic }}
+                    <!-- Render the form fields with current user data -->
+                    <div class="m-3">
+                        <label for="id_username" class="form-label">Username</label>
+                        {{ form.username }}
                     </div>
 
-                        <!-- <div class="m-3">
+                    <div class="m-3">
+                        <label for="id_first_name" class="form-label">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+
+                    <div class="m-3">
+                        <label for="id_last_name" class="form-label">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+
+                    <div class="m-3">
+                        <label for="id_email" class="form-label">Email</label>
+                        {{ form.email }}
+                    </div>
+
+                    <div class="m-3">
+                        <label for="profile_pic" class="form-label">Profile Picture</label>
+                        <input type="file" class="form-control" id="profile_pic" name="profile_pic" required>
+                        {{ form.profile_pic }}
+                    </div>
+
+                    <!-- <div class="m-3">
                             <label for="id_profile_pic" class="form-label">Profile Picture</label>
                             {{ form.profile_pic }}
                         </div> -->
 
 
-                        <div class="m-3">
-                            {{ form.last_login}}
+                    <div class="m-3">
+                        {{ form.last_login}}
 
+                    </div>
+
+
+                    <div class="m-3">
+                        <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-sm">Change
+                            Password</a>
+                        <div>
+                            <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
+
+                            <small>{{ user.last_login }}</small>
                         </div>
+                    </div>
+
+                    <div class="container-custom mb-4">
+                        <button type="submit" class="btn btn-primary w-25">Update Profile</button>
 
 
-                        <div class="m-3">
-                            <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-sm">Change
-                                Password</a>
-                            <div>
-                                <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
+                        {% if user.profile.id %}
+                        <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25">
+                            Show Profile</a>
+                        {% else %}
+                        <a href="{% url 'create-profile-page' %}" class="btn btn-primary w-25">Create Profile</a>
+                        {% endif %}
+                    </div>
+                </form>
 
-                                <small>{{ user.last_login }}</small>
-                            </div>
-                        </div>
-
-                        <div class="container-custom">
-                            <button type="submit" class="btn btn-primary w-25">Update Profile</button>
-
-
-                            {% if user.profile.id %}
-                            <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25">
-                                Show Profile</a>
-                            {% else %}
-                            <a href="{% url 'create-profile-page' %}" class="btn btn-primary w-25">Create Profile</a>
-                            {% endif %}
-                        </div>
-                    </form>
-                </div>
-                
             </div>
             <div class="container-custom">
                 <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
             </div>
         </div>
-        
+
     </div>
 
 </div>
