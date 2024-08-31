@@ -6,7 +6,7 @@
 {% with image_url='/images/background.webp' %}
 
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <h1 style="padding-left: 7rem; color:var(--main-text-color)">Update Posts</h1>
+    <!-- <h1 style="padding-left: 7rem; color:var(--main-text-color)">Update Posts</h1> -->
     {% if user.is_authenticated and user == post.author %}
     <div class="container-sub">
         <div class="d-flex justify-content-center steps--background-white rounded">

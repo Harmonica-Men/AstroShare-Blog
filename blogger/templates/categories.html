@@ -6,7 +6,7 @@
 {% with image_url='images/background.webp' %}
 <div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if category_posts %}
-    <h1 style="padding: 2rem; color:var(--main-text-color)">Posts in {{ cats }}</h1>
+    <!-- <h1 style="padding: 2rem; color:var(--main-text-color)">Posts in {{ cats }}</h1> -->
     <div class="container-sub">
         <ul>
             {% for post in category_posts %}
