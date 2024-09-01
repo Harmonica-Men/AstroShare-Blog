@@ -63,6 +63,21 @@ ul {
     margin-bottom: 20px;
 }
 
+/* Ensure Summernote editor is responsive */
+.note-editor {
+    width: 100% !important; /* Full width of the parent container */
+    box-sizing: border-box; /* Prevent overflow issues */
+}
+
+.note-toolbar {
+    flex-wrap: wrap; /* Allow toolbar items to wrap on smaller screens */
+}
+
+.note-editable {
+    min-height: 200px; /* Set a minimum height for the editor area */
+}
+
+
 /* Styles for back-to-top-button */
 .button-custom {
     margin: 7px auto;
@@ -179,15 +194,15 @@ ul {
 .container-form-sm {
     height: 80vh; 
     padding-top: 2rem;
-    padding-left: 20rem; 
-    padding-right: 20rem; 
+    /* padding-left: 20rem; 
+    padding-right: 20rem;  */
 } 
 
 .container-form-lg {
     
     padding-top: 2rem;
-    padding-left: 22rem; 
-    padding-right: 22rem; 
+    /* padding-left: 22rem; 
+    padding-right: 22rem;  */
 } 
 
 
@@ -580,6 +595,16 @@ a:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .note-toolbar {
+        font-size: 12px; /* Reduce toolbar icon size for smaller screens */
+    }
+
+    .note-editable {
+        height: auto; /* Adjust the height for mobile screens */
+    }
+}
+
 @media (min-width: 544px) {
     .steps {
         padding: 40px 0;
@@ -607,3 +632,5 @@ a:hover {
         display: none;
     }
 }
+
+

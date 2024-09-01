@@ -3,11 +3,12 @@
 {% block title %} Create a new blog post! {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
+
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
 
     {% if user.is_authenticated %}
 
-    <div class="container-form-lg">
+    <div class="container">
         <div class="container-banner steps--background-white rounded">
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
