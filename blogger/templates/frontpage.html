@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load truncate_html %}
 {% block title %}Astro Share Blog{% endblock %}
 {% block meta %}
 <meta name="description"
@@ -33,7 +32,8 @@
       <div class="col-sm-6 col-md-8 order-1 order-sm-2">
         <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3>
         <div class="container-sub">
-          {{ post.body|truncate_html:300 }} <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
+          {{ post.body|slice:":300" }}
+          <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
             <small><strong>[Read more]</strong></small></a>
 
             <p class="italicize">Posted: <strong>{{ post.post_date }}</strong> Category:
