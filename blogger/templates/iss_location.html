@@ -1,10 +1,11 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/css/styles.css" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     <title>ISS Location</title>
     <!-- Bootstrap CSS CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -13,39 +14,42 @@
 </head>
 
 <body>
-    {% with image_url='/images/background.webp' %}
-    <div style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-        <div class="container mt-5">
-            <div class="text-center" style="color: white;">
-                <h1 class="display-4">Current Location of the ISS</h1>
-                <p class="lead">Tracking the real-time location of the International Space Station</p>
-            </div>
-            <div class="text-center mt-4" style="color: white;">
+    {% with image_url='images/background.webp' %}
+    <div style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+        <div class="container text-center" style="color: white;">
+            <h1 class="display-4 mb-4">Current Location of the ISS</h1>
+            <p class="lead mb-4">Tracking the real-time location of the International Space Station</p>
+
+            <div class="mb-4">
                 <strong>
                     <p>Timestamp: {{ timestamp }} UTC</p>
                 </strong>
             </div>
-            <div class="card my-4 shadow-sm">
+
+            <div class="card my-4 shadow-sm mx-auto" style="max-width: 800px;">
                 <div class="card-body">
                     <div id="iss-plot">
                         {{ plot_html|safe }}
                     </div>
                 </div>
-                <div class="text-center" style="padding-bottom: 1rem;">
-                    <strong><a href="{% url 'homepage' %}">Return to blogpost</a></strong>
+                <div class="card-footer">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <div class="alert alert-primary mb-0" role="alert">
+                                <strong>Latitude:</strong> {{ latitude }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-info mb-0" role="alert">
+                                <strong>Longitude:</strong> {{ longitude }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row text-center container-custom">
-                <div class="col-md-4">
-                    <div class="alert alert-primary" role="alert">
-                        <strong>Latitude:</strong> {{ latitude }}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="alert alert-info" role="alert">
-                        <strong>Longitude:</strong> {{ longitude }}
-                    </div>
-                </div>
+
+            <div class="mb-2">
+                <a href="{% url 'frontpage-blogpost' %}" class="btn btn-primary">Back To Blog</a>
             </div>
         </div>
     </div>
@@ -55,4 +59,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
