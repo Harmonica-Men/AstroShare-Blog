@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
-{% block title %} Blog categories {% endblock %}
+{% block title %} Blog Category List {% endblock %}
 {% block content %}
 {% load static %}
 {% with image_url='images/background.webp' %}
 <div class="container-sub wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
     <div class="container">
         <h1 style="color: var(--main-text-color);">Category List</h1>
     </div>
 
     {% for category in cat_menu_list %}
-    <section class="container category {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-        <div class="container mt-4" style="width: 80%;">
+    <section class="container-list category {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %} rounded">
+        <div class="container mt-4">
             <div class="container">
-                <h2 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ category.name }}</h2>
+                <h2 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding-top: 0.75rem;">{{ category.name }}</h2>
                 <div class="container">
                     {{ category.category_discription }}
                 </div>
@@ -24,10 +23,11 @@
     </section>
 
     {% endfor %}
-    <div class="container-custom">
-        <strong>
-            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a>
-        </strong>
+    <div class="container-custom mt-4">
+        
+          
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
+        
     </div>
 </div>
 {% endwith %}

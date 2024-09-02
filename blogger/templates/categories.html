@@ -1,76 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load truncate_html %}
-{% block title %} {{ cats }} {% endblock %}
+{% block title %}Posts in {{ cats }}{% endblock %}
 {% block content %}
-
 {% with image_url='images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    {% if category_posts %}
-    <h1 style="padding: 1rem; color:var(--main-text-color)">Posts in {{ cats }}</h1>
-    <div class="container-sub">
-        <ul>
-            {% for post in category_posts %}
-            <li>
-                <div class="steps--background-white rounded">
-                    <div class="container-sub">
-                        <div class="container-custom">
-                            {% if post.image %}
-                            <img src="{{ post.image.url }}" class="img-thumbnail w-25"
-                                alt="post-image {{ post.image.url }}">
-                            {% else %}
-                            <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail"
-                                style="max-width: 25%; height: auto;" alt="no-image-available">
-                            {% endif %}
-                        </div>
-                        <h2>{{ post.title }}</h2>
-                        <small>Author: <strong>{{ post.author }}</strong> Category:
-                            <strong>{{ post.category }}</strong></small>
-
-                        <small>Posted: <strong>{{ post.post_date }}</strong></small>
-                        <br>
-                        {% if user.is_authenticated and user.id == post.author.id %}
-                        <p>
-                            <a href="{% url 'update-post' post.pk %}"> Edit </a> or
-                            <a href="{% url 'delete-post' post.pk %}">Delete Post</a>
-                        </p>
-
-                        {% endif %}
-                        <br>
-                        <div class="container"> 
-                            
-                            {{ post.body|truncate_html:300 }} ..
-                            <a href="{% url 'article-detail' post.pk %}"><strong><small>[Read More]</small></strong></a>
-                            
-                        </div>
-                        
-                        <br>
-                        
-
-                        <div class="container-custom">
-                            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To
-                                    Blog</strong></a>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </li>
-            {% endfor %}
-        </ul>
-        <br>
+<div class="container-sub wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <div class="container">
+        <h1 style="color: var(--main-text-color);">Posts in {{ cats }}</h1>
     </div>
-    {% else %}
-    <div class="container" style="height: 80vh;">
-        <div class="container" style="padding-top: 5rem;">
-            <div class="container-custom steps--background-white rounded">
 
-                <h1 style="text-align: center;">No Posts Found {{ cats }}</h1>
-
-                <div class="container-custom">
-                    <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To
-                            Blog</strong></a>
+    {% if category_posts %}
+    <section class="container-list">
+        <div class="container mt-4">
+            {% for post in category_posts %}
+            <div class="container {% if forloop.counter0|divisibleby:2 %}bg-l-gray{% else %}bg-d-gray{% endif %} rounded">
+                <div class="container p-4 mb-5">
+                    {% if post.image %}
+                    <div class="container-custom">
+                        <img src="{{ post.image.url }}" class="img-thumbnail mb-3" style="max-width: 100%; height: auto;" alt="Post image: {{ post.image.url }}">
+                    </div>
+                    {% else %}
+                    <div class="container-custom">
+                        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail mb-3" style="max-width: 100%; height: auto;" alt="No image available">
+                    </div>
+                    {% endif %}
+                    <h2 class="mb-2" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ post.title }}</h2>
+                    <small class="d-block mb-2">Author: <strong>{{ post.author }}</strong> | Category: <strong>{{ post.category }}</strong></small>
+                    <small class="d-block mb-3">Posted: <strong>{{ post.post_date }}</strong></small>
+                    <p>{{ post.body|truncatewords:300 }} ... <a href="{% url 'article-detail' post.pk %}" class="btn btn-link">[Read More]</a></p>
+                    {% if user.is_authenticated and user.id == post.author.id %}
+                    <p>
+                        <a href="{% url 'update-post' post.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                    </p>
+                    {% endif %}
                 </div>
             </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="steps--background-white p-4 rounded shadow-sm">
+                    <h2 class="text-dark">No Posts Found in {{ cats }}</h2>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="container-custom mt-4">
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
+        </div>
+    </section>
+    {% else %}
+    <div class="container mt-5">
+        <div class="steps--background-white p-4 rounded shadow-sm">
+            <h1>No Posts Found in {{ cats }}</h1>
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
         </div>
     </div>
     {% endif %}

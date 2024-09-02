@@ -212,18 +212,16 @@ ul {
     margin: 0 auto;
 } 
 
-.container-banner {
+.container-list {
     text-align: left;
-    width: 100%;
+    width: 80%;
     
     margin: 0 auto;
-} */
+} 
 
 .container-custom {
     text-align: center;
-    /* font-family: var(--container-font-family);  */
     width: 100%;
-    /* padding: 0 3.5rem; */
     padding-bottom: 0.85rem;
     margin: 0 auto;
 }
@@ -233,7 +231,6 @@ ul {
     padding: 80px;
     border-radius: 10px;
 }
-
 
 .italicize {
     padding-top: 10px;
