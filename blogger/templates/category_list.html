@@ -3,42 +3,32 @@
 {% block content %}
 {% load static %}
 {% with image_url='images/background.webp' %}
-<div class="sub-container" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <!-- <h1 style="padding: 2rem; color:var(--main-text-color)">Blog Posts Categories</h1> -->
-    <div class="container-sub">
-        <ul>
-            {% for category in cat_menu_list %}
-            <li>
-                <div class="container steps--background-white rounded">
-                    <div class="container-sub mt-4">
-                        <h2 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ category.name }}</h2>
-                        <div class="container-sub">
-                            {{ category.category_discription }}
-                        </div>
-                    </div>
-                    <div class="container-custom">
-                        <strong>
-                            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a>
-                        </strong>
-                    </div>
-                </div>
-            </li>
-            
-            <br>
-            {% empty %}
-            <li>
-                <div class="steps--background-white rounded">
-                    <div class="container-sub mt-4">
-                        <h1 style="padding-left: 7rem; color:var(--main-text-color)">No Posts Found {{ category.name }}</h1>
-                    </div>
-                </div>
-            </li>
-        </ul>
+<div class="container-sub wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+
+    <div class="container">
+        <h1 style="color: var(--main-text-color);">Category List</h1>
     </div>
-</div>
-{% endfor %}
-</ul>
-</div>
+
+    {% for category in cat_menu_list %}
+    <section class="container category {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
+        <div class="container mt-4" style="width: 80%;">
+            <div class="container">
+                <h2 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ category.name }}</h2>
+                <div class="container">
+                    {{ category.category_discription }}
+                </div>
+            </div>
+            
+        </div>
+        <br>
+    </section>
+
+    {% endfor %}
+    <div class="container-custom">
+        <strong>
+            <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a>
+        </strong>
+    </div>
 </div>
 {% endwith %}
 {% endblock %}
