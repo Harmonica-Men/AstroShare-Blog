@@ -10,7 +10,7 @@
 {% with image_url='/images/background.webp' %}
 <div class="container-sub wapper"
   style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-  <div class="container-sub">
+  <div class="container">
     <h1 style="color: var(--main-text-color);">Latest Posts</h1>
   </div>
   {% for post in posts %}
@@ -31,7 +31,7 @@
       <!-- Content Column -->
       <div class="col-sm-6 col-md-8 order-1 order-sm-2">
         <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3>
-        <div class="container-sub">
+        <div class="container">
           {{ post.body|slice:":300" }}
           <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
             <small><strong>[Read more]</strong></small></a>
@@ -43,7 +43,7 @@
         </div>
 
         {% if user.is_authenticated and user == post.author %}
-        <div class="container-sub">
+        <div class="container">
           <a href="{% url 'update-post' post.pk %}" class="btn btn-warning" >Edit</a>
 
           <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>

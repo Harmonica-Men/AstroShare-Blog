@@ -208,16 +208,16 @@ ul {
 
 .container-sub {
     width: 100%;
-    /* padding: 1.25rem 1.25rem; */
+   
     margin: 0 auto;
-}
+} 
 
 .container-banner {
     text-align: left;
     width: 100%;
-    /* padding: 2rem; */
+    
     margin: 0 auto;
-}
+} */
 
 .container-custom {
     text-align: center;
@@ -233,19 +233,6 @@ ul {
     padding: 80px;
     border-radius: 10px;
 }
-
-.container-lg {
-    padding: 10px;
-}
-
-.container-footer {
-    max-width: vh100;
-}
-
-/* .container-register {
-    padding-left: 20rem; 
-    padding-right: 20rem;
-} */
 
 
 .italicize {

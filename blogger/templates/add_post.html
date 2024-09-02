@@ -1,45 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Create a new blog post! {% endblock %}
+{% block title %}Create a New Blog Post{% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
 
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
+<section class="d-flex justify-content-center align-items-center bg-white text-center" style="min-height: calc(100vh - 130px);">
     {% if user.is_authenticated %}
-
-    <div class="container">
-        <div class="container-banner steps--background-white rounded">
-            <div class="form-group">
-                <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
-                    {% csrf_token %}
-                    
-                    <!-- Add hidden author field manually -->
-                    <input type="hidden" name="author" value="{{ user.id }}">
-
-                    {{ form.as_p }}
-
-                    <div class="container-custom mb-4">
-                        <input type="submit" value="Post" class="btn btn-primary rounded custom-submit ">
-                    </div>
-                </form>
-            </div>
-            <div class="container-custom">
-                <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
-            </div>
+    <div class="steps--background-white p-5 rounded">
+        <h1 class="mb-4">Create a New Blog Post</h1>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
+            {% csrf_token %}
+            <!-- Add hidden author field manually -->
+            <input type="hidden" name="author" value="{{ user.id }}">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3">Post</button>
+        </form>
+        <div class="mt-4">
+            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a></strong>
         </div>
-        
     </div>
-   
     {% else %}
     <div>
-        <h1 style="color: var(--main-text-color);">No access to this page</h1>
-        <div class="container-custom mt-4">
-            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
+        <h1 class="text-danger">No access to this page</h1>
+        <div class="mt-4">
+            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a></strong>
         </div>
     </div>
-
     {% endif %}
-</div>
-{% endwith %}
+</section>
+
 {% endblock %}
