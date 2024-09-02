@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 {% block title %}Check Email{% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
+{% with image_url='images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <section class="container" style="padding: 6rem;">
-        <div class="container-sub steps--background-white rounded">
-            <div class="container-custom">
-                <div class="container-custom"></div>
-                <h1>Thank You</h1>
-                <p><strong>For Subcribing</strong></p>
-                <img src="/static/images/TY-for-subcribing.jpg" class="img-thumbnail w-50" alt="TY-for-subcribing">
-            </div>
-            <div class="container-custom">
-                    <strong><a href="/">Return to homepage</a></strong>
+    <section class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 130px); padding: 2rem;">
+        <div class="steps--background-white rounded p-4 text-center" style="max-width: 600px; width: 100%;">
+            <h1 class="mb-4">Thank You</h1>
+            <p class="mb-4"><strong>For Subscribing</strong></p>
+            <img src="{% static 'images/TY-for-subscription.webp' %}" class="img-thumbnail mb-4" alt="Thank You for Subscribing" style="max-width: 100%; height: auto;">
+            <div>
+                <strong><a href="/" class="btn btn-secondary">Return to homepage</a></strong>
             </div>
         </div>
     </section>
