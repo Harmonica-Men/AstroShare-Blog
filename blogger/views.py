@@ -21,12 +21,36 @@ from datetime import datetime
 from django.http import HttpResponseForbidden
 from django.utils.text import slugify
 
+from django.shortcuts import render
+
+def apod_view(request):
+    bg_image_url = 'images/background.webp'
+    # Include other context data as needed
+    context = {
+        'bg_image_url': bg_image_url,
+        'title': 'Your Title',
+        'media_type': 'image',  # or 'video'
+        'image_url': 'path/to/your/image_or_video',
+        'date': '2024-09-01',
+        'explanation': 'Your explanation here...',
+    }
+    return render(request, 'apod.html', context)
+
+
+from django.conf import settings
+from django.shortcuts import render
+from django.views import View
+import requests
+
 class ApodView(View):
     def get(self, request, *args, **kwargs):
         # NASA API URL with your API key
         url = f"https://api.nasa.gov/planetary/apod?api_key={settings.NASA_API_KEY}"
         response = requests.get(url)
         data = response.json()
+
+        # Background image URL
+        bg_image_url = 'images/background.webp'
 
         # Pass the data to the template
         context = {
@@ -35,9 +59,11 @@ class ApodView(View):
             'explanation': data.get('explanation'),
             'date': data.get('date'),
             'media_type': data.get('media_type'),  # For checking if it's a video or image
+            'bg_image_url': bg_image_url,  # Add background image URL
         }
 
         return render(request, 'nasa_picture.html', context)
+
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
