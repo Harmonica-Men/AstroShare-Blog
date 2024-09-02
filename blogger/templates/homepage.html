@@ -233,13 +233,12 @@
   </section>
   <!-- Section Four End -->
 
+  <!-- section Contributors & ISS-->
   <section class="container-sub steps--background-white">
     <div class="row container-custom">
       <h3 class="text-center" style="padding-bottom: 1.25rem;">Our Latest Contributors on the Blog</h3>
       <div class="col-12 col-sm-6 d-md-flex col">
-
         <div class="container-custom">
-
           {% if profile_names %}
           <ul>
             {% for profile in profile_names %}
@@ -251,7 +250,6 @@
           {% endif %}
         </div>
       </div>
-      <!-- Adding another grid column for the second section -->
       <div class="col-12 col-sm-6">
         <div class="container-custom">
           <h3>Track The ISS</h3>
@@ -261,11 +259,13 @@
               style="border: 1px solid rgb(0, 163, 211); border-radius: 0px;" title="myFrame">
             </iframe>
           </div>
-          <a href="{% url 'iss-location' %}" class="text-muted">Go To the ISS</a>
+          <div class="container-custom mt-2">
+            <a href="{% url 'iss-location' %}">Go To the ISS</a>
+          </div>
         </div>
       </div>
-    </div>
   </section>
+  <!-- end section Contributors & ISS -->
 
   <!-- Newsletter Subscription -->
   <section class="steps steps--background-black" id="newsletter-subscription">
@@ -292,7 +292,6 @@
       <a href="#top-page" class="color-hyperlink">Back to Top</a>
     </div>
   </section>
-
   <!-- Newsletter Subscription End -->
 
   {% include 'footer.html' %}
