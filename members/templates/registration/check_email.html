@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 {% block title %}TY for Subscription{% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
+{% with image_url='images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <section class="container"  style="padding: 8rem;">
-        <div class="container-sub steps--background-white rounded">
-            <div class="container-sub ">
-                <div class="container-custom">
-                    <h1 style="text-align: center;">Please check your email</h1>
-                    <img src="/static/images/Verification-Logo-PNG-HD.png" class="img-thumbnail w-50" alt="check-email">
-                </div>
-                <div class="container-custom">
-                    <strong><a href="/">Return to homepage</a></strong>
-                </div>
+
+    <section class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 130px);">
+        <div class="steps--background-white rounded p-4 text-center" style="max-width: 600px; width: 100%;">
+            <h1 class="mb-4">Please check your email</h1>
+            <img src="{% static 'images/Verification-Logo-PNG-HD.png' %}" class="img-thumbnail mb-4" alt="check-email" style="max-width: 100%; height: auto;">
+            <div>
+                <strong><a href="/" class="btn btn-secondary">Return to homepage</a></strong>
             </div>
         </div>
     </section>
-</div>
 
-{% endwith%}
+</div>
+{% endwith %}
 {% endblock %}
