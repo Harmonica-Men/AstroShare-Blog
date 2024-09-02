@@ -2,30 +2,47 @@
 {% load static %}
 {% block title %}Create a New Blog Post{% endblock %}
 {% block content %}
+{% with image_url='images/background.webp' %}
 
-<section class="d-flex justify-content-center align-items-center bg-white text-center" style="min-height: calc(100vh - 130px);">
-    {% if user.is_authenticated %}
-    <div class="steps--background-white p-5 rounded">
-        <h1 class="mb-4">Create a New Blog Post</h1>
-        <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
-            {% csrf_token %}
-            <!-- Add hidden author field manually -->
-            <input type="hidden" name="author" value="{{ user.id }}">
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary mt-3">Post</button>
-        </form>
-        <div class="mt-4">
-            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a></strong>
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <div class="container" style="min-height: calc(100vh - 130px);">
+        <!-- Centering the main content -->
+        <div class="d-flex flex-column align-items-center">
+            <!-- Title -->
+            <!-- <h1 class="text-center mb-4" style="color: var(--main-text-color);">Create a New Blog Post</h1> -->
+            <div class="steps--background-white p-4 mt-5 rounded shadow-sm w-100" style="max-width: 600px;">
+            {% if user.is_authenticated %}
+            <!-- Form container -->
+            
+                <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
+                    {% csrf_token %}
+                    <!-- Add hidden author field manually -->
+                    <input type="hidden" name="author" value="{{ user.id }}">
+                    {{ form.as_p }}
+                    <div class="container-custom">
+                    <button type="submit" class="btn btn-primary mt-2">Post</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-2 mb-2">
+                    <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2">Back To Blog</a>
+                </div>
+            </div>
+            
+            {% else %}
+            <!-- No access message -->
+            <div class="steps--background-white p-4 rounded shadow-sm text-center">
+                <h1 class="text-danger">No access to this page</h1>
+            </div>
+            <div class="text-center mt-2 mb-2">
+                <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2">Back To Blog</a>
+            </div>
+
+            {% endif %}
+            
         </div>
     </div>
-    {% else %}
-    <div>
-        <h1 class="text-danger">No access to this page</h1>
-        <div class="mt-4">
-            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</a></strong>
-        </div>
-    </div>
-    {% endif %}
-</section>
+</div>
 
+{% endwith %}
 {% endblock %}
