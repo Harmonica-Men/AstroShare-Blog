@@ -156,11 +156,15 @@ class AddCommentView(CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'add_comment.html'
-    success_url = reverse_lazy('frontpage-blogpost')  # Change to your desired success URL
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirect to the article page
+        return reverse('article-detail', kwargs={'pk': self.kwargs['pk']})
+
 
 class UpdatePostView(UpdateView):
     model = Post

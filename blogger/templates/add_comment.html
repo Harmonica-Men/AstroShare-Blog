@@ -3,19 +3,27 @@
 {% block title %}Add Comment{% endblock %}
 {% block content %}
 
-<section class="d-flex justify-content-center align-items-center bg-white text-center" style="min-height: calc(100vh - 130px);">
-    <div class="steps--background-white p-5">
-        <h1 class="mb-4">Add Comment</h1>
-        <div class="form-group">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="container-custom">
-                {{ form.as_p }}
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Add Comment</button>
-            </form>
+{% with image_url='images/background.webp' %}
+<div class="container-sub"
+    style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: 100vh;">
+    <section class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh);">
+        <div class="steps--background-white p-4 rounded shadow-sm" style="max-width: 600px; width: 100%;">
+            <!-- <h1 class="text-center mb-4">Add Comment</h1> -->
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="container-custom">
+                        <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center mt-2">
+                <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
+{% endwith %}
 
 {% endblock %}
