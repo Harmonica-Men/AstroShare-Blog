@@ -2,41 +2,40 @@
 {% load static %}
 {% block title %}Search{% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
+{% with image_url='images/background.webp' %}
 
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <div class="container">
-        <h1 style="padding-left: 7rem; color:var(--main-text-color)">Search results</h1>
-        <h2 style="padding-left: 10rem; color:var(--main-text-color)">Query "{{ query }}"</h3>
-        {% for post in posts %}
+    <div class="container" style="min-height: calc(100vh - 130px);">
+        <!-- Centering the main content -->
+        <div class="d-flex flex-column align-items-center">
+            <!-- Title and query display -->
+            <h1 class="text-center" style="color: var(--main-text-color);">Search results</h1>
+            <h2 class="text-center mb-4" style="color: var(--main-text-color);">Query "{{ query }}"</h2>
 
-        <div class="container-sub steps--background-white rounded">
-            <h3>{{ post.title }}</h3>
-
-            <small>{{ post.created_at|timesince }} ago</small>
-
-            <div class="container-banner">
-                <p>
-                    {{ post.body|slice:":200" }}{% if post.body|length > 200 %}...{% endif %}
-                    <a href="{% url 'article-detail' post.pk %}"><small><strong>[read more]</strong></small></a>
-
-                </p>
-
+            <!-- Search results display -->
+            <div class="w-100">
+                {% if posts %}
+                    {% for post in posts %}
+                        <div class="steps--background-white p-4 rounded shadow-sm mb-4">
+                            <h3>{{ post.title }}</h3>
+                            <small class="d-block mb-2">{{ post.created_at|timesince }} ago</small>
+                            <p>
+                                {{ post.body|slice:":200" }}{% if post.body|length > 200 %}...{% endif %}
+                                <a href="{% url 'article-detail' post.pk %}"><small><strong>[read more]</strong></small></a>
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- No results found -->
+                    <div class="steps--background-white p-4 rounded shadow-sm text-center">
+                        <h2>No result for the given query...</h2>
+                        <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
-        <br>
-
-
-        {% empty %}
-        <div class="container" style="height: 65vh;">
-        <div class="container-custom steps--background-white rounded mt-4">
-            <h1>No result for the given query...</h1>
-            <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"></strong>
-            
-        </div>
-        </div>
-        {% endfor %}
     </div>
+</div>
 
-        {% endwith %}
-        {% endblock %}
+{% endwith %}
+{% endblock %}
