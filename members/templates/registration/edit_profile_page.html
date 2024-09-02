@@ -3,7 +3,8 @@
 {% block title %}Edit Profile Page{% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="d-flex justify-content-center align-items-center" style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
+<div class="d-flex justify-content-center align-items-center"
+    style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
 
     {% if user.is_authenticated %}
     {% if user.id == profile.user.id %}
@@ -15,30 +16,35 @@
 
             <div class="mb-3">
                 <label for="bio" class="form-label">Bio</label>
-                <textarea class="form-control" id="bio" name="bio" rows="4" placeholder="Bio of the post" required>{{ profile.bio }}</textarea>
+                <textarea class="form-control" id="bio" name="bio" rows="4" placeholder="Bio of the post"
+                    required>{{ profile.bio }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="website_url" class="form-label">Website URL</label>
-                <input type="text" class="form-control" id="website_url" name="website_url" placeholder="Website URL" value="{{ profile.website_url }}" required>
+                <input type="text" class="form-control" id="website_url" name="website_url" placeholder="Website URL"
+                    value="{{ profile.website_url }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="twitter_url" class="form-label">Twitter URL</label>
-                <input type="text" class="form-control" id="twitter_url" name="twitter_url" placeholder="Twitter URL" value="{{ profile.twitter_url }}" required>
+                <input type="text" class="form-control" id="twitter_url" name="twitter_url" placeholder="Twitter URL"
+                    value="{{ profile.twitter_url }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="instagram_url" class="form-label">Instagram URL</label>
-                <input type="text" class="form-control" id="instagram_url" name="instagram_url" placeholder="Instagram URL" value="{{ profile.instagram_url }}" required>
+                <input type="text" class="form-control" id="instagram_url" name="instagram_url"
+                    placeholder="Instagram URL" value="{{ profile.instagram_url }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="facebook_url" class="form-label">Facebook URL</label>
-                <input type="text" class="form-control" id="facebook_url" name="facebook_url" placeholder="Facebook URL" value="{{ profile.facebook_url }}" required>
+                <input type="text" class="form-control" id="facebook_url" name="facebook_url" placeholder="Facebook URL"
+                    value="{{ profile.facebook_url }}" required>
             </div>
 
-            <div class="d-flex justify-content-between mt-4">
+            <div class="d-flex justify-content-between mt-2">
                 <a href="{% url 'edit-profile' %}" class="btn btn-primary">Edit Settings</a>
                 <button type="submit" class="btn btn-primary">Update Profile</button>
             </div>
@@ -46,8 +52,8 @@
 
         <!-- Back to Blog Link -->
         <div class="text-center mt-4">
-            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
-                </div>
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2">Back To Blog</a>
+        </div>
     </div>
 
     {% else %}
@@ -55,7 +61,8 @@
     {% endif %}
 
     {% else %}
-    <p class="text-center">You need to <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to make changes.</p>
+    <p class="text-center">You need to <a href="{% url 'login' %}">login</a> or <a
+            href="{% url 'register' %}">register</a> to make changes.</p>
     {% endif %}
 
 </div>
