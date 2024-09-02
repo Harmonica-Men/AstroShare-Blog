@@ -16,10 +16,7 @@ class PostForm(forms.ModelForm):
             # 'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
              'body': forms.Textarea(attrs={'class': 'form-control',
-                'rows': 10, 
-                'maxlength': '500',  
-                'placeholder': 'Enter post message text here...',  
-            }),
+             'placeholder': 'Enter post message text here...'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
         }
 

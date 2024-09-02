@@ -57,7 +57,6 @@ class Post(models.Model):
     
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null = True, blank= True)
-    # title_tag = models.CharField(max_length=200)
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     # slug = models.SlugField()
     # intro = models.TextField()
@@ -66,13 +65,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
     category = models.CharField(max_length=254, default='UAP')
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE, to_field='name')
-
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
 
     def total_likes(self):
         return self.likes.count()
-
     
     class Meta:
         ordering = ('-created_at','post_date',)
@@ -81,12 +77,8 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        # return reverse('article-detail', args=(str(self.id)))
         return reverse('frontpage-blogpost') 
-        # return f'/{self.category.slug}/{self.slug}/'
-
-# class Post ends
-
+        
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
