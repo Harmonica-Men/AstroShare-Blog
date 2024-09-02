@@ -1,34 +1,42 @@
 {% extends 'base.html' %}
-{% load static%}
-{% block title %} Create a New Profile Page {% endblock %}
+{% load static %}
+{% block title %}Create a New Profile Page{% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
+{% with image_url='images/background.webp' %}
+
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <div class="container" style="min-height: calc(100vh - 130px);">
+        <!-- Centering the main content -->
+        <div class="d-flex flex-column align-items-center">
+            {% if user.is_authenticated %}
+            <div class="steps--background-white p-4 mt-5 mb-4 rounded shadow-sm w-100" style="max-width: 600px;">
+                <!-- <h1 class="text-center mb-4">Create Your Profile</h1> -->
 
-{% if user.is_authenticated %}
+                <!-- Form container -->
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Create Profile</button>
+                    </div>
+                </form>
 
-<!-- <h1 style="color: var(--main-text-color);">Create Profile Page</h1> -->
-<section>
-    <div class="form-group">
-        <div class="container-sub">
-            <div class="card steps--background-white">
-                <div class="container-banner">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="container-custom">
-                            <button type="submit" class="btn btn-primary w-25">Create Profile Page</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="container-custom mb-3">
-                    <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
+                <div class="text-center mt-3">
+                    <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
                 </div>
             </div>
-            
+            {% else %}
+            <!-- No access message -->
+            <div class="steps--background-white p-4 rounded shadow-sm text-center">
+                <h1 class="text-danger">No access to this page</h1>
+                <div class="text-center mt-3">
+                    <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
+                </div>
+            </div>
+            {% endif %}
         </div>
-</section>
-{% endif %}
+    </div>
 </div>
+
 {% endwith %}
 {% endblock %}

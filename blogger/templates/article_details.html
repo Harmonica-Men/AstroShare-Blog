@@ -12,6 +12,16 @@
             <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail" alt="no-image-available">
             {% endif %}
         </div>
+
+        {% if user.is_authenticated %}
+        {% if user == post.author %}
+        <div class="container-custom">
+            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
+        {% endif %}
+
         <div class="container mb-2">
             <div class="container-custom">
                 <small>Posted: <strong>{{ post.post_date }}</strong> By: </small>
@@ -74,15 +84,6 @@
                 {% endif %}
             </div>
         </div>
-
-        {% if user.is_authenticated %}
-        {% if user == post.author %}
-        <div class="container-custom">
-            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
-        </div>
-        {% endif %}
-        {% endif %}
 
         <div class="text-center ">
             <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2 mb-4" >Back To Blog</a>

@@ -1,31 +1,43 @@
 {% extends 'base.html' %}
-{% block title %} Edit & Update Post {% endblock %}
 {% load static %}
+{% block title %}Update Blog Post{% endblock %}
 {% block content %}
-
-{% with image_url='/images/background.webp' %}
+{% with image_url='images/background.webp' %}
 
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <!-- <h1 style="padding-left: 7rem; color:var(--main-text-color)">Update Posts</h1> -->
-    {% if user.is_authenticated and user == post.author %}
-    <div class="container-sub">
-        <div class="d-flex justify-content-center steps--background-white rounded">
-            <div class="container-sub">
-                <div class="from-group">
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="container-custom">
-                            <button class="btn btn-primary">Update</button>
-                        </div>
-                    </form>
+    <div class="container-custom" style="min-height: calc(100vh - 130px);">
+        <!-- Centering the main content -->
+        <div class="d-flex flex-column align-items-center">
+            <!-- Form container -->
+            <div class="steps--background-white p-4 mt-5 rounded shadow-sm w-100" style="max-width: 600px;">
+                <!-- <h1 class="text-center mb-3">Update Blog Post</h1> -->
+
+                {% if user.is_authenticated %}
+                <form method="POST" enctype="multipart/form-data" action="{% url 'update-post' post.pk %}">
+                    {% csrf_token %}
+                    <!-- Display form fields -->
+                    {{ form.as_p }}
+
+                    <!-- Submit button -->
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Update Post</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-5">
+                    <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
                 </div>
+                {% else %}
+                <!-- No access message -->
+                <h1 class="text-danger text-center">No access to this page</h1>
+                <div class="text-center mt-5">
+                    <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
-    {% else %}
-    {% include '403.html' %}
-    {% endif %}
 </div>
+
 {% endwith %}
 {% endblock %}
