@@ -3,52 +3,38 @@
 {% block title %} User Profiles {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <section class="container-banner" style="padding: 5rem;">
-        <div class="steps--background-white container-sub rounded">
-            <div class="container-sub d-md-flex">
-                <div class="align-items-center">
-                    <div class="container-sub">
-                        {% if user.profile.profile_pic.url %}
-                        <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle"
-                            alt="user-profile">
-                        <div class="container-custom">
-                            <small>Joined at {{ user.date_joined|date:"F j, Y" }}</small>
-                        </div>
-                        {% else %}
-                        test
-                        <img src="{% static '/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle"
-                            alt="anonymous-profile-pic">"
-                        <div class="container-custom">
-                            <small>no profile image</small>
-                        </div>
-                        {% endif %}
-                    </div>
+<div class="d-flex justify-content-center align-items-center"
+    style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
 
-                </div>
-
-
-                <div class="col-md-8">
-
-                    <h4 class="card-title">{{ user.first_name }} , {{ user.last_name }}</h4>
-                    <p class="container-lg" style="text-align: left;">
-                        {{ user.profile.bio }}
-                    </p>
-                </div>
+    <div class="steps--background-white rounded p-2 shadow-sm" style="width: 100%; max-width: 800px;">
+        <div class="text-center mb-2">
+            {% if user.profile.profile_pic %}
+            <img src="{{ user.profile.profile_pic.url }}" class="img-thumbnail rounded-circle mb-2"
+                style="width: 150px; height: 150px; object-fit: cover;" alt="{{ user.username }}'s profile picture">
+            {% else %}
+            <img src="{% static '/images/Anonymous-Profile-pic.jpg' %}" class="img-thumbnail rounded-circle mb-2"
+                style="width: 150px; height: 150px; object-fit: cover;" alt="Anonymous profile picture">
+            <div>
+                <small>No profile image</small>
             </div>
-
-            <div class="container-custom">
-                <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
-            </div>
-
+            {% endif %}
         </div>
 
+        <div class="text-center mb-2">
+            <h1 class="card-title">{{ user.first_name }} {{ user.last_name }}</h1>
+            <small>Joined on {{ user.date_joined|date:"F j, Y" }}</small>
+        </div>
 
-    </section>
+        <div class="container-list">
+            {{ user.profile.bio }}
+        </div>
 
-
+        <!-- Back to Blog Link -->
+        <div class="text-center mt-2 mb-2">
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
+        </div>
+    </div>
 
 </div>
 {% endwith %}
-
 {% endblock %}
