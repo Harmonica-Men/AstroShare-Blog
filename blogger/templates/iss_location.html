@@ -6,68 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/css/styles.css" rel="stylesheet">
     <title>ISS Location</title>
-    
     <!-- Bootstrap CSS CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Plotly JS CDN -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        
 </head>
 
-
-
-<body style="background-color: black;">
+<body>
     {% with image_url='/images/background.webp' %}
-    <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <div class="container mt-5">
-        <div class="text-center" style="color: white;">
-            <h1 class="display-4">Current Location of the ISS</h1>
-            <p class="lead">Tracking the real-time location of the International Space Station</p>
-        </div>
-
-        <div class="text-center mt-4" style="color: white;">
-            <strong>
-                <p>Timestamp: {{ timestamp }} UTC</p>
-            </strong>
-        </div>
-
-        <div class="card my-4 shadow-sm">
-            <div class="card-body">
-                <div id="iss-plot">
-                    {{ plot_html|safe }}
+    <div style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+        <div class="container mt-5">
+            <div class="text-center" style="color: white;">
+                <h1 class="display-4">Current Location of the ISS</h1>
+                <p class="lead">Tracking the real-time location of the International Space Station</p>
+            </div>
+            <div class="text-center mt-4" style="color: white;">
+                <strong>
+                    <p>Timestamp: {{ timestamp }} UTC</p>
+                </strong>
+            </div>
+            <div class="card my-4 shadow-sm">
+                <div class="card-body">
+                    <div id="iss-plot">
+                        {{ plot_html|safe }}
+                    </div>
+                </div>
+                <div class="text-center" style="padding-bottom: 1rem;">
+                    <strong><a href="{% url 'homepage' %}">Return to blogpost</a></strong>
+                </div>
+            </div>
+            <div class="row text-center container-custom">
+                <div class="col-md-4">
+                    <div class="alert alert-primary" role="alert">
+                        <strong>Latitude:</strong> {{ latitude }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-info" role="alert">
+                        <strong>Longitude:</strong> {{ longitude }}
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="row text-center">
-            <div class="col-md-6">
-                <div class="alert alert-primary" role="alert">
-                    <strong>Latitude:</strong> {{ latitude }}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="alert alert-info" role="alert">
-                    <strong>Longitude:</strong> {{ longitude }}
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4" style="padding: 1.5rem;">
-            <strong><a href="{% url 'homepage' %}">Return to blogpost</a></strong>
-        </div>
-
     </div>
-
-</div>
-{% endwith %}
-
+    {% endwith %}
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 </body>
-
 </html>
