@@ -208,14 +208,14 @@ ul {
 
 .container-sub {
     width: 100%;
-    padding: 1.25rem 1.25rem;
+    /* padding: 1.25rem 1.25rem; */
     margin: 0 auto;
 }
 
 .container-banner {
     text-align: left;
     width: 100%;
-    padding: 2rem;
+    /* padding: 2rem; */
     margin: 0 auto;
 }
 
@@ -223,7 +223,7 @@ ul {
     text-align: center;
     /* font-family: var(--container-font-family);  */
     width: 100%;
-    padding: 0 3.5rem;
+    /* padding: 0 3.5rem; */
     padding-bottom: 0.85rem;
     margin: 0 auto;
 }
@@ -603,6 +603,7 @@ a:hover {
     .note-editable {
         height: auto; /* Adjust the height for mobile screens */
     }
+    
 }
 
 @media (min-width: 544px) {
@@ -613,9 +614,23 @@ a:hover {
     .steps__section-thumbnail {
         height: auto;
     }
+   
 }
 
 @media (max-width: 380px) {
+    
+        .container-sub, 
+        .img, 
+        .any-other-class { /* Apply to multiple classes if needed */
+            padding: 0;
+            margin: 0;
+        }
+    
+        .img {
+            display: none; /* Hide images on smaller screens */
+        }
+    
+    
 
     span,
     h5 {

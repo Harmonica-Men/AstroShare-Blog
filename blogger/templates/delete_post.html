@@ -2,11 +2,10 @@
 {% load static%}
 {% block title %}Delete Blog Post{% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     {% if user.is_authenticated %}
     <section class="container">
-        <div class="container-sub steps--background-white rounded mb-4" >
+        <div class="container-sub steps--background-white mb-4" >
             <div class="container-custom">
                 <h1><strong>Delete post: </strong> <i> {{ post.title }} </i> </h1>
                 <div class="form-group">

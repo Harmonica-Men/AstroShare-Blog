@@ -3,24 +3,14 @@
 {% block title %}Server Error{% endblock %}
 {% block content %}
 
-
-{% with image_url='/images/background.webp' %}
-
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <!-- <h1 style="padding-left: 7rem; color:var(--main-text-color)">500 - Server Error</h1>  -->
-    <section class="container-banner"  style="padding: 10rem;">
-        <div class="container-custom steps--background-white rounded">
-            <div class="container-sub">
-                <div class="container-sub">
-                    <p><strong>Server error</strong></p>
-                    <img src="/static/images/pexels-photo-20209009.webp" class="img-thumbnail w-25" alt="404 - black hole">
-                </div>
-                <div class="container-custom">
-                    <strong><a href="/">Return to homepage</a></strong>
-                </div>
-            </div>
+<section class="d-flex justify-content-center align-items-center bg-white text-center" style="min-height: calc(100vh - 130px);">
+    <div>
+        <h1>Server error</h1>
+        <img src="{% static 'images/pexels-photo-20209009.webp' %}" class="img-thumbnail w-50" alt="404 - black hole">
+        <div class="mt-4">
+            <strong><a href="/">Return to homepage</a></strong>
         </div>
-    </section>
-</div>
-{% endwith %}
+    </div>
+</section>
+
 {% endblock %}

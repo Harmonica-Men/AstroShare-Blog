@@ -2,7 +2,6 @@
 {% load static%}
 {% block title %} Add Comment {% endblock %}
 {% block content %}
-{% with image_url='/images/background.webp' %}
 <div class="container-suv" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <section class="container-banner" style="padding: 7rem;">
         <div class="container-sub steps--background-white rounded">
@@ -18,5 +17,4 @@
         </div>
     </section>
 </div>
-{% endwith %}
 {% endblock %}
