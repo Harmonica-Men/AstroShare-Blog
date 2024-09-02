@@ -1,82 +1,78 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 {% block title %} Edit Profile Page {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <!-- <h1 style="color:var(--main-text-color)">Edit Settings</h1> -->
-    <div class="container-form-lg">
-        <div class="container-banner steps--background-white rounded">
-            <div class="form-group">
-                <form method="POST">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                    <div class="alert alert-danger">
-                        <ul>
-                            {% for field, errors in form.errors.items %}
-                            {% for error in errors %}
-                            <li>{{ field }}: {{ error }}</li>
-                            {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
+<div class="d-flex justify-content-center align-items-center" style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
 
-                    <div class="m-3">
-                        <label for="id_username" class="form-label">Username</label>
-                        {{ form.username }}
-                    </div>
+    <div class="steps--background-white rounded p-4 shadow-sm" style="width: 100%; max-width: 600px;">
+        <!-- Edit Profile Form -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
 
-                    <div class="m-3">
-                        <label for="id_first_name" class="form-label">First Name</label>
-                        {{ form.first_name }}
-                    </div>
-
-                    <div class="m-3">
-                        <label for="id_last_name" class="form-label">Last Name</label>
-                        {{ form.last_name }}
-                    </div>
-
-                    <div class="m-3">
-                        <label for="id_email" class="form-label">Email</label>
-                        {{ form.email }}
-                    </div>
-
-                    <div class="m-3">
-                        <label for="profile_pic" class="form-label">Profile Picture</label>
-                        <input type="file" class="form-control" id="profile_pic" name="profile_pic" required>
-                        {{ form.profile_pic }}
-                    </div>
-
-                    <div class="m-3">
-                        {{ form.last_login}}
-                    </div>
-
-                    <div class="m-3">
-                        <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-sm">Change
-                            Password</a>
-                        <div>
-                            <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
-                            <small>{{ user.last_login }}</small>
-                        </div>
-                    </div>
-
-                    <div class="container-custom mb-4">
-                        <button type="submit" class="btn btn-primary w-25">Update Profile</button>
-                        {% if user.profile.id %}
-                        <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25">
-                            Show Profile</a>
-                        {% else %}
-                        <a href="{% url 'create-profile-page' %}" class="btn btn-primary w-25">Create Profile</a>
-                        {% endif %}
-                    </div>
-                </form>
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                    <li>{{ field }}: {{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
             </div>
-            <div class="container-custom">
-                <a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page"><strong>Back To Blog</strong></a>
+            {% endif %}
+
+            <div class="mb-2">
+                <label for="id_username" class="form-label">Username</label>
+                {{ form.username }}
             </div>
-        </div>
+
+            <div class="mb-2">
+                <label for="id_first_name" class="form-label">First Name</label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="mb-2">
+                <label for="id_last_name" class="form-label">Last Name</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="mb-2">
+                <label for="id_email" class="form-label">Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="mb-2">
+                <label for="profile_pic" class="form-label">Profile Picture</label>
+                <input type="file" class="form-control" id="profile_pic" name="profile_pic" required>
+                {{ form.profile_pic }}
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
+                <small>{{ user.last_login }}</small>
+                <a href="{% url 'password-change' user.pk %}"><small><strong>Change Password</strong></small></a>
+            </div>
+
+            <div class="mb-2 d-flex justify-content-between">
+                <!-- <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-">Change Password</a> -->
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            <!-- </div>
+
+            <div class="mb-2 d-flex justify-content-between"> -->
+                {% if user.profile.id %}
+                <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25 text-center">Show Profile</a>
+                {% else %}
+                <a href="{% url 'create-profile-page' %}" class="btn btn-primary w-25 text-center">Create Profile</a>
+                {% endif %}
+            </div>
+        </form>
+
+        <!-- Back to Blog Link -->
+        <div class="text-center mt-2">
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>        </div>
     </div>
+
 </div>
 {% endwith %}
 {% endblock %}
