@@ -21,16 +21,7 @@
                 <small>Category: <strong>{{ post.category }}</strong> </small>
             </div>
             {{ post.body }}
-        </div>
-        {% if user.is_authenticated %}
-        {% if user == post.author %}
-        <div class="container-custom">
-            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
-            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
-        </div>
-        {% endif %}
-        {% endif %}
-        <div class="container-custom">
+
             <form action="{% url 'like-post' post.pk %}" method="POST">
                 {% csrf_token %}
                 {% if user.is_authenticated %}
@@ -63,9 +54,11 @@
                 <small class="italicize">&#40;must be logged in to comment&#41;</small>
                 {% endif %}
                 {% if not post.comments.exists %}
-                <div class="container-custom"><strong>
-                        <p>No Comments Yet</p>
-                    </strong></div>
+                <div class="container-sub mt-2">
+                <strong>                        
+                    <p>No Comments Yet</p>
+                </strong>
+                </div> 
                 {% else %}
                 {% for comment in post.comments.all %}
 
@@ -80,10 +73,21 @@
                 {% endfor %}
                 {% endif %}
             </div>
-            <div class="container mb-4">
-                <strong><a href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">Back To Blog</strong>
-            </div>
         </div>
+
+        {% if user.is_authenticated %}
+        {% if user == post.author %}
+        <div class="container-custom">
+            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
+        {% endif %}
+
+        <div class="text-center ">
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2 mb-4" >Back To Blog</a>
+        </div>
+    </div>
     </div>
 </section>
 {% endblock %}
