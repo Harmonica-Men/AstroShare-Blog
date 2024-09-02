@@ -613,6 +613,10 @@ a:hover {
     .steps__section-thumbnail {
         height: auto;
     }
+
+    .container-sub {
+        padding: 0;
+    }
 }
 
 @media (max-width: 380px) {

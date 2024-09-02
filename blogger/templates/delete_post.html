@@ -3,33 +3,30 @@
 {% block title %}Delete Blog Post{% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-
 <div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    
-        {% if user.is_authenticated %}
-        <!-- <h1 style="padding: 2rem; color:var(--main-text-color)">Delete Post</h1> -->
-        <section class="container-banner"  style="padding: 8rem;">
-            <div class="container-sub mb-4 steps--background-white rounded">
-                <div class="row container-sub">
-                    <h3><strong>Delete post: </strong> <i> {{ post.title }} </i> </h3>
-                    <div class="form-group">
-                        <form method="POST">
-                            {% csrf_token %}
-                            <div class="delete-post">
-                                <strong>Are you sure?</strong>
-                            </div>
+    {% if user.is_authenticated %}
+    <section class="container">
+        <div class="container-sub steps--background-white rounded mb-4" >
+            <div class="container-custom">
+                <h1><strong>Delete post: </strong> <i> {{ post.title }} </i> </h1>
+                <div class="form-group">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="delete-post">
+                            <strong>Are you sure?</strong>
                             <br>
-                            <br>
-                            <div class="container-custom">
-                                <button type="submit" class="btn btn-primary">Delete Post</button>
-                            </div>
-                        </form>
-                    </div>
+                            <div class="container mt-4">
+                        
+                            <button type="submit" class="btn btn-primary">Delete Post</button>
+                        </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </section>
-        {% endif %}
-    
+        </div>
+    </section>
+    {% endif %}
+
 </div>
 {% endwith %}
 {% endblock %}
