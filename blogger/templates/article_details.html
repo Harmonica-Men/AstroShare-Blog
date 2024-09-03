@@ -7,7 +7,7 @@
 <section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container" style="min-height: calc(100vh - 130px);">
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <div class="steps--background-white p-4 mt-4 mb-4 shadow-sm" style="max-width: 800px; width: 100%; text-align: center;">
+            <div class="steps--background-white p-4 mt-4 mb-4 shadow-sm rounded" style="max-width: 800px; width: 100%; text-align: center;">
                 <h3 class="mt-2">{{ post.title }}</h3>
                 {% if post.image.url %}
                 <img src="{{ post.image.url }}" class="img-thumbnail w-75 mb-4" alt="post-image">
