@@ -4,17 +4,16 @@
 {% block content %}
 
 {% with image_url='images/background.webp' %}
-<div class="container-sub"
-    style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: 100vh;">
-    <section class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh);">
+<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <section class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 130px);">
         <div class="steps--background-white p-4 rounded shadow-sm" style="max-width: 600px; width: 100%;">
-            <!-- <h1 class="text-center mb-4">Add Comment</h1> -->
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <input type="hidden" name="name" value="{{ user.username }}">  
+                    {{ form.body }}                     
                     <div class="container-custom">
-                        <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
+                        <button type="submit" class="btn btn-primary mt-4">Add Comment</button>
                     </div>
                 </form>
             </div>
