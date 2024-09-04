@@ -153,11 +153,11 @@ ul {
 }
 
 .color-hyperlink-invers {
-    color: var(--main-text-color-invers);
+    color: var(--primary-color);
 }
 
 .color-hyperlink-invers:hover {
-    color: rgba(0, 0, 0, 0.75);
+    color: var(--primary-color-highlight);
 }
 
 .d-md-flex {
