@@ -47,6 +47,13 @@ class Profile(models.Model):
 
 
 class Post(models.Model):
+    ACTIVE = 'active'
+    DRAFT = 'draft'
+    STATUS_CHOICES = [
+        (ACTIVE, 'Active'),
+        (DRAFT, 'Draft'),
+        ('archived', 'Archived'),
+    ]
     # Represents a blog post
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null=True, blank=True)
@@ -57,14 +64,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=254, default='UAP')
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
-
-    ACTIVE = 'active'
-    DRAFT = 'draft'
-
-    CHOICES_STATUS = (
-        (ACTIVE, 'Active'),
-        (DRAFT, 'Draft')
-        )
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=DRAFT)
 
     def total_likes(self):
         # Returns the total number of likes for this post
