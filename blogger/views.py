@@ -6,7 +6,9 @@ import requests
 
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpResponse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView, FormView
+from django.views.generic import (
+    CreateView, DeleteView, DetailView, FormView, ListView, TemplateView,
+    UpdateView)
 from django.views import View
 from .models import Comment, Profile, Post, Category, Subscriber
 from django.urls import reverse_lazy, reverse
@@ -17,6 +19,7 @@ from django.conf import settings
 from datetime import datetime
 
 logger = logging.getLogger(__name__)
+
 
 def apod_view(request):
     """Render a static page for APOD with predefined context."""
@@ -31,16 +34,24 @@ def apod_view(request):
     }
     return render(request, 'apod.html', context)
 
+
 class ApodView(View):
     """View for fetching and displaying NASA's Astronomy Picture of the Day."""
     def get(self, request, *args, **kwargs):
-        url = f"https://api.nasa.gov/planetary/apod?api_key={settings.NASA_API_KEY}"
+        # Construct the API URL with the API key
+        base_url = "https://api.nasa.gov/planetary/apod"
+        api_key = settings.NASA_API_KEY
+        url = f"{base_url}?api_key={api_key}"
+        # Fetch data from NASA API
         response = requests.get(url)
         if response.status_code != 200:
-            return HttpResponse('Error fetching data from NASA API', status=500)
-        
+            return HttpResponse(
+                'Error fetching data from NASA API',
+                status=500)
+        # Parse the JSON response
         data = response.json()
         bg_image_url = 'images/background.webp'
+        # Prepare context for the template
         context = {
             'title': data.get('title'),
             'image_url': data.get('url'),
@@ -51,15 +62,33 @@ class ApodView(View):
         }
         return render(request, 'nasa_picture.html', context)
 
+
 def CategoryView(request, cats):
     """Render posts filtered by category."""
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-    return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '), 'category_posts': category_posts})
+
+
+return render(
+    request,
+    'categories.html',
+    {
+        'cats': cats.title().replace('-', ' '),
+        'category_posts': category_posts
+    }
+)
+
 
 def CategoryListView(request):
     """Render a list of all categories."""
     cat_menu_list = Category.objects.all()
-    return render(request, 'category_list.html', {'cat_menu_list': cat_menu_list})
+
+
+return render(
+    request,
+    'category_list.html',
+    {'cat_menu_list': cat_menu_list}
+)
+
 
 def LikeView(request, pk):
     """Toggle like status for a post."""
@@ -71,6 +100,7 @@ def LikeView(request, pk):
         post.likes.add(request.user)
     return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
+
 class HomepageView(TemplateView):
     """Display the homepage with recent posts and user profiles."""
     model = Post
@@ -79,7 +109,11 @@ class HomepageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
-        profiles = Profile.objects.select_related('user').order_by('-user__date_joined')[:9]
+        profiles = (
+            Profile.objects
+            .select_related('user')
+            .order_by('-user__date_joined')[:9]
+        )
         context['profile_names'] = [
             {
                 'first_name': profile.user.first_name,
@@ -89,6 +123,7 @@ class HomepageView(TemplateView):
             for profile in profiles
         ]
         return context
+
 
 class FrontpageView(ListView):
     """Display a paginated list of posts on the front page."""
@@ -102,6 +137,7 @@ class FrontpageView(ListView):
         context = super().get_context_data(*args, **kwargs)
         context["cat_menu"] = Category.objects.all()
         return context
+
 
 class ArticleDetailView(DetailView):
     """Display details of a single post."""
@@ -118,6 +154,7 @@ class ArticleDetailView(DetailView):
         context["liked"] = liked
         return context
 
+
 class AddPostView(CreateView):
     """Form for adding a new post."""
     model = Post
@@ -128,6 +165,7 @@ class AddPostView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 class AddCommentView(CreateView):
     """Form for adding a new comment to a post."""
@@ -142,6 +180,7 @@ class AddCommentView(CreateView):
     def get_success_url(self):
         return reverse('article-detail', kwargs={'pk': self.kwargs['pk']})
 
+
 class UpdatePostView(UpdateView):
     """Form for updating an existing post."""
     model = Post
@@ -155,17 +194,20 @@ class UpdatePostView(UpdateView):
         else:
             return render(request, '403.html', status=403)
 
+
 class DeletePostView(DeleteView):
     """View for deleting a post."""
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('frontpage-blogpost')
 
+
 class AddCategoryView(CreateView):
     """Form for adding a new category."""
     model = Category
     form_class = CategoryForm
     template_name = 'add_category.html'
+
 
 def search_view(request):
     """Search for posts by title or body."""
@@ -179,12 +221,12 @@ def search_view(request):
     }
     return render(request, 'search.html', context)
 
+
 def iss_location(request):
     """Fetch and display the current location of the ISS."""
     response = requests.get('http://api.open-notify.org/iss-now.json')
     if response.status_code != 200:
         return HttpResponse('Error fetching ISS location data', status=500)
-    
     data = response.json()
     latitude = float(data['iss_position']['latitude'])
     longitude = float(data['iss_position']['longitude'])
@@ -212,6 +254,7 @@ def iss_location(request):
         'timestamp': timestamp
     })
 
+
 class SubscribeView(FormView):
     """Form for subscribing and sending confirmation email."""
     form_class = SubscriptionForm
@@ -220,18 +263,23 @@ class SubscribeView(FormView):
     def form_valid(self, form):
         login = form.cleaned_data['login']
         email = form.cleaned_data['email']
-        
         confirmation_code = str(uuid.uuid4())
         subscriber, created = Subscriber.objects.get_or_create(email=email)
         subscriber.confirmation_code = confirmation_code
         subscriber.is_confirmed = False
         subscriber.save()
-
-        confirmation_link = f"{self.request.scheme}://{self.request.get_host()}/blogger/confirm/?code={confirmation_code}"
+        confirmation_link = (
+            f"{self.request.scheme}://{self.request.get_host()}"
+            "/blogger/confirm/?code="
+            f"{confirmation_code}"
+            )
         subject = 'Confirm your subscription'
-        message = f'Hello {login},\n\nClick the link to confirm your subscription: {confirmation_link}'
+        message = (
+            f"Hello {login},\n\n"
+            f"Click the link to confirm your subscription: {confirmation_link}"
+            )
+
         from_email = settings.DEFAULT_FROM_EMAIL
-        
         try:
             send_mail(subject, message, from_email, [email])
         except BadHeaderError:
@@ -242,9 +290,11 @@ class SubscribeView(FormView):
 
         return HttpResponseRedirect(reverse_lazy('check_email'))
 
+
 class CheckEmailView(TemplateView):
     """Page for informing users to check their email."""
     template_name = 'registration/check_email.html'
+
 
 def ConfirmSubscription(request):
     """Confirm subscription based on the provided code."""
