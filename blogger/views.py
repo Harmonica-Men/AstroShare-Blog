@@ -19,8 +19,6 @@ from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from datetime import datetime
 from django.http import HttpResponseForbidden
-from django.utils.text import slugify
-
 from django.shortcuts import render
 
 def apod_view(request):
