@@ -6,11 +6,13 @@ import requests
 
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect, HttpResponse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView, FormView
+from django.views.generic import (
+    ListView, DetailView, CreateView, UpdateView, DeleteView,
+    TemplateView, FormView
+    )
 from django.views import View
 from .models import Comment, Profile
 from .models import Post, Category, Subscriber
-
 from django.urls import reverse_lazy, reverse
 from .forms import CommentForm, SubscriptionForm
 from .forms import PostForm
@@ -19,17 +21,26 @@ from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from datetime import datetime
 from django.http import HttpResponseForbidden
-from django.utils.text import slugify
+# from django.utils.text import slugify
 from django.shortcuts import render
 from django.conf import settings
 from django.shortcuts import render
 from django.views import View
 import requests
 
+
 class ApodView(View):
     def get(self, request, *args, **kwargs):
         # NASA API URL with your API key
-        url = f"https://api.nasa.gov/planetary/apod?api_key={settings.NASA_API_KEY}"
+        api_key = settings.NASA_API_KEY
+        url = (
+            f"https://api.nasa.gov/planetary/apod"
+            f"?api_key={api_key}"
+            )
+        url = (
+            f"https://api.nasa.gov/planetary/apod"
+            f"?api_key={settings.NASA_API_KEY}"
+            )
         response = requests.get(url)
         data = response.json()
 
@@ -42,8 +53,10 @@ class ApodView(View):
             'image_url': data.get('url'),
             'explanation': data.get('explanation'),
             'date': data.get('date'),
-            'media_type': data.get('media_type'),  # For checking if it's a video or image
-            'bg_image_url': bg_image_url,  # Add background image URL
+            'media_type': data.get('media_type'),
+            # For checking if it's a video or image
+            'bg_image_url': bg_image_url,
+            # Add background image URL
         }
 
         return render(request, 'nasa_picture.html', context)
@@ -51,12 +64,25 @@ class ApodView(View):
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-    return render(request, 'categories.html', {'cats':cats.title().replace('-',' '), 'category_posts': category_posts})
+    return render(
+        request,
+        'categories.html',
+        {
+            'cats': cats.title().replace('-', ' '),
+            'category_posts': category_posts
+        })
+
 
 def CategoryListView(request):
     cat_menu_list = Category.objects.all()
-    return render(request, 'category_list.html', {'cat_menu_list':cat_menu_list})
- 
+    return render(
+        request,
+        'category_list.html',
+        {
+            'cat_menu_list': cat_menu_list
+        })
+
+
 def LikeView(request, pk):
     # post = get_object_or_404(Post, id=request.POST.get('post_id'))
     post = get_object_or_404(Post, pk=pk)
@@ -70,6 +96,7 @@ def LikeView(request, pk):
 
     return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
+
 class HomepageView(TemplateView):
     model = Post
     template_name = 'homepage.html'
@@ -79,9 +106,12 @@ class HomepageView(TemplateView):
         context['posts'] = Post.objects.all()
 
         # Fetch the latest 9 profiles with user details
-        profiles = Profile.objects.select_related('user').order_by('-user__date_joined')[:9]
+        profiles = (
+            Profile.objects.select_related('user')
+            .order_by('-user__date_joined')[:9]
+            )
 
-        # Extracting first name, last name, and username into a list of dictionaries
+        # Extracting firstname, lastname, username into a list of dictionaries
         context['profile_names'] = [
             {
                 'first_name': profile.user.first_name,
@@ -96,7 +126,8 @@ class HomepageView(TemplateView):
 
 class FrontpageView(ListView):
     model = Post
-    template_name = 'frontpage.html'  # Ensure this is the correct template for the front page
+    template_name = 'frontpage.html'
+    # Ensure this is the correct template for the front page
     context_object_name = 'posts'
     ordering = ['-post_date']
     paginate_by = 5  # Display 5 posts per page
@@ -106,35 +137,37 @@ class FrontpageView(ListView):
         context["cat_menu"] = Category.objects.all()
         return context
 
+
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article_details.html'
 
     def get_context_data(self, *args, **kwargs):
-       cat_menu = Category.objects.all()
-       context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
+        cat_menu = Category.objects.all()
+        context = super(ArticleDetailView, self).get_context_data(
+            *args, **kwargs)
+        helper = get_object_or_404(Post, id=self.kwargs['pk'])
+        total_likes = helper.total_likes()
+        liked = False
+        if helper.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        context["cat_menu"] = cat_menu
+        context["total_likes"] = total_likes
+        context["liked"] = liked
+        return context
 
-       helper = get_object_or_404(Post, id=self.kwargs['pk']) 
-       total_likes = helper.total_likes()
-
-       liked = False
-       if helper.likes.filter(id=self.request.user.id).exists():
-          liked = True
-
-       context["cat_menu"] = cat_menu
-       context["total_likes"] = total_likes
-       context["liked"] = liked
-       return context
 
 class AddPostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'add_post.html'
-    success_url = reverse_lazy('frontpage-blogpost')  
+    success_url = reverse_lazy('frontpage-blogpost')
 
     def form_valid(self, form):
-        form.instance.author = self.request.user  # Set the author to the current user
+        form.instance.author = self.request.user
+        # Set the author to the current user
         return super().form_valid(form)
+
 
 class AddCommentView(CreateView):
     model = Comment
@@ -171,15 +204,17 @@ class UpdatePostView(UpdateView):
         return get_object_or_404(Post, pk=pk)
 
 class DeletePostView(DeleteView):
-    model = Post   
+    model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('frontpage-blogpost')
+
 
 class AddCategoryView(CreateView):
     model = Category
     form_class = PostForm
     template_name = 'add_category.html'
     fields = '__all__'
+
 
 def search_view(request):
     query = request.GET.get('query', '')
@@ -191,19 +226,19 @@ def search_view(request):
         'query': query,
     }
     return render(request, 'search.html', context)
-   
+
+
 def nasa_picture_of_the_day(request):
-    api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'  # Replace with your NASA API key
+    api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
+    # Replace with your NASA API key
     url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
     response = requests.get(url)
     data = response.json()
-    
     context = {
         'title': data.get('title'),
         'image_url': data.get('url'),
         'explanation': data.get('explanation'),
     }
-    
     return render(request, 'nasa_picture.html', context)
 
 
@@ -223,7 +258,8 @@ def iss_location(request):
         lat=[latitude],
         text="Current ISS Location",
         mode='markers',
-        marker=dict(size=12, color='red')  # Increased marker size for visibility
+        marker=dict(size=12, color='red')
+        # Increased marker size for visibility
     ))
 
     fig.update_layout(
@@ -245,27 +281,33 @@ def iss_location(request):
         'timestamp': timestamp
     })
 
+
 logger = logging.getLogger(__name__)
+
 
 class SubscribeView(FormView):
     form_class = SubscriptionForm
-    template_name = 'homepage.html'  # The form will be displayed on the homepage
+    template_name = 'homepage.html'
+    # The form will be displayed on the homepage
 
     def form_valid(self, form):
         login = form.cleaned_data['login']
         email = form.cleaned_data['email']
-        
         confirmation_code = str(uuid.uuid4())
         subscriber, created = Subscriber.objects.get_or_create(email=email)
         subscriber.confirmation_code = confirmation_code
         subscriber.is_confirmed = False
         subscriber.save()
-
-        confirmation_link = f"{self.request.scheme}://{self.request.get_host()}/blogger/confirm/?code={confirmation_code}"
+        confirmation_link = (
+            f"{self.request.scheme}://{self.request.get_host()}"
+            f"/blogger/confirm/?code={confirmation_code}"
+            )
         subject = 'Confirm your subscription'
-        message = f'Hello {login},\n\nClick the link to confirm your subscription: {confirmation_link}'
+        message = (
+            f"Hello {login},\n\n"
+            f"Click the link to confirm your subscription: {confirmation_link}"
+            )
         from_email = settings.DEFAULT_FROM_EMAIL
-        
         try:
             send_mail(subject, message, from_email, [email])
         except BadHeaderError:
