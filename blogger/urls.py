@@ -1,9 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from .views import (
     AddCategoryView, AddCommentView, AddPostView, ApodView, ArticleDetailView,
     CategoryListView, CategoryView, CheckEmailView, ConfirmSubscription,
     DeletePostView, FrontpageView, HomepageView, iss_location, LikeView,
-    SearchView, SubscribeView, UpdatePostView
+    search_view, SubscribeView, UpdatePostView
 )
 
 urlpatterns = [

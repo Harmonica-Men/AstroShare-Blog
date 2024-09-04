@@ -273,7 +273,7 @@
         <h2>Subscribe to our Newsletter</h2>
       </div>
       <div class="col-12">
-        <form method="POST" action="{% url 'Subscribe' %}" class="col-12 col-md-8 mx-auto">
+        <form method="POST" action="{% url 'subscribe' %}" class="col-12 col-md-8 mx-auto">
           {% csrf_token %}
           <div class="mb-3">
             <label for="id_login" class="form-label">Name:</label>
