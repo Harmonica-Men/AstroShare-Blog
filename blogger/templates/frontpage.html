@@ -46,8 +46,9 @@
         <div class="container col-sm-6 col-md-8 order-1 order-sm-2">
           <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3> <!-- Post title -->
           <div class="container-list">
-            <p>{{ post.body|slice:":350" }} ... </p> <!-- Post excerpt with a character limit -->
-            <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
+            {{ post.body|slice:":350" }} ... <!-- Post excerpt with a character limit -->
+            <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink-invers">
+              <br>
               <small><strong>[Read more]</strong></small></a> <!-- Link to the full post -->
             <p class="italicize">Posted: <strong>{{ post.post_date }}</strong> Category:
               <strong>{{ post.category }}</strong> By: <strong>{{ post.author.last_name }}</strong>,

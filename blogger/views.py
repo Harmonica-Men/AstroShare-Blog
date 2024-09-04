@@ -69,7 +69,7 @@ def CategoryView(request, cats):
         'categories.html',
         {
             'cats': cats.title().replace('-', ' '),
-            'category_posts': category_posts,            
+            'category_posts': category_posts,
         })
 
 
@@ -202,6 +202,7 @@ class UpdatePostView(UpdateView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         return get_object_or_404(Post, pk=pk)
+
 
 class DeletePostView(DeleteView):
     model = Post
