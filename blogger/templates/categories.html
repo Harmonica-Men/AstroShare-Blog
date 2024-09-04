@@ -13,7 +13,6 @@
         <div class="container mt-2">
             {% for post in category_posts %}
             <div class="container-custom steps--background-white p-4 mt-2 mb-5 shadow-sm rounded" style="max-width: 800px; width: 100%; text-align: center;">
-            <!-- <div class="container {% if forloop.counter0|divisibleby:2 %}bg-l-gray{% else %}bg-d-gray{% endif %} rounded"> -->
                 <h2 class="mb-2" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ post.title }}</h2>
                 <div class="container-list p-4">
                     {% if post.image %}
@@ -26,15 +25,13 @@
                     </div>
                     {% endif %}
                     <small class="d-block mb-2">Author: <strong>{{ post.author }}</strong> | Category: <strong>{{ post.category }}</strong></small>
-                    <small class="d-block mb-3">Posted: <strong>{{ post.post_date }}</strong></small>
-                    <p>
-                        {{ post.body|truncatewords:100 }} 
-                        <br>
-                        <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink-invers"><small><strong>[Read More]</strong></small></a>
+                    <small class="d-block mb-2">Posted: <strong>{{ post.post_date }}</strong></small>
+                    <p>{{ post.body|truncatewords:300 }} ... 
+                        <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink-invers">
+                            <br>
+                            <strong><small>[Read More]</small></strong>
+                        </a>
                     </p>
-                    
-
-                    
                     {% if user.is_authenticated and user.id == post.author.id %}
                     <p>
                         <a href="{% url 'update-post' post.pk %}" class="btn btn-warning btn-sm">Edit</a>
@@ -63,7 +60,7 @@
             <div class="container-custom"> 
                 <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
             </div>
-            
+           
         </div>
        
     </div>

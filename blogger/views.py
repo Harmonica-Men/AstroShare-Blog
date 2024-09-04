@@ -69,7 +69,7 @@ def CategoryView(request, cats):
         'categories.html',
         {
             'cats': cats.title().replace('-', ' '),
-            'category_posts': category_posts
+            'category_posts': category_posts,            
         })
 
 
