@@ -1,11 +1,12 @@
 from django import forms
 from .models import Post, Category, Comment
 
-
+# Form for creating or editing blog posts
 class PostForm(forms.ModelForm):
     category = forms.ModelChoiceField(
-        queryset=Category.objects.all(),
-        empty_label="Select Category")
+        queryset=Category.objects.all(),  # All categories
+        empty_label="Select Category"  # Placeholder text
+    )
 
     class Meta:
         model = Post
@@ -20,15 +21,14 @@ class PostForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
-
+# Choices for categories
 choices = Category.objects.all().values_list('name', 'name')
 
-
+# Form for submitting comments
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name', 'body')
-
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -40,7 +40,7 @@ class CommentForm(forms.ModelForm):
             }),
         }
 
-
+# Form for user subscriptions
 class SubscriptionForm(forms.Form):
     login = forms.CharField(
         max_length=100,
