@@ -1,72 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Astro Share Blog{% endblock %} <!-- Page title block -->
+{% block title %}Astro Share Blog{% endblock %}
+<!-- Page title block -->
 {% block meta %}
 <meta name="description" content="Frontpage blogpost"> <!-- Meta description for SEO -->
 {% endblock %}
 
 {% block content %}
-{% with image_url='images/background.webp' %} <!-- Background image URL for the page -->
-<div class="container-sub wrapper"
-  style="background: url('{% static image_url %}') no-repeat fixed top right / cover;"> <!-- Background image style -->
-  
-  <div class="container">
+{% with image_url='images/background.webp' %}
+<!-- Background image URL for the page -->
+<div class="container-sub wrapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+  <!-- Background image style -->
+
+  <div class="container-custom">
     <h1 style="color: var(--main-text-color);">Latest Posts</h1> <!-- Main heading with dynamic text color -->
   </div>
+  <p>{% for post in posts %}</p>
+
   
-  {% for post in posts %} <!-- Loop through each post -->
-  <section class="row post {% if forloop.counter0|divisibleby:2 %} bg-l-gray {% else %} bg-d-gray {% endif %}">
-    <!-- Alternating background colors for posts -->
+  <!-- Loop through each post -->
+  <section>
 
-    <div class="col-12 d-flex flex-wrap align-items-start container-banner {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
-      <!-- Flex row reverse on every second post -->
+    <div class="container-custom steps--background-white p-4 mt-2 mb-5 shadow-sm rounded"
+      style="max-width: 1200px; width: 100%; text-align: center;">
 
-      <!-- Image Column -->
-      <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1">
-        {% if post.image.url %}
-        <img src="{{ post.image.url }}" class="img-thumbnail w-100" alt="Image for {{ post.title }}" loading="lazy">
-        <!-- Post image or a fallback image if not available -->
-        {% else %}
-        <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail w-100" alt="No image available" loading="lazy">
-        {% endif %}
-      </div>
+      <!-- Alternating background colors for posts -->
 
-      <!-- Content Column -->
-      <div class="col-sm-6 col-md-8 order-1 order-sm-2">
-        <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3> <!-- Post title -->
-        <div class="container">
-          <p>{{ post.body|slice:":700" }} ... </p> <!-- Post excerpt with a character limit -->
-          <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
-            <small><strong>[Read more]</strong></small></a> <!-- Link to the full post -->
+      <div
+        class="col-12 d-flex flex-wrap align-items-start container-banner {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
+        <!-- Flex row reverse on every second post -->
 
+        <!-- Image Column -->
+        <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1">
+          {% if post.image.url %}
+          <img src="{{ post.image.url }}" class="img-thumbnail w-100" alt="Image for {{ post.title }}" loading="lazy">
+          <!-- Post image or a fallback image if not available -->
+          {% else %}
+          <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail w-100" alt="No image available"
+            loading="lazy">
+          {% endif %}
+        </div>
+
+        <!-- Content Column -->
+        <div class="container col-sm-6 col-md-8 order-1 order-sm-2">
+          <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3> <!-- Post title -->
+          <div class="container-list">
+            <p>{{ post.body|slice:":350" }} ... </p> <!-- Post excerpt with a character limit -->
+            <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink">
+              <small><strong>[Read more]</strong></small></a> <!-- Link to the full post -->
             <p class="italicize">Posted: <strong>{{ post.post_date }}</strong> Category:
-              <strong>{{ post.category }}</strong> By: <strong>{{ post.author.last_name }}</strong>, <strong>{{ post.author.first_name }}</strong>
+              <strong>{{ post.category }}</strong> By: <strong>{{ post.author.last_name }}</strong>,
+              <strong>{{ post.author.first_name }}</strong>
             </p> <!-- Post metadata: date, category, author -->
-        </div>
+          </div>
 
-        {% if user.is_authenticated and user == post.author %}
-        <div class="container">
-          <a href="{% url 'update-post' post.pk %}" class="btn btn-warning" >Edit</a> <!-- Edit button for post author -->
-          <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a> <!-- Delete button for post author -->
+          {% if user.is_authenticated and user == post.author %}
+          <div class="container">
+            <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
+            <!-- Edit button for post author -->
+            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+            <!-- Delete button for post author -->
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
-    </div>
   </section>
 
   <hr> <!-- Horizontal line between posts -->
   {% endfor %}
 
-  {% include 'pagination.html' %} <!-- Pagination template inclusion -->
+  {% include 'pagination.html' %}
+  <!-- Pagination template inclusion -->
 
   <div class="container-custom">
     <div class="back-to-top-button" style="padding-top: 1rem;">
       <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a> <!-- Back to Top button -->
     </div>
   </div>
-
+</div>
 </div>
 {% endwith %}
-
 {% endblock %}
