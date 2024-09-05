@@ -446,7 +446,7 @@ a:hover {
 }
 
 .hero__text-bg {
-    background-color: var(--main-text-color-invers);
+    background-color: rgba(95, 95, 95, 0.459);
     padding: 20px;
     border-radius: 5px;
 }

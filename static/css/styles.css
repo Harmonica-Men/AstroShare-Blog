@@ -127,11 +127,11 @@ ul {
 }
 
 .color-hyperlink {
-    color: var(--main-text-color);
+    color: var(--bs-body-bg);
 }
 
 .color-hyperlink:hover {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--primary-color-highlight)
 }
 
 .color-hyperlink-invers {
@@ -446,7 +446,7 @@ a:hover {
 }
 
 .hero__text-bg {
-    background-color: var(--main-text-color-invers);
+    background-color: rgba(95, 95, 95, 0.459);
     padding: 20px;
     border-radius: 5px;
 }
