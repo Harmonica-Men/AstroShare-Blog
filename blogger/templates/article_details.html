@@ -58,7 +58,7 @@
                 
 
                 <!-- Section Comments -->
-                <section style="text-align: left; max-width: 800px; width: 100%; margin: auto;">
+                <section style="text-align: center; max-width: 800px; width: 100%; margin: auto;">
                     <h3>Comments here ...</h3>
                     
                     {% if user.is_authenticated %}
@@ -84,9 +84,10 @@
                     </div>
                     <div class="mb-2">
                         <small>By: <strong>{{ comment.name }}</strong></small>
-                        <small>Date Added:</small>
+                        <small>Date Added:</small>                       
                         <small><strong>{{ comment.date_added }}</strong></small>
-                    </div>
+                    </div> 
+                    <!-- <strong>{{ post.post_date }}</strong> -->
                     {% endfor %}
                     {% endif %}
                 </section>

@@ -84,16 +84,14 @@ class Post(models.Model):
         return reverse('frontpage-blogpost')
 
 
+# models.py
 class Comment(models.Model):
-    # Represents a comment on a blog post
-    post = models.ForeignKey(
-        Post, related_name='comments', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    body = models.TextField()
-    date_added = models.TimeField(auto_now_add=True)
+    body = models.TextField()    
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        # Returns the name and the first 20 characters of the comment body
         return f'{self.name} - {self.body[:20]}'
 
 
