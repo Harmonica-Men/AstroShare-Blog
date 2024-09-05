@@ -1,7 +1,6 @@
 {% load static %}
 <!-- Header -->
 <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
@@ -31,21 +30,17 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories List
                         </a>
-
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             {% for item in cat_menu %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'category' item %}">
+                                <a class="dropdown-item" href="{% url 'category' item.slug %}">
                                     {{ item }}
                                 </a>
                             </li>
-
                             {% endfor %}
-                            <li><hr></li>
+                            <li><div class="dropdown-divider"></div></li>
                             <li><a class="dropdown-item" href="{% url 'category-list' %}">Blog Post Categories</a></li>
-                            
                         </ul>
-                                                
                     </li>
                     {% endif %}
                 </ul>
@@ -69,7 +64,6 @@
                             Logged in as:<strong style="color: white;"> {{ user.username }}</strong></a>
                     </li>
                     {% endif %}
-
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
@@ -85,5 +79,4 @@
             </div>
         </div>
     </nav>
-
 </header>
