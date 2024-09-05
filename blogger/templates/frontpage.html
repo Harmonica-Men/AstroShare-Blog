@@ -18,7 +18,7 @@
   </div>
   {% for post in posts %}
 
-  
+
   <!-- Loop through each post -->
   <section>
 
@@ -46,7 +46,8 @@
         <div class="container col-sm-6 col-md-8 order-1 order-sm-2">
           <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3> <!-- Post title -->
           <div class="container-list">
-            {{ post.body|slice:":350" }} ... <!-- Post excerpt with a character limit -->
+            {{ post.body|slice:":350" }} ...
+            <!-- Post excerpt with a character limit -->
             <a href="{% url 'article-detail' post.pk %}" class="color-hyperlink-invers">
               <br>
               <small><strong>[Read more]</strong></small></a> <!-- Link to the full post -->
@@ -65,7 +66,7 @@
           </div>
           {% endif %}
         </div>
-      </div>  
+      </div>
     </div>
   </section>
 
@@ -80,7 +81,6 @@
       <a href="#" class="btn btn-primary color-hyperlink-footer">Back to Top</a> <!-- Back to Top button -->
     </div>
   </div>
-</div>
 </div>
 {% endwith %}
 {% endblock %}
