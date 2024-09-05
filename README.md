@@ -707,8 +707,12 @@ After experimenting whit different container layout and fixing all the issues va
 
 The detail of these test can evaluate on this link.
 <details>
-  <summary>Click to view HTML Validation Result</summary>
-  <img src="xemijobs/static/imgs/readme-pics/markup-val.png" style="display: block; margin: auto;" alt="HTML Validation Result showing zero errors">
+  <summary>Click to view HTML Validation Homepage Result</summary>
+  <img src="static/images/readme-images/Html-Check-AstroBlog-homepage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Homepage showing zero errors">
+  <br>
+  <br>
+  <img src="static/images/readme-images/Html-Check-AstroBlog-frontpage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Frontpage-Blogpost showing zero errors">
+
 </details>
 
 ---
