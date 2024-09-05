@@ -1,16 +1,6 @@
 <div class="d-flex justify-content-evenly">
-
     <span class="step-links m-1">
-        <!-- {% if page_obj.has_previous %}
-              
-              <a href="?page={{ page_obj.previous_page_number }}"><strong>&lt; Prev.</strong></a>
-          {% else %}
-              
-              <span><strong>&lt; Prev.</strong></span>
-          {% endif %} -->
-
-        <!-- Page numbers -->
-        <nav aria-label="Page navigation">
+        <nav>
             <ul class="pagination justify-content-center">
                 {% for page_num in page_obj.paginator.page_range %}
                 {% if page_num == page_obj.number %}
@@ -25,13 +15,5 @@
                 {% endfor %}
             </ul>
         </nav>
-
-        <!-- {% if page_obj.has_next %}
-              
-              <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
-          {% else %}
-              <span><strong>Next &gt;</strong></span>
-              <a href="?page={{ page_obj.paginator.num_pages }}"><strong>Last &raquo;</strong></a>
-          {% endif %} -->
     </span>
 </div>
