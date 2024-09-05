@@ -22,9 +22,7 @@
     rel="stylesheet">
 
   <!-- Bootstrap Icons -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
 
   <title>Astro Blog</title>
 </head>
@@ -32,15 +30,11 @@
 <body>
   <!-- Category Hero -->
   <section class="hero" id="top-page">
-
     <div class="hero__overlay">
       <video autoplay muted loop class="hero__video">
         <source src="{% static 'images/857136-hd_1280_720_24fps.mp4' %}" type="video/mp4">
       </video>
     </div>
-
-
-
     <div class="hero__content m-2 container-banner position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="container-banner text-white hero__text-bg">
@@ -235,8 +229,6 @@
   <section class="container-sub steps--background-white">
     <div class="row container-custom">
       <div class="col-12 col-sm-6 d-md-flex col">
-
-
         <div class="container-custom">
           <h3 class="text-center" style="padding-bottom: 1.25rem;">Our Latest Contributors on the Blog</h3>
           {% if profile_names %}
@@ -267,6 +259,7 @@
     </div>
   </section>
   <!-- End section Contributors & ISS -->
+
   <!-- Newsletter Subscription -->
   <section class="steps steps--background-black" id="newsletter-subscription">
     <div class="row container-custom margin-sub mt-4">
