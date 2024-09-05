@@ -26,10 +26,7 @@ html {
     margin: 0;
 }
 
-
-h1 {
-    /* color: var(--main-text-color); */
-    /* text-align: left; */
+h1 {  
     font-weight: bolder;
     padding-left: 1rem;
     padding-top: 1rem;
@@ -50,33 +47,18 @@ ul {
     border: 5px solid var(--border-color);
 }
 
-.bg-l-gray {
+/* .bg-l-gray {
     background-color: rgba(240, 240, 240, 0.67);
 }
 
 .bg-d-gray {
     background-color: rgba(210, 210, 210, 0.67);
-}
+} */
 
 .margin-top-bottom-iss {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
-/* Ensure Summernote editor is responsive */
-.note-editor {
-    width: 100% !important; /* Full width of the parent container */
-    box-sizing: border-box; /* Prevent overflow issues */
-}
-
-.note-toolbar {
-    flex-wrap: wrap; /* Allow toolbar items to wrap on smaller screens */
-}
-
-.note-editable {
-    min-height: 200px; /* Set a minimum height for the editor area */
-}
-
 
 /* Styles for back-to-top-button */
 .button-custom {
@@ -380,10 +362,10 @@ a:hover {
 
 /* Hero Section */
 .hero {
-    --primary-color: #ffffff00;
+    /* --primary-color: var(--primary-color); */
     position: relative;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(95, 95, 95, 0.5);
     overflow: hidden;
 }
 
@@ -399,12 +381,12 @@ a:hover {
 }
 
 .hero__head {
-    color: white;
+    color: var(--main-text-color)
 }
 
 
 .hero__text {
-    color: white;
+    color: var(--accent-color);
 }
 
 .hero__overlay {
@@ -413,7 +395,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(95, 95, 95, 0.459);
     z-index: 1;
 }
 

@@ -16,6 +16,8 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   - [Testing](#testing)
   1. [HTML Validation](#html-validation)
   2. [CSS Validation](#css-validation)
+  3. [Accessibility](#accessibility)
+  4. [Wave Validation](#wave-validation) 
 
     
   ## The UX Table Of Contents
@@ -703,6 +705,13 @@ update readme
 
 ### HTML Validation
 
+All pages have been passed through the [W3C HTML Validator](https://validator.w3.org/) successfully save for a few minor issues which have been left 'as is' as attempts to correct them proved unsuccessful and lead to results which devalued the user experience. Specifically, these were:
+
+- The use of a 'background' attribute in the body tag of base.html. The validator suggested to replace this with CSS but attempts to do so meant the background image failed to load
+- The use of iframe styling attributes on the location.html page. Again, the validator suggested CSS replacements but these caused the map to display incorrectly and almost be unreadable
+
+
+
 We ensured that the HTML structure of AstroBlog adheres strictly to web standards. We utilized the W3C Validator to validate our HTML code, striving to minimize and eliminate all possible errors. There are many templates to consider but the main pages where is the focus of stite are the Homepage and the Frontpaga-Blogpost.
 After experimenting whit different container layout and fixing all the issues validation results showed **zero errors**.
 
@@ -717,7 +726,6 @@ The detail of these test can evaluate on this link.
 </details>
 
 ---
-
 
 ### CSS Validation
 
@@ -742,11 +750,54 @@ Here’s the validation result:
 
 ---
 
-### W3C
-All pages have been passed through the [W3C HTML Validator](https://validator.w3.org/) successfully save for a few minor issues which have been left 'as is' as attempts to correct them proved unsuccessful and lead to results which devalued the user experience. Specifically, these were:
+### Accessibility
 
-- The use of a 'background' attribute in the body tag of base.html. The validator suggested to replace this with CSS but attempts to do so meant the background image failed to load
-- The use of iframe styling attributes on the location.html page. Again, the validator suggested CSS replacements but these caused the map to display incorrectly and almost be unreadable
+Ensuring accessibility is a key priority for XemiJobs. We've taken great care to make sure our platform is inclusive and usable by as many people as possible, regardless of their abilities or the devices they are using.
+
+Throughout the development process, we adhered to the Web Content Accessibility Guidelines (WCAG) to guarantee that our site meets accessibility standards. This includes:
+
+- **Proper use of ARIA attributes:** We have utilized ARIA attributes effectively to enhance the accessibility of dynamic content and interactive elements, ensuring screen readers can accurately convey the information to users.
+- **Keyboard Navigation:** All interactive elements, including forms, buttons, and navigation links, are fully accessible via keyboard navigation, making the site usable without a mouse.
+- **Contrast Ratios:** We carefully selected our color scheme to ensure sufficient contrast between text and background colors, making the content readable for users with visual impairments.
+- **Alt Text for Images:** All images include descriptive `alt` attributes, providing context to users who rely on screen readers.
+
+These efforts help ensure that our site is not only compliant with accessibility standards but also provides an inclusive user experience. We continue to monitor and improve the accessibility of XemiJobs as we develop new features and enhancements.
+
+---
+
+### Wave Validation
+
+We conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). The results were highly satisfactory, especially for the main page, where we encountered zero errors. However, we did find a few contrast issues, primarily related to the navigation elements within the carousel.
+
+To address these contrast issues, we added a transparent background to the carousel buttons. Despite this adjustment, the contrast warnings persist. We believe that these contrast issues do not significantly impact usability, as the primary goal for the carousel is to showcase images clearly. The transparency ensures that the images are visible while still allowing users to intuitively locate the buttons.
+
+<img src="xemijobs/static/imgs/readme-pics/wave-carousel.png" style="display: block; margin: auto;" alt="Carousel showing controller buttons">
+<br>
+
+Additionally, contrast warnings were noted in the Flash messages—interestingly, all colors except yellow were flagged. While we understand that white text on a yellow background might pose a readability challenge, WAVE does not flag it as an issue. Conversely, other colors, which do not seem problematic to us, were marked for contrast errors.
+
+<img src="xemijobs/static/imgs/readme-pics/wave-flash.png" style="display: block; margin: auto;" alt="Wave flash contrast errors">
+<br>
+
+We also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. We believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
+
+<img src="xemijobs/static/imgs/readme-pics/wave-button-alert.png" style="display: block; margin: auto;" alt="Wave button contrast error">
+<br>
+
+Overall, the WAVE validation confirms that our website adheres to accessibility standards, with only a few minor contrast issues that have been carefully considered in the design process. While we will continue exploring potential solutions to these issues, we have prioritized maintaining a visually cohesive and intuitive theme for the site.
+
+We identified some contrast issues specifically related to the numbers displayed on our error pages (e.g., 404, 403, 401). On the 404 page, no changes were made, as we believe the background image sufficiently offsets any potential visibility issues with the numbers. However, on the 403 and 401 pages, we made deliberate changes to the color of certain numbers to enhance contrast and ensure readability. 
+
+<img src="xemijobs/static/imgs/readme-pics/wave-403.png" style="display: block; margin: auto;" alt="Wave button contrast error 1">
+<hr>
+<img src="xemijobs/static/imgs/readme-pics/wave-404.png" style="display: block; margin: auto;" alt="Wave button contrast error 2">
+<br>
+
+Specifically, we altered the colors of the "4" and "3" on the 403 page and the "4" and "1" on the 401 page to address the contrast errors flagged by WAVE. We retained the original color of the "0" to maintain visual consistency and a playful design element, although it technically does not meet the strict contrast criteria set by WAVE. We do not consider this to be a significant issue, as the overall visual experience is still clear and user-friendly.
+
+**Note:** We are fully aware of the contrast issues highlighted by the WAVE Validation Tool. Our team is committed to addressing these in future updates to ensure an even higher level of accessibility across the entire platform. We appreciate the insights provided by the tool and will use this feedback to guide our ongoing improvements.
+
+---
 
 ### PEP8
 All Python files in the booking_sys and eaststreet apps, as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
