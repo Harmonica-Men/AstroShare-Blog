@@ -87,7 +87,7 @@ ul {
     border-radius: 7px;
     border: solid var(--border-color);
     border-style: solid;
-    font-family: --bs-body-font-family;
+    /* font-family: --bs-body-font-family; */
     font-size: small;
     font-weight: bolder;
     padding: 10px 20px;
@@ -345,10 +345,10 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
+/* 
 .max-height {
     height: vh100;
-}
+} */
 
 .margin-sub {
     margin-top: 20px;
