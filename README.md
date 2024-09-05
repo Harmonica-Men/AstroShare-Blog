@@ -13,6 +13,8 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   - [User Demographic Table of Contents](#user-demographic-table-of-contents)
   - [User Stories and Epics](#user-stories-and-epics)
   - [The Structure Plane](#the-structure-plane)
+  - [Testing](#testing)
+  1. [HTML Validation](#html-validation)
 
     
   ## The UX Table Of Contents
@@ -618,7 +620,98 @@ update readme
 
 
 
-## Validator Testing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Testing
+
+### HTML Validation
+
+We ensured that the HTML structure of AstroBlog adheres strictly to web standards. We utilized the W3C Validator to validate our HTML code, striving to minimize and eliminate all possible errors. There are many templates to consider but the main pages where is the focus of stite are the Homepage and the Frontpaga-Blogpost.
+After experimenting whit different container layout and fixing all the issues validation results showed **zero errors**.
+
+The detail of these test can evaluate on this link.
+<details>
+  <summary>Click to view HTML Validation Result</summary>
+  <img src="xemijobs/static/imgs/readme-pics/markup-val.png" style="display: block; margin: auto;" alt="HTML Validation Result showing zero errors">
+</details>
+
+---
 
 ### W3C
 All pages have been passed through the [W3C HTML Validator](https://validator.w3.org/) successfully save for a few minor issues which have been left 'as is' as attempts to correct them proved unsuccessful and lead to results which devalued the user experience. Specifically, these were:
