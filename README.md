@@ -15,6 +15,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   - [The Structure Plane](#the-structure-plane)
   - [Testing](#testing)
   1. [HTML Validation](#html-validation)
+  2. [CSS Validation](#css-validation)
 
     
   ## The UX Table Of Contents
@@ -713,6 +714,30 @@ The detail of these test can evaluate on this link.
   <br>
   <img src="static/images/readme-images/Html-Check-AstroBlog-frontpage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Frontpage-Blogpost showing zero errors">
 
+</details>
+
+---
+
+
+### CSS Validation
+
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+            alt="Valid CSS!" />
+    </a>
+</p>
+
+The CSS of AstroBlog has been carefully crafted and validated to ensure it adheres to the highest standards. I utilized the W3C CSS Validator to check for any errors, and I'm pleased to report that our stylesheets passed with **zero errors**.
+
+This thorough validation process ensures that the user interface is both visually appealing and fully compliant with modern web standards. We took particular care to validate our responsive design elements to ensure consistency across all devices.
+
+Here’s the validation result:
+
+<details>
+  <summary>Click to view CSS Validation Result</summary>
+  <img src="static/images/readme-images/CSS-validation-check-AstroBlog.webp" style="display: block; margin: auto;" alt="CSS Validation Result showing zero errors">
 </details>
 
 ---
