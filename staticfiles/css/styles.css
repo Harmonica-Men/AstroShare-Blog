@@ -226,6 +226,12 @@ ul {
     margin: 0 auto;
 }
 
+.container-hero {
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .container-profile {
     background: rgba(13, 110, 253, 0.25);
     padding: 80px;
