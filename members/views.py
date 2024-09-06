@@ -21,15 +21,20 @@ class CreateProfilePageView(generic.UpdateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+from django.urls import reverse
+
 class EditProfilePageView(generic.UpdateView):
     model = Profile
     form_class = ProfilePageForm
     template_name = 'registration/edit_profile_page.html'
-    success_url = reverse_lazy('frontpage-blogpost')
 
     def get_object(self, queryset=None):
         return self.request.user.profile
-    
+
+    def get_success_url(self):
+        # Use the user's profile ID to dynamically build the URL
+        return reverse('show-profile-page', kwargs={'pk': self.request.user.profile.id})
+
 
 class ShowProfilePageView(DetailView):
     model = Profile

@@ -39,11 +39,10 @@ class EditProfileForm(UserChangeForm):
     last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_login = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    profile_pic = forms.ImageField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'form-control'})) 
         
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'last_login', 'profile_pic') 
+        fields = ('username', 'first_name', 'last_name', 'email', 'last_login') 
 
 class PasswordChangingForm(PasswordChangeForm):
     old_password = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))

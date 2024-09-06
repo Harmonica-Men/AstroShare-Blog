@@ -776,7 +776,7 @@ I have also identified contrast issues with the modal buttons, which follow a si
 ![Contrast Errors homepage footer](staticfiles/images/readme-images/wave-errors-homepage-footer.webp)
 <br>
 
-Additionally, contrast warnings were noted in the Flash messages—interestingly, all colors except yellow were flagged. While we understand that white text on a yellow background might pose a readability challenge, WAVE does not flag it as an issue. Conversely, other colors, which do not seem problematic to us, were marked for contrast errors.
+Additionally, contrast warnings were noted in the Flash messages—interestingly, all colors except yellow were flagged. While we understand that white text on a transparent background might pose a readability challenge, WAVE does flaged it as an issue. Conversely, other colors, which do not seem problematic to us, were marked for contrast errors.
 
 ![Contrast Errors front-page pagination](staticfiles/images/readme-images/wave-errors-frontpage-pagination.webp)
 <br>
@@ -789,16 +789,24 @@ Note: I'm fully aware of the contrast issues highlighted by the WAVE Validation 
 
 ### Lighthouse Validation
 
-Our Lighthouse validation results have been very promising, with high scores across most categories. One area where we observed a slightly lower score is in SEO, and we are actively working on improvements in this area to achieve even better results. Lighthouse has been instrumental in guiding the organization of our files and optimizations for performance.
+My Lighthouse validation results have been very promising, with high scores across most categories. One area where I noticed a slightly lower score is in SEO, and I’m actively working on improvements to achieve even better results. Lighthouse has been instrumental in helping me organize my files and optimize for performance.
 
 <details>
-  <summary>Click to view Lighthouse Result</summary>
+  <br>
+  <summary>Click to view Lighthouse Homepage Result</summary>
   <img src="static/images/readme-images/lighthouse-astroblog-homepage.webp" style="display: block; margin: auto;" alt="lighthouse test">
   <br>
 </details>
 
-<img src="static/images/readme-images/lighthouse-astroblog-homepage.webp" style="display: block; margin: auto;" alt="lighthouse test">
-<br>
+Test for Frontpage Blogpost
+
+<details>
+  <br>
+  <summary>Click to view Lighthouse Frontpage Result</summary>
+  <img src="static/images/readme-images/lighthouse-astroblog-frontpage.webp" style="display: block; margin: auto;" alt="lighthouse test">
+  <br>
+</details>
+
 A specific recommendation from Lighthouse was to use the WebP format for images to improve load times. In response, I made sure that all images served through the browser are now in WebP format. However, I also understand that too much compression could negatively impact the user experience, especially on larger screens. So, I made a conscious decision to balance performance with visual quality. After gathering feedback from a diverse group of users, I confirmed that the image quality is well-received across various devices. As a result, I decided to maintain slightly larger image sizes to prioritize a smooth and visually appealing experience, even if it means sacrificing a little bit of performance.
 
 Additionally, Lighthouse suggested reducing the CSS payload, which I’m currently considering. One option I’m exploring is breaking the main styles.css file into smaller files tied to specific widgets. This would allow me to send only the necessary CSS for each page, potentially cutting down the overall size of the CSS file and improving load times.

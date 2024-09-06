@@ -9,7 +9,7 @@
     {% if user.is_authenticated %}
     {% if user.id == profile.user.id %}
 
-    <div class="steps--background-white rounded p-4 shadow-sm" style="width: 100%; max-width: 600px;">
+    <div class="steps--background-white mt-4 mb-4 p-4 rounded shadow-sm" style="width: 100%; max-width: 600px;">
         <!-- Form Section -->
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -44,8 +44,14 @@
                     value="{{ profile.facebook_url }}" required>
             </div>
 
+            <div class="mb-3">
+                <label for="profile" class="form-label">Profile Picture</label>
+                <input type="file" class="form-control" id="profile_pic" name="profile_pic" placeholder="profile_pic"
+                    value="{{ profile.profile_pic }}" required>
+            </div>
+
             <div class="d-flex justify-content-between mt-2">
-                <a href="{% url 'edit-profile' %}" class="btn btn-primary">Edit Settings</a> bla
+                <a href="{% url 'edit-profile' %}" class="btn btn-primary">Edit Settings</a> 
                 <button type="submit" class="btn btn-primary">Update Profile</button>
             </div>
         </form>
