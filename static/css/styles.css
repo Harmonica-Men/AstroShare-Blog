@@ -50,36 +50,53 @@ ul {
 
 .margin-top-bottom-iss {
     margin-top: 20px;
-    margin-bottom: 20px; /* Adds margin for spacing */
+    margin-bottom: 20px;
 }
 
-/* Custom button style */
+/* Ensure Summernote editor is responsive */
+.note-editor {
+    width: 100% !important; /* Full width of the parent container */
+    box-sizing: border-box; /* Prevent overflow issues */
+}
+
+.note-toolbar {
+    flex-wrap: wrap; /* Allow toolbar items to wrap on smaller screens */
+}
+
+.note-editable {
+    min-height: 200px; /* Set a minimum height for the editor area */
+}
+
+
+/* Styles for back-to-top-button */
 .button-custom {
     margin: 7px auto;
     text-align: center;
-    background: var(--accent-color); /* Button background */
+    background: var(--accent-color);
     width: fit-content;
-    border-radius: 7px; /* Rounded corners */
+    border-radius: 7px;
     border: solid var(--border-color);
+    border-style: solid;
+    font-family: --bs-body-font-family;
     font-size: small;
     font-weight: bolder;
     padding: 10px 20px;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
 }
 
 .img {
-    padding-top: 10px; /* Adds padding to image */
+    padding-top: 10px;
 }
 
 .card-title {
     padding-top: 15px;
-    padding-left: 10px; /* Space around card title */
+    padding-left: 10px;
 }
 
-/* Responsive image styles */
+/* Responsive image classes */
 .img-responsive {
     width: 100%;
-    height: auto; /* Makes images responsive */
+    height: auto;
 }
 
 .img-thumbnail {
