@@ -3,7 +3,8 @@
 {% block title %} Edit Profile Page {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="d-flex justify-content-center align-items-center" style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
+<div class="d-flex justify-content-center align-items-center"
+    style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
 
     <div class="steps--background-white rounded p-4 shadow-sm" style="width: 100%; max-width: 600px;">
         <!-- Edit Profile Form -->
@@ -57,9 +58,10 @@
 
             <div class="mb-2 d-flex justify-content-between">
                 <button type="submit" class="btn btn-primary">Update Profile</button>
-            
+
                 {% if user.profile.id %}
-                <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25 text-center">Show Profile</a>
+                <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25 text-center">Show
+                    Profile</a>
                 {% else %}
                 <a href="{% url 'create-profile-page' %}" class="btn btn-primary w-25 text-center">Create Profile</a>
                 {% endif %}
@@ -68,9 +70,9 @@
 
         <!-- Back to Blog Link -->
         <div class="text-center mt-2">
-            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>        </div>
+            <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a> </div>
+        </div>
     </div>
-
 </div>
 {% endwith %}
 {% endblock %}
