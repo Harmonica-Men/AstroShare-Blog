@@ -52,6 +52,8 @@
 
             <div class="d-flex justify-content-between mt-2">
                 <a href="{% url 'edit-profile' %}" class="btn btn-primary">Edit Settings</a> 
+                <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25 text-center">Show
+                    Profile</a>
                 <button type="submit" class="btn btn-primary">Update Profile</button>
             </div>
         </form>
