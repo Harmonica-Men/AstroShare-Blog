@@ -7,12 +7,14 @@
 <section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container" style="min-height: calc(100vh - 130px);">
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <div class="steps--background-white p-4 mt-4 mb-4 shadow-sm rounded" style="max-width: 800px; width: 100%; text-align: center;">
+            <div class="steps--background-white p-4 mt-4 mb-4 shadow-sm rounded"
+                style="max-width: 800px; width: 100%; text-align: center;">
                 <h3 class="mt-2">{{ post.title }}</h3>
                 {% if post.image.url %}
                 <img src="{{ post.image.url }}" class="img-thumbnail w-75 mb-4" alt="post-image">
                 {% else %}
-                <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail w-75 mb-4" alt="no-image-available">
+                <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail w-75 mb-4"
+                    alt="no-image-available">
                 {% endif %}
 
                 {% if user.is_authenticated %}
@@ -24,12 +26,17 @@
                 {% endif %}
                 {% endif %}
 
-                <div class="mb-4">
-                    <small>Posted: <strong>{{ post.post_date }}</strong> By: </small>
-                    <a href="{% url 'author-profile' post.author.id %}">
-                        <small><strong>{{ post.author.first_name }} {{ post.author.last_name }}</strong></small>
-                    </a>
-                    <small>Category: <strong>{{ post.category }}</strong></small>
+
+                <div class="mb-4 fst-italic">
+                    <small class="d-block">Posted: <strong>{{ post.post_date }}</strong></small>
+                    <small class="d-block">By:
+                        <a href="{% url 'author-profile' post.author.id %}">
+                            <strong>
+                                {{ post.author.first_name }} {{ post.author.last_name }}
+                            </strong>
+                        </a>
+                    </small>
+                    <small class="d-block">Category: <strong>{{ post.category }}</strong></small>
                 </div>
 
                 <div class="container-list mb-4">
@@ -53,22 +60,19 @@
                     {% endif %}
                     <small><strong>{{ total_likes }}</strong> Likes</small>
                 </form>
-                <strong><hr></strong>
-
-                
-
+                <hr>
                 <!-- Section Comments -->
                 <section style="text-align: center; max-width: 800px; width: 100%; margin: auto;">
-                    <h3>Comments here ...</h3>
-                    
+                    <h3>Comments here</h3>
+
                     {% if user.is_authenticated %}
                     <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary">Add Comment</a>
                     {% else %}
                     <span class="btn btn-secondary">Add Comment</span>
-                    
+
                     <small class="italicize">&#40;must be logged in to comment&#41;</small>
                     {% endif %}
-                    
+
                     {% if not post.comments.exists %}
                     <div class="mt-2">
                         <strong>
@@ -79,14 +83,15 @@
                     {% for comment in post.comments.all %}
                     <div class="mb-2">
                         <hr>
-                        <small>{{ comment.body }}</small>
-                        
+                        <div class="container-list">
+                            <small>{{ comment.body }}</small>
+                        </div>
                     </div>
-                    <div class="mb-2">
+                    <div class="container-custom fst-italic mb-4">
                         <small>By: <strong>{{ comment.name }}</strong></small>
-                        <small>Date Added:</small>                       
+                        <small>Date Added:</small>
                         <small><strong>{{ comment.date_added }}</strong></small>
-                    </div> 
+                    </div>
                     <!-- <strong>{{ post.post_date }}</strong> -->
                     {% endfor %}
                     {% endif %}
