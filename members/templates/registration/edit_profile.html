@@ -44,8 +44,15 @@
 
             <div class="mb-2">
                 <label for="profile_pic" class="form-label">Profile Picture</label>
-                <input type="file" class="form-control" id="profile_pic" name="profile_pic" required>
+                <!-- <input type="file" class="form-control" id="profile_pic" name="profile_pic"> -->
                 {{ form.profile_pic }}
+            </div>
+
+            <div class="mb-2">
+                <label for="id_last_login" class="form-label"></label>
+                <div style="display: none;">
+                    {{ form.last_login }}
+                </div>
             </div>
 
             <div class="mb-2">
@@ -55,11 +62,8 @@
             </div>
 
             <div class="mb-2 d-flex justify-content-between">
-                <!-- <a href="{% url 'password-change' user.pk %}" class="btn btn-secondary btn-">Change Password</a> -->
                 <button type="submit" class="btn btn-primary">Update Profile</button>
-            <!-- </div>
-
-            <div class="mb-2 d-flex justify-content-between"> -->
+            
                 {% if user.profile.id %}
                 <a href="{% url 'show-profile-page' user.profile.id %}" class="btn btn-primary w-25 text-center">Show Profile</a>
                 {% else %}

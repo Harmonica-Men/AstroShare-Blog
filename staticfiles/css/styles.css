@@ -99,6 +99,22 @@ ul {
     height: auto;
 }
 
+
+/* Hide the form field */
+.form-last-login {
+    display: none;
+}
+
+input#id_last_login {
+    display: none;
+}
+
+/* Hide the form field by its ID */
+#id_last_login {
+    display: none;
+}
+
+
 .delete-post {
     color: var(--danger-text-color);
     font-size: 1.75rem;
@@ -127,11 +143,11 @@ ul {
 }
 
 .color-hyperlink {
-    color: var(--main-text-color);
+    color: var(--bs-body-bg);
 }
 
 .color-hyperlink:hover {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--primary-color-highlight)
 }
 
 .color-hyperlink-invers {
