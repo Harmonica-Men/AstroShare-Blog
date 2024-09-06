@@ -48,18 +48,6 @@ ul {
     border: 5px solid var(--border-color); /* Black border */
 }
 
-/* .bg-l-gray and .bg-d-gray: Background color options for gray shades */
-/* Commented out for future use */
-/*
-.bg-l-gray {
-    background-color: rgba(240, 240, 240, 0.67);
-}
-
-.bg-d-gray {
-    background-color: rgba(210, 210, 210, 0.67);
-}
-*/
-
 .margin-top-bottom-iss {
     margin-top: 20px;
     margin-bottom: 20px; /* Adds margin for spacing */

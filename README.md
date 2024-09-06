@@ -767,11 +767,11 @@ These efforts help ensure that our site is not only compliant with accessibility
 
 ### Wave Validation
 
-I have conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). There is a smooth transistion between header of page and the rest of main page. Nevertheless there are some issues to address because of the background mpeg replay WAVE is dymmical and can not make a presistent measurement background contrast.
+I have conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). There is a smooth transition between the header of the page and the rest of the main page. Nevertheless, there are some issues to address due to the background MPEG replay. WAVE is dynamic and cannot make a persistent measurement of background contrast.
 
 ![Contrast Errors homepage header](staticfiles/images/readme-images/wave-errors-homepage-header.webp)
 
-We also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. We believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
+I have also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. I believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
 
 ![Contrast Errors homepage footer](staticfiles/images/readme-images/wave-errors-homepage-footer.webp)
 <br>
@@ -781,23 +781,9 @@ Additionally, contrast warnings were noted in the Flash messages—interestingly
 ![Contrast Errors front-page pagination](staticfiles/images/readme-images/wave-errors-frontpage-pagination.webp)
 <br>
 
-We also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. We believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
-
-<img src="xemijobs/static/imgs/readme-pics/wave-button-alert.png" style="display: block; margin: auto;" alt="Wave button contrast error">
-<br>
-
 Overall, the WAVE validation confirms that our website adheres to accessibility standards, with only a few minor contrast issues that have been carefully considered in the design process. While we will continue exploring potential solutions to these issues, we have prioritized maintaining a visually cohesive and intuitive theme for the site.
 
-We identified some contrast issues specifically related to the numbers displayed on our error pages (e.g., 404, 403, 401). On the 404 page, no changes were made, as we believe the background image sufficiently offsets any potential visibility issues with the numbers. However, on the 403 and 401 pages, we made deliberate changes to the color of certain numbers to enhance contrast and ensure readability. 
-
-<img src="xemijobs/static/imgs/readme-pics/wave-403.png" style="display: block; margin: auto;" alt="Wave button contrast error 1">
-<hr>
-<img src="xemijobs/static/imgs/readme-pics/wave-404.png" style="display: block; margin: auto;" alt="Wave button contrast error 2">
-<br>
-
-Specifically, we altered the colors of the "4" and "3" on the 403 page and the "4" and "1" on the 401 page to address the contrast errors flagged by WAVE. We retained the original color of the "0" to maintain visual consistency and a playful design element, although it technically does not meet the strict contrast criteria set by WAVE. We do not consider this to be a significant issue, as the overall visual experience is still clear and user-friendly.
-
-**Note:** We are fully aware of the contrast issues highlighted by the WAVE Validation Tool. Our team is committed to addressing these in future updates to ensure an even higher level of accessibility across the entire platform. We appreciate the insights provided by the tool and will use this feedback to guide our ongoing improvements.
+Note: I'm fully aware of the contrast issues highlighted by the WAVE Validation Tool. It is my duty to address these in future updates to ensure an even higher level of accessibility across the entire platform. We appreciate the insights provided by the tool and will use this feedback to guide our ongoing improvements.
 
 ---
 
