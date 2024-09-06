@@ -767,16 +767,18 @@ These efforts help ensure that our site is not only compliant with accessibility
 
 ### Wave Validation
 
-We conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). The results were highly satisfactory, especially for the main page, where we encountered zero errors. However, we did find a few contrast issues, primarily related to the navigation elements within the carousel.
+I have conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). There is a smooth transistion between header of page and the rest of main page. Nevertheless there are some issues to address because of the background mpeg replay WAVE is dymmical and can not make a presistent measurement background contrast.
 
-To address these contrast issues, we added a transparent background to the carousel buttons. Despite this adjustment, the contrast warnings persist. We believe that these contrast issues do not significantly impact usability, as the primary goal for the carousel is to showcase images clearly. The transparency ensures that the images are visible while still allowing users to intuitively locate the buttons.
+![Contrast Errors homepage header](staticfiles/images/readme-images/wave-errors-homepage-header.webp)
 
-<img src="xemijobs/static/imgs/readme-pics/wave-carousel.png" style="display: block; margin: auto;" alt="Carousel showing controller buttons">
+We also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. We believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
+
+![Contrast Errors homepage footer](staticfiles/images/readme-images/wave-errors-homepage-footer.webp)
 <br>
 
 Additionally, contrast warnings were noted in the Flash messages—interestingly, all colors except yellow were flagged. While we understand that white text on a yellow background might pose a readability challenge, WAVE does not flag it as an issue. Conversely, other colors, which do not seem problematic to us, were marked for contrast errors.
 
-<img src="xemijobs/static/imgs/readme-pics/wave-flash.png" style="display: block; margin: auto;" alt="Wave flash contrast errors">
+![Contrast Errors front-page pagination](staticfiles/images/readme-images/wave-errors-frontpage-pagination.webp)
 <br>
 
 We also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. We believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
