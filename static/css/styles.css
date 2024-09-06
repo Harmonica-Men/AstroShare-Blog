@@ -1,130 +1,125 @@
+/* Root variables for theme colors, padding, and font styles */
 :root {
-    --primary-color: #352F44;
-    --attrib-color: #5C5470;
-    --primary-color-highlight: #ad91fc;
-    --bs-body-bg: #B9B4C7;
-    --bs-body-font-family: 'Montserrat', sans-serif;
-    --accent-color: #FAF0E6;
-    --border-color: #000000;
-    --main-text-color: #ffffff;
-    --main-text-color-invers: #000000;
-    --danger-text-color: red;
-    --padding-small: 10px;
+    --primary-color: #352F44; /* Primary color for main elements */
+    --attrib-color: #5C5470; /* Secondary attribute color */
+    --primary-color-highlight: #ad91fc; /* Highlight color for hover effects */
+    --bs-body-bg: #B9B4C7; /* Body background color */
+    --bs-body-font-family: 'Montserrat', sans-serif; /* Font family for body */
+    --accent-color: #FAF0E6; /* Accent color used in buttons, links */
+    --border-color: #000000; /* Default border color */
+    --main-text-color: #ffffff; /* Primary text color */
+    --main-text-color-invers: #000000; /* Inverse text color */
+    --danger-text-color: red; /* Color for danger text (e.g. warnings) */
+    --padding-small: 10px; /* Small padding for reusable padding */
 }
 
 body {
     font-family: var(--bs-body-font-family), Arial, sans-serif;
-    height: 100%;
-    margin: 0;
+    height: 100%; /* Ensures body takes full height of viewport */
+    margin: 0; /* Remove default margin */
     text-align: left;
-    background-color: black;
+    background-color: black; /* Set default background color */
 }
 
 html {
-    scroll-behavior: smooth;
-    height: 100%;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+    height: 100%; /* Ensures full height for the HTML element */
     margin: 0;
 }
 
-h1 {  
+h1 {
     font-weight: bolder;
     padding-left: 1rem;
-    padding-top: 1rem;
+    padding-top: 1rem; /* Add space at the top and left */
 }
 
 h3 {
     padding-top: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds subtle shadow to text */
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: none; /* Removes bullet points from list items */
 }
 
 .black-border {
     text-align: left;
-    border-radius: 25px;
-    border: 5px solid var(--border-color);
+    border-radius: 25px; /* Rounded corners for borders */
+    border: 5px solid var(--border-color); /* Black border */
 }
 
-/* .bg-l-gray {
+/* .bg-l-gray and .bg-d-gray: Background color options for gray shades */
+/* Commented out for future use */
+/*
+.bg-l-gray {
     background-color: rgba(240, 240, 240, 0.67);
 }
 
 .bg-d-gray {
     background-color: rgba(210, 210, 210, 0.67);
-} */
+}
+*/
 
 .margin-top-bottom-iss {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Adds margin for spacing */
 }
 
-/* Styles for back-to-top-button */
+/* Custom button style */
 .button-custom {
     margin: 7px auto;
     text-align: center;
-    background: var(--accent-color);
+    background: var(--accent-color); /* Button background */
     width: fit-content;
-    border-radius: 7px;
+    border-radius: 7px; /* Rounded corners */
     border: solid var(--border-color);
-    border-style: solid;
-    /* font-family: --bs-body-font-family; */
     font-size: small;
     font-weight: bolder;
     padding: 10px 20px;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
 }
 
 .img {
-    padding-top: 10px;
+    padding-top: 10px; /* Adds padding to image */
 }
 
 .card-title {
     padding-top: 15px;
-    padding-left: 10px;
+    padding-left: 10px; /* Space around card title */
 }
 
-/* Responsive image classes */
+/* Responsive image styles */
 .img-responsive {
     width: 100%;
-    height: auto;
+    height: auto; /* Makes images responsive */
 }
 
 .img-thumbnail {
     margin-top: 12px;
     margin-bottom: 12px;
-    margin-left: 0;
     width: 300px;
-    height: auto;
+    height: auto; /* Thumbnail image settings */
 }
 
-
-/* Hide the form field */
-.form-last-login {
-    display: none;
-}
-
-input#id_last_login {
-    display: none;
-}
-
-/* Hide the form field by its ID */
+/* Hide specific form field by class or ID */
+.form-last-login,
+input#id_last_login,
 #id_last_login {
     display: none;
 }
 
-
+/* Style for delete post button */
 .delete-post {
-    color: var(--danger-text-color);
+    color: var(--danger-text-color); /* Red color for delete actions */
     font-size: 1.75rem;
 }
 
+/* Form container styles */
 .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
+    min-height: 20vh; /* Center align form content */
 }
 
 .form-content {
@@ -133,21 +128,21 @@ input#id_last_login {
 
 .form-content label,
 .form-content input {
-
-    margin: 10px auto;
+    margin: 10px auto; /* Space around form elements */
 }
 
 .custom-submit {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 10px; /* Submit button padding */
 }
 
+/* Hyperlink colors and hover effects */
 .color-hyperlink {
     color: var(--bs-body-bg);
 }
 
 .color-hyperlink:hover {
-    color: var(--primary-color-highlight)
+    color: var(--primary-color-highlight);
 }
 
 .color-hyperlink-invers {
@@ -158,15 +153,25 @@ input#id_last_login {
     color: var(--primary-color-highlight);
 }
 
+.color-hyperlink-footer {
+    color: white;
+}
+
+.color-hyperlink-footer:hover {
+    color: yellow; /* Footer link hover effect */
+}
+
+/* Flexbox utility classes */
 .d-md-flex {
     display: flex;
     align-items: center;
 }
 
 .flex-row-reverse {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* Reverses flexbox direction */
 }
 
+/* Text styling for names */
 .first-name,
 .last-name {
     font-size: small;
@@ -177,38 +182,42 @@ input#id_last_login {
     text-transform: uppercase;
 }
 
+/* Image container styles */
 .image-container {
     flex: 0 0 auto;
     padding: 0.5rem;
-    margin: 10px;
+    margin: 10px; /* Ensures spacing around images */
 }
 
 .content-container {
     text-align: left;
     flex: 1 1 auto;
-    margin: 10px;
+    margin: 10px; /* Space for content */
 }
 
+/* Form container styles for different screen sizes */
 .container-form-sm {
-    height: 80vh; 
+    height: 80vh;
     padding-top: 2rem;
-} 
+}
 
 .container-form-lg {
     padding-top: 2rem;
-} 
+}
 
+/* General container styles for layout */
 .container-sub {
-    width: 100%;  
+    width: 100%;
     margin: 0 auto;
-} 
+}
 
 .container-list {
     text-align: left;
-    width: 80%;    
+    width: 80%;
     margin: 0 auto;
-} 
+}
 
+/* Centered container for custom content */
 .container-custom {
     text-align: center;
     width: 100%;
@@ -216,18 +225,14 @@ input#id_last_login {
     margin: 0 auto;
 }
 
-.container-hero {
-    text-align: left;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
+/* Profile section with background and padding */
 .container-profile {
-    background: rgba(13, 110, 253, 0.25);
+    background: rgba(13, 110, 253, 0.25); /* Light blue background */
     padding: 80px;
     border-radius: 10px;
 }
 
+/* Styling for italicized text */
 .italicize {
     padding-top: 10px;
     padding-right: 10px;
@@ -236,6 +241,7 @@ input#id_last_login {
     text-align: right;
 }
 
+/* Content container for post display */
 .content {
     background: rgba(13, 110, 253, 0.25);
     padding: 60px;
@@ -243,16 +249,15 @@ input#id_last_login {
     margin: 50px;
 }
 
-/* Styling for individual posts */
+/* Post styling for individual items */
 .post {
-    margin: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin: 1rem 3rem;
     padding: 10px;
     border-radius: 5px;
     border-style: solid;
 }
 
+/* Button styles */
 .btn {
     margin-top: 5px;
     width: 160px;
@@ -260,10 +265,11 @@ input#id_last_login {
     color: var(--accent-color);
 }
 
+/* High contrast button */
 .btn-contrast {
     color: var(--main-text-color-invers);
     font-weight: bolder;
-    background-color: #fff;    
+    background-color: #fff;
     border-color: #fff;
 }
 
@@ -273,6 +279,7 @@ input#id_last_login {
     border-color: #fff;
 }
 
+/* Image container with border and shadow */
 .image-container-APOD {
     position: relative;
     display: inline-block;
@@ -280,6 +287,7 @@ input#id_last_login {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Centered title text over an image */
 .centered-title {
     position: absolute;
     top: 50%;
@@ -291,20 +299,7 @@ input#id_last_login {
     text-align: center;
 }
 
-.left {
-    background-color: var(--accent-color);
-}
-
-.right>div {
-    background-color: var(--attrib-color);
-    margin: 2px;
-}
-
-a:hover {
-    color: var(--primary-color);
-}
-
-/* Custom Scrollbar */
+/* Custom scrollbar styles */
 ::-webkit-scrollbar {
     width: 14px;
 }
@@ -321,39 +316,12 @@ a:hover {
     background: #555;
 }
 
-.margin-sub {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.padding-20 {
-    padding: 20px;
-}
-
-.iframe-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.responsive-iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-
-/* Main Header */
+/* Main header z-index to ensure it stays on top */
 .header {
     z-index: 2;
 }
 
-/* Flyout Navigation Bar */
+/* Styles for the Flyout Navigation Bar */
 #navbar {
     position: fixed;
     left: 0;
@@ -364,6 +332,7 @@ a:hover {
     z-index: 4;
 }
 
+/* Additional styles for flyout nav close button */
 .dropdown-nav__closeNavBtn {
     position: absolute;
     top: 20px;
@@ -371,227 +340,147 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.dropdown-nav__container {
-    height: 100vh;
-    padding: 0 1rem;
-}
-
 /* Hero Section */
 .hero {
-    /* --primary-color: var(--primary-color); */
     position: relative;
     height: 100vh;
     background-color: rgba(95, 95, 95, 0.5);
     overflow: hidden;
 }
 
-.hero__video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.hero__head {
-    color: var(--main-text-color)
-}
-
-
-.hero__text {
-    color: var(--accent-color);
-}
-
-.hero__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(95, 95, 95, 0.459);
-    z-index: 1;
-}
-
-.hero__content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero__content-width {
-    max-width: 540px;
-}
-
-.hero__scroll-btn {
-    position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-    z-index: 1;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 50px;
-    text-align: center;
-}
-
-.hero__scroll-btn:hover {
-    color: var(--bs-light);
-    opacity: 0.8;
-}
-
-.hero__scroll-btn .bi {
-    transition-delay: 0.8s;
-    animation: bounce 1s infinite alternate;
-}
-
-
-.hero__head {
-    font-size: 2.5rem;
-    font-weight: bolder;
-}
-
-.hero__text {
-    font-size: 1.65rem;
-}
-
-.hero__text-bg {
-    background-color: rgba(95, 95, 95, 0.459);
-    padding: 20px;
-    border-radius: 5px;
-}
-
+/* Animation for bounce effect */
 @keyframes bounce {
     from {
-        transform: translateY(0px);
+        transform: translateY(0px); /* Initial position */
     }
 
     to {
-        transform: translateY(-10px);
+        transform: translateY(-10px); /* Moves element up by 10px */
     }
 }
 
-/* Steps Section */
+/* Steps Section Styling */
 .steps {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 40px; /* Adds space above the steps section */
+    padding-bottom: 40px; /* Adds space below the steps section */
 }
 
 .steps__section-thumbnail {
-    height: 240px;
-    object-fit: cover;
-    margin: 0 auto;
+    height: 240px; /* Fixed height for thumbnails */
+    object-fit: cover; /* Ensures image fits within the container without distortion */
+    margin: 0 auto; /* Centers the thumbnail horizontally */
 }
 
 .steps__content-width {
-    max-width: 456px;
-    margin: 0 auto;
+    max-width: 456px; /* Limits the maximum width of the steps content */
+    margin: 0 auto; /* Centers the content horizontally */
 }
 
+/* Background and text color variations for steps section */
 .steps--background-white {
-    background-color: var(--main-text-color);
-    color: var(--main-text-color-invers);
+    background-color: var(--main-text-color); /* Applies main text color as background */
+    color: var(--main-text-color-invers); /* Inverse color for text */
 }
 
 .steps--background-black {
-    background-color: var(--main-text-color-invers);
-    color: var(--main-text-color);
+    background-color: var(--main-text-color-invers); /* Black background for dark theme */
+    color: var(--main-text-color); /* Inverse text color */
 }
 
-/* Footer */
+/* Footer Styling */
 .footer .border-highlight {
-    border-top: 1px solid var(--primary-color-highlight);
-    padding-top: 10px;
+    border-top: 1px solid var(--primary-color-highlight); /* Adds a highlighted border at the top of the footer */
+    padding-top: 10px; /* Adds padding above the border */
 }
 
-/* Media queries for responsiveness */
+/* Media queries for responsive design */
+
+/* For screen widths less than 1600px */
 @media (max-width: 1600px) {
     .iframe-container {
-        height: 300px;
-        max-width: 100%;
+        height: 300px; /* Adjust iframe height for medium screens */
+        max-width: 100%; /* Ensures iframe doesn't exceed container width */
     }
 
     .hero__head {
-        font-size: 2rem;
-        font-weight: bolder;
+        font-size: 2rem; /* Reduces font size for hero heading */
+        font-weight: bolder; /* Keeps text bold */
     }
 
     .hero__text {
-        font-size: 1.2rem;
+        font-size: 1.2rem; /* Smaller text size for the hero section */
     }
 }
 
+/* For screen widths less than 1200px */
 @media (max-width: 1200px) {
     .img-thumbnail {
-        width: 150px;
+        width: 150px; /* Reduces the width of image thumbnails */
     }
 
     .iframe-container {
-        height: 175px;
-        max-width: 100%;
+        height: 175px; /* Reduces the height of the iframe for smaller screens */
+        max-width: 100%; /* Ensures iframe scales within container */
     }
 
     .hero__head {
-        font-size: 1.9rem;
-        font-weight: bold;
+        font-size: 1.9rem; /* Further reduces hero heading size */
+        font-weight: bold; /* Keeps text bold */
     }
 
     .hero__text {
-        font-size: 0.85rem;
+        font-size: 0.85rem; /* Smaller font for hero section text */
     }
 }
 
+/* For screen widths less than 768px */
 @media (max-width: 768px) {
     .note-toolbar {
-        font-size: 12px; /* Reduce toolbar icon size for smaller screens */
+        font-size: 12px; /* Reduces font size in toolbars for smaller screens */
     }
 
     .note-editable {
-        height: auto; /* Adjust the height for mobile screens */
+        height: auto; /* Adjusts height to be more flexible for mobile screens */
     }   
 }
 
+/* For screen widths greater than 544px */
 @media (min-width: 544px) {
     .steps {
-        padding: 40px 0;
+        padding: 40px 0; /* Adds vertical padding to the steps section */
     }
 
     .steps__section-thumbnail {
-        height: auto;
+        height: auto; /* Allows thumbnails to adjust height automatically */
     }   
 }
 
+/* For screen widths less than 380px */
 @media (max-width: 380px) {
     
-        .container-sub, 
-        .img, 
-        .any-other-class { /* Apply to multiple classes if needed */
-            padding: 0;
-            margin: 0;
-        }
+    .container-sub, 
+    .img, 
+    .any-other-class { /* Apply the same padding and margin to multiple classes */
+        padding: 0; /* Removes padding */
+        margin: 0; /* Removes margin */
+    }
     
-        .img {
-            display: none; /* Hide images on smaller screens */
-        }
+    .img {
+        display: none; /* Hides images on smaller screens */
+    }
 
     span,
     h5 {
-        font-size: small;
+        font-size: small; /* Reduces font size for better readability */
     }
 
     .container-banner {
-        padding: 1px;
-        margin: 1px;
+        padding: 1px; /* Minimal padding for banners */
+        margin: 1px; /* Minimal margin for banners */
     }
 
     .img-thumbnail,
     .frontpage-image {
-        display: none;
+        display: none; /* Hides images to save space on smaller screens */
     }
 }
