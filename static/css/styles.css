@@ -212,6 +212,25 @@ input#id_last_login,
     border-radius: 10px;
 }
 
+/* Container for the iframe with flexbox centering */
+.iframe-container {
+    display: flex;                 /* Use flexbox to easily center content */
+    justify-content: center;       /* Horizontally center the iframe */
+    align-items: center;           /* Vertically center the iframe */
+    position: relative;            /* Allows positioning of child elements within this container */
+    width: 100%;                   /* Set the container to take up the full width of its parent */
+    max-width: 100%;               /* Prevents the container from exceeding 100% of the parent width */
+    margin: 0 auto;                /* Center the container horizontally if it has a fixed width */
+    padding: 0;                    /* Remove any padding around the container */
+}
+
+/* Responsive iframe styling */
+.responsive-iframe {
+    width: 100%;                   /* Make the iframe fill the width of its container */
+    height: 100%;                  /* Make the iframe fill the height of its container */
+    border: 0;                     /* Remove the default border around the iframe */
+}
+
 /* Styling for italicized text */
 .italicize {
     padding-top: 10px;
