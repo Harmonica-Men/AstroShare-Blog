@@ -346,10 +346,8 @@ input#id_last_login,
     color: var(--accent-color);
 }
 
-
 .hero__text {
-    color: var(--main-text-color);
-    
+    color: var(--main-text-color); 
 }
 
 .hero__overlay {
