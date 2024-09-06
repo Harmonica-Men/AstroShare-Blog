@@ -18,6 +18,10 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   2. [CSS Validation](#css-validation)
   3. [Accessibility](#accessibility)
   4. [Wave Validation](#wave-validation) 
+  5. [Lighthouse Validation](#lighthouse-validation)
+  6. [JSHint Validation](#jshint-validation)
+  7. [Device Testing](#device-testing)
+  8. [Browser Compatibility](#browser-compatibility)
 
     
   ## The UX Table Of Contents
@@ -715,6 +719,7 @@ The detail of these test can evaluate on this link.
   <summary>Click to view HTML Validation Homepage Result</summary>
   <img src="static/images/readme-images/Html-Check-AstroBlog-homepage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Homepage showing zero errors">
   <br>
+
   <br>
   <img src="static/images/readme-images/Html-Check-AstroBlog-frontpage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Frontpage-Blogpost showing zero errors">
 
@@ -782,14 +787,79 @@ Note: I'm fully aware of the contrast issues highlighted by the WAVE Validation 
 
 ---
 
+### Lighthouse Validation
+
+Our Lighthouse validation results have been very promising, with high scores across most categories. One area where we observed a slightly lower score is in SEO, and we are actively working on improvements in this area to achieve even better results. Lighthouse has been instrumental in guiding the organization of our files and optimizations for performance.
+
+<details>
+  <summary>Click to view Lighthouse Result</summary>
+  <img src="static/images/readme-images/lighthouse-astroblog-homepage.webp" style="display: block; margin: auto;" alt="lighthouse test">
+  <br>
+</details>
+
+<img src="static/images/readme-images/lighthouse-astroblog-homepage.webp" style="display: block; margin: auto;" alt="lighthouse test">
+<br>
+A specific recommendation from Lighthouse was to use the WebP format for images to improve load times. In response, I made sure that all images served through the browser are now in WebP format. However, I also understand that too much compression could negatively impact the user experience, especially on larger screens. So, I made a conscious decision to balance performance with visual quality. After gathering feedback from a diverse group of users, I confirmed that the image quality is well-received across various devices. As a result, I decided to maintain slightly larger image sizes to prioritize a smooth and visually appealing experience, even if it means sacrificing a little bit of performance.
+
+Additionally, Lighthouse suggested reducing the CSS payload, which I’m currently considering. One option I’m exploring is breaking the main styles.css file into smaller files tied to specific widgets. This would allow me to send only the necessary CSS for each page, potentially cutting down the overall size of the CSS file and improving load times.
+
+While the desktop version scores are very high, the mobile version, although still passing, has some room for improvement. I’m committed to refining these areas to ensure the best possible experience across all devices.
+
+---
+
+### JSHint Validation
+
+Although our project doesn't include an extensive amount of JavaScript, we have ensured that the code we do have is fully validated using **JSHint**. We are pleased to report that our JavaScript code has passed the validation process with a 100% clean bill of health—no errors whatsoever.
+
+In addition to being error-free, the JavaScript code is thoroughly commented and documented. This will make it easier for future developers to understand the purpose and function of each part of the code.
+
+---
+
 ### PEP8
 All Python files as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
 
-### JSHint
-The small JavaScript snippet under the footer of base.html has been passed through [JShint](https://jshint.com/) without issue.
+---
+
+### Device Testing
+
+The website has undergone thorough testing across a variety of devices, including desktop computers, tablets, and smartphones. We focused on ensuring that the responsiveness of the site is consistent and effective across all screen sizes, providing an optimal user experience regardless of the device used.
+
+To achieve this, we employed media queries to adapt the layout for different screen sizes. This approach ensures that when the device's dimensions fall within specific ranges, certain elements will reposition themselves, maintaining readability and proper alignment. 
+
+For instance, on smaller screens, such as smartphones, we adjusted the distribution of content to ensure that all elements are easily accessible and clearly visible, avoiding any overlap or readability issues. The result is a fluid and intuitive experience across devices, meeting our goal of a responsive design that performs well on all tested platforms.
+
+--- 
+
+### Browser Compatibility
+
+We have conducted extensive testing to ensure that the website is fully compatible across a range of web browsers. Specifically, the site has been tested on:
+
+- <img src="static/images/readme-images/google-icon.ico" width="18px"> **Google Chrome**
+- <img src="static/images/readme-images/edge-icon.ico" width="18px"> **Microsoft Edge**
+- <img src="static/images/readme-images/opera-icon.ico" width="18px"> **Opera**
+- <img src="static/images/readme-images/firefox-icon.ico" width="18px"> **Mozilla Firefox**
+- <img src="static/images/readme-images/safari-icon.ico" width="18px"> **Safari**
+
+<img src="" style="display: block; margin: auto;" alt="Browser testing picture">
+
+In each browser, the website performs smoothly, maintaining consistent functionality and appearance. We focused on ensuring that all features, from user registration to job application processes, operate seamlessly regardless of the browser used.
+
+No significant issues were encountered during the tests, confirming that our site is accessible and reliable across these popular browsers. This ensures that users can interact with the platform without any unexpected disruptions, regardless of their preferred browser.
+
+---
 
 
-## Accessibility & Performance
+
+
+
+
+
+
+
+
+
+
+
 
 
 
