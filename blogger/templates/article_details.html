@@ -84,7 +84,9 @@
                     <div class="container-custom fst-italic mb-4">
                         <small>By: <strong>{{ comment.name }}</strong></small>
                         <small>Date Added:</small>
-                        <small><strong>{{ comment.date_added }}</strong></small>
+                        <small><strong>{{ comment.date_added|date:"M j, Y" }}</strong></small>
+
+
                     </div>
                     {% endfor %}
                     {% endif %}
