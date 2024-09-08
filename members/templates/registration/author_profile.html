@@ -8,7 +8,7 @@
     
     <section class="steps--background-white rounded p-4 shadow-sm text-center" style="width: 100%; max-width: 700px;">
         <!-- Author's Username Displayed as Title -->
-        <h1 class="mb-4">{{ profile.user.username }}'s Profile</h1>
+        <h1 class="mb-4">{{ profile.user.username }}'s Profile</h1>        
 
         <!-- Profile Picture Section -->
         <div class="text-center mb-4">
@@ -22,20 +22,20 @@
             <div>
                 <small>No profile image</small>
             </div>
-            {% endif %}
+            {% endif %}            
         </div>
+        <small class=" fst-italic">Joined on {{ user.date_joined|date:"F j, Y" }}</small>
 
         <!-- Bio Section -->
-        <div class="container-list mb-4">
+        <div class="container-list mt-4 mb-4">
             <p><strong>Bio:</strong> {{ profile.bio }}</p>
         </div>
-
         <!-- Social Media Links -->
         <div class="text-center">
             <ul class="nav justify-content-center list-unstyled d-flex">
                 <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.twitter_url }}"><i class="bi bi-twitter"></i></a></li>
                 <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.instagram_url }}"><i class="bi bi-instagram"></i></a></li>
-                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.facebook_url }}"><i class="bi bi-facebook"></i></a></li>
+                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.facebook_url }}"><i class="bi bi-facebook"></i></a></li>                
                 <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.global_url }}"><i class="bi bi-globe"></i></a></li>                
             </ul>
         </div>
