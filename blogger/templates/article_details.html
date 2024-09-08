@@ -67,7 +67,6 @@
                     {% if user.is_authenticated %}
                     <a href="{% url 'add-comment' post.pk %}" class="btn btn-primary">Add Comment</a>
                     {% else %}
-                    <span class="btn btn-secondary">Add Comment</span>
                     <small class="d-block fst-italic">&#40;must be logged in to comment&#41;</small>
                     {% endif %}
                     {% if not post.comments.exists %}
