@@ -6,11 +6,11 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
 
 ![responsiveness image](static/images/readme-images/amiresponsive.webp)
 
-
 # Table Of Contents
   - Introducton
     - [AstroShare Blog](#astroshare-blog)
   - [Development Tools](#development-tools)
+  - [CSS Management for Project Structure](#css-management-for-project-structure)
   - [Technologies Used](#technologies-used)
     - [Wireframes](#wireframes)
   - [Colors](#colors)
@@ -41,8 +41,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
 
 ## Development Tools
 
-- **Custom Jinja Widgets:** A collection of reusable Jinja widgets has been created to streamline the development process. These widgets automatically adapt to the type of data being passed, ensuring a consistent aesthetic across the entire platform. This approach not only speeds up development but also maintains a high level of visual and functional uniformity throughout the site.
->[Preview all widgets included in this site](https://-616b41a185c0.herokuapp.com/widgets/1)
+- **Bootstrap:** A collection of reusable Jinja widgets has been created to streamline the development process. These widgets automatically adapt to the type of data being passed, ensuring a consistent aesthetic across the entire platform. This approach not only speeds up development but also maintains a high level of visual and functional uniformity throughout the site.
 - **Modular Design:** The platform is built using a modular architecture in Flask, which allows for easy extension and maintenance. Each module is self-contained, facilitating rapid development and testing of individual components without affecting the entire application.
 - **Consistent Aesthetic:** By leveraging these custom widgets, the design remains consistent, providing a unified look and feel across all pages and components, which enhances the overall user experience.
 
@@ -64,33 +63,63 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
 
 [Back to Top](#astroshare-blog)
 
+## CSS Management for Project Structure
+
+In my project, I decided to use a single CSS file, styles.css, to manage all the styling across the application.
+These variables are defined within styles.css, and ensuring they work correctly is crucial for applying themes consistently across the site.
+
+By consolidating all the styles into one file, I make managing themes straightforward. If I need to switch themes or make adjustments, I only need to modify this single CSS file, which allows for a seamless transition to a new look and feel across the entire application. This approach not only simplifies maintenance but also reinforces my focus on code reuse and consistency.
+
+Additionally, having a single CSS file helps me avoid complications related to injecting styles through Bootstrap, ensuring that the CSS variables function as intended throughout the application.
+
 ## Wireframes
 
-The wireframes for this project served as a crucial guide during the development process, essentially acting as a blueprint for the design and layout of the website. Our focus was primarily on two key pages: the index and the dashboards. Given the repetitive nature of the dashboards, the same design was utilised for both user and company dashboards, with slight variations depending on the specific information displayed to each type of user. This was efficiently managed using Jinja templating, which allowed us to dynamically serve content based on the user type.
+The wireframes for this project served as a crucial guide during the development process, essentially acting as a blueprint for the design and layout of the website. My focus was primarily on two key pages: the index (or homepage) and the frontpage blog post. Given the repetitive nature of the blog post, I decided that it was a better idea to separate the homepage and the frontpage. The homepage serves more as an introductory page, while the frontpage blog post is a more active working page for the blog posts.
 
-We decided to highlight only two wireframes in this README as they are the most critical to the overall user experience. Other pages did not require such detailed wireframing and allowed for more creative freedom during development.
+I chose to highlight only two wireframes in this README as they are the most critical to the overall user experience. Other pages did not require such detailed wireframing and followed more standard, basic templates.
 
 ### Index Page Overview
-The homepage starts with a compelling call to action, featuring a parallax effect designed to captivate visitors. This section offers users the option to either register or browse existing job listings. To enhance the professional image of the site, we included a Top 5 list showcasing the most popular companies on our platform, which adds credibility.
 
-Following this, the About Us section provides a brief introduction to the purpose of the site, helping visitors quickly understand what the site is about.
+The homepage starts with a 'hero section' featuring an embedded video stream in replay, along with a parallax effect designed to captivate visitors. This section offers users the option to engage with the Blog Post.
 
-To further build trust, we incorporated a testimonials section where current users share their experiences, making it easier for new visitors to relate and feel confident in using the platform.
+Following this, the AstroBlog section provides a brief introduction to the purpose of the site, helping visitors quickly understand what the site is about.
 
-At the bottom of the page, we included a pricing section, clearly explaining that user registration is free, while companies are charged a fee. Each pricing option is linked to relevant benefits, with buttons that guide users or companies to the appropriate registration pages.
+To build more interest, I have incorporated an 'Astronomy Picture of the Day' (APOD) section where users and visitors always have a new astronomical item to explore, providing an easy and quick overview of the latest posts.
 
-Finally, the page concludes with a footer that reinforces credibility and includes essential links such as About Us, Terms and Conditions, and a quick contact area, making it easy for users to reach out if needed.
-#### Wireframes for Homepage
+In a zigzag pattern, the most popular categories are displayed on the homepage. To encourage further engagement with the blog, a "Latest Contributors" section is also included.
+
+For astronomical enthusiasts, a nice widget is incorporated that tracks the current position of the International Space Station (ISS). When clicking on the 'Go To the ISS' button, a new page appears with an independently generated world map showing the ISS’s location.
+
+At the bottom of the page, we included a subscription section where users can join the mailing list to receive newsletters, information, and relevant benefits.
+
+Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the AstroBlog.
+
 ---
+
+#### Wireframes for Homepage
+
 <details>
   <summary>Wireframe for Homepage Desktop</summary>
-  <img src="astroblog/static/imgs/readme-pics/wf-home.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
+  <img src="static/images/readme-images/Landingpage-AstroShareBlog.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
 </details>
-
+<br>
+<details>
+<summary>Wireframe for Frontpage Blogpost Desktop</summary>
+  <img src="static/images/readme-images/BlogPost-AstroShareBlog.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
+</details>
+<br>
 <details>
   <summary>Wireframe for Homepage Responsive</summary>
   <img src="astroblog/static/imgs/readme-pics/wf-home-resp.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
 </details>
+<br>
+<details>
+  <summary>Wireframe for Frontpage Responsive</summary>
+  <img src="astroblog/static/imgs/readme-pics/wf-home-resp.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
+</details>
+<br>
+
+---
 
 ### Dashboard Page Overview
 The **dashboard** page is thoughtfully organised into two main sections, ensuring clarity and ease of use for both users and companies. The layout dynamically adjusts based on the type of user, with content managed via Jinja templating and data passed from the views.
@@ -1059,3 +1088,21 @@ The following site-maps show how the site is structured to logged in users whito
 *Site Map - Logged Out*
 
 ![Site Map - Not Logged In](static/images/readme-images/Not_Logged.jpg) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+In our project, I decided to use a single CSS file, styles.css, to manage all the styling across the application. Initially, I experimented with injecting CSS through Jinja templates, but I ran into significant issues, mainly due to the use of CSS variables. These variables are defined within styles.css, and ensuring they work correctly is crucial for applying themes consistently across the site.
+
+By consolidating all the styles into one file, I make managing themes straightforward. If I need to switch themes or make adjustments, I only need to modify this single CSS file, which allows for a seamless transition to a new look and feel across the entire application. This approach not only simplifies maintenance but also reinforces my focus on code reuse and consistency.
+
+Additionally, having a single CSS file helps me avoid complications related to injecting styles through Jinja, ensuring that the CSS variables function as intended throughout the application.
