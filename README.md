@@ -100,12 +100,12 @@ Finally, the page concludes with a footer that reinforces credibility and includ
 
 <details>
   <summary>Wireframe for Homepage Desktop</summary>
-  <img src="static/images/readme-images/Landingpage-AstroShareBlog.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
+  <img src="static/images/readme-images/Astro-Blog Homepage.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
 </details>
 <br>
 <details>
-<summary>Wireframe for Frontpage Blogpost Desktop</summary>
-  <img src="static/images/readme-images/BlogPost-AstroShareBlog.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
+  <summary>Wireframe for Frontpage Blogpost Desktop</summary>
+  <img src="static/images/readme-images/Astro-Blog Frontpage.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
 </details>
 <br>
 <details>
