@@ -918,3 +918,98 @@ The following site-maps show how the site is structured to logged in users whito
 |#2    |[USER STORY: Set up GitHub Repository](https://github.com/Harmonica-Men/AstroShare-Blog/issues/2)|As a software developer,<br>I want to set up a GitHub repository for our new project,<br>so that the team can collaborate on the codebase efficiently and maintain version control.|The acceptance criteria require creating a new GitHub repository with proper naming, initializing it with a README and .gitignore file, protecting the main branch with pull request and code review requirements, and ensuring team members have appropriate access permissions, which are reviewed by the project manager.                                                      |N/A             |not applicable|PASS  |
 |#1    |USER STORY: Create a working Django app                                                          |As a software developer,<br>I can to create a working Django app,<br>so that I can build and deploy a web application efficiently.                                                 |The acceptance criteria require setting up a new Django project with proper configurations, creating and integrating an app with models, views, URLs, templates, and static files, implementing forms with validation, writing unit tests, deploying to a staging environment, and ensuring early deployment using GitPod with documentation through VS Code and a README.md file.|N/A             |not applicable|PASS  |
 |      |Deploy to Heroku<br>                                                                             |As a software developer,<br>I want to deploy our application to Heroku,<br>so that it is accessible to users and can be tested in a live environment.                              |The acceptance criteria involve setting up a Heroku account, configuring the app with environment variables and a Procfile, using Heroku's database service with migrations, deploying the app via Git, setting environment variables, configuring monitoring and alerts, and documenting the deployment process for team approval.                                               |                |              |      |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details>
+Navbar
+
+
+|                                                                        |                                                               |                                     |      |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------- | ---- |
+| Scenario                                                               | Action                                                        | Re-Action                           |      |
+| Homepage – Landingpage                                                 |                                                               |                                     |      |
+| Click the “Go To Blog” Button                                          | should navigate to Frontpage - Blogpost                       | Redirect to Blog                    | PASS |
+| Click “Subscribe”                                                      | Should navigate to Subscription                               | Redirect to section bottom homepage | PASS |
+| Click “Go to APOD”                                                     | Should navigate to Astronomy Picture of the Day               | Redirect to APOD page               | PASS |
+| Click “Go to ISS”                                                      | Should navigate to Track the International Space Station page | Redirect to ISS page                | PASS |
+| Fill in “Subscribe to our Newsletter”Fill in Name & Email after Submit | Should navigate to Check Email Page                           | Redirect to “Check your Email” page | PASS |
+
+
+
+</details>
+
+
+
+
