@@ -110,12 +110,12 @@ Finally, the page concludes with a footer that reinforces credibility and includ
 <br>
 <details>
   <summary>Wireframe for Homepage Responsive</summary>
-  <img src="astroblog/static/imgs/readme-pics/wf-home-resp.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
+  <img src="static/images/readme-images/Astro-Blog Homepage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
 </details>
 <br>
 <details>
-  <summary>Wireframe for Frontpage Responsive</summary>
-  <img src="astroblog/static/imgs/readme-pics/wf-home-resp.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
+  <summary>Wireframe for Frontpage Responsive</summary>  
+  <img src="static/images/readme-images/Astro-Blog Frontpage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
 </details>
 <br>
 
