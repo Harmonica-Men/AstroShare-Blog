@@ -72,24 +72,6 @@ The wireframes for this project served as a crucial guide during the development
 
 I chose to highlight only two wireframes in this README as they are the most critical to the overall user experience. Other pages did not require such detailed wireframing and followed more standard, basic templates.
 
-### Index Page Overview
-
-The homepage starts with a 'hero section' featuring an embedded video stream in replay, along with a parallax effect designed to captivate visitors. This section offers users the option to engage with the Blog Post.
-
-Following this, the AstroBlog section provides a brief introduction to the purpose of the site, helping visitors quickly understand what the site is about.
-
-To build more interest, I have incorporated an 'Astronomy Picture of the Day' (APOD) section where users and visitors always have a new astronomical item to explore, providing an easy and quick overview of the latest posts.
-
-In a zigzag pattern, the most popular categories are displayed on the homepage. To encourage further engagement with the blog, a "Latest Contributors" section is also included.
-
-For astronomical enthusiasts, a nice widget is incorporated that tracks the current position of the International Space Station (ISS). When clicking on the 'Go To the ISS' button, a new page appears with an independently generated world map showing the ISS’s location.
-
-At the bottom of the page, we included a subscription section where users can join the mailing list to receive newsletters, information, and relevant benefits.
-
-Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the AstroBlog.
-
----
-
 #### Wireframes for Homepage
 
 <details>
@@ -115,28 +97,39 @@ Finally, the page concludes with a footer that reinforces credibility and includ
 
 ---
 
-### Dashboard Page Overview
-The **dashboard** page is thoughtfully organised into two main sections, ensuring clarity and ease of use for both users and companies. The layout dynamically adjusts based on the type of user, with content managed via Jinja templating and data passed from the views.
+### Index Page Overview
 
-1. **Information Tiles**: The first section displays three prominent **information tiles**, arranged horizontally on desktop and transitioning to a vertical stack on mobile devices for optimal readability. These tiles provide a quick overview:
-   - **For Users**: The tiles show the total number of applications submitted, the number of applications shortlisted, and the number of scheduled interviews.
-   - **For Companies**: The tiles display the total number of job postings created, the number of applications received, and the number of scheduled interviews.
+The homepage starts with a 'hero section' featuring an embedded video stream in replay, along with a parallax effect designed to captivate visitors. This section offers users the option to engage with the Blog Post.
 
-2. **Detailed Information Table**: Below the tiles, a detailed table provides further insights:
-   - **For Users**: The table allows users to track the status of their applications, offering a clear view of each submission.
-   - **For Companies**: The table initially displays a summary of all job postings. By interacting with the table, companies can drill down into specific job postings to view detailed application data for each position. 
+Following this, the AstroBlog section provides a brief introduction to the purpose of the site, helping visitors quickly understand what the site is about.
 
-#### Wireframes for Dashboard
+To build more interest, I have incorporated an 'Astronomy Picture of the Day' (APOD) section where users and visitors always have a new astronomical item to explore, providing an easy and quick overview of the latest posts.
+
+In a zigzag pattern, the most popular categories are displayed on the homepage. To encourage further engagement with the blog, a "Latest Contributors" section is also included.
+
+For astronomical enthusiasts, a nice widget is incorporated that tracks the current position of the International Space Station (ISS). When clicking on the 'Go To the ISS' button, a new page appears with an independently generated world map showing the ISS’s location.
+
+At the bottom of the page, I have included a subscription section where users can join the mailing list to receive newsletters, information, and relevant benefits.
+
+Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the AstroBlog.
+
 ---
-<details>
-  <summary>Wireframe for Dashboard Desktop</summary>
-  <img src="astroblog/static/imgs/readme-pics/wf-dash.png" style="display: block; margin: auto;" alt="Wireframe for Dashboard pages - Desktop">
-</details>
+### Front Page Overview
+The **Front Page** is designed to give a quick overview of a list of 5 blog posts ranked by the date added, with the most recent post at the top of the page.
 
-<details>
-  <summary>Wireframe for Dashboard Responsive</summary>
-  <img src="astroblog/static/imgs/readme-pics/wf-dash-resp.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
-</details>
+1. **NavBar**: The 'navbar' has a dual function and can be used by both visitors and authenticated users.
+   - Visitors can quickly navigate back to the "homepage" by clicking the home icon or to the 'front page blog posts' by clicking the left arrow icon.
+   - **For Visitors**: Visitors can always read posts but cannot participate. They have the option to view posts by category or to join Astro Blog by registering.
+   - **For Users**: Users have full CRUD (Create, Read, Update, Delete) functionality for their own posts. The 'Add Post' option appears, and they see 'Logged in as,' giving them the ability to change their profile settings and details.
+
+2. **Blog Post Snippets**: Each blog post is presented as a snippet along with a corresponding image.
+   - **For Visitors**: The `[read more]` link redirects to the article detail page where the full post can be read.
+   - **For Users**: Users have the same functionality as visitors, but on the redirected page, they have full control over their posts.
+
+3. **Detailed Article Posts**: On this page, each post is treated individually.
+   - **For Visitors**: Visitors can read the full blog post and any comments (if available). They cannot like or comment on posts. Visitors can click on the author's name to view the author’s profile page.
+   - **For Users**: Users can read the post, comment, and 'Like' the posts. They can only 'Dislike' posts they have already liked.  
+     The option to dislike posts outright is not part of the blog’s policy.
 
 #### Mobile first design
 To ensure a seamless experience across devices, Bootstrap is used to make the dashboard fully responsive. On mobile devices, the table features horizontal scrolling to prevent content compression, maintaining clarity and usability. Additionally, each table row highlights with a colour change on hover, making it easier for users to track their interactions as they navigate the dashboard.
@@ -147,7 +140,7 @@ To ensure a seamless experience across devices, Bootstrap is used to make the da
 
 The color palette for this project has been carefully selected to ensure a professional and clean aesthetic, aligning with the brand identity and enhancing user experience. Below is a breakdown of the primary colors used across the application:
 
-![Color Palette](astroblog/static/imgs/readme-pics/color-palette.png)
+![Color Palette](static/images/colorpalette.webp)
 
 - **Primary Color:** `#1F2937` - A deep, rich grey used as the main color for text and primary elements, ensuring clarity and focus.
 - **Warning Color:** `#d9a805d3` - A bold yellow-gold with transparency, used for alerts and warnings, drawing attention without being overwhelming.
