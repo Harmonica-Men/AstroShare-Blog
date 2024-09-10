@@ -132,7 +132,7 @@ The **Front Page** is designed to give a quick overview of a list of 5 blog post
      The option to dislike posts outright is not part of the blog’s policy.
 
 #### Mobile first design
-To ensure a seamless experience across devices, Bootstrap is used to make the dashboard fully responsive. On mobile devices, the table features horizontal scrolling to prevent content compression, maintaining clarity and usability. Additionally, each table row highlights with a colour change on hover, making it easier for users to track their interactions as they navigate the dashboard.
+To ensure a seamless experience across devices, Bootstrap is used to make the dashboard fully responsive. On mobile devices, the table features horizontal scrolling to prevent content compression, maintaining clarity and usability. Additionally, each table row highlights with a colour change on hover, making it easier for users to track their interactions as they navigate.
 
 [Back to Top](#astroshare-blog)
 
@@ -142,23 +142,25 @@ The color palette for this project has been carefully selected to ensure a profe
 
 ![Color Palette](static/images/colorpalette.webp)
 
-- **Primary Color:** `#1F2937` - A deep, rich grey used as the main color for text and primary elements, ensuring clarity and focus.
-- **Warning Color:** `#d9a805d3` - A bold yellow-gold with transparency, used for alerts and warnings, drawing attention without being overwhelming.
-- **Secondary Color:** `#1e97f3` - A vibrant blue utilized for secondary elements and highlights, adding a touch of brightness and modernity.
-- **Accent Color:** `#10B981` - A fresh green applied for accents, buttons, and interactive elements, bringing a sense of vitality and positive action.
-- **Background Color:** `#e2e3e4` - A soft grey used for background elements, creating a neutral canvas that allows content to stand out.
-- **Main Text Color:** `#1F2937` - The same deep grey as the primary color, ensuring consistency and readability across all text elements.
-- **Secondary Text Color:** `#020556f2` - A dark navy with a slight transparency, used for secondary text, providing a subtle contrast to the main text.
-- **Alternative Text Color:** `#ffffffda` - A near-white color with transparency, used for text on darker backgrounds, ensuring readability.
-- **White Color:** `#FFFFFF` - Pure white, used for backgrounds and text where maximum contrast is required.
-- **Secondary Color Transparency:** `#2d69c9a8` - A semi-transparent version of the secondary blue, used for overlays and subtle highlights.
-- **Accent Color Transparency:** `#0f9f7968` - A semi-transparent green, used for hover states and subtle accent effects, maintaining brand consistency.
-- **Light Gray Color:** `#E5E7EB` - A light grey used for borders, dividers, and other UI elements, providing structure without drawing attention.
-- **Hover Accent Color:** `#0F9F79` - A darker shade of the accent green, applied to buttons and interactive elements on hover, signaling action.
-- **Hover Button Color:** `#cf8168` - A muted coral used for hover states on specific buttons, adding warmth and emphasis.
-- **White Text Shadow:** `1px 1px 1px var(--secondary-text-color)` - A subtle text shadow used on light backgrounds to enhance readability and add depth.
-- **Dark Text Shadow:** `1px 1px 4px var(--white-color)` - A bolder text shadow used on dark backgrounds, ensuring that text stands out clearly.
-- **Transparent:** `#000000` - Black with full transparency, used to achieve various effects without adding color.
+- **Primary Color:** `#352F44` - Is a dark, muted purple with gray undertones, giving it a sophisticated, moody, and elegant feel. clarity and focus.
+- <img src="static/images/readme-images/352F44.webp" width="500px" height="50px">
+- **Secondary Color:** `#5C5470` - (also atrribute color) Is a muted, medium-dark purple with gray undertones, offering a subtle and sophisticated appearance.
+- <img src="static/images/readme-images/5C5470.webp" width="500px" height="50px">
+- **Primary Color Highlight:** `#AD91FC` - Highlight color for hover effects, is a soft, pastel lavender with a light, calming appearance, often associated with a gentle, serene feel.
+- <img src="static/images/readme-images/AD91FC.webp" width="500px" height="50px">
+- **Background Color:** `#B9B4C7` - is a soft, muted lavender-gray with cool undertones, giving it a calm and subtle appearance.
+- <img src="static/images/readme-images/B9B4C7.webp" width="500px" height="50px">
+- **Accent Color:** `#FAF0E06` - Is a soft, pale beige with warm undertones, often referred to as linen, giving it a light, neutral, and calming feel.
+- <img src="static/images/readme-images/FAF0E6.webp" width="500px" height="50px">
+- **Main Text Color:** `#FFFFFF` - Tis pure white, the brightest and most neutral color, representing simplicity, cleanliness, and clarity.
+- <img src="static/images/readme-images/FFFFFF.webp" width="500px" height="50px">
+- **Secondary Text Color:** `#000000` - (--main-text-color-invers) Is pure black, the darkest color, symbolizing elegance, power, and sophistication.
+- <img src="static/images/readme-images/000000.webp" width="500px" height="50px">
+- **Warning Color:** `#FF0000` - Is a bold, bright red, commonly associated with intensity, urgency, and passion.
+- <img src="static/images/readme-images/FF0000.webp" width="500px" height="50px">
+- **Dark Text Shadow:** `2px 2px 4px rgba(0, 0, 0, 0.5)` - A bolder text shadow used on white backgrounds, ensuring 
+that text stands out clearly.
+- <img src="static/images/readme-images/000005.webp" width="500px" height="50px">
 
 This color palette was chosen not only for its visual appeal but also for its contribution to a cohesive and user-friendly interface, reinforcing the professional and serious tone of the application.
 

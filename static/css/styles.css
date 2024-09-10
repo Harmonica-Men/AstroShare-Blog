@@ -2,11 +2,10 @@
 :root {
     --primary-color: #352F44; /* Primary color for main elements */
     --attrib-color: #5C5470; /* Secondary attribute color */
-    --primary-color-highlight: #ad91fc; /* Highlight color for hover effects */
+    --primary-color-highlight: #AD91FC; /* Highlight color for hover effects */
     --bs-body-bg: #B9B4C7; /* Body background color */
     --bs-body-font-family: 'Montserrat', sans-serif; /* Font family for body */
     --accent-color: #FAF0E6; /* Accent color used in buttons, links */
-    --border-color: #000000; /* Default border color */
     --main-text-color: #ffffff; /* Primary text color */
     --main-text-color-invers: #000000; /* Inverse text color */
     --danger-text-color: red; /* Color for danger text (e.g. warnings) */
