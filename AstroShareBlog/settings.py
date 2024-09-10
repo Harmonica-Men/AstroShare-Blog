@@ -22,7 +22,7 @@ import dj_database_url
 if os.path.exists("env.py"):
     import env
 
-NASA_API_KEY = os.getenv('NASA_API_KEY', 'Pvg4IKHgTOf7K0xGvKa0Y2jXxcAcFUi80JhZuq0K')
+NASA_API_KEY = os.getenv('NASA_API_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -165,6 +165,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'filip.vanelslande@gmail.com'
-EMAIL_HOST_PASSWORD = 'xfmz ofjm gvib ljvu'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'filip.vanelslande@gmail.com'
 SITE_URL = 'https://mail.vanelslande.com:444'
