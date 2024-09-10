@@ -41,9 +41,11 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
 
 ## Development Tools
 
-- **Bootstrap:** A collection of reusable Jinja widgets has been created to streamline the development process. These widgets automatically adapt to the type of data being passed, ensuring a consistent aesthetic across the entire platform. This approach not only speeds up development but also maintains a high level of visual and functional uniformity throughout the site.
-- **Modular Design:** The platform is built using a modular architecture in Flask, which allows for easy extension and maintenance. Each module is self-contained, facilitating rapid development and testing of individual components without affecting the entire application.
-- **Consistent Aesthetic:** By leveraging these custom widgets, the design remains consistent, providing a unified look and feel across all pages and components, which enhances the overall user experience.
+- **Bootstrap:** Bootstrap is a popular front-end development framework that helps developers create responsive, mobile-first websites quickly and efficiently. It provides a collection of pre-designed HTML, CSS, and JavaScript components like buttons, forms, navigation bars, and grid layouts. By using Bootstrap, developers can build modern, visually consistent web pages without writing extensive custom code. It's widely appreciated for its ease of use, customization options, and ability to adapt to various screen sizes, making it a go-to tool for fast web development.
+- **Modular Design:** Modular design is a system design approach that divides a system into independent, interchangeable modules. Each module performs a specific function, enabling flexibility, easy maintenance, scalability, and reusability.
+- **Consistent Aesthetic:** To maintaining a unified and cohesive visual style across all elements of a design. This includes consistent use of colors, fonts, shapes, and layout, ensuring that all components appear harmonious. It enhances user experience by creating familiarity and brand identity, making designs more professional and visually appealing.
+
+[Back to Top](#astroshare-blog)
 
 ## Technologies Used
 
@@ -66,13 +68,15 @@ By consolidating all the styles into one file, I make managing themes straightfo
 
 Additionally, having a single CSS file helps me avoid complications related to injecting styles through Bootstrap, ensuring that the CSS variables function as intended throughout the application.
 
+[Back to Top](#astroshare-blog)
+
 ## Wireframes
 
 The wireframes for this project served as a crucial guide during the development process, essentially acting as a blueprint for the design and layout of the website. My focus was primarily on two key pages: the index (or homepage) and the frontpage blog post. Given the repetitive nature of the blog post, I decided that it was a better idea to separate the homepage and the frontpage. The homepage serves more as an introductory page, while the frontpage blog post is a more active working page for the blog posts.
 
 I chose to highlight only two wireframes in this README as they are the most critical to the overall user experience. Other pages did not require such detailed wireframing and followed more standard, basic templates.
 
-#### Wireframes for Homepage
+#### Wireframes for Homepage & Frontpage
 
 <details>
   <summary>Wireframe for Homepage Desktop</summary>
@@ -90,12 +94,12 @@ I chose to highlight only two wireframes in this README as they are the most cri
 </details>
 <br>
 <details>
-  <summary>Wireframe for Frontpage Responsive</summary>  
+  <summary>Wireframe for Frontpage Blogpost Responsive</summary>  
   <img src="static/images/readme-images/Astro-Blog Frontpage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
 </details>
 <br>
 
----
+[Back to Top](#astroshare-blog)
 
 ### Index Page Overview
 
@@ -113,7 +117,8 @@ At the bottom of the page, I have included a subscription section where users ca
 
 Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the AstroBlog.
 
----
+[Back to Top](#astroshare-blog)
+
 ### Front Page Overview
 The **Front Page** is designed to give a quick overview of a list of 5 blog posts ranked by the date added, with the most recent post at the top of the page.
 
@@ -132,7 +137,7 @@ The **Front Page** is designed to give a quick overview of a list of 5 blog post
      The option to dislike posts outright is not part of the blog’s policy.
 
 #### Mobile first design
-To ensure a seamless experience across devices, Bootstrap is used to make the dashboard fully responsive. On mobile devices, the table features horizontal scrolling to prevent content compression, maintaining clarity and usability. Additionally, each table row highlights with a colour change on hover, making it easier for users to track their interactions as they navigate.
+To ensure a seamless experience across devices, Bootstrap is used to make the Home- & Frontpage fully responsive. On mobile devices, the table features horizontal scrolling to prevent content compression, maintaining clarity and usability. Additionally, each table row highlights with a colour change on hover, making it easier for users to track their interactions as they navigate.
 
 [Back to Top](#astroshare-blog)
 
@@ -164,21 +169,17 @@ that text stands out clearly.
 
 This color palette was chosen not only for its visual appeal but also for its contribution to a cohesive and user-friendly interface, reinforcing the professional and serious tone of the application.
 
+[Back to Top](#astroshare-blog)
 
 ### Color Customization Process
 
-The colour customization process in this project was designed to offer flexibility and personalisation for both users and companies. We implemented a series of **CSS Variables** to define various colour palettes, allowing users to choose a theme that suits their preferences directly from their profile page.
+The colour customization process in this project was designed to offer flexibility and personalisation. I have implemented a series of **CSS Variables** to define various colour palettes.
 
 Key elements of the colour customization process include:
 
-- **Multiple Colour Palettes**: We created several distinct colour palettes, each with its unique style—ranging from more traditional to modern and alternative designs. The default palette, known as the **root palette**, is the primary theme that all users see upon first visiting the site.
-
-- **User-Selectable Themes**: Once registered, users and companies have the option to customise their experience by selecting from the available colour palettes. This feature is accessible through the profile page, where users can easily switch between the pre-designed themes to match their personal or brand preferences.
+- **Multiple Colour Palettes**: I have created several distinct colour palettes, each with its unique style—ranging from more traditional to modern and alternative designs. The default palette, known as the **root palette**, is the primary theme that all users see upon first visiting the site.
 
 - **CSS Variables**: The different colour palettes are implemented using CSS Variables, which allows for dynamic and flexible styling of various elements across the site. This ensures a consistent and responsive design while providing a personalised experience for each user.
-
-This approach to colour customization not only enhances the aesthetic appeal of the site but also allows for a tailored user experience, making the platform more engaging and adaptable to individual preferences.
-
 
 [Back to Top](#astroshare-blog)
 
@@ -213,6 +214,8 @@ This approach to colour customization not only enhances the aesthetic appeal of 
   - Fill in the subscription and a confirmation mail will be sent.
   - Subscription is no registration to the blogpost.
 
+[Back to UX Table of Contents](#the-ux-table-of-contents)
+
 ## 2. Frontpage of the Blogpost
 - **User clicks on "Go To The Blog" or "Astro Blog":**
   - All registered users can add post on the blog.
@@ -242,6 +245,8 @@ This approach to colour customization not only enhances the aesthetic appeal of 
   - Show all categories and there content in Blog Post Categories.
   - Subpage of the blogpost is the frontpage of the blogpost.
   - Mainpage of the blogpost is the homepage of the blogpost.
+
+[Back to UX Table of Contents](#the-ux-table-of-contents)
 
 ## 3. Sign-Up Process
 **User clicks on "Sign Up":**
@@ -280,6 +285,8 @@ This approach to colour customization not only enhances the aesthetic appeal of 
 - **Collaborative Features:**
   - Option to invite other users to collaborate on a post.
   - Real-time collaboration with a shared editor for multiple contributors.
+
+[Back to UX Table of Contents](#the-ux-table-of-contents)
 
 ## 6. Profile and Community Building
 **User explores their profile and connects with others:**
@@ -450,10 +457,6 @@ A user story is an explanation of a software feature written from the perspectiv
 
 Below is an example of how the user stories where structured for this project.
 
-<br/>
-
-
-
 <br>
 
 List of Epics: <br>
@@ -481,7 +484,6 @@ User Stories with their id:  <br>
 - As a user, I want to add items to my wishlist so that I can keep track of things I want. [#18]()
 - As a user, I want to share my wishlist with others so that they can see my wishlist and know what I want to have. [#22]()
 <br>
-
 - As a developer, I want to define a database structure so that it matches the objectives of the project. [#10])
 - As a developer I want to set up and configure a database so that I can store and manage the application data securely and efficiently. [#11]()
 - As a developer, I need to verify that all html files pass the W3C validation so that the code is executed correctly. [#25](https://github.com/Harmonica_men/wishlist/issues/25)
@@ -494,8 +496,6 @@ User Stories with their id:  <br>
 <br>
 
 - As an admin, I want to access the site's administrative features so that I have access to the admin panel. [#8](https://github.com/Harmonica_men/wishlist/issues/8)
-
-
 
 ## User Stories Table of Contents
 1. [Welcome and Introduction](#welcome-and-introduction)
@@ -562,14 +562,10 @@ This flowchart was created to determine the flow of the website. It shows which 
 
 ![Flow Chart](static/images/readme-images/006_flowchart.jpg)
 
-[Back to Top](#astroshare-blog)
-
 ## Entity Relationship Diagram
 
 The database design for this project includes Four tables. The first table is a review table. This table houses all the data associated with making a review on the site. There is a customer table, which houses the details of the customer and this is linked to a booking table via a foreign key relationship. The booking table contains the information needed in order for users to make a booking. The last table present is the user table. This table has the information necessary for users to have an account on the website and has a foreign key relationship with the customer table.
 ![ERD](static/images/readme-images/005_ERD_diagram.jpg)
-
-[Back to Top](#astroshare-blog)
 
 ## Interaction and Collaboration
 **As a user:**
@@ -581,8 +577,6 @@ The database design for this project includes Four tables. The first table is a 
 
 [Back to User Stories Table of Contents](#user-stories-table-of-contents)
 
-[Back to Top](#astroshare-blog)
-
 ## Profile and Community Building
 **As a user:**
 - I want to explore my profile page that displays my information, including my profile picture, bio, posts, and activity.
@@ -591,10 +585,6 @@ The database design for this project includes Four tables. The first table is a 
 - I want to follow other users to receive updates on their posts and activities.
 - I want to use a direct messaging feature for private conversations.
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
-[Back to Top](#astroshare-blog)
-
 ## Ease of Use and Accessibility
 **As a user:**
 - I want the blog to be fully responsive and work seamlessly on desktop, tablet, and mobile devices.
@@ -602,10 +592,6 @@ The database design for this project includes Four tables. The first table is a 
 - I want high contrast mode and text resizing options for better accessibility if I am visually impaired.
 - I want a keyboard navigable interface and screen reader compatibility.
 - I want an easily accessible help section with FAQs and tutorials, along with a contact support option for direct assistance.
-
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
-[Back to Top](#astroshare-blog)
 
 ## Continuous Engagement
 **As a user:**

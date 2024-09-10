@@ -96,7 +96,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'AstroShareBlog.wsgi.application'
 
 
-
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
     # 'CONN_MAX_AGE': 600,  
