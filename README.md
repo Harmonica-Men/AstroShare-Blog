@@ -27,7 +27,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Continuous Engagement](#9-continuous-engagement)
     - [Conclusion](#10-conclusion)
   - [User Demographic Table of Contents](#user-demographic-table-of-contents)
-    - [Age Group](#1-age-group)1
+    - [Age Group](#1-age-group)
     - [Interest](#2-interest)
     - [Education Level](#3-education-level)
     - [Technological Proficiency](#4-technological-proficiency)
@@ -404,8 +404,6 @@ I used an Agile methodology approach to plan this project. This was implemented 
 Each user story was classified with a label according to MoSCoW prioritization.<br>
 The Kanban board can be seen [here](https://github.com/users/Harmonica-Men/projects/10).
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
 ### Milestones 
 
 The project was divided into three milestones, each containing the corresponding epics and user stories: [Milestone in Projects](https://github.com/Harmonica-Men/AstroShare-Blog/milestones)
@@ -441,8 +439,6 @@ A user story is an explanation of a software feature written from the perspectiv
 * Milestone - Which epic this user store is associated with.
 
 Below is an example of how the user stories where structured for this project.
-
-<br>
 
 ## List of Epics
 
