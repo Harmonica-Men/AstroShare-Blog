@@ -186,14 +186,16 @@ Key elements of the colour customization process include:
 ## The UX Table Of Contents
 1. [Welcome and Introduction](#1-welcome-and-introduction)
 2. [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
-3. [Sign-Up Process](#3-sign-up-process)
-4. [Navigation and Exploration](#4-navigation-and-exploration)
-5. [Creating and Sharing Content](#5-creating-and-sharing-content)
-6. [Interaction and Collaboration](#6-interaction-and-collaboration)
-7. [Profile and Community Building](#7-profile-and-community-building)
-8. [Ease of Use and Accessibility](#8-ease-of-use-and-accessibility)
-9. [Continuous Engagement](#9-continuous-engagement)
-10. [Conclusion](#10-conclusion)
+3. [Nav-bar](#3-nav-bar)
+4. [Sign-Up Process](#3-sign-up-process)
+5. [Creating and Sharing Content](#4-creating-and-sharing-content)
+6. [Interaction and Collaboration](#5-interaction-and-collaboration)
+7. [Profile and Community Building](#6-profile-and-community-building)
+8. [Ease of Use and Accessibility](#7-ease-of-use-and-accessibility)
+9. [Continuous Engagement](#8-continuous-engagement)
+10. [Conclusion](#9-conclusion)
+
+[Back to Top](#astroshare-blog)
 
 ## 1. Welcome and Introduction
 **User opens the blog website:**
@@ -217,7 +219,7 @@ Key elements of the colour customization process include:
 [Back to UX Table of Contents](#the-ux-table-of-contents)
 
 ## 2. Frontpage of the Blogpost
-- **User clicks on "Go To The Blog" or "Astro Blog":**
+- **User clicks on "Go To The Blog":**
   - All registered users can add post on the blog.
   - All post listed at there post date and shows a short list of text.
   - On "Read more" hyperlinks there is redirect to blog post details where every aspect of the post can be read.
@@ -246,8 +248,6 @@ Key elements of the colour customization process include:
   - Subpage of the blogpost is the frontpage of the blogpost.
   - Mainpage of the blogpost is the homepage of the blogpost.
 
-[Back to UX Table of Contents](#the-ux-table-of-contents)
-
 ## 3. Sign-Up Process
 **User clicks on "Sign Up":**
 
@@ -274,6 +274,8 @@ Key elements of the colour customization process include:
     - Tags field for categorizing the post (e.g., Planets, Stars, Telescopes, Space Missions).
   - "Post" button to publish the content.
 
+[Back to UX Table of Contents](#the-ux-table-of-contents)
+
 ## 5. Interaction and Collaboration
 **User interacts with a post:**
 
@@ -285,8 +287,6 @@ Key elements of the colour customization process include:
 - **Collaborative Features:**
   - Option to invite other users to collaborate on a post.
   - Real-time collaboration with a shared editor for multiple contributors.
-
-[Back to UX Table of Contents](#the-ux-table-of-contents)
 
 ## 6. Profile and Community Building
 **User explores their profile and connects with others:**
@@ -909,7 +909,7 @@ Navbar
 | Click Twitter icon                            | Should navigate to Twitter   | Redirect to X.com         | PASS  |
 | Click Instagram icon                          | Should navigate to Instagram | Redirect to Instagram.com | PASS  |
 | Click Facebook                                | Should navigate to Facebook  | Redirect to Facebook      | PASS  |
-| Click Globe                                   | Should navigate to Website   | Redirect to Codeinstiture | PASS  |
+| Click Globe                                   | Should navigate to Website   | Redirect to Codeinstitute | PASS  |
 
 | Search Template    |                            |                      |       |
 | ------------------ | -------------------------- | -------------------- | ----- |
