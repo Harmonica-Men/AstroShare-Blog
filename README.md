@@ -14,29 +14,33 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   - [Technologies Used](#technologies-used)
     - [Wireframes](#wireframes)
   - [Colors](#colors)
-    - [Color Customization Process](#color-customization-process)
-  - [User-Friendly Approach](#user-friendly-approach)
-    - [UX Table Of Contents](#the-ux-table-of-contents)
-        - [Welcome and Introduction](#1-welcome-and-introduction)
-        - [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
-        - [Nav-bar](#3-nav-bar)
-        - [Sign-Up Process](#4-sign-up-process)
-        - [Creating and Sharing Content](#5-creating-and-sharing-content)
-        - [Interaction and Collaboration](#6-interaction-and-collaboration)
-        - [Profile and Community Building](#7-profile-and-community-building)
-        - [Ease of Use and Accessibility](#8-ease-of-use-and-accessibility)
-        - [Continuous Engagement](#9-continuous-engagement)
-        - [Conclusion](#10-conclusion)
-    - [User Demographic Table of Contents](#user-demographic-table-of-contents)
-        - [Age Group](#1-age-group)
-        - [Interest](#2-interest)
-        - [Education Level](#3-education-level)
-        - [Technological Proficiency](#4-technological-proficiency)
-        - [Geographic Location](#5-geographic-location)
-        - [Behavioral Traits](#6-behavioral-traits)
-        - [Accessibility Needs](#7-accessibility-needs)
-    - [User Stories and Epics](#user-stories-and-epics)
-    - [Milestones](#milestones)
+    - [Color Customization Process](#color-customization-process)  
+  - [UX Table Of Contents](#the-ux-table-of-contents)
+    - [Welcome and Introduction](#1-welcome-and-introduction)
+    - [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
+    - [Nav-bar](#3-nav-bar)
+    - [Sign-Up Process](#4-sign-up-process)
+    - [Creating and Sharing Content](#5-creating-and-sharing-content)
+    - [Interaction and Collaboration](#6-interaction-and-collaboration)
+    - [Profile and Community Building](#7-profile-and-community-building)
+    - [Ease of Use and Accessibility](#8-ease-of-use-and-accessibility)
+    - [Continuous Engagement](#9-continuous-engagement)
+    - [Conclusion](#10-conclusion)
+  - [User Demographic Table of Contents](#user-demographic-table-of-contents)
+    - [Age Group](#1-age-group)1
+    - [Interest](#2-interest)
+    - [Education Level](#3-education-level)
+    - [Technological Proficiency](#4-technological-proficiency)
+    - [Geographic Location](#5-geographic-location)
+    - [Behavioral Traits](#6-behavioral-traits)
+    - [Accessibility Needs](#7-accessibility-needs)
+  - [Milestones](#milestones)
+  - [User Stories and Epics](#user-stories-and-epics)
+    - [User Stories](#user-stories)
+    - [List Of Epics](#list-of-epics)
+    
+
+  stop
     - [The Structure Plane](#the-structure-plane)
   - [Testing](#testing)
     - [HTML Validation](#html-validation)
@@ -400,8 +404,9 @@ I used an Agile methodology approach to plan this project. This was implemented 
 Each user story was classified with a label according to MoSCoW prioritization.<br>
 The Kanban board can be seen [here](https://github.com/users/Harmonica-Men/projects/10).
 
+[Back to User Stories Table of Contents](#user-stories-table-of-contents)
+
 ### Milestones 
-<br>
 
 The project was divided into three milestones, each containing the corresponding epics and user stories: [Milestone in Projects](https://github.com/Harmonica-Men/AstroShare-Blog/milestones)
 <br>
@@ -415,14 +420,14 @@ The project was divided into three milestones, each containing the corresponding
   - EPIC 2 (Basic Blog Functionality)
   - EPIC 3 (User Authentication) 
   - EPIC 4 (Admin Interface)
-  - EPIC 5 (Commenting System) EPICS
-  - EPIC 6 (Styling and Frontend) EPICS
-  - EPIC 7 (Search and Filtering) EPICS
-  - EPIC 8 (SEO and Performance Optimization) EPICS
+  - EPIC 5 (Commenting System) 
+  - EPIC 6 (Styling and Frontend) 
+  - EPIC 7 (Search and Filtering) 
+  - EPIC 8 (SEO and Performance Optimization) 
 
-3. [User Authentication](]https://github.com/Harmonica-Men/AstroShare-Blog/issues/8)
+3. [User Authentication](https://github.com/Harmonica-Men/AstroShare-Blog/issues/8)
 - Task: test & validate
-  - EPIC 9 (Testing and Validations) EPICS
+  - EPIC 9 (Testing and Validations) 
   
 ## User stories 
 
@@ -439,7 +444,7 @@ Below is an example of how the user stories where structured for this project.
 
 <br>
 
-List of Epics: <br>
+## List of Epics
 
 - [EPIC 1: Repository and Deploy Early](https://github.com/users/Harmonica-Men/projects/10?pane=issue&itemId=70098431)
 - [EPIC 2: Basic Blog Functionality](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70117569)
@@ -491,14 +496,14 @@ so that users can manage their own blog content.[#21](https://github.com/users/H
 7. [Ease of Use and Accessibility](#ease-of-use-and-accessibility)
 8. [Continuous Engagement](#continuous-engagement)
 
-## Welcome and Introduction
+### Welcome and Introduction
 **As a user:**
 - I want to see a visually appealing landing page with a space theme and a welcoming headline.
 - I want to read a brief introduction about the community and its features.
 - I want to have prominent "Sign Up" and "Log In" buttons to easily join or access the blog.
 - I want to watch a short introductory video or animation showcasing the blog's features.
 
-## Sign-Up Process
+### Sign-Up Process
 **As a user:**
 - I want to click on "Sign Up" and fill out a simple form with my Username, Email, Password, and Confirm Password.
 - I want to have the option to sign up using my social media accounts (Google, Facebook).
@@ -506,18 +511,18 @@ so that users can manage their own blog content.[#21](https://github.com/users/H
 
 [Back to User Stories Table of Contents](#user-stories-table-of-contents)
 
-## Navigation and Exploration
+### Navigation and Exploration
 **As a user:**
 - I want to be directed to the main dashboard with a personalized greeting after completing the sign-up.
 - I want an easy-to-navigate menu with options like Home, Explore, Create Post, My Profile, Notifications, Settings, and Log Out.
 - I want to see a home feed with the latest posts from users, including photos, articles, and discussions about various astronomical topics.
 - I want each post to include the author’s profile picture, name, post title, content preview, and interaction buttons (Like, Comment, Share).
 
-# Database
+### Database
   PostgreSQL uitleg psycopg2  (pip install) 2.9.6
   Cloudinary werking generate new API-key ... (pip install)
 
-## Creating and Sharing Content
+### Creating and Sharing Content
 **As a user:**
 - I want to click on "Create Post" and access a simple and intuitive editor.
 - I want to have a title field, content field with rich text formatting options, and the ability to add photos either by dragging and dropping or uploading from my device.
@@ -525,7 +530,18 @@ so that users can manage their own blog content.[#21](https://github.com/users/H
 
 [Back to User Stories Table of Contents](#user-stories-table-of-contents)
 
-[Back to Top](#astroshare-blog)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Flowchart
 
