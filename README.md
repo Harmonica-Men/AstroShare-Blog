@@ -400,64 +400,33 @@ I used an Agile methodology approach to plan this project. This was implemented 
 Each user story was classified with a label according to MoSCoW prioritization.<br>
 The Kanban board can be seen [here](https://github.com/users/Harmonica-Men/projects/10).
 
-### Milestones
+### Milestones 
+<br>
 
-The project was divided into three milestones, each containing the corresponding epics and user stories:<br>
+The project was divided into three milestones, each containing the corresponding epics and user stories: [Milestone in Projects](https://github.com/Harmonica-Men/AstroShare-Blog/milestones)
+<br>
+
 1. [Setting Up The Project @ Bear minimums](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/1)
-- Task: Set up the project repository and initialize Django project.
-- Create a new repository on GitHub, GitPod.
-- Set up the virtual environment and install Django.
-- Initialize a new Django project and create a base application.
-- Configure settings for the project  static files, static and README.md 
-- Deploy early to a hosting platform Heroku
+- Task: The goal is to set up the project at its bare minimum.
+  - Set up a new project local on VS-code locally
+  - Create new repositories on GitHub and have version control in the main branch
+  - Run Django and make sure the 'hello world' landing page is shown
+  - Create EPICS and USER STORIES for the project
 
 2. [Basic Blog Functionality](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/2)
 - Task: Implement basic blog functionality including models, views, and templates.
-  - Define the models for blog posts (e.g., Post, Category, Tag).
-  - Create views to list all posts, view individual posts, and manage categories/tags.
-  - Design templates for the blog homepage, individual post pages, and category/tag pages.
-  - Implement URL routing for the blog.
+  - EPIC 2 (Basic Blog Functionality)
+  - EPIC 3 (User Authentication) 
+  - EPIC 4 (Admin Interface)
+  - EPIC 5 (Commenting System) EPICS
+  - EPIC 6 (Styling and Frontend) EPICS
+  - EPIC 7 (Search and Filtering) EPICS
+  - EPIC 8 (SEO and Performance Optimization) EPICS
 
 3. [User Authentication](]https://github.com/Harmonica-Men/AstroShare-Blog/issues/8)
-- Task: Add user authentication to allow for author logins and secure post management.
-  - Set up Django’s built-in authentication system.
-  - Create registration, login, and logout views and templates.
-  - Implement user-specific actions, such as creating, editing, and deleting blog posts.
-
-4. [Admin Interface](https://github.com/Harmonica-Men/AstroShare-Blog/issues/9)
-- Task: Set up the Django admin interface for managing blog content.
-  - Register blog models with the Django admin.
-  - Customize the admin interface for better usability (e.g., list displays, search fields).
-
-5. [Commenting System](https://github.com/Harmonica-Men/AstroShare-Blog/issues/10)
-- Task: Implement a commenting system for blog posts.
-  - Create models for comments linked to blog posts.
-  - Create views and templates for adding and displaying comments.
-  - Implement moderation features for comments (e.g., approval workflow).
-
-6. [Styling and Frontend](https://github.com/Harmonica-Men/AstroShare-Blog/issues/11)
-- Task: Apply CSS and JavaScript to enhance the look and feel of the blog.
-  - Use a CSS framework like Bootstrap for basic styling.
-  - Customize templates to ensure a consistent and responsive design.
-  - Add JavaScript for interactive elements (e.g., comment submission, post likes).
-
-7. [Search and Filtering](https://github.com/Harmonica-Men/AstroShare-Blog/issues/12)
-- Task: Implement search and filtering capabilities.
-  - Add a search bar to allow users to search for posts.
-  - Implement filtering by categories, tags, and publication dates.
-  - Optimize search and filter queries for performance.
-
-8. [SEO and Performance Optimization](https://github.com/Harmonica-Men/AstroShare-Blog/issues/13)
-- Task: Optimize the blog for search engines and improve performance.
-  - Implement SEO best practices (e.g., meta tags, sitemap, robots.txt).
-  - Optimize images and static files for faster loading.
-  - Use caching to improve page load times.
-
-9. [Testing and Deployment](https://github.com/Harmonica-Men/AstroShare-Blog/issues/14)
-- Task: Write tests and deploy the project.
-  - Write unit tests and integration tests for critical functionality.
-  - Set up continuous integration (CI) to automate - and/or manual testing
-
+- Task: test & validate
+  - EPIC 9 (Testing and Validations) EPICS
+  
 ## User stories 
 
 A user story is an explanation of a software feature written from the perspective of the end user. Its purpose is to articulate how a software feature will provide value to the customer. User stories were created with the help of GitHub issues. Each user story contains:
