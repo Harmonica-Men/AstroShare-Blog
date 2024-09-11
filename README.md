@@ -15,10 +15,28 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Wireframes](#wireframes)
   - [Colors](#colors)
     - [Color Customization Process](#color-customization-process)
-    - [User-Friendly Approach](#user-friendly-approach)
-  - [UX Table Of Contents](#the-ux-table-of-contents)
+  - [User-Friendly Approach](#user-friendly-approach)
+    - [UX Table Of Contents](#the-ux-table-of-contents)
+        1. [Welcome and Introduction](#1-welcome-and-introduction)
+        2. [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
+        3. [Nav-bar](#3-nav-bar)
+        4. [Sign-Up Process](#4-sign-up-process)
+        5. [Creating and Sharing Content](#5-creating-and-sharing-content)
+        6. [Interaction and Collaboration](#6-interaction-and-collaboration)
+        7. [Profile and Community Building](#7-profile-and-community-building)
+        8. [Ease of Use and Accessibility](#8-ease-of-use-and-accessibility)
+        9. [Continuous Engagement](#9-continuous-engagement)
+        10. [Conclusion](#10-conclusion)
     - [User Demographic Table of Contents](#user-demographic-table-of-contents)
+        1. [Age Group](#1-age-group)
+        2. [Interest](#2-interest)
+        3. [Education Level](#3-education-level)
+        4. [Technological Proficiency](#4-technological-proficiency)
+        5. [Geographic Location](#5-geographic-location)
+        6. [Behavioral Traits](#6-behavioral-traits)
+        7. [Accessibility Needs](#7-accessibility-needs)
     - [User Stories and Epics](#user-stories-and-epics)
+    - [Milestones](#milestones)
     - [The Structure Plane](#the-structure-plane)
   - [Testing](#testing)
     - [HTML Validation](#html-validation)
@@ -181,23 +199,21 @@ Key elements of the colour customization process include:
 
 - **CSS Variables**: The different colour palettes are implemented using CSS Variables, which allows for dynamic and flexible styling of various elements across the site. This ensures a consistent and responsive design while providing a personalised experience for each user.
 
-[Back to Top](#astroshare-blog)
+[Table Of Contents](#table-of-contents)
 
 ## The UX Table Of Contents
-1. [Welcome and Introduction](#1-welcome-and-introduction)
-2. [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
-3. [Nav-bar](#3-nav-bar)
-4. [Sign-Up Process](#3-sign-up-process)
-5. [Creating and Sharing Content](#4-creating-and-sharing-content)
-6. [Interaction and Collaboration](#5-interaction-and-collaboration)
-7. [Profile and Community Building](#6-profile-and-community-building)
-8. [Ease of Use and Accessibility](#7-ease-of-use-and-accessibility)
-9. [Continuous Engagement](#8-continuous-engagement)
-10. [Conclusion](#9-conclusion)
+  1. [Welcome and Introduction](#1-welcome-and-introduction)
+  2. [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
+  3. [Nav-bar](#3-nav-bar)
+  4. [Sign-Up Process](#4-sign-up-process)
+  5. [Creating and Sharing Content](#5-creating-and-sharing-content)
+  6. [Interaction and Collaboration](#6-interaction-and-collaboration)
+  7. [Profile and Community Building](#7-profile-and-community-building)
+  8. [Ease of Use and Accessibility](#8-ease-of-use-and-accessibility)
+  9. [Continuous Engagement](#9-continuous-engagement)
+  10. [Conclusion](#10-conclusion)
 
-[Back to Top](#astroshare-blog)
-
-## 1. Welcome and Introduction
+### 1. Welcome and Introduction
 **User opens the blog website:**
 
 - **Landing Page:**
@@ -216,9 +232,7 @@ Key elements of the colour customization process include:
   - Fill in the subscription and a confirmation mail will be sent.
   - Subscription is no registration to the blogpost.
 
-[Back to UX Table of Contents](#the-ux-table-of-contents)
-
-## 2. Frontpage of the Blogpost
+### 2. Frontpage of the Blogpost
 - **User clicks on "Go To The Blog":**
   - All registered users can add post on the blog.
   - All post listed at there post date and shows a short list of text.
@@ -229,7 +243,9 @@ Key elements of the colour customization process include:
   - All autheticad users can add posts, they can also delete or edit there posts.
   - Pagination to easy access other blog post.
 
-## 3. Nav-bar 
+[Table Of Contents](#table-of-contents)
+
+### 3. Nav-bar 
 - **User clicks access to Navigation Bar"**
   - The users can see any time login status in right upper corner.
   - The users can access if logged in there creditials.
@@ -248,7 +264,7 @@ Key elements of the colour customization process include:
   - Subpage of the blogpost is the frontpage of the blogpost.
   - Mainpage of the blogpost is the homepage of the blogpost.
 
-## 3. Sign-Up Process
+### 4. Sign-Up Process
 **User clicks on "Sign Up":**
 
 - **Sign-Up Form:**
@@ -263,7 +279,7 @@ Key elements of the colour customization process include:
     - Add links to personal websites or social media profiles (optional).
   - If needed the user can always update there profile afterwards.
 
-## 4. Creating and Sharing Content
+### 5. Creating and Sharing Content
 **User clicks on "Add Post":**
 
 - **Add Post Page:**
@@ -274,9 +290,9 @@ Key elements of the colour customization process include:
     - Tags field for categorizing the post (e.g., Planets, Stars, Telescopes, Space Missions).
   - "Post" button to publish the content.
 
-[Back to UX Table of Contents](#the-ux-table-of-contents)
+[Table Of Contents](#table-of-contents)
 
-## 5. Interaction and Collaboration
+### 6. Interaction and Collaboration
 **User interacts with a post:**
 
 - **Commenting:**
@@ -288,7 +304,7 @@ Key elements of the colour customization process include:
   - Option to invite other users to collaborate on a post.
   - Real-time collaboration with a shared editor for multiple contributors.
 
-## 6. Profile and Community Building
+### 7. Profile and Community Building
 **User explores their profile and connects with others:**
 
 - **User Profile:**
@@ -300,7 +316,9 @@ Key elements of the colour customization process include:
   - Follow other users on their posts and activities.
   - Direct messaging feature for private conversations.
 
-## 7. Ease of Use and Accessibility
+[Table Of Contents](#table-of-contents)
+
+### 8. Ease of Use and Accessibility
 **User enjoys a seamless experience:**
 
 - **Responsive Design:**
@@ -311,7 +329,7 @@ Key elements of the colour customization process include:
   - High contrast mode and text resizing options for visually impaired users.
   - Keyboard navigable interface and screen reader compatibility.
 
-## 8. Continuous Engagement
+### 9. Continuous Engagement
 **User stays engaged and returns to the blog:**
 
 - **Content Recommendations:**
@@ -322,12 +340,10 @@ Key elements of the colour customization process include:
   - Community events such as virtual star-gazing sessions, photo contests, and Q&A sessions with astronomy experts.
   - Interactive challenges and quizzes to keep users engaged and learning.
 
-## 9. Conclusion
+### 10. Conclusion
 AstroShare offers a user-friendly, engaging, and collaborative platform for astronomy enthusiasts to share knowledge, interact with the community, and enjoy a seamless and enriching experience.
 
-[Back to UX Table of Contents](#the-ux-table-of-contents)
-
-[Back to Top](#astroshare-blog)
+[Table Of Contents](#table-of-contents)
 
 ## User Demographic Table of Contents
 1. [Age Group](#1-age-group)
@@ -338,35 +354,33 @@ AstroShare offers a user-friendly, engaging, and collaborative platform for astr
 6. [Behavioral Traits](#6-behavioral-traits)
 7. [Accessibility Needs](#7-accessibility-needs)
 
-## 1. Age Group
+### 1. Age Group
 - Primarily adults and young adults (18-65 years old) who have a keen interest in astronomy and space exploration.
 - This demographic is likely to be tech-savvy and comfortable using digital platforms for both learning and social interaction.
 
-## 2. Interest
+### 2. Interest
 - Individuals who are passionate about astronomy, including amateur astronomers, space enthusiasts, students studying astronomy or related sciences, and professionals working in the field.
 
-## 3. Education Level
+### 3. Education Level
 - Varied, but likely to include individuals with at least a high school education and a strong interest in science, particularly astronomy and space sciences.
 - Some users may have advanced degrees or be pursuing careers in astronomy or related fields.
 
-## 4. Technological Proficiency
+### 4. Technological Proficiency
 - Users who are comfortable with technology, including social media platforms, online communities, and content creation tools.
 - They are likely to engage actively in online discussions, share content, and collaborate with others on the platform.
 
-## 5. Geographic Location
+### 5. Geographic Location
 - The platform may attract users globally, given the universal interest in astronomy.
 - However, regions with active amateur astronomy communities, space research institutes, or strong educational programs in astronomy may have a higher concentration of users.
 
-## 6. Behavioral Traits
+### 6. Behavioral Traits
 - Users who enjoy sharing knowledge, participating in discussions, and engaging with multimedia content such as photos and videos related to astronomy.
 - They may also value community building, collaborative projects, and staying updated with the latest astronomical discoveries and events.
 
-## 7. Accessibility Needs
+### 7. Accessibility Needs
 - While primarily targeting users comfortable with digital platforms, efforts should be made to ensure accessibility features such as high contrast mode, text resizing, and screen reader compatibility to accommodate users with visual impairments or disabilities.
 
 [Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
-
-[Back to Top](#astroshare-blog)
 
 ## User Stories and Epics
 Astro Blog Share is for those who are interested in Astronomical subjects and like to share there toughs in a deticated blog. The blog can be used as a discussion platform for anybody who have a special affliation whit astronomy.
@@ -397,49 +411,49 @@ The project was divided into three milestones, each containing the corresponding
 - Configure settings for the project  static files, static and README.md 
 - Deploy early to a hosting platform Heroku
 
-2. [Basic Blog Functionality]()
+2. [Basic Blog Functionality](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/2)
 - Task: Implement basic blog functionality including models, views, and templates.
   - Define the models for blog posts (e.g., Post, Category, Tag).
   - Create views to list all posts, view individual posts, and manage categories/tags.
   - Design templates for the blog homepage, individual post pages, and category/tag pages.
   - Implement URL routing for the blog.
 
-3. User Authentication
+3. [User Authentication](]https://github.com/Harmonica-Men/AstroShare-Blog/issues/8)
 - Task: Add user authentication to allow for author logins and secure post management.
   - Set up Django’s built-in authentication system.
   - Create registration, login, and logout views and templates.
   - Implement user-specific actions, such as creating, editing, and deleting blog posts.
 
-4. Admin Interface
+4. [Admin Interface](https://github.com/Harmonica-Men/AstroShare-Blog/issues/9)
 - Task: Set up the Django admin interface for managing blog content.
   - Register blog models with the Django admin.
   - Customize the admin interface for better usability (e.g., list displays, search fields).
 
-5. Commenting System
+5. [Commenting System](https://github.com/Harmonica-Men/AstroShare-Blog/issues/10)
 - Task: Implement a commenting system for blog posts.
   - Create models for comments linked to blog posts.
   - Create views and templates for adding and displaying comments.
   - Implement moderation features for comments (e.g., approval workflow).
 
-6. Styling and Frontend
+6. [Styling and Frontend](https://github.com/Harmonica-Men/AstroShare-Blog/issues/11)
 - Task: Apply CSS and JavaScript to enhance the look and feel of the blog.
   - Use a CSS framework like Bootstrap for basic styling.
   - Customize templates to ensure a consistent and responsive design.
   - Add JavaScript for interactive elements (e.g., comment submission, post likes).
 
-7. Search and Filtering
+7. [Search and Filtering](https://github.com/Harmonica-Men/AstroShare-Blog/issues/12)
 - Task: Implement search and filtering capabilities.
   - Add a search bar to allow users to search for posts.
   - Implement filtering by categories, tags, and publication dates.
   - Optimize search and filter queries for performance.
 
-8. SEO and Performance Optimization
+8. [SEO and Performance Optimization](https://github.com/Harmonica-Men/AstroShare-Blog/issues/13)
 - Task: Optimize the blog for search engines and improve performance.
   - Implement SEO best practices (e.g., meta tags, sitemap, robots.txt).
   - Optimize images and static files for faster loading.
   - Use caching to improve page load times.
 
-9. Testing and Deployment
+9. [Testing and Deployment](https://github.com/Harmonica-Men/AstroShare-Blog/issues/14)
 - Task: Write tests and deploy the project.
   - Write unit tests and integration tests for critical functionality.
   - Set up continuous integration (CI) to automate - and/or manual testing
@@ -460,42 +474,46 @@ Below is an example of how the user stories where structured for this project.
 <br>
 
 List of Epics: <br>
-- [EPIC 1: Repository and agile tool]()
-- [EPIC 2: Basic Website and Database Structure]()
-- [EPIC 3: User authentication]()
-- [EPIC 4: Blog Post Management]()
-- [EPIC 5: Testing]()
-- [EPIC 6: Validation]()
+
+- [EPIC 1: Repository and Deploy Early](https://github.com/users/Harmonica-Men/projects/10?pane=issue&itemId=70098431)
+- [EPIC 2: Basic Blog Functionality](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70117569)
+- [EPIC 3: User authentication](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70121138)
+- [EPIC 4: Admin Interface](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70123718)
+- [EPIC 5: Commenting System](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70128247)
+- [EPIC 6: Styling and Frontend](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70208718)
+- [EPIC 7: Search and Filtering](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70129504)
+- [EPIC 8: SEO and Performance Optimization](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70129811)
+- [EPIC 9: Testing and Validations](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70130186)
 
 User Stories with their id:  <br>
-- As a new website user, I am able to identify the website's goal so that I can decide whether to continue or leave. [#9]()
-- As a new user, I can register an account so that I can create and manage wish lists or items of other wish lists. [#12](ht)
-- As a registered user, I want to log in to my account so that I can create, read, update and delete my wish list(s) [#13]()
-- As a registered user, I want to manage my profile so that I can update my account. [#13]()
-- As a registered user, I want to edit my wishlist so that I can update its details. [#16]()
-- As a registered user, I want to be able to delete a wishlist so that I can remove outdated or unnecessary lists. [#17]()
-- As a registered user, I want to edit items in my wishlist so that I can update their details.[#19]()
-- As a registered user, I want to be able to delete items from my wishlist so that I can remove unwanted items.[#20]()
-- As a registered user, I want to reserve an item of a wishlist, so that no other user will purchase this. [#23]()
-- As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. [#24]()
-- As a logged-in user, I want to update my profile information so that my account details are current. [#14]()
-- As a frequent website user, I can easily login to my account so that I have access to my wish lists and items I want to purchase. [#9]()
-- As a user of the website I want to create a wish list for a specific occasion so that I can organize my desired items. [#15]()
-- As a user, I want to add items to my wishlist so that I can keep track of things I want. [#18]()
-- As a user, I want to share my wishlist with others so that they can see my wishlist and know what I want to have. [#22]()
-<br>
-- As a developer, I want to define a database structure so that it matches the objectives of the project. [#10])
-- As a developer I want to set up and configure a database so that I can store and manage the application data securely and efficiently. [#11]()
-- As a developer, I need to verify that all html files pass the W3C validation so that the code is executed correctly. [#25](https://github.com/Harmonica_men/wishlist/issues/25)
-- As a developer, I need to verify that my css files pass the W3C validation so that the code is executed correctly. [#26](https://github.com/Harmonica_men/wishlist/issues/26)
-- As a developer, I need to verify that my JavaScript files pass the jshint validation so that the code is executed correctly. [#27](https://github.com/Harmonica_men/wishlist/issues/27)
-- As a developer, I need to verify that my python files pass the pep8 validation so that the code is executed correctly. [#28](https://github.com/Harmonica_men/wishlist/issues/28)
-- As a developer, I want to implement python test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#29](https://github.com/Harmonica_men/wishlist/issues/29)
-- As a developer, I want to implement JavaScript test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#30](https://github.com/Harmonica_men/wishlist/issues/30)
-- As a developer, I want to implement manual test cases so that I can assess functionality, usability, responsiveness and data management throughout the web application. [#31](https://github.com/Harmonica_men/wishlist/issues/31)
-<br>
-
-- As an admin, I want to access the site's administrative features so that I have access to the admin panel. [#8](https://github.com/Harmonica_men/wishlist/issues/8)
+- As a software developer,I can to set up the VS Code IDE on my local machine,so that I can efficiently develop and debug my projects. [#37](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70364129)
+- As a software developer, I want to set up a GitHub repository for our new project, so that the team can collaborate on the codebase efficiently and maintain version control. [#2](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70098555)
+- As a software developer, I can to create a working Django app, so that I can build and deploy a web application efficiently. [#3](https://github.com/users/Harmonica-Men/projects/10?pane=issue&itemId=70105394)
+- As a software developer, I want to deploy our application to Heroku, so that it is accessible to users and can be tested in a live environment. [#4](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70105449)
+- As a software developer, I want to set up a GitHub repository for our new project, so that the team can collaborate on the codebase efficiently and maintain version control.[#5](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70109025)
+- As a software developer, I want to define the models for blog posts, so that the application can store and manage blog post data efficiently.[#15](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70132743)
+- As a software developer, I can to create views to list all posts, view individual posts, and manage categories and profiles, so that users can easily navigate and interact with the blog content and manage their profiles.[#16](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70135804)
+- As a software developer, I can to design templates for the blog, so that the blog has a consistent and visually appealing layout.[#17](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70138078)
+- As a software developer, I can to implement URL routing for the blog, so that users can navigate to different parts of the blog application.[#18](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70139779)
+- As a frontend developer, I want to set up Django’s built-in authentication system, so that users can securely register, log in, and manage their accounts.[#19](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70201797)
+- As a software developer, I can to create registration, login, and logout views and templates, so that users can securely register, log in, and log out of the application.[#20](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70203518)
+- As a software developer, I can to implement user-specific actions for creating, editing, and deleting blog posts,
+so that users can manage their own blog content.[#21](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70204403)
+- As a software developer, I want to register the blog models with the Django admin, so that I can manage blog content through the Django admin interface.[#22](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70205152)
+- As an admin user, I can to customize the admin interface to improve usability, so that I can efficiently manage data and perform administrative tasks.[#23](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70205593)
+- As a software developer, I can to create models for comments linked to blog posts, so that users can add comments to blog posts and manage them efficiently.[#24](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70206168)
+- As a user, I can to add comments to blog posts and view comments on blog posts, so that I can engage with the content and other users.[#25](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70206850)
+- As a software developer, I can to implement moderation features for comments, so that comments can be reviewed and approved before being displayed publicly.[#26](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70207750)
+- As a software developer, I want to use a CSS framework like Bootstrap for basic styling, so that the application has a consistent and responsive design with minimal effort.[#28](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70210752)
+- As a user, I can to customize templates so that I can ensure a consistent and responsive design across all devices and platforms.[#29](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=70211351)
+- As a software developer, I want to add JavaScript for interactive elements such as comment submission and post likes, so that users can interact with the blog posts dynamically without page reloads.[#30](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70211925)
+- As a user, I can to have a search bar on the blog, so that I can easily search for posts by keywords.[#31](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70212442)
+- As a user, I can to filter blog posts by categories, tags, and publication dates, so that I can easily find the content that interests me.[#32](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70212964)
+- As a software developer, I can to implement SEO best practices, so that the application ranks higher in search engine results and attracts more organic traffic.[#34](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70213733)
+- As a front-end developer, I want to optimize images and static files, so that the application loads faster and provides a better user experience.[#35](https://github.com/users/Harmonica-Men/projects/10/views/2?pane=issue&itemId=70214000)
+- As a software developer, I want to write unit tests and integration tests for critical functionality, So that I can ensure the reliability and correctness of the application and catch issues early in the development cycle. [#38](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=79390026) 
+- As a software developer, I want to set up continuous integration (CI), So that I can automate tests and streamline manual testing processes to improve software quality and reduce the time spent on manual checks. [#39](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=79390026)
+- As a software developer, I want to set up continuous integration (CI), So that I can automate tests and streamline manual testing processes to improve software quality and reduce the time spent on manual checks. 
 
 ## User Stories Table of Contents
 1. [Welcome and Introduction](#welcome-and-introduction)
@@ -506,7 +524,6 @@ User Stories with their id:  <br>
 6. [Profile and Community Building](#profile-and-community-building)
 7. [Ease of Use and Accessibility](#ease-of-use-and-accessibility)
 8. [Continuous Engagement](#continuous-engagement)
-9. [Epics]()
 
 ## Welcome and Introduction
 **As a user:**
@@ -514,10 +531,6 @@ User Stories with their id:  <br>
 - I want to read a brief introduction about the community and its features.
 - I want to have prominent "Sign Up" and "Log In" buttons to easily join or access the blog.
 - I want to watch a short introductory video or animation showcasing the blog's features.
-
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
-[Back to Top](#astroshare-blog)
 
 ## Sign-Up Process
 **As a user:**
@@ -527,8 +540,6 @@ User Stories with their id:  <br>
 
 [Back to User Stories Table of Contents](#user-stories-table-of-contents)
 
-[Back to Top](#astroshare-blog)
-
 ## Navigation and Exploration
 **As a user:**
 - I want to be directed to the main dashboard with a personalized greeting after completing the sign-up.
@@ -536,15 +547,9 @@ User Stories with their id:  <br>
 - I want to see a home feed with the latest posts from users, including photos, articles, and discussions about various astronomical topics.
 - I want each post to include the author’s profile picture, name, post title, content preview, and interaction buttons (Like, Comment, Share).
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
-[Back to Top](#astroshare-blog)
-
-
 # Database
   PostgreSQL uitleg psycopg2  (pip install) 2.9.6
   Cloudinary werking generate new API-key ... (pip install)
-
 
 ## Creating and Sharing Content
 **As a user:**
