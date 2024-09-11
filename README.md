@@ -408,10 +408,7 @@ The project was divided into three milestones, each containing the corresponding
 
 1. [Setting Up The Project @ Bear minimums](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/1)
 - Task: The goal is to set up the project at its bare minimum.
-  - Set up a new project local on VS-code locally
-  - Create new repositories on GitHub and have version control in the main branch
-  - Run Django and make sure the 'hello world' landing page is shown
-  - Create EPICS and USER STORIES for the project
+  - EPIC 1 (Repository and Deploy Early)
 
 2. [Basic Blog Functionality](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/2)
 - Task: Implement basic blog functionality including models, views, and templates.
