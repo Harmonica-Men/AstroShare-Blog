@@ -38,7 +38,15 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
   - [User Stories and Epics](#user-stories-and-epics)
     - [User Stories](#user-stories)
     - [List Of Epics](#list-of-epics)
-    
+  - [User Stories Table of Contents](#user-stories-table-of-contents)
+    - [Welcome and Introduction](#welcome-and-introduction)
+    - [Sign-Up Process](#sign-up-process)
+    - [Navigation and Exploration](#navigation-and-exploration)
+    - [Creating and Sharing Content](#creating-and-sharing-content)
+    - [Interaction and Collaboration](#interaction-and-collaboration)
+    - [Profile and Community Building](#profile-and-community-building)
+    - [Ease of Use and Accessibility](#ease-of-use-and-accessibility)
+    - [Continuous Engagement](#continuous-engagement)
 
   stop
     - [The Structure Plane](#the-structure-plane)
@@ -404,7 +412,7 @@ I used an Agile methodology approach to plan this project. This was implemented 
 Each user story was classified with a label according to MoSCoW prioritization.<br>
 The Kanban board can be seen [here](https://github.com/users/Harmonica-Men/projects/10).
 
-### Milestones 
+## Milestones 
 
 The project was divided into three milestones, each containing the corresponding epics and user stories: [Milestone in Projects](https://github.com/Harmonica-Men/AstroShare-Blog/milestones)
 <br>
@@ -427,7 +435,7 @@ The project was divided into three milestones, each containing the corresponding
 - Task: test & validate
   - EPIC 9 (Testing and Validations) 
   
-## User stories 
+### User stories 
 
 A user story is an explanation of a software feature written from the perspective of the end user. Its purpose is to articulate how a software feature will provide value to the customer. User stories were created with the help of GitHub issues. Each user story contains:
 * Title - Short description of the user story. 
@@ -440,7 +448,7 @@ A user story is an explanation of a software feature written from the perspectiv
 
 Below is an example of how the user stories where structured for this project.
 
-## List of Epics
+### List of Epics
 
 - [EPIC 1: Repository and Deploy Early](https://github.com/users/Harmonica-Men/projects/10?pane=issue&itemId=70098431)
 - [EPIC 2: Basic Blog Functionality](https://github.com/users/Harmonica-Men/projects/10/views/1?filterQuery=label%3AEPICS&pane=issue&itemId=70117569)
