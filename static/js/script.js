@@ -1,7 +1,7 @@
 // {"esversion": 6}
 document.addEventListener('DOMContentLoaded', function() {
-    var apiKey = 'YOUR_NASA_API_KEY';
-    var apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
+    let apiKey = 'YOUR_NASA_API_KEY';
+    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
 
     fetch(apiUrl)
         .then(function(response) {
