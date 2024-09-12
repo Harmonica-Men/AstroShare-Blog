@@ -219,9 +219,12 @@ class AddCategoryView(CreateView):
 
 def search_view(request):
     query = request.GET.get('query', '')
-    posts = Post.objects.filter(status=Post.ACTIVE).filter(
+    posts = Post.objects.filter().filter(
         Q(title__icontains=query) | Q(body__icontains=query)
     )
+    my_posts = Post.objects.filter(status='draft')
+
+    # print("those are posts = ",my_posts)
     context = {
         'posts': posts,
         'query': query,

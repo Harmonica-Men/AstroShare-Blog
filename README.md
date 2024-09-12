@@ -11,10 +11,16 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [AstroShare Blog](#astroshare-blog)
   - [Development Tools](#development-tools)
   - [CSS Management for Project Structure](#css-management-for-project-structure)
-  - [Technologies Used](#technologies-used)
-    - [Wireframes](#wireframes)
+    - [Index Page Overview](#index-page-overview)
+    - [Front Page Overview](#front-page-overview)
+    - [Mobile first design](#mobile-first-design)
   - [Colors](#colors)
     - [Color Customization Process](#color-customization-process)  
+  - [Technologies Used](#technologies-used)
+    - [Wireframes](#wireframes)
+      - [Wireframes for Homepage & Frontpage](#wireframes-for-homepage--frontpage)
+    - [Languages](#languages)
+    - [Frameworks & Software](#frameworks--software)
   - [UX Table Of Contents](#the-ux-table-of-contents)
     - [Welcome and Introduction](#1-welcome-and-introduction)
     - [Frontpage of the Blogpost](#2-frontpage-of-the-blogpost)
@@ -47,9 +53,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Profile and Community Building](#profile-and-community-building)
     - [Ease of Use and Accessibility](#ease-of-use-and-accessibility)
     - [Continuous Engagement](#continuous-engagement)
-
-  stop
-    - [The Structure Plane](#the-structure-plane)
+  - [The Structure Plane](#the-structure-plane)
   - [Testing](#testing)
     - [HTML Validation](#html-validation)
     - [CSS Validation](#css-validation)
@@ -63,11 +67,10 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Device Test](#device-testing)
     - [User Stories Testing](#user-story-testing)
   - [Deployment](#deployment)
+    - [Heroku Deployment](#heroku-deployment)
+    - [Deploy the Project](#deploy-the-project)
   - [License](#license)
-  - [Bugs & Chalelenges](#bugs--challenges)
-  - [1Acknowled](#A)
   - [Credits](#credits)
-  
 
 ## Development Tools
 
@@ -75,19 +78,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
 - **Modular Design:** Modular design is a system design approach that divides a system into independent, interchangeable modules. Each module performs a specific function, enabling flexibility, easy maintenance, scalability, and reusability.
 - **Consistent Aesthetic:** To maintaining a unified and cohesive visual style across all elements of a design. This includes consistent use of colors, fonts, shapes, and layout, ensuring that all components appear harmonious. It enhances user experience by creating familiarity and brand identity, making designs more professional and visually appealing.
 
-[Back to Top](#astroshare-blog)
-
-## Technologies Used
-
-### 
-- <img src="static/images/icons8-postgresql-16.ico" width="18px"> **PostgreSQL:** The primary database used to store user data, blog post listings, article details, ... chosen for its flexibility and scalability.
-### Frontend
-- <img src="static/images/readme-images/icons8-html-16.ico" width="18px"> **HTML:** The foundation for structuring the web pages, providing the semantic markup needed for the site's content.
-- <img src="static/images/icons8-css-16.ico" width="18px"> **CSS:** Applied to style and layout the web pages, ensuring a consistent and visually appealing user interface across the application.
-- <img src="static/images/icons8-js-16.ico" width="18px"> **JavaScript:** Employed to add interactivity and dynamic elements to the site, enhancing the user experience with features like form validation and asynchronous content updates.
-- <img src="static/images/icons8-bootstrap-16.ico" width="18px"> **Bootstrap:** Integrated to utilize its responsive grid system and pre-built components, ensuring the site is mobile-friendly and adaptable to different screen sizes.
-
-[Back to Top](#astroshare-blog)
+[Table Of Contents](#table-of-contents)
 
 ## CSS Management for Project Structure
 
@@ -97,39 +88,6 @@ These variables are defined within styles.css, and ensuring they work correctly 
 By consolidating all the styles into one file, I make managing themes straightforward. If I need to switch themes or make adjustments, I only need to modify this single CSS file, which allows for a seamless transition to a new look and feel across the entire application. This approach not only simplifies maintenance but also reinforces my focus on code reuse and consistency.
 
 Additionally, having a single CSS file helps me avoid complications related to injecting styles through Bootstrap, ensuring that the CSS variables function as intended throughout the application.
-
-[Back to Top](#astroshare-blog)
-
-## Wireframes
-
-The wireframes for this project served as a crucial guide during the development process, essentially acting as a blueprint for the design and layout of the website. My focus was primarily on two key pages: the index (or homepage) and the frontpage blog post. Given the repetitive nature of the blog post, I decided that it was a better idea to separate the homepage and the frontpage. The homepage serves more as an introductory page, while the frontpage blog post is a more active working page for the blog posts.
-
-I chose to highlight only two wireframes in this README as they are the most critical to the overall user experience. Other pages did not require such detailed wireframing and followed more standard, basic templates.
-
-#### Wireframes for Homepage & Frontpage
-
-<details>
-  <summary>Wireframe for Homepage Desktop</summary>
-  <img src="static/images/readme-images/Astro-Blog Homepage.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
-</details>
-<br>
-<details>
-  <summary>Wireframe for Frontpage Blogpost Desktop</summary>
-  <img src="static/images/readme-images/Astro-Blog Frontpage.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
-</details>
-<br>
-<details>
-  <summary>Wireframe for Homepage Responsive</summary>
-  <img src="static/images/readme-images/Astro-Blog Homepage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
-</details>
-<br>
-<details>
-  <summary>Wireframe for Frontpage Blogpost Responsive</summary>  
-  <img src="static/images/readme-images/Astro-Blog Frontpage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
-</details>
-<br>
-
-[Back to Top](#astroshare-blog)
 
 ### Index Page Overview
 
@@ -146,8 +104,6 @@ For astronomical enthusiasts, a nice widget is incorporated that tracks the curr
 At the bottom of the page, I have included a subscription section where users can join the mailing list to receive newsletters, information, and relevant benefits.
 
 Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the AstroBlog.
-
-[Back to Top](#astroshare-blog)
 
 ### Front Page Overview
 The **Front Page** is designed to give a quick overview of a list of 5 blog posts ranked by the date added, with the most recent post at the top of the page.
@@ -166,10 +122,10 @@ The **Front Page** is designed to give a quick overview of a list of 5 blog post
    - **For Users**: Users can read the post, comment, and 'Like' the posts. They can only 'Dislike' posts they have already liked.  
      The option to dislike posts outright is not part of the blog’s policy.
 
-#### Mobile first design
+### Mobile first design
 To ensure a seamless experience across devices, Bootstrap is used to make the Home- & Frontpage fully responsive. On mobile devices, the table features horizontal scrolling to prevent content compression, maintaining clarity and usability. Additionally, each table row highlights with a colour change on hover, making it easier for users to track their interactions as they navigate.
 
-[Back to Top](#astroshare-blog)
+[Table Of Contents](#table-of-contents)
 
 ## Colors
 
@@ -199,8 +155,6 @@ that text stands out clearly.
 
 This color palette was chosen not only for its visual appeal but also for its contribution to a cohesive and user-friendly interface, reinforcing the professional and serious tone of the application.
 
-[Back to Top](#astroshare-blog)
-
 ### Color Customization Process
 
 The colour customization process in this project was designed to offer flexibility and personalisation. I have implemented a series of **CSS Variables** to define various colour palettes.
@@ -210,6 +164,67 @@ Key elements of the colour customization process include:
 - **Multiple Colour Palettes**: I have created several distinct colour palettes, each with its unique style—ranging from more traditional to modern and alternative designs. The default palette, known as the **root palette**, is the primary theme that all users see upon first visiting the site.
 
 - **CSS Variables**: The different colour palettes are implemented using CSS Variables, which allows for dynamic and flexible styling of various elements across the site. This ensures a consistent and responsive design while providing a personalised experience for each user.
+
+[Table Of Contents](#table-of-contents)
+
+## Technologies Used
+
+### Wireframes
+
+The wireframes for this project served as a crucial guide during the development process, essentially acting as a blueprint for the design and layout of the website. My focus was primarily on two key pages: the index (or homepage) and the frontpage blog post. Given the repetitive nature of the blog post, I decided that it was a better idea to separate the homepage and the frontpage. The homepage serves more as an introductory page, while the frontpage blog post is a more active working page for the blog posts.
+
+I chose to highlight only two wireframes in this README as they are the most critical to the overall user experience. Other pages did not require such detailed wireframing and followed more standard, basic templates.
+
+### Wireframes for Homepage & Frontpage
+
+<details>
+  <summary>Wireframe for Homepage Desktop</summary>
+  <img src="static/images/readme-images/Astro-Blog Homepage.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
+</details>
+<br>
+<details>
+  <summary>Wireframe for Frontpage Blogpost Desktop</summary>
+  <img src="static/images/readme-images/Astro-Blog Frontpage.png" style="display: block; margin: auto;" alt="Wireframe for index page - Desktop">
+</details>
+<br>
+<details>
+  <summary>Wireframe for Homepage Responsive</summary>
+  <img src="static/images/readme-images/Astro-Blog Homepage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
+</details>
+<br>
+<details>
+  <summary>Wireframe for Frontpage Blogpost Responsive</summary>  
+  <img src="static/images/readme-images/Astro-Blog Frontpage Respons.png" style="display: block; margin: auto;" alt="Wireframe for index page - Mobile">
+</details>
+<br>
+
+### Languages
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the site.
+* [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the content and structure for the website.
+* [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
+
+### Frameworks & Software
+* [Gitpod](http://gitpod.io) - Cloud based IDE
+* [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites
+  - <img src="static/images/icons8-bootstrap-16.ico" width="18px"> **Bootstrap:** Integrated to utilize its responsive grid system and pre-built components, ensuring the site is mobile-friendly and adaptable to different screen sizes.
+* [Django](https://www.djangoproject.com/) - A model-view-template framework used to create the Review | Alliance site
+* [alsamiq](https://balsamiq.com/) - Used to create the wireframe.
+* [Github](https://github.com/) - Used to host and edit the website.
+* [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
+* [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.
+* [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used for responsiveness check.
+* [Wave Web Accessibility Evaluation Tool](https://wave.webaim.org/) - Used to validate the sites accessibility.
+* [Favicon](https://favicon.io/) - Used to create the favicon.
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness.
+* [ChatGPT](http://chatgpt.com) AI tool for troubleshooting and repetitive tasks.
+* [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
+  - <img src="static/images/readme-images/icons8-html-16.ico" width="18px"> **HTML:** The foundation for structuring the web pages, providing the semantic markup needed for the site's content.
+* [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+  - <img src="static/images/icons8-postgresql-16.ico" width="18px"> **PostgreSQL:** The primary database used to store user data, blog post listings, article details, ... chosen for its flexibility and scalability.
+* [PEP8 Validation](http://pep8online.com/) - Used to validate code
+* [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+  - <img src="static/images/icons8-js-16.ico" width="18px"> **JavaScript:** Employed to add interactivity and dynamic elements to the site, enhancing the user experience with features like form validation and asynchronous content updates.
 
 [Table Of Contents](#table-of-contents)
 
@@ -392,7 +407,7 @@ AstroShare offers a user-friendly, engaging, and collaborative platform for astr
 ### 7. Accessibility Needs
 - While primarily targeting users comfortable with digital platforms, efforts should be made to ensure accessibility features such as high contrast mode, text resizing, and screen reader compatibility to accommodate users with visual impairments or disabilities.
 
-[Back to User Demographic Table of Contents](#user-demographic-table-of-contents)
+[Table Of Contents](#table-of-contents)
 
 ## User Stories and Epics
 Astro Blog Share is for those who are interested in Astronomical subjects and like to share there toughs in a deticated blog. The blog can be used as a discussion platform for anybody who have a special affliation whit astronomy.
@@ -406,7 +421,6 @@ A user story is an explanation of a software feature written from the perspectiv
 * Assignee -  Who the user store is assigned too. 
 * Milestone - Which epic this user store is associated with.
 <br/>
-
 
 I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with milestones, epics, user stories and tasks.
 Each user story was classified with a label according to MoSCoW prioritization.<br>
@@ -447,6 +461,8 @@ A user story is an explanation of a software feature written from the perspectiv
 * Milestone - Which epic this user store is associated with.
 
 Below is an example of how the user stories where structured for this project.
+
+[Table Of Contents](#table-of-contents)
 
 ### List of Epics
 
@@ -490,6 +506,8 @@ so that users can manage their own blog content.[#21](https://github.com/users/H
 - As a software developer, I want to set up continuous integration (CI), So that I can automate tests and streamline manual testing processes to improve software quality and reduce the time spent on manual checks. [#39](https://github.com/users/Harmonica-Men/projects/10/views/1?pane=issue&itemId=79390026)
 - As a software developer, I want to set up continuous integration (CI), So that I can automate tests and streamline manual testing processes to improve software quality and reduce the time spent on manual checks. 
 
+[Table Of Contents](#table-of-contents)
+
 ## User Stories Table of Contents
 1. [Welcome and Introduction](#welcome-and-introduction)
 2. [Sign-Up Process](#sign-up-process)
@@ -513,8 +531,6 @@ so that users can manage their own blog content.[#21](https://github.com/users/H
 - I want to have the option to sign up using my social media accounts (Google, Facebook).
 - I want to be prompted to complete my profile by uploading a profile picture, writing a short bio, and optionally adding links to personal websites or social media profiles after signing up.
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
 ### Navigation and Exploration
 **As a user:**
 - I want to be directed to the main dashboard with a personalized greeting after completing the sign-up.
@@ -522,43 +538,15 @@ so that users can manage their own blog content.[#21](https://github.com/users/H
 - I want to see a home feed with the latest posts from users, including photos, articles, and discussions about various astronomical topics.
 - I want each post to include the author’s profile picture, name, post title, content preview, and interaction buttons (Like, Comment, Share).
 
-### Database
-  PostgreSQL uitleg psycopg2  (pip install) 2.9.6
-  Cloudinary werking generate new API-key ... (pip install)
-
 ### Creating and Sharing Content
 **As a user:**
 - I want to click on "Create Post" and access a simple and intuitive editor.
 - I want to have a title field, content field with rich text formatting options, and the ability to add photos either by dragging and dropping or uploading from my device.
 - I want to add tags to categorize my post and a "Post" button to publish my content.
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
+[Table Of Contents](#table-of-contents)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Flowchart
-
-This flowchart was created to determine the flow of the website. It shows which pages are available to the user. It takes into account if the user is logged in to the website or not.
-
-![Flow Chart](static/images/readme-images/006_flowchart.jpg)
-
-## Entity Relationship Diagram
-
-The database design for this project includes Four tables. The first table is a review table. This table houses all the data associated with making a review on the site. There is a customer table, which houses the details of the customer and this is linked to a booking table via a foreign key relationship. The booking table contains the information needed in order for users to make a booking. The last table present is the user table. This table has the information necessary for users to have an account on the website and has a foreign key relationship with the customer table.
-![ERD](static/images/readme-images/005_ERD_diagram.jpg)
-
-## Interaction and Collaboration
+### Interaction and Collaboration
 **As a user:**
 - I want to leave comments on posts with a clear text field and an "Add Comment" button.
 - I want to be able to reply to comments and like or dislike them.
@@ -566,9 +554,7 @@ The database design for this project includes Four tables. The first table is a 
 - I want real-time collaboration with a shared editor for multiple contributors.
 - I want to receive notifications for new comments, likes, and collaboration invites, with a notification bell icon in the menu bar showing a dropdown list of recent notifications.
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
-
-## Profile and Community Building
+### Profile and Community Building
 **As a user:**
 - I want to explore my profile page that displays my information, including my profile picture, bio, posts, and activity.
 - I want an "Edit Profile" button to update my information and settings.
@@ -576,7 +562,7 @@ The database design for this project includes Four tables. The first table is a 
 - I want to follow other users to receive updates on their posts and activities.
 - I want to use a direct messaging feature for private conversations.
 
-## Ease of Use and Accessibility
+### Ease of Use and Accessibility
 **As a user:**
 - I want the blog to be fully responsive and work seamlessly on desktop, tablet, and mobile devices.
 - I want fast loading times and smooth transitions between pages.
@@ -584,16 +570,33 @@ The database design for this project includes Four tables. The first table is a 
 - I want a keyboard navigable interface and screen reader compatibility.
 - I want an easily accessible help section with FAQs and tutorials, along with a contact support option for direct assistance.
 
-## Continuous Engagement
+### Continuous Engagement
 **As a user:**
 - I want personalized content recommendations based on my interests and activity.
 - I want regular email updates with highlights from the blog and information about upcoming astronomical events.
 - I want to participate in community events such as virtual star-gazing sessions, photo contests, and Q&A sessions with astronomy experts.
 - I want to engage in interactive challenges and quizzes to keep learning and stay engaged with the blog.
 
-[Back to User Stories Table of Contents](#user-stories-table-of-contents)
+### The Structure Plane
 
-[Back to Top](#astroshare-blog)
+The following site-maps show how the site is structured to logged in users whitout a profile, logged in users whit a profile and not logged in users.
+
+<details>
+  <summary>Site Map - Logged In whitout a Profile</summary>
+  <img src="static/images/readme-images/ProfilePage_No_Exist1.jpg" style="display: block; margin: auto;" alt="Site Map - Logged In whitout a Profile - Desktop">
+</details>
+
+<details>
+  <summary>Site Map - Logged In whit a Profile</summary>
+  <img src="static/images/readme-images/ProfilePage_Exist1.jpg" style="display: block; margin: auto;" alt="Site Map - Site Map - Logged In whit a Profile - Desktop">
+</details>
+
+<details>
+  <summary>Site Map - Not Logged In</summary>
+  <img src="static/images/readme-images/Not_Logged.jpg" style="display: block; margin: auto;" alt="Site Map - Not Logged In - Desktop">
+</details>
+
+[Table Of Contents](#table-of-contents)
 
 ## Testing
 
@@ -614,8 +617,6 @@ The detail of these test can evaluate on this link.
   <img src="static/images/readme-images/Html-Check-AstroBlog-frontpage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Frontpage-Blogpost showing zero errors">
 
 </details>
-
----
 
 ### CSS Validation
 
@@ -638,8 +639,6 @@ Here’s the validation result:
   <img src="static/images/readme-images/CSS-validation-check-AstroBlog.webp" style="display: block; margin: auto;" alt="CSS Validation Result showing zero errors">
 </details>
 
----
-
 ### Accessibility
 
 Ensuring accessibility is a key priority for AstroBlog. We've taken great care to make sure our platform is inclusive and usable by as many people as possible, regardless of their abilities or the devices they are using.
@@ -653,13 +652,14 @@ Throughout the development process, we adhered to the Web Content Accessibility 
 
 These efforts help ensure that our site is not only compliant with accessibility standards but also provides an inclusive user experience. We continue to monitor and improve the accessibility of astroblog as we develop new features and enhancements.
 
----
+[Table Of Contents](#table-of-contents)
 
 ### Wave Validation
 
 I have conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). There is a smooth transition between the header of the page and the rest of the main page. Nevertheless, there are some issues to address due to the background MPEG replay. WAVE is dynamic and cannot make a persistent measurement of background contrast.
 
 ![Contrast Errors homepage header](staticfiles/images/readme-images/wave-errors-homepage-header.webp)
+<br>
 
 I have also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. I believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
 
@@ -675,8 +675,6 @@ Overall, the WAVE validation confirms that our website adheres to accessibility 
 
 Note: I'm fully aware of the contrast issues highlighted by the WAVE Validation Tool. It is my duty to address these in future updates to ensure an even higher level of accessibility across the entire platform. We appreciate the insights provided by the tool and will use this feedback to guide our ongoing improvements.
 
----
-
 ### Lighthouse Validation
 
 My Lighthouse validation results have been very promising, with high scores across most categories. One area where I noticed a slightly lower score is in SEO, and I’m actively working on improvements to achieve even better results. Lighthouse has been instrumental in helping me organize my files and optimize for performance.
@@ -687,9 +685,7 @@ My Lighthouse validation results have been very promising, with high scores acro
   <img src="static/images/readme-images/lighthouse-astroblog-homepage.webp" style="display: block; margin: auto;" alt="lighthouse test">
   <br>
 </details>
-
-Test for Frontpage Blogpost
-
+<br>
 <details>
   <br>
   <summary>Click to view Lighthouse Frontpage Result</summary>
@@ -697,13 +693,12 @@ Test for Frontpage Blogpost
   <br>
 </details>
 
+<br>
 A specific recommendation from Lighthouse was to use the WebP format for images to improve load times. In response, I made sure that all images served through the browser are now in WebP format. However, I also understand that too much compression could negatively impact the user experience, especially on larger screens. So, I made a conscious decision to balance performance with visual quality. After gathering feedback from a diverse group of users, I confirmed that the image quality is well-received across various devices. As a result, I decided to maintain slightly larger image sizes to prioritize a smooth and visually appealing experience, even if it means sacrificing a little bit of performance.
 
 Additionally, Lighthouse suggested reducing the CSS payload, which I’m currently considering. One option I’m exploring is breaking the main styles.css file into smaller files tied to specific widgets. This would allow me to send only the necessary CSS for each page, potentially cutting down the overall size of the CSS file and improving load times.
 
 While the desktop version scores are very high, the mobile version, although still passing, has some room for improvement. I’m committed to refining these areas to ensure the best possible experience across all devices.
-
----
 
 ### JSHint Validation
 
@@ -711,12 +706,8 @@ Although our project doesn't include an extensive amount of JavaScript, we have 
 
 In addition to being error-free, the JavaScript code is thoroughly commented and documented. This will make it easier for future developers to understand the purpose and function of each part of the code.
 
----
-
 ### PEP8
 All Python files as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
-
----
 
 ### Device Testing
 
@@ -726,11 +717,9 @@ To achieve this, we employed media queries to adapt the layout for different scr
 
 For instance, on smaller screens, such as smartphones, we adjusted the distribution of content to ensure that all elements are easily accessible and clearly visible, avoiding any overlap or readability issues. The result is a fluid and intuitive experience across devices, meeting our goal of a responsive design that performs well on all tested platforms.
 
---- 
-
 ### Browser Compatibility
 
-We have conducted extensive testing to ensure that the website is fully compatible across a range of web browsers. Specifically, the site has been tested on:
+I have conducted extensive testing to ensure that the website is fully compatible across a range of web browsers. Specifically, the site has been tested on:
 
 - <img src="static/images/readme-images/google-icon.ico" width="18px"> **Google Chrome**
 - <img src="static/images/readme-images/edge-icon.ico" width="18px"> **Microsoft Edge**
@@ -744,15 +733,14 @@ In each browser, the website performs smoothly, maintaining consistent functiona
 
 No significant issues were encountered during the tests, confirming that our site is accessible and reliable across these popular browsers. This ensures that users can interact with the platform without any unexpected disruptions, regardless of their preferred browser.
 
----
-
-[Back to Top](#astroshare-blog)
-
 ## User Story Testing
 
 <details>
-Navbar
+<summary>Manual Testing Result Report</summary>
+<br>
 
+
+Navbar
 
 | Homepage – Template                                                    |                                                               |                                     |       |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------- | ----- |
@@ -923,8 +911,9 @@ Navbar
 | Click Back to Blog | Should navigate to Hompage | Redirect to Homepage | PASS  |
 
 </details>
+<br>
 
-[Back to Top](#astroshare-blog)
+[Table Of Contents](#table-of-contents)
 
 ## Deployment
 
@@ -936,16 +925,45 @@ This site was deployed to and is currently [hosted on the Heroku platform](https
 From codeinstitute every student can maintain up to eight databases to run there projects. Here is a step by step guide to install PostgreSQL from Code Institute to the cloud!
 
   1. Navigate to [PostgreSQL from Code Institute](https://dbs.ci-dbs.net//) and input with your LMS account
-  ![PostgreSQL database creation step1](static/images/readme-images/001.png)
+      
+      <br>
+      <details>
+       <br>
+       <summary>PostgreSQL database creation step1</summary>
+       <img src="static/images/readme-images/001.png" style="display: block; margin: auto;" alt="PostgreSQL creation step1">
+       <br>
+      </details>
+      <br>
 
   2. After you filled in your LMS account the PostgresSQL database manager will automatically generate a new database for you.
-  ![PostgreSQL database creation step2](static/images/readme-images/002.png)
+      <br>
+      <details>
+       <br>
+       <summary>PostgreSQL database creation step2</summary>
+       <img src="static/images/readme-images/002.png" style="display: block; margin: auto;" alt="PostgreSQL creation step2">
+       <br>
+      </details>
+      <br>
 
   3. You now have a brand new PostgreSQL Code Institute database
   The link to this database and how to manage all your other databases will be sent to my email. 
-  ![PostgreSQL database creation step3](static/images/readme-images/003.png)
+      <br>
+      <details>
+       <br>
+       <summary>PostgreSQL database creation step3</summary>
+       <img src="static/images/readme-images/003.png" style="display: block; margin: auto;" alt="PostgreSQL creation step3">
+       <br>
+      </details>
+      <br>
   4. **Note:** These databases are limited in time and have a life time of operation of 18 months after the date of creation.
-  ![PostgreSQL database creation step4](static/images/readme-images/004.png)
+      <br>
+      <details>
+       <br>
+       <summary>PostgreSQL database creation step4</summary>
+       <img src="static/images/readme-images/004.png" style="display: block; margin: auto;" alt="PostgreSQL creation step4">
+       <br>
+      </details>
+      <br>
   5. infoknop
   6. copy/paste url-link
   7. paste this in  your env.py & heroku varibles.
@@ -1021,54 +1039,20 @@ os.environ.setdefault(
 os.environ.setdefault(
     "CLOUDINARY_URL", "<cloudinary-URL>")
 
-[Back to Top](#astroshare-blog)
+
 
 ## License
 
-[Back to Top](#astroshare-blog)
+
 
 ## Bugs & Challenges
 
-[Back to Top](#astroshare-blog)
+
 
 ## Acknowledgement
 
-[Back to Top](#astroshare-blog)
+
 
 ## Credits
 
-
-
-## The Structure Plane
-
-The following site-maps show how the site is structured to logged in users whitout a profile, logged in users whit a profile and not logged in users.
-
-*Site Map - Logged In whitout a Profile*
-
-![Site Map - Logged In whitout a Profile](static/images/readme-images/ProfilePage_No_Exist1.jpg)
-
-*Site Map - Logged In whit a Profile*
-
-![Site Map - Logged In whit a Profile](static/images/readme-images/ProfilePage_Exist1.jpg)
-
-*Site Map - Logged Out*
-
-![Site Map - Not Logged In](static/images/readme-images/Not_Logged.jpg) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-In our project, I decided to use a single CSS file, styles.css, to manage all the styling across the application. Initially, I experimented with injecting CSS through Jinja templates, but I ran into significant issues, mainly due to the use of CSS variables. These variables are defined within styles.css, and ensuring they work correctly is crucial for applying themes consistently across the site.
-
-By consolidating all the styles into one file, I make managing themes straightforward. If I need to switch themes or make adjustments, I only need to modify this single CSS file, which allows for a seamless transition to a new look and feel across the entire application. This approach not only simplifies maintenance but also reinforces my focus on code reuse and consistency.
-
-Additionally, having a single CSS file helps me avoid complications related to injecting styles through Jinja, ensuring that the CSS variables function as intended throughout the application.
+[Table Of Contents](#table-of-contents)
