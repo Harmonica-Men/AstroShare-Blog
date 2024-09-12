@@ -709,6 +709,30 @@ In addition to being error-free, the JavaScript code is thoroughly commented and
 ### PEP8
 All Python files as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
 
+<br>
+<details>
+  <br>
+  <summary>Click to view PEP8 Result</summary>
+  PEP8 Compliant
+
+  | Directory | File        | Check |
+  | --------- | ----------- | ----- |
+  | AstroBlog | Settings.py | PASS  |
+  | AstroBlog | urls.py     | PASS  |
+  | AstroBlog | env.py      | PASS  |
+  | AstroBlog | manage.py   | PASS  |
+  | Blogger   | admin.py    | PASS  |
+  | Blogger   | apps.py     | PASS  |
+  | Blogger   | forms.py    | PASS  |
+  | Blogger   | models.py   | PASS  |
+  | Blogger   | urls.py     | PASS  |
+  | Blogger   | views.py    | PASS  |
+  | Members   | admin.py    | PASS  |
+  | Members   | apps.py     | PASS  |
+  | Members   | forms.py    | PASS  |
+  <br>
+</details>
+
 ### Device Testing
 
 The website has undergone thorough testing across a variety of devices, including desktop computers, tablets, and smartphones. We focused on ensuring that the responsiveness of the site is consistent and effective across all screen sizes, providing an optimal user experience regardless of the device used.
@@ -957,6 +981,7 @@ From codeinstitute every student can maintain up to eight databases to run there
        <br>
       </details>
       <br>
+      
   4. **Note:** These databases are limited in time and have a life time of operation of 18 months after the date of creation.
       <br>
       <details>
