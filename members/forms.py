@@ -1,18 +1,21 @@
+# Import necessary Django forms and models
 from django.contrib.auth.forms import (
     UserCreationForm, UserChangeForm, PasswordChangeForm
-    )
+)
 from django.contrib.auth.models import User
 from django import forms
 from blogger.models import Profile
 
 
+# Form to update user profile page information
 class ProfilePageForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = Profile  # Associate form with Profile model
         fields = (
-                'bio', 'profile_pic', 'website_url', 'twitter_url',
-                'instagram_url', 'facebook_url'
-                )
+            'bio', 'profile_pic', 'website_url', 'twitter_url',
+            'instagram_url', 'facebook_url'
+        )
+        # Customize widget attributes for the fields
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control'}),
             'profile_pic': forms.ClearableFileInput(
@@ -33,42 +36,37 @@ class ProfilePageForm(forms.ModelForm):
         }
 
 
+# Form for user signup, extending UserCreationForm
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(
         widget=forms.EmailInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': 'my@somedomain.org'
-                }
-            )
+            attrs={'class': 'form-control', 'placeholder': 'my@somedomain.org'}
         )
-
+    )
     first_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'class': 'form-control'}))
+        max_length=100, widget=forms.TextInput(
+            attrs={'class': 'form-control'}))
     last_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'class': 'form-control'}))
+        max_length=100, widget=forms.TextInput(
+            attrs={'class': 'form-control'}))
 
     class Meta:
-        model = User
+        model = User  # Associate form with User model
         fields = ('username', 'first_name', 'last_name', 'email')
 
+    # Customize widget classes during form initialization
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
-        # widget doc django
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
 
 
+# Form for editing user profile information
 class EditProfileForm(UserChangeForm):
     email = forms.EmailField(
         widget=forms.EmailInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': 'my@somedomain.org'
-            }
+            attrs={'class': 'form-control', 'placeholder': 'my@somedomain.org'}
         )
     )
     first_name = forms.CharField(
@@ -85,10 +83,11 @@ class EditProfileForm(UserChangeForm):
             attrs={'class': 'form-control'}))
 
     class Meta:
-        model = User
+        model = User  # Associate form with User model
         fields = ('username', 'first_name', 'last_name', 'email', 'last_login')
 
 
+# Form for changing password, extending PasswordChangeForm
 class PasswordChangingForm(PasswordChangeForm):
     old_password = forms.CharField(
         max_length=100, widget=forms.PasswordInput(
@@ -101,5 +100,5 @@ class PasswordChangingForm(PasswordChangeForm):
             attrs={'class': 'form-control', 'type': 'password'}))
 
     class Meta:
-        model = User
+        model = User  # Associate form with User model
         fields = ('old_password', 'new_password1', 'new_password1')
