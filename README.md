@@ -1,14 +1,16 @@
 # AstroShare Blog
 
-AstroShare Blog is a fictional blog posting news site where information on astronomically related topics can be discussed and verified users can blog posts. There are a number of categories to choose from. There is a comments section below each post. The idea is basically to create the ultimate space blog and discussion center for enthusiasts, experts and curious minds alike! Here users can post, read and comment on the latest news stories about space exploration, astronomy and much more. Each post is tagged by topic, making it easy to navigate through categories like 'Astronomy', 'Space Emissions', 'Astrophysics' and more. Posts can be voted up or down, with the most engaging content highlighted. Users can also leave comments on posts to join the conversation. Every post and comment is timestamped, which promotes real-time discussions and builds a vibrant, interactive community around space topics.
+AstroShare Blog is a fictional blog posting news site where information on astronomically related topics can be discussed and verified users can blog posts. There are a number of categories to choose from. 
+There is a comments section below each post. The idea is basically to create the ultimate space blog and discussion center for enthusiasts, experts and curious minds alike! Here users can post, read and comment on the latest news stories about space exploration, astronomy and much more. 
+Each post is tagged by topic, making it easy to navigate through categories like 'Astronomy', 'Space Emissions', 'Astrophysics' and more. Posts can be voted up or down, with the most engaging content highlighted. 
+Users can also leave comments on posts to join the conversation. Every post and comment is timestamped, which promotes real-time discussions and builds a vibrant, interactive community around space topics.
 
 A live version of the project can be accessed here: [AstroShare Blog](https://astroshare-blog-6a7ca9d34749.herokuapp.com/)
 
 ![responsiveness image](static/images/readme-images/amiresponsive.webp)
 
 # Table Of Contents
-  - Introducton
-    - [AstroShare Blog](#astroshare-blog)
+  - [AstroShare Blog](#astroshare-blog)
   - [Development Tools](#development-tools)
   - [CSS Management for Project Structure](#css-management-for-project-structure)
     - [Index Page Overview](#index-page-overview)
@@ -222,7 +224,7 @@ I chose to highlight only two wireframes in this README as they are the most cri
   - <img src="static/images/readme-images/icons8-html-16.ico" width="18px"> **HTML:** The foundation for structuring the web pages, providing the semantic markup needed for the site's content.
 * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
   - <img src="static/images/icons8-postgresql-16.ico" width="18px"> **PostgreSQL:** The primary database used to store user data, blog post listings, article details, ... chosen for its flexibility and scalability.
-* [PEP8 Validation](http://pep8online.com/) - Used to validate code
+* [PEP8 Validation](https://pep8ci.herokuapp.com/#) - Used to validate code 
 * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
   - <img src="static/images/icons8-js-16.ico" width="18px"> **JavaScript:** Employed to add interactivity and dynamic elements to the site, enhancing the user experience with features like form validation and asynchronous content updates.
 
@@ -342,8 +344,6 @@ I chose to highlight only two wireframes in this README as they are the most cri
   - Explore page with user search functionality.
   - Follow other users on their posts and activities.
   - Direct messaging feature for private conversations.
-
-[Table Of Contents](#table-of-contents)
 
 ### 8. Ease of Use and Accessibility
 **User enjoys a seamless experience:**
@@ -733,6 +733,8 @@ In each browser, the website performs smoothly, maintaining consistent functiona
 
 No significant issues were encountered during the tests, confirming that our site is accessible and reliable across these popular browsers. This ensures that users can interact with the platform without any unexpected disruptions, regardless of their preferred browser.
 
+[Table Of Contents](#table-of-contents)
+
 ## User Story Testing
 
 <details>
@@ -967,8 +969,11 @@ From codeinstitute every student can maintain up to eight databases to run there
   5. infoknop
   6. copy/paste url-link
   7. paste this in  your env.py & heroku varibles.
+
+[Table Of Contents](#table-of-contents)
  
-#### Deploy the project 
+### Deploy the project 
+
   In the previous topic, I have created a PostgreSQL database. In this topic, you are challenged to deploy your project to Heroku.
   First you go to the Heroku website and login whit your credentials. 
 
@@ -1039,19 +1044,7 @@ os.environ.setdefault(
 os.environ.setdefault(
     "CLOUDINARY_URL", "<cloudinary-URL>")
 
-
-
 ## License
-
-
-
-## Bugs & Challenges
-
-
-
-## Acknowledgement
-
-
 
 ## Credits
 
