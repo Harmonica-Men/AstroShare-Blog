@@ -702,7 +702,7 @@ While the desktop version scores are very high, the mobile version, although sti
 
 ### JSHint Validation
 
-Although our project doesn't include an extensive amount of JavaScript, we have ensured that the code we do have is fully validated using **JSHint**. We are pleased to report that our JavaScript code has passed the validation process with a 100% clean bill of health—no errors whatsoever.
+Although our project doesn't include an extensive amount of JavaScript, I canensured that the code we do have is fully validated using **JSHint**. I'm pleased to report that our JavaScript code has passed the validation process with a 100% clean bill of health—no errors whatsoever.
 
 In addition to being error-free, the JavaScript code is thoroughly commented and documented. This will make it easier for future developers to understand the purpose and function of each part of the code.
 
@@ -981,7 +981,7 @@ From codeinstitute every student can maintain up to eight databases to run there
        <br>
       </details>
       <br>
-      
+
   4. **Note:** These databases are limited in time and have a life time of operation of 18 months after the date of creation.
       <br>
       <details>
