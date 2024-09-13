@@ -26,11 +26,13 @@ import requests
 
 class ApodView(View):
     """
-    View to display NASA's Astronomy Picture of the Day (APOD) by fetching data from the NASA API.
+    View to display NASA's Astronomy Picture of the Day (APOD)
+    by fetching data from the NASA API.
     """
     def get(self, request, *args, **kwargs):
         """
-        Handles the GET request to fetch APOD data and render it on the template.
+        Handles the GET request to fetch APOD
+        data and render it on the template.
         """
         api_key = settings.NASA_API_KEY
         url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
@@ -100,7 +102,8 @@ def LikeView(request, pk):
 
 class HomepageView(TemplateView):
     """
-    View to render the homepage of the blog with a list of posts and recent profiles.
+    View to render the homepage of the blog with
+    a list of posts and recent profiles.
     """
     model = Post
     template_name = 'homepage.html'
@@ -150,7 +153,8 @@ class FrontpageView(ListView):
 
 class ArticleDetailView(DetailView):
     """
-    View to display the details of a specific post, along with like status and total likes.
+    View to display the details of a specific post,
+    along with like status and total likes.
     """
     model = Post
     template_name = 'article_details.html'
@@ -160,7 +164,8 @@ class ArticleDetailView(DetailView):
         Add like status, total likes, and category menu to the context.
         """
         cat_menu = Category.objects.all()
-        context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
+        context = super(
+            ArticleDetailView, self).get_context_data(*args, **kwargs)
         helper = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = helper.total_likes()
         liked = False
@@ -213,7 +218,8 @@ class AddCommentView(CreateView):
 
 class UpdatePostView(UpdateView):
     """
-    View to update an existing post. Only the author of the post is allowed to update it.
+    View to update an existing post.
+    Only the author of the post is allowed to update it.
     """
     model = Post
     form_class = PostForm
@@ -221,7 +227,8 @@ class UpdatePostView(UpdateView):
 
     def dispatch(self, request, *args, **kwargs):
         """
-        Check if the user is the author of the post. If not, return a 403 Forbidden response.
+        Check if the user is the author of the post.
+        If not, return a 403 Forbidden response.
         """
         post = self.get_object()
 
@@ -279,7 +286,8 @@ def search_view(request):
 
 def nasa_picture_of_the_day(request):
     """
-    View to fetch and display NASA's Astronomy Picture of the Day (APOD) using a direct API call.
+    View to fetch and display NASA's
+    Astronomy Picture of the Day (APOD) using a direct API call.
 
     """
     api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
@@ -296,7 +304,8 @@ def nasa_picture_of_the_day(request):
 
 def iss_location(request):
     """
-    View to fetch and display the current location of the International Space Station (ISS) on a map.
+    View to fetch and display the current location of
+    the International Space Station (ISS) on a map.
     """
     response = requests.get('http://api.open-notify.org/iss-now.json')
     data = response.json()
@@ -371,14 +380,16 @@ class SubscribeView(FormView):
 
 class CheckEmailView(TemplateView):
     """
-    View to display a page asking the user to check their email for a subscription confirmation link.
+    View to display a page asking the user to check their email,
+    for a subscription confirmation link.
     """
     template_name = 'registration/check_email.html'
 
 
 def confirm_subscription(request):
     """
-    View to confirm the user's subscription using the provided confirmation code.
+    View to confirm the user's subscription
+    using the provided confirmation code.
     """
     code = request.GET.get('code')
 
