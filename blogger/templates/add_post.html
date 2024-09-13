@@ -14,8 +14,9 @@
                 <!-- Form container -->
                 <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
                     {% csrf_token %}
-                    <!-- Add hidden author field manually -->
+                    <!-- Add hidden author & status field manually -->
                     <input type="hidden" name="author" value="{{ user.id }}">
+                    <input type="hidden" name="status" value="draft">
                     {{ form.as_p }}
                     <div class="container-custom">
                     <button type="submit" class="btn btn-primary mt-2">Post</button>
