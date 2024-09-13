@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     AddCategoryView, AddCommentView, AddPostView, ApodView, ArticleDetailView,
-    CategoryListView, CategoryView, CheckEmailView, confirm_subscription,
+    category_list_view, CategoryView, CheckEmailView, confirm_subscription,
     DeletePostView, FrontpageView, HomepageView, iss_location, LikeView,
     search_view, SubscribeView, UpdatePostView
 )
@@ -41,7 +41,7 @@ urlpatterns = [
     # View articles by category, with category specified by a string parameter
     path('category/<str:cats>/', CategoryView, name='category'),
     # List all categories
-    path('category_list/', CategoryListView, name='category-list'),
+    path('category_list/', category_list_view, name='category-list'),
     # Search view
     path('search/', search_view, name='search'),
     # NASA picture of the day

@@ -38,7 +38,10 @@
     <div class="hero__content m-2 container-banner position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="container-list text-white hero__text-bg">
-          <h1>Astro Blog</h1>
+          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 mb-4 btn btn-outline-light btn-contrast btn-wide" role="button">
+            Go To The Astro Blog
+        </a>
+        
           <div class="container-sub">
             <h2 class="hero__head">Share the latest space news</h2>
             <p class="hero__text">
@@ -57,9 +60,7 @@
               bringing the marvels of space right to your screen.
               <br>
               Buckle up and get ready to ignite your curiosity about the infinite night sky!
-            </p>
-            <a href="{% url 'frontpage-blogpost' %}" class="mt-2 btn btn-outline-light btn-contrast" role="button">
-              Go To The Blog</a>
+            </p>           
           </div>
         </div>
       </div>
@@ -280,11 +281,11 @@
             <label for="id_email" class="form-label">Email:</label>
             <input type="email" class="form-control" id="id_email" name="email" placeholder="name@example.com" required>
           </div>
-          <input type="submit" value="Submit" class="btn btn-primary custom-submit color-hyperlink me-0">
+          <input type="submit" value="Submit" class="btn btn-secondary custom-submit color-hyperlink me-0">
         </form>
       </div>
     </div>
-    <div class="container-custom back-to-top-button text-center mt-4">
+    <div class="container-custom text-center mt-4">
       <a href="#top-page" class="color-hyperlink">Back to Top</a>
     </div>
   </section>

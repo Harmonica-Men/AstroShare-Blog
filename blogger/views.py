@@ -73,7 +73,7 @@ def CategoryView(request, cats):
     )
 
 
-def CategoryListView(request):
+def category_list_view(request):
     """
     View to display a list of all categories.
     """

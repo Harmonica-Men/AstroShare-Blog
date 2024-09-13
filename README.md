@@ -211,7 +211,7 @@ I chose to highlight only two wireframes in this README as they are the most cri
 * [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites
   - <img src="static/images/icons8-bootstrap-16.ico" width="18px"> **Bootstrap:** Integrated to utilize its responsive grid system and pre-built components, ensuring the site is mobile-friendly and adaptable to different screen sizes.
 * [Django](https://www.djangoproject.com/) - A model-view-template framework used to create the Review | Alliance site
-* [alsamiq](https://balsamiq.com/) - Used to create the wireframe.
+* [Balsamiq](https://balsamiq.com/) - Used to create the wireframe.
 * [Github](https://github.com/) - Used to host and edit the website.
 * [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
 * [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.

@@ -263,6 +263,13 @@ input#id_last_login,
     color: var(--accent-color);
 }
 
+/* Button wider */
+.btn-wide {
+    width: 200px; /* Adjust the width as needed */
+    white-space: nowrap; /* Prevents text from wrapping */
+    display: inline-block;
+}
+
 /* High contrast button */
 .btn-contrast {
     color: var(--main-text-color-invers);
