@@ -4,8 +4,9 @@
 {% block content %}
 
 {% with image_url='images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <section class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 130px);">
+<section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <h1>Add Comment</h1>
+    <div class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 130px);">
         <div class="steps--background-white p-4 rounded shadow-sm" style="max-width: 600px; width: 100%;">
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data">
@@ -21,8 +22,8 @@
                 <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 {% endwith %}
 
 {% endblock %}
