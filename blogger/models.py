@@ -71,6 +71,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=254, default='UAP')
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
+    status = models.CharField(max_length=100, default='draft')
 
     def total_likes(self):
         """

@@ -18,7 +18,7 @@ class PostForm(forms.ModelForm):
         Widgets are defined to style the form fields.
         """
         model = Post
-        fields = ['title', 'category', 'body', 'image']
+        fields = ['title', 'category', 'body', 'image', 'status']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),

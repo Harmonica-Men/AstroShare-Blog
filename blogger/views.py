@@ -31,11 +31,6 @@ class ApodView(View):
     def get(self, request, *args, **kwargs):
         """
         Handles the GET request to fetch APOD data and render it on the template.
-
-        :param request: HTTP request object
-        :param args: Additional positional arguments
-        :param kwargs: Additional keyword arguments
-        :return: Rendered template with APOD data
         """
         api_key = settings.NASA_API_KEY
         url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
@@ -113,9 +108,6 @@ class HomepageView(TemplateView):
     def get_context_data(self, **kwargs):
         """
         Add the list of posts and recent profiles to the context.
-
-        :param kwargs: Additional keyword arguments
-        :return: Context dictionary with posts and profile names
         """
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
@@ -150,10 +142,6 @@ class FrontpageView(ListView):
     def get_context_data(self, *args, **kwargs):
         """
         Add category menu to the context.
-
-        :param args: Additional positional arguments
-        :param kwargs: Additional keyword arguments
-        :return: Context dictionary with posts and categories
         """
         context = super(FrontpageView, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = Category.objects.all()
@@ -170,10 +158,6 @@ class ArticleDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         """
         Add like status, total likes, and category menu to the context.
-
-        :param args: Additional positional arguments
-        :param kwargs: Additional keyword arguments
-        :return: Context dictionary with post details, like info, and categories
         """
         cat_menu = Category.objects.all()
         context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
@@ -200,9 +184,6 @@ class AddPostView(CreateView):
     def form_valid(self, form):
         """
         Set the author of the post to the current user before saving.
-
-        :param form: The submitted post form
-        :return: Call the parent's form_valid method
         """
         form.instance.author = self.request.user
         return super().form_valid(form)
