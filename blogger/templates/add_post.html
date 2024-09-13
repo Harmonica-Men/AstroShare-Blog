@@ -9,11 +9,9 @@
         <!-- Centering the main content -->
         <div class="d-flex flex-column align-items-center">
             <!-- Title -->
-            <!-- <h1 class="text-center mb-4" style="color: var(--main-text-color);">Create a New Blog Post</h1> -->
             <div class="steps--background-white p-4 mt-5 rounded shadow-sm w-100" style="max-width: 600px;">
             {% if user.is_authenticated %}
-            <!-- Form container -->
-            
+                <!-- Form container -->
                 <form method="POST" enctype="multipart/form-data" action="{% url 'add-newpost' %}">
                     {% csrf_token %}
                     <!-- Add hidden author field manually -->
@@ -23,12 +21,10 @@
                     <button type="submit" class="btn btn-primary mt-2">Post</button>
                     </div>
                 </form>
-
                 <div class="text-center mt-2 mb-2">
                     <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2">Back To Blog</a>
                 </div>
             </div>
-            
             {% else %}
             <!-- No access message -->
             <div class="steps--background-white p-4 rounded shadow-sm text-center">
@@ -37,12 +33,9 @@
             <div class="text-center mt-2 mb-2">
                 <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2">Back To Blog</a>
             </div>
-
             {% endif %}
-            
         </div>
     </div>
 </div>
-
 {% endwith %}
 {% endblock %}
