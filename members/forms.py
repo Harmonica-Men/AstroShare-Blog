@@ -9,6 +9,9 @@ from blogger.models import Profile
 
 # Form to update user profile page information
 class ProfilePageForm(forms.ModelForm):
+    """
+    Form for updating user profile page information.
+    """
     class Meta:
         model = Profile  # Associate form with Profile model
         fields = (
@@ -38,6 +41,9 @@ class ProfilePageForm(forms.ModelForm):
 
 # Form for user signup, extending UserCreationForm
 class SignUpForm(UserCreationForm):
+    """
+    Form for user signup.
+    """
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={'class': 'form-control', 'placeholder': 'my@somedomain.org'}
@@ -54,7 +60,6 @@ class SignUpForm(UserCreationForm):
         model = User  # Associate form with User model
         fields = ('username', 'first_name', 'last_name', 'email')
 
-    # Customize widget classes during form initialization
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['class'] = 'form-control'
@@ -62,8 +67,10 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control'
 
 
-# Form for editing user profile information
 class EditProfileForm(UserChangeForm):
+    """
+    Form for editing user profile information.
+    """
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={'class': 'form-control', 'placeholder': 'my@somedomain.org'}
@@ -87,8 +94,10 @@ class EditProfileForm(UserChangeForm):
         fields = ('username', 'first_name', 'last_name', 'email', 'last_login')
 
 
-# Form for changing password, extending PasswordChangeForm
 class PasswordChangingForm(PasswordChangeForm):
+    """
+    Form for changing user password.
+    """
     old_password = forms.CharField(
         max_length=100, widget=forms.PasswordInput(
             attrs={'class': 'form-control', 'type': 'password'}))
