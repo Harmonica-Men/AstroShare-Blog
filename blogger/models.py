@@ -18,7 +18,7 @@ class Category(models.Model):
 
     class Meta:
         # Orders categories by name in ascending order
-        ordering = ('name',)        
+        ordering = ('name',)
         verbose_name_plural = 'Categories'
 
     def __str__(self):
@@ -29,13 +29,14 @@ class Category(models.Model):
         Returns the URL to view posts in this category.
         Adjust the named URL as per your URL configuration.
         """
-        return reverse('frontpage-blogpost') 
+        return reverse('frontpage-blogpost')
 
 
 class Profile(models.Model):
     """
-    Extends the User model to include additional profile information, such as bio,
-    social media links, and profile picture. Each user has one profile.
+    Extends the User model to include additional profile information,
+    such as bio, social media links, and profile picture.
+    Each user has one profile.
     """
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
@@ -55,17 +56,19 @@ class Profile(models.Model):
         Returns the URL to view the profile.
         Adjust the named URL as per your URL configuration.
         """
-        return reverse('frontpage-blogpost') 
+        return reverse('frontpage-blogpost')
 
 
 class Post(models.Model):
     """
-    Represents a blog post with attributes such as title, body, image, author,
-    category, status (active, draft, archived), and post date. Users can like posts.
+    Represents a blog post with attributes such as title, body,
+    image, author, category, status (active, draft, archived),
+    and post date. Users can like posts.
     """
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null=True, blank=True)
-    author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        User, related_name='posts', on_delete=models.CASCADE)
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -80,7 +83,6 @@ class Post(models.Model):
         return self.likes.count()
 
     class Meta:
-        # Orders posts by creation date in descending order and then by post date
         ordering = ('-created_at', 'post_date',)
 
     def __str__(self):
@@ -92,12 +94,13 @@ class Post(models.Model):
         Returns the URL to view the post.
         Adjust the named URL as per your URL configuration.
         """
-        return reverse('frontpage-blogpost') 
-        
+        return reverse('frontpage-blogpost')
+
 
 class Comment(models.Model):
     # Represents a comment on a blog post
-    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     body = models.TextField()
     date_added = models.TimeField(auto_now_add=True)
@@ -125,7 +128,8 @@ class Subscriber(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(instance, created, **kwargs):
     """
-    Signal handler that automatically creates a Profile object for each new User.
+    Signal handler that automatically creates a,
+    Profile object for each new User.
     This is triggered by the post_save signal of the User model.
     """
     if created:
