@@ -445,7 +445,7 @@ The project was divided into three milestones, each containing the corresponding
   - EPIC 7 (Search and Filtering) 
   - EPIC 8 (SEO and Performance Optimization) 
 
-3. [User Authentication](https://github.com/Harmonica-Men/AstroShare-Blog/issues/8)
+3. [Testing and Validation](https://github.com/Harmonica-Men/AstroShare-Blog/milestone/3)
 - Task: test & validate
   - EPIC 9 (Testing and Validations) 
   
@@ -817,7 +817,7 @@ Navbar
 | Click Login                                 | Should navigate to Login page                                       | Redirect to Login Page                                        | PASS  |
 
 
-| Navbar – If first time user is Logged In (registered users) |                                        |                                  |       |
+| Navbar – If first time user is Logged In (registered users) | [#20](https://github.com/Harmonica-Men/AstroShare-Blog/issues/20)                                       |                                  |       |
 | ----------------------------------------------------------- | -------------------------------------- | -------------------------------- | ----- |
 | Scenario                                                    | Action                                 | Result                           | Check |
 | Click Logged is as: [user]                                  | Should navigate to Create Profile Page | Redirect to Create Profile Page  | PASS  |
@@ -844,7 +844,7 @@ Navbar
 | Click “Edit” for which to user has create the post   | Should navigate to Edit Article Blogpost | Redirect to Edit Article Blogpost | PASS  |
 | Click “Delete” for which to user has create the post | Should navigate to Delete Blogpost       | Redirect Delete to Blogpost       | PASS  |
 
-| Addpost page Template |                                       |                                |       |
+| Addpost page Template | [#21](https://github.com/Harmonica-Men/AstroShare-Blog/issues/21)                                      |                                |       |
 | --------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario              | Action                                | Result                         | Check |
 | Post                  | Should navigate to Add new post       | Redirect to Add Newpost        | PASS  |
@@ -863,18 +863,18 @@ Navbar
 | Add Comment (only autheticated users) | Should navigate to Add Comments        | Redirect to Add Comments       | PASS  |
 | Back to Blog                          | Should navigate to Frontpage Blogpost  | Redirect to Frontpage Blogpost | PASS  |
 
-| Add comment Template |                                       |                                |       |
+| Add comment Template | [#10](https://github.com/Harmonica-Men/AstroShare-Blog/issues/10)                                      |                                |       |
 | -------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario             | Action                                | Re-Action                      | Check |
 | Cick Add Comment     | Should navigate to Add Comment        | Redirect to Add Comment        | PASS  |
 | Back to Blog         | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Login Template |                                     |                                |       |
+| Login Template | [#20](https://github.com/Harmonica-Men/AstroShare-Blog/issues/20)                                    |                                |       |
 | -------------- | ----------------------------------- | ------------------------------ | ----- |
 | Scenario       | Action                              | Result                         | Check |
 | Click Login    | After Filled in correct credintials | Redirect to Frontpage Blogpost | PASS  |
 
-| Register Template |                          |                   |       |
+| Register Template | [#20](https://github.com/Harmonica-Men/AstroShare-Blog/issues/20)                         |                   |       |
 | ----------------- | ------------------------ | ----------------- | ----- |
 | Scenario          | Action                   | Result            | Check |
 | Click on Register | Should navigate to Login | Redirect to Login | PASS  |
@@ -888,7 +888,8 @@ Navbar
 | Click Globe             | Should navigate to Website            | Redirect to Codeinstiture      | PASS  |
 | Back to Blog            | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Search Template |                                       |                                |       |
+
+| Search Template | [#31](https://github.com/Harmonica-Men/AstroShare-Blog/issues/31)                                      |                                |       |
 | --------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario        | Action                                | Result                         | Check |
 | Back to Blog    | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
@@ -1095,6 +1096,26 @@ os.environ.setdefault(
     "CLOUDINARY_URL", "<cloudinary-URL>")
 
 ## License
+
+Astro Blog is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+![License](static/images/readme-images/license.jpg)
+
+You are free to:
+
+- **Share:** Copy and redistribute the material in any medium or format.
+
+- **Adapt:** Remix, transform, and build upon the material.
+
+Under the following terms:
+
+- **Attribution:** You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+- **NonCommercial:** You may not use the material for commercial purposes.
+
+- **ShareAlike:** If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+For more information about the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, visit [here](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Credits
 
