@@ -7,7 +7,7 @@ Users can also leave comments on posts to join the conversation. Every post and 
 
 A live version of the project can be accessed here: [AstroShare Blog](https://astroshare-blog-6a7ca9d34749.herokuapp.com/)
 
-![responsiveness image](static/images/readme-images/amiresponsive.webp)
+![responsiveness image](static/images/readme-images/AstroBlog-AmIResponsive.png)
 
 # Table Of Contents
   - [AstroShare Blog](#astroshare-blog)
@@ -749,15 +749,40 @@ I have conducted extensive testing to ensure that the website is fully compatibl
 - <img src="static/images/readme-images/edge-icon.ico" width="18px"> **Microsoft Edge**
 - <img src="static/images/readme-images/opera-icon.ico" width="18px"> **Opera**
 - <img src="static/images/readme-images/firefox-icon.ico" width="18px"> **Mozilla Firefox**
-- <img src="static/images/readme-images/safari-icon.ico" width="18px"> **Safari**
 
-<img src="" style="display: block; margin: auto;" alt="Browser testing picture">
+<br>
+<details>
+  <br>
+  <summary>Click to view Google Browser Result</summary>
+  <img src="static/images/readme-images/AstroBlog-Google.png" style="display: block; margin: auto;" alt="Google Browser Test">
+  <br>
+</details>
+<br>
+<details>
+  <br>
+  <summary>Click to view Edge Browser Result</summary>
+  <img src="static/images/readme-images/AstroBlog-Edge.png" style="display: block; margin: auto;" alt="Edge Browser Test">
+  <br>
+</details>
+<br>
+<details>
+  <br>
+  <summary>Click to view FireFox Browser Result</summary>
+  <img src="static/images/readme-images/AstroBlog-Firefox.png" style="display: block; margin: auto;" alt="FireFox Browser Test">
+  <br>
+</details>
+<br>
+<details>
+  <br>
+  <summary>Click to view Opera Browser Result</summary>
+  <img src="static/images/readme-images/AstroBlog-Opera.png" style="display: block; margin: auto;" alt="Opera Browser Test">
+  <br>
+</details>
+<br>
 
 In each browser, the website performs smoothly, maintaining consistent functionality and appearance. We focused on ensuring that all features, from user registration to job application processes, operate seamlessly regardless of the browser used.
 
 No significant issues were encountered during the tests, confirming that our site is accessible and reliable across these popular browsers. This ensures that users can interact with the platform without any unexpected disruptions, regardless of their preferred browser.
-
-[Table Of Contents](#table-of-contents)
 
 ## User Story Testing
 
