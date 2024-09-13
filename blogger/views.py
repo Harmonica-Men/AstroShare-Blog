@@ -9,7 +9,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView,
     TemplateView, FormView
-    )
+)
 from django.views import View
 from .models import Comment, Profile
 from .models import Post, Category, Subscriber
@@ -21,26 +21,24 @@ from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from datetime import datetime
 from django.http import HttpResponseForbidden
-# from django.utils.text import slugify
-from django.shortcuts import render
-from django.conf import settings
-from django.shortcuts import render
-from django.views import View
 import requests
 
 
 class ApodView(View):
+    """
+    View to display NASA's Astronomy Picture of the Day (APOD) by fetching data from the NASA API.
+    """
     def get(self, request, *args, **kwargs):
-        # NASA API URL with your API key
+        """
+        Handles the GET request to fetch APOD data and render it on the template.
+
+        :param request: HTTP request object
+        :param args: Additional positional arguments
+        :param kwargs: Additional keyword arguments
+        :return: Rendered template with APOD data
+        """
         api_key = settings.NASA_API_KEY
-        url = (
-            f"https://api.nasa.gov/planetary/apod"
-            f"?api_key={api_key}"
-            )
-        url = (
-            f"https://api.nasa.gov/planetary/apod"
-            f"?api_key={settings.NASA_API_KEY}"
-            )
+        url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
         response = requests.get(url)
         data = response.json()
 
@@ -54,15 +52,16 @@ class ApodView(View):
             'explanation': data.get('explanation'),
             'date': data.get('date'),
             'media_type': data.get('media_type'),
-            # For checking if it's a video or image
             'bg_image_url': bg_image_url,
-            # Add background image URL
         }
 
         return render(request, 'nasa_picture.html', context)
 
 
 def CategoryView(request, cats):
+    """
+    View to display posts belonging to a specific category.
+    """
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
     return render(
         request,
@@ -70,21 +69,28 @@ def CategoryView(request, cats):
         {
             'cats': cats.title().replace('-', ' '),
             'category_posts': category_posts,
-        })
+        }
+    )
 
 
 def CategoryListView(request):
+    """
+    View to display a list of all categories.
+    """
     cat_menu_list = Category.objects.all()
     return render(
         request,
         'category_list.html',
         {
             'cat_menu_list': cat_menu_list
-        })
+        }
+    )
 
 
 def LikeView(request, pk):
-    # post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    """
+    View to handle liking and unliking a post.
+    """
     post = get_object_or_404(Post, pk=pk)
     liked = False
     if post.likes.filter(id=request.user.id).exists():
@@ -98,20 +104,27 @@ def LikeView(request, pk):
 
 
 class HomepageView(TemplateView):
+    """
+    View to render the homepage of the blog with a list of posts and recent profiles.
+    """
     model = Post
     template_name = 'homepage.html'
 
     def get_context_data(self, **kwargs):
+        """
+        Add the list of posts and recent profiles to the context.
+
+        :param kwargs: Additional keyword arguments
+        :return: Context dictionary with posts and profile names
+        """
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
 
-        # Fetch the latest 9 profiles with user details
         profiles = (
             Profile.objects.select_related('user')
             .order_by('-user__date_joined')[:9]
-            )
+        )
 
-        # Extracting firstname, lastname, username into a list of dictionaries
         context['profile_names'] = [
             {
                 'first_name': profile.user.first_name,
@@ -125,27 +138,45 @@ class HomepageView(TemplateView):
 
 
 class FrontpageView(ListView):
+    """
+    View to display a list of recent posts on the front page, with pagination.
+    """
     model = Post
     template_name = 'frontpage.html'
-    # Ensure this is the correct template for the front page
     context_object_name = 'posts'
     ordering = ['-post_date']
-    paginate_by = 5  # Display 5 posts per page
+    paginate_by = 5
 
     def get_context_data(self, *args, **kwargs):
+        """
+        Add category menu to the context.
+
+        :param args: Additional positional arguments
+        :param kwargs: Additional keyword arguments
+        :return: Context dictionary with posts and categories
+        """
         context = super(FrontpageView, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = Category.objects.all()
         return context
 
 
 class ArticleDetailView(DetailView):
+    """
+    View to display the details of a specific post, along with like status and total likes.
+    """
     model = Post
     template_name = 'article_details.html'
 
     def get_context_data(self, *args, **kwargs):
+        """
+        Add like status, total likes, and category menu to the context.
+
+        :param args: Additional positional arguments
+        :param kwargs: Additional keyword arguments
+        :return: Context dictionary with post details, like info, and categories
+        """
         cat_menu = Category.objects.all()
-        context = super(ArticleDetailView, self).get_context_data(
-            *args, **kwargs)
+        context = super(ArticleDetailView, self).get_context_data(*args, **kwargs)
         helper = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = helper.total_likes()
         liked = False
@@ -158,37 +189,59 @@ class ArticleDetailView(DetailView):
 
 
 class AddPostView(CreateView):
+    """
+    View to add a new blog post.
+    """
     model = Post
     form_class = PostForm
     template_name = 'add_post.html'
     success_url = reverse_lazy('frontpage-blogpost')
 
     def form_valid(self, form):
+        """
+        Set the author of the post to the current user before saving.
+
+        :param form: The submitted post form
+        :return: Call the parent's form_valid method
+        """
         form.instance.author = self.request.user
-        # Set the author to the current user
         return super().form_valid(form)
 
 
 class AddCommentView(CreateView):
+    """
+    View to add a comment to a post.
+    """
     model = Comment
     form_class = CommentForm
     template_name = 'add_comment.html'
 
     def form_valid(self, form):
+        """
+        Set the post_id of the comment to the current post before saving.
+        """
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
     def get_success_url(self):
-        # Redirect to the article page
+        """
+        Redirect to the post detail page after successfully adding a comment.
+        """
         return reverse('article-detail', kwargs={'pk': self.kwargs['pk']})
 
 
 class UpdatePostView(UpdateView):
+    """
+    View to update an existing post. Only the author of the post is allowed to update it.
+    """
     model = Post
     form_class = PostForm
     template_name = 'update_post.html'
 
     def dispatch(self, request, *args, **kwargs):
+        """
+        Check if the user is the author of the post. If not, return a 403 Forbidden response.
+        """
         post = self.get_object()
 
         if request.user.is_authenticated:
@@ -200,17 +253,26 @@ class UpdatePostView(UpdateView):
             return render(request, '403.html', status=403)
 
     def get_object(self):
+        """
+        Fetch the post to be updated.
+        """
         pk = self.kwargs.get('pk')
         return get_object_or_404(Post, pk=pk)
 
 
 class DeletePostView(DeleteView):
+    """
+    View to delete an existing post.
+    """
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('frontpage-blogpost')
 
 
 class AddCategoryView(CreateView):
+    """
+    View to add a new category to the blog.
+    """
     model = Category
     form_class = PostForm
     template_name = 'add_category.html'
@@ -218,13 +280,15 @@ class AddCategoryView(CreateView):
 
 
 def search_view(request):
+    """
+    View to search for posts based on a query.
+    """
     query = request.GET.get('query', '')
-    posts = Post.objects.filter().filter(
+    posts = Post.objects.filter(
         Q(title__icontains=query) | Q(body__icontains=query)
     )
     my_posts = Post.objects.filter(status='draft')
 
-    # print("those are posts = ",my_posts)
     context = {
         'posts': posts,
         'query': query,
@@ -233,8 +297,11 @@ def search_view(request):
 
 
 def nasa_picture_of_the_day(request):
+    """
+    View to fetch and display NASA's Astronomy Picture of the Day (APOD) using a direct API call.
+
+    """
     api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
-    # Replace with your NASA API key
     url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
     response = requests.get(url)
     data = response.json()
@@ -247,37 +314,30 @@ def nasa_picture_of_the_day(request):
 
 
 def iss_location(request):
-    # Fetch current ISS location data
+    """
+    View to fetch and display the current location of the International Space Station (ISS) on a map.
+    """
     response = requests.get('http://api.open-notify.org/iss-now.json')
     data = response.json()
     latitude = float(data['iss_position']['latitude'])
     longitude = float(data['iss_position']['longitude'])
 
-    # Create Plotly figure for the ISS current location only
     fig = go.Figure()
-
-    # Plot the ISS current location
     fig.add_trace(go.Scattergeo(
         lon=[longitude],
         lat=[latitude],
         text="Current ISS Location",
         mode='markers',
         marker=dict(size=12, color='red')
-        # Increased marker size for visibility
     ))
 
     fig.update_layout(
-        # title='Current Location of the ISS',
         geo_scope='world',
     )
 
-    # Convert the figure to HTML
     fig_html = pio.to_html(fig, full_html=False)
-
-    # Get the current timestamp
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-    # Render the template with the plot, ISS coordinates, and timestamp
     return render(request, 'iss_location.html', {
         'plot_html': fig_html,
         'latitude': latitude,
@@ -290,11 +350,16 @@ logger = logging.getLogger(__name__)
 
 
 class SubscribeView(FormView):
+    """
+    View to handle user subscriptions to the blog via email.
+    """
     form_class = SubscriptionForm
     template_name = 'homepage.html'
-    # The form will be displayed on the homepage
 
     def form_valid(self, form):
+        """
+        Process the subscription form and send a confirmation email.
+        """
         login = form.cleaned_data['login']
         email = form.cleaned_data['email']
         confirmation_code = str(uuid.uuid4())
@@ -305,12 +370,12 @@ class SubscribeView(FormView):
         confirmation_link = (
             f"{self.request.scheme}://{self.request.get_host()}"
             f"/blogger/confirm/?code={confirmation_code}"
-            )
+        )
         subject = 'Confirm your subscription'
         message = (
             f"Hello {login},\n\n"
             f"Click the link to confirm your subscription: {confirmation_link}"
-            )
+        )
         from_email = settings.DEFAULT_FROM_EMAIL
         try:
             send_mail(subject, message, from_email, [email])
@@ -324,10 +389,16 @@ class SubscribeView(FormView):
 
 
 class CheckEmailView(TemplateView):
+    """
+    View to display a page asking the user to check their email for a subscription confirmation link.
+    """
     template_name = 'registration/check_email.html'
 
 
 def ConfirmSubscription(request):
+    """
+    View to confirm the user's subscription using the provided confirmation code.
+    """
     code = request.GET.get('code')
 
     if not code:
