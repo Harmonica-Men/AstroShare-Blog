@@ -1,4 +1,3 @@
-# Import necessary Django forms and models
 from django.contrib.auth.forms import (
     UserCreationForm, UserChangeForm, PasswordChangeForm
 )
@@ -7,7 +6,6 @@ from django import forms
 from blogger.models import Profile
 
 
-# Form to update user profile page information
 class ProfilePageForm(forms.ModelForm):
     """
     Form for updating user profile page information.
@@ -39,7 +37,6 @@ class ProfilePageForm(forms.ModelForm):
         }
 
 
-# Form for user signup, extending UserCreationForm
 class SignUpForm(UserCreationForm):
     """
     Form for user signup.
