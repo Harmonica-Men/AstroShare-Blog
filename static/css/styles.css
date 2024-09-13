@@ -385,7 +385,7 @@ input#id_last_login,
 }
 
 .hero__content-width {
-    max-width: 540px;
+    max-width: 640px;
 }
 
 .hero__scroll-btn {
@@ -477,6 +477,38 @@ input#id_last_login,
 }
 
 /* Media queries for responsive design */
+
+/* For screen widths greater than 1200px */
+@media (min-width: 1200px) {
+    .iframe-container {
+        height: 300px; /* Adjust iframe height for larger screens */
+        max-width: 100%; /* Ensures iframe fits within 90% of the container width */
+    }
+
+    .hero__head {
+        font-size: 3rem; /* Increases font size for hero heading */
+        font-weight: bold; /* Keeps text bold */
+    }
+
+    .hero__text {
+        font-size: 1.5rem; /* Larger text size for the hero section */
+        line-height: 1.8; /* Adjust line height for better readability */
+    }
+
+    .content-container {
+        padding: 50px; /* Adds padding to the content area for larger screens */
+    }
+
+    .button {
+        padding: 15px 30px; /* Adjusts button size */
+        font-size: 1.2rem; /* Increases button text size */
+    }
+
+    .image-container {
+        max-width: 80%; /* Limits image size for large screens */
+        margin: 0 auto; /* Centers the image */
+    }
+}
 
 /* For screen widths less than 1600px */
 @media (max-width: 1600px) {

@@ -3,12 +3,20 @@ from .models import Post, Category, Comment
 
 
 class PostForm(forms.ModelForm):
+    """
+    A form for creating and updating a blog post.
+    """
     category = forms.ModelChoiceField(
         queryset=Category.objects.all(),
         empty_label="Select Category"
     )
 
     class Meta:
+        """
+        Meta class to define model and form field settings.
+        Fields are selected from the Post model.
+        Widgets are defined to style the form fields.
+        """
         model = Post
         fields = ['title', 'category', 'body', 'image']
         widgets = {
@@ -25,6 +33,9 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    """
+    A form for adding comments to a blog post.
+    """
     class Meta:
         model = Comment
         fields = ('name', 'body')
@@ -39,6 +50,9 @@ class CommentForm(forms.ModelForm):
 
 
 class SubscriptionForm(forms.Form):
+    """
+    A simple subscription form that collects a user's login and email.
+    """
     login = forms.CharField(
         max_length=100,
         label='Login',

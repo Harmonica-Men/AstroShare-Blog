@@ -1,15 +1,10 @@
 from django.urls import path
 from .views import UserRegisterView, UserEditView, CustomPasswordChangeView, ShowProfilePageView, EditProfilePageView, CreateProfilePageView, AuthorProfileView
 from django.contrib.auth import views as auth_views
-
 from django.contrib.auth.views import PasswordChangeView
-# from django.views.generic import TemplateView
-
 
 urlpatterns = [
-    # path('', TemplateView.as_view(template_name='homepage.html'), name='home'),  
     path('register/', UserRegisterView.as_view(), name='register'),
-   
     path('edit_profile/', UserEditView.as_view(), name='edit-profile'),
     path('<int:pk>/password/', CustomPasswordChangeView.as_view(), name='password-change'),
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), name='password_change_done'),

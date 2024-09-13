@@ -14,15 +14,14 @@ class Category(models.Model):
     which can be used to filter or organize posts.
     """
     name = models.CharField(max_length=254, primary_key=True)
-    category_description = models.TextField(blank=True, null=True)
+    category_discription = models.TextField(blank=True, null=True)
 
     class Meta:
         # Orders categories by name in ascending order
-        ordering = ('name',)
+        ordering = ('name',)        
         verbose_name_plural = 'Categories'
 
     def __str__(self):
-        # Returns the name of the category as its string representation
         return self.name
 
     def get_absolute_url(self):
@@ -30,7 +29,7 @@ class Category(models.Model):
         Returns the URL to view posts in this category.
         Adjust the named URL as per your URL configuration.
         """
-        return reverse('frontpage-blogpost')
+        return reverse('frontpage-blogpost') 
 
 
 class Profile(models.Model):
@@ -56,7 +55,7 @@ class Profile(models.Model):
         Returns the URL to view the profile.
         Adjust the named URL as per your URL configuration.
         """
-        return reverse('frontpage-blogpost')
+        return reverse('frontpage-blogpost') 
 
 
 class Post(models.Model):
@@ -64,25 +63,14 @@ class Post(models.Model):
     Represents a blog post with attributes such as title, body, image, author,
     category, status (active, draft, archived), and post date. Users can like posts.
     """
-    ACTIVE = 'active'
-    DRAFT = 'draft'
-    STATUS_CHOICES = [
-        (ACTIVE, 'Active'),
-        (DRAFT, 'Draft'),
-        ('archived', 'Archived'),
-    ]
-
     title = models.CharField(max_length=200)
     image = CloudinaryField('image', null=True, blank=True)
-    author = models.ForeignKey(
-        User, related_name='posts', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=254, default='UAP')
     likes = models.ManyToManyField(User, related_name='blog_posts_likes')
-    status = models.CharField(
-        max_length=10, choices=STATUS_CHOICES, default=DRAFT)
 
     def total_likes(self):
         """
@@ -91,11 +79,11 @@ class Post(models.Model):
         return self.likes.count()
 
     class Meta:
-        # Orders posts by creation date in descending order, then by post date
+        # Orders posts by creation date in descending order and then by post date
         ordering = ('-created_at', 'post_date',)
 
     def __str__(self):
-        # Returns the title of the post as its string representation
+        # Returns the title of the post
         return self.title
 
     def get_absolute_url(self):
@@ -103,21 +91,18 @@ class Post(models.Model):
         Returns the URL to view the post.
         Adjust the named URL as per your URL configuration.
         """
-        return reverse('frontpage-blogpost')
-
+        return reverse('frontpage-blogpost') 
+        
 
 class Comment(models.Model):
-    """
-    Represents a comment on a blog post. Each comment belongs to a specific post.
-    """
-    post = models.ForeignKey(
-        Post, related_name='comments', on_delete=models.CASCADE)
+    # Represents a comment on a blog post
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     body = models.TextField()
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.TimeField(auto_now_add=True)
 
     def __str__(self):
-        # Returns the first 20 characters of the comment's body with the commenter's name
+        # Returns the name and the first 20 characters of the comment body
         return f'{self.name} - {self.body[:20]}'
 
 
@@ -131,7 +116,7 @@ class Subscriber(models.Model):
     confirmation_code = models.CharField(max_length=50)
 
     def __str__(self):
-        # Returns the email of the subscriber as its string representation
+        # Returns the email of the subscriber
         return self.email
 
 
@@ -141,7 +126,7 @@ def create_user_profile(instance, created, **kwargs):
     """
     Signal handler that automatically creates a Profile object for each new User.
     This is triggered by the post_save signal of the User model.
-    
     """
     if created:
+        # Creates a Profile object when a User object is created
         Profile.objects.create(user=instance)

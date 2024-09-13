@@ -40,7 +40,7 @@ SECRET_KEY = "SECRET_KEY"
 CLOUDINARY_URL = "CLOUDINARY_URL"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-harmonicame-astroshareb-tykmah5chi5.ws.codeinstitute-ide.net',
