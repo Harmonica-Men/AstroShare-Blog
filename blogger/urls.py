@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     AddCategoryView, AddCommentView, AddPostView, ApodView, ArticleDetailView,
-    CategoryListView, CategoryView, CheckEmailView, ConfirmSubscription,
+    CategoryListView, CategoryView, CheckEmailView, confirm_subscription,
     DeletePostView, FrontpageView, HomepageView, iss_location, LikeView,
     search_view, SubscribeView, UpdatePostView
 )
@@ -50,8 +50,8 @@ urlpatterns = [
     path('iss_location/', iss_location, name='iss-location'),
     # Subscribe to a newsletter or service
     path('subscribe/', SubscribeView.as_view(), name='subscribe'),
-    # Check email view (e.g., for email verification or password reset)
+    # Check email view
     path('check-email/', CheckEmailView.as_view(), name='check-email'),
-    # Confirm subscription (e.g., confirm email subscription)
-    path('confirm/', ConfirmSubscription, name='confirm-subscription'),
+    # Confirm subscription
+    path('confirm/', confirm_subscription, name='confirm-subscription'),
 ]

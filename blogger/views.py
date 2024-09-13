@@ -395,7 +395,7 @@ class CheckEmailView(TemplateView):
     template_name = 'registration/check_email.html'
 
 
-def ConfirmSubscription(request):
+def confirm_subscription(request):
     """
     View to confirm the user's subscription using the provided confirmation code.
     """
