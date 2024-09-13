@@ -5,9 +5,12 @@ from django.contrib.auth.models import User
 from django.views import generic
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
+from .forms import (
+    SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
+    )
 from blogger.models import Profile
 from django.urls import reverse
+
 
 class CreateProfilePageView(generic.UpdateView):
     """
@@ -19,14 +22,17 @@ class CreateProfilePageView(generic.UpdateView):
 
     def get_object(self, queryset=None):
         """
-        Returns the user's profile object, creating one if it doesn't already exist.
+        Returns the user's profile object,
+        creating one if it doesn't already exist.
         """
-        profile, created = Profile.objects.get_or_create(user=self.request.user)
+        profile, created = Profile.objects.get_or_create(
+            user=self.request.user)
         return profile
 
     def form_valid(self, form):
         """
-        Automatically associates the user with the profile being created or updated.
+        Automatically associates the user with
+        the profile being created or updated.
         """
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -51,7 +57,8 @@ class EditProfilePageView(generic.UpdateView):
         Redirects the user to their profile page after a successful edit.
         """
         # Use the user's profile ID to dynamically build the URL
-        return reverse('show-profile-page', kwargs={'pk': self.request.user.profile.id})
+        return reverse(
+            'show-profile-page', kwargs={'pk': self.request.user.profile.id})
 
 
 class ShowProfilePageView(DetailView):
@@ -63,13 +70,16 @@ class ShowProfilePageView(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         """
-        Adds the page user to the context, allowing profile details to be displayed.
+        Adds the page user to the context,
+        allowing profile details to be displayed.
         """
         users = Profile.objects.all()
-        context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
+        context = super(
+            ShowProfilePageView, self).get_context_data(*args, **kwargs)
         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
         context["page_user"] = page_user
-        return context 
+        return context
+
 
 class AuthorProfileView(DetailView):
     """
@@ -83,7 +93,8 @@ class AuthorProfileView(DetailView):
         """
         Fetches the profile of the author using their user ID.
         """
-        return get_object_or_404(Profile, user__id=self.kwargs['id'])           
+        return get_object_or_404(Profile, user__id=self.kwargs['id'])
+
 
 class UserRegisterView(generic.CreateView):
     """
@@ -108,6 +119,7 @@ class UserEditView(generic.UpdateView):
         """
         return self.request.user
 
+
 class PasswordChangeView(PasswordChangeView):
     """
     View for changing the user's password.
@@ -115,12 +127,15 @@ class PasswordChangeView(PasswordChangeView):
     form_class = PasswordChangingForm
     success_url = reverse_lazy('password_succes')
 
+
 class CustomPasswordChangeView(PasswordChangeView):
     """
-    Custom view for changing a user's password with a different success redirect.
+    Custom view for changing a user's password
+    with a different success redirect.
     """
     template_name = 'registration/change_password.html'
-    success_url = reverse_lazy('frontpage-blogpost')  # Redirect to frontpage after password change
+    success_url = reverse_lazy('frontpage-blogpost')
+    # Redirect to frontpage after password change
 
     def get_object(self, queryset=None):
         """
@@ -135,3 +150,4 @@ class CustomPasswordChangeView(PasswordChangeView):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.get_object()
         return kwargs
+        
