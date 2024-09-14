@@ -24,7 +24,9 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Favicon](#favicon)
     - [Languages](#languages)
     - [Frameworks & Software](#frameworks--software)
-    - [The Structure Plane](#the-structure-plane)
+    - [The Structure Plane - Site maps](#the-structure-plane---site-maps)
+    - [The Structure Plane - Database](#the-structure-plane---database)
+      - [Database](#database)
   - [UX & Agile](#ux--agile)
   - [Testing](#testing)
     - [HTML Validation](#html-validation)
@@ -235,6 +237,38 @@ The following site-maps show how the site is structured to logged in users whito
 
 ### The Structure Plane - Database
 
+The database schema was created with [eraser](https://app.eraser.io/workspace/A4EDloZQMT27ohXOp7Vj)
+
+<details>
+  <summary>ERD - Diagram</summary>
+  <img src="static/images/readme-images/ERD-diagram.png" style="display: block; margin: auto;" alt="ERD-Diagram">
+</details>
+
+#### Database 
+
+I used a PostgreSQL provided by Code Institute as relational database.
+
+- **FieldTypes:**<br>
+  - AutoField: An integer field that automatically increments.
+  - CharField: A text field with a maximum length.
+  - EmailField: A CharField that checks if the value is a valid email address.
+  - DateTimeField: A field for storing date and time.
+  - DateField: A field for storing dates.
+  - TextField: A large text field.
+  - OneToOneField: A one-to-one relationship.
+  - ForeignKey: A many-to-one relationship.
+  - IntegerField: An integer field.
+  - DecimalField: A fixed-precision decimal number.
+  - URLField: A CharField for URLs.
+  - ResizedImageField: An image field with resizing options.<br>
+
+- **Relationships:**<br>
+  - A User has one UserProfile.
+  - A UserProfile belongs to one User.
+  - A User has one Author name
+  - A Post category can have only one Categort
+  - A Comment is only linked to one Post.
+  - A Post like can belong to many Users.
 
 [Table Of Contents](#table-of-contents)
 
