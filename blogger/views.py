@@ -294,7 +294,7 @@ class NasaPictureOfTheDayView(TemplateView):
         # Fetch the base context from the parent class
         context = super().get_context_data(**kwargs)
 
-        # NASA API request
+        # NASA API request as a public key
         api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
         url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
         response = requests.get(url)
@@ -306,8 +306,6 @@ class NasaPictureOfTheDayView(TemplateView):
         context['media_type'] = data.get('media_type')
         context['explanation'] = data.get('explanation')
         context['date'] = data.get('date')
-
-        # Assuming bg_image_url is a static image path in your static folder
         context['bg_image_url'] = 'images/background.webp'
 
         return context
