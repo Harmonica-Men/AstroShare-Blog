@@ -284,22 +284,33 @@ def search_view(request):
     return render(request, 'search.html', context)
 
 
-def nasa_picture_of_the_day(request):
+class NasaPictureOfTheDayView(TemplateView):
     """
-    View to fetch and display NASA's
-    Astronomy Picture of the Day (APOD) using a direct API call.
+    View to fetch and display NASA's Astronomy Picture of the Day (APOD).
+    """
+    template_name = 'nasa_picture.html'
 
-    """
-    api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
-    url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
-    response = requests.get(url)
-    data = response.json()
-    context = {
-        'title': data.get('title'),
-        'image_url': data.get('url'),
-        'explanation': data.get('explanation'),
-    }
-    return render(request, 'nasa_picture.html', context)
+    def get_context_data(self, **kwargs):
+        # Fetch the base context from the parent class
+        context = super().get_context_data(**kwargs)
+
+        # NASA API request
+        api_key = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
+        url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
+        response = requests.get(url)
+        data = response.json()
+
+        # Add NASA APOD data to context
+        context['title'] = data.get('title')
+        context['image_url'] = data.get('url')
+        context['media_type'] = data.get('media_type')
+        context['explanation'] = data.get('explanation')
+        context['date'] = data.get('date')
+
+        # Assuming bg_image_url is a static image path in your static folder
+        context['bg_image_url'] = 'images/background.webp'
+
+        return context
 
 
 def iss_location(request):

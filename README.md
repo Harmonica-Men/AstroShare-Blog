@@ -286,11 +286,12 @@ After experimenting whit different container layout and fixing all the issues va
 
 The detail of these test can evaluate on this link.
 <details>
-  <summary>Click to view HTML Validation Homepage Result</summary>
+  <summary>Click to view HTML Validation Results</summary>
+  homepage
   <img src="static/images/readme-images/Html-Check-AstroBlog-homepage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Homepage showing zero errors">
   <br>
 
-  <br>
+  frontpage
   <img src="static/images/readme-images/Html-Check-AstroBlog-frontpage.webp" style="display: block; margin: auto;" alt="HTML Validation Result Frontpage-Blogpost showing zero errors">
 
 </details>

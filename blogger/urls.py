@@ -3,7 +3,7 @@ from .views import (
     AddCategoryView, AddCommentView, AddPostView, ApodView, ArticleDetailView,
     category_list_view, CategoryView, CheckEmailView, confirm_subscription,
     DeletePostView, FrontpageView, HomepageView, iss_location, LikeView,
-    search_view, SubscribeView, UpdatePostView
+    search_view, SubscribeView, UpdatePostView, NasaPictureOfTheDayView
 )
 
 urlpatterns = [
@@ -45,7 +45,7 @@ urlpatterns = [
     # Search view
     path('search/', search_view, name='search'),
     # NASA picture of the day
-    path('nasa/', ApodView.as_view(), name='nasa-picture-of-the-day'),
+    path('nasa_picture/', NasaPictureOfTheDayView.as_view(), name='nasa-picture'),
     # View ISS location
     path('iss_location/', iss_location, name='iss-location'),
     # Subscribe to a newsletter or service

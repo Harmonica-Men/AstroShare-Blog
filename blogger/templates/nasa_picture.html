@@ -2,9 +2,7 @@
 {% load static %}
 {% block title %}APOD{% endblock %}
 {% block content %}
-
-<div class="container-sub" style="background: url('{% static bg_image_url %}') no-repeat fixed top right / cover;">
-
+<section class="container-sub" style="background: url('{% static bg_image_url %}') no-repeat fixed top right / cover;">
     <div class="container" style="min-height: calc(100vh - 130px);">
         <div class="d-flex flex-column align-items-center">
             <h1 class="text-center" style="color: var(--main-text-color);"><strong>{{ title }}</strong></h1>
@@ -28,7 +26,5 @@
             </div>
         </div>
     </div>
-</div>
-
+</section>
 {% endblock %}
-

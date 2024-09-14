@@ -6,6 +6,7 @@ from cloudinary.models import CloudinaryField
 from django.utils.crypto import get_random_string
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.utils import timezone  
 
 
 class Category(models.Model):
@@ -103,7 +104,7 @@ class Comment(models.Model):
         Post, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     body = models.TextField()
-    date_added = models.TimeField(auto_now_add=True)
+    date_added = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         # Returns the name and the first 20 characters of the comment body
