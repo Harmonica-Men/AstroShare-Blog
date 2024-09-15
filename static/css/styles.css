@@ -265,7 +265,7 @@ input#id_last_login,
 
 /* Button wider */
 .btn-wide {
-    width: 220px; /* Adjust the width as needed */
+    width: 225px; /* Adjust the width as needed */
     white-space: nowrap;
     display: inline-block;
 }

@@ -265,8 +265,8 @@ input#id_last_login,
 
 /* Button wider */
 .btn-wide {
-    width: 200px; /* Adjust the width as needed */
-    white-space: nowrap; /* Prevents text from wrapping */
+    width: 220px; /* Adjust the width as needed */
+    white-space: nowrap;
     display: inline-block;
 }
 
@@ -345,13 +345,14 @@ input#id_last_login,
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Hero Section */
-
+/* 
+Hero Section
+*/
 .hero {
     --primary-color: var(--primary-color);
     position: relative;
-    height: 100vh;
-    background-color: rgba(149, 149, 149, 0.254);
+    height: 150vh;
+    background-color: rgba(149, 149, 149, 0.5);
     overflow: hidden;
 }
 
@@ -365,7 +366,6 @@ input#id_last_login,
     height: auto;
     transform: translateX(-50%) translateY(-50%);
 }
-
 
 .hero__head {
     color: var(--accent-color);
@@ -392,7 +392,7 @@ input#id_last_login,
 }
 
 .hero__content-width {
-    max-width: 640px;
+    max-width: 500px;
 }
 
 .hero__scroll-btn {
@@ -432,7 +432,6 @@ input#id_last_login,
 }
 
 .hero__text-bg {
-    /* background-color: var(--main-text-color-invers); */
     background-color: rgba(95, 95, 95, 0.625);
     padding: 20px;
     border-radius: 5px;
@@ -488,8 +487,12 @@ input#id_last_login,
 /* For screen widths greater than 1200px */
 @media (min-width: 1200px) {
     .iframe-container {
-        height: 300px; /* Adjust iframe height for larger screens */
+        height: 400px; /* Adjust iframe height for larger screens */
         max-width: 100%; /* Ensures iframe fits within 90% of the container width */
+    }
+
+    .hero__content-width {
+        max-width: 800px;
     }
 
     .hero__head {
@@ -579,7 +582,6 @@ input#id_last_login,
 
 /* For screen widths less than 380px */
 @media (max-width: 380px) {
-    
     .container-sub, 
     .img, 
     .any-other-class { /* Apply the same padding and margin to multiple classes */
