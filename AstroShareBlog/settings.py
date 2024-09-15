@@ -20,8 +20,6 @@ import dj_database_url
 if os.path.exists("env.py"):
     import env
 
-NASA_API_KEY = os.getenv('NASA_API_KEY')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,6 +35,10 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
+
+NASA_API_KEY = os.getenv('NASA_API_KEY')
+
+# NASA_API_KEY = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

@@ -1,7 +1,8 @@
 {"esversion"= 6}
 document.addEventListener('DOMContentLoaded', function() {
-    let apiKey = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh';
-    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
+     // Get the NASA_API_KEY passed from Django
+     let apiKey = "{{ NASA_API_KEY }}";  // The API key is now passed from the backend
+     let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
 
     fetch(apiUrl)
         .then(function(response) {
@@ -13,12 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(data) {
           	let mediaContainer = document.getElementById('apod-media-container');
             let titleElement = document.getElementById('apod-title');
-            let explanationElement = document.getElementById('apod-explanation');
-
-            if (!mediaContainer || !titleElement || !explanationElement) {
-                console.error('One or more required elements are missing.');
-                return;
-            }
+            let explanationElement = document.getElementById('apod-explanation');          
 
             // Remove default APOD image if present
             let defaultApodImage = document.getElementById('default-apod-image');

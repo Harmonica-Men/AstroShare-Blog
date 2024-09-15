@@ -5,8 +5,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // Define the NASA API key and endpoint for Astronomy Picture of the Day (APOD)
-    let apiKey = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh';
-    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
+    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + API_KEY;
 
     // Fetch data from the APOD API
     fetch(apiUrl)
