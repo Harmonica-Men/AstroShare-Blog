@@ -1,3 +1,4 @@
+{"esversion"= 6}
 document.addEventListener('DOMContentLoaded', function() {
     let apiKey = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh';
     let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
@@ -10,11 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(function(data) {
-            console.log('APOD Data:', data);  // Log the data to the console
-
-            var mediaContainer = document.getElementById('apod-media-container');
-            var titleElement = document.getElementById('apod-title');
-            var explanationElement = document.getElementById('apod-explanation');
+          	let mediaContainer = document.getElementById('apod-media-container');
+            let titleElement = document.getElementById('apod-title');
+            let explanationElement = document.getElementById('apod-explanation');
 
             if (!mediaContainer || !titleElement || !explanationElement) {
                 console.error('One or more required elements are missing.');
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Remove default APOD image if present
-            var defaultApodImage = document.getElementById('default-apod-image');
+            let defaultApodImage = document.getElementById('default-apod-image');
             if (defaultApodImage) {
                 defaultApodImage.remove();
             }
@@ -40,4 +39,3 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         
         });
-

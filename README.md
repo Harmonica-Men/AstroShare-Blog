@@ -18,6 +18,8 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Mobile first design](#mobile-first-design)
   - [Colors](#colors)
     - [Color Customization Process](#color-customization-process)  
+  - [Fonts](#fonts)
+  - [Icons](#icons)      
   - [Technologies Used](#technologies-used)
     - [Wireframes](#wireframes)
       - [Wireframes for Homepage & Frontpage](#wireframes-for-homepage--frontpage)
@@ -88,8 +90,8 @@ Finally, the page concludes with a footer that reinforces credibility and includ
 The **Front Page** is designed to give a quick overview of a list of 5 blog posts ranked by the date added, with the most recent post at the top of the page.
 
 1. **NavBar**: The 'navbar' has a dual function and can be used by both visitors and authenticated users.
-   - Visitors can quickly navigate back to the "homepage" by clicking the home icon or to the 'front page blog posts' by clicking the left arrow icon.
-   - **For Visitors**: Visitors can always read posts but cannot participate. They have the option to view posts by category or to join Astro Blog by registering.
+   - **For Visitors & Users**: can quickly navigate back to the "homepage" by clicking the home icon or to the 'front page blog posts' by clicking the left arrow icon.
+   - **For Visitors**: Visitors can always read posts but cannot participate. They have the option to view posts by category or to join Astro Share Blog by registering.
    - **For Users**: Users have full CRUD (Create, Read, Update, Delete) functionality for their own posts. The 'Add Post' option appears, and they see 'Logged in as,' giving them the ability to change their profile settings and details.
 
 2. **Blog Post Snippets**: Each blog post is presented as a snippet along with a corresponding image.
@@ -111,6 +113,8 @@ To ensure a seamless experience across devices, Bootstrap is used to make the Ho
 The color palette for this project has been carefully selected to ensure a professional and clean aesthetic, aligning with the brand identity and enhancing user experience. Below is a breakdown of the primary colors used across the application:
 
 ![Color Palette](static/images/colorpalette.webp)
+
+As for colors I decided to use Color-Hunt. https://colorhunt.co
 
 - **Primary Color:** `#352F44` - Is a dark, muted purple with gray undertones, giving it a sophisticated, moody, and elegant feel. clarity and focus.
 - <img src="static/images/readme-images/352F44.webp" width="500px" height="50px">
@@ -143,6 +147,14 @@ Key elements of the colour customization process include:
 - **Multiple Colour Palettes**: I have created several distinct colour palettes, each with its unique style—ranging from more traditional to modern and alternative designs. The default palette, known as the **root palette**, is the primary theme that all users see upon first visiting the site.
 
 - **CSS Variables**: The different colour palettes are implemented using CSS Variables, which allows for dynamic and flexible styling of various elements across the site. This ensures a consistent and responsive design while providing a personalised experience for each user.
+
+### Fonts
+
+I used a combination of classic and modern fonts to diversify myself, I've integrated [Google Fonts](https://fonts.google.com/ "Google Fonts") to find a typeface that complements the website's aesthetic. For the main text, I've opted for [Montserrat](https://fonts.google.com/specimen/https://fonts.google.com/specimen/Montserrat?query=mon "Montserrat") due to its classic appearance. Its make it easy to read long sentences.
+
+### Icons
+
+As for icons and officious reason [Bootstrap Icons](https://getbootstrap.com/docs/5.0/extend/icons/ "Bootstrap Icons").
 
 [Table Of Contents](#table-of-contents)
 
@@ -195,7 +207,9 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
   - <img src="static/images/icons8-bootstrap-16.ico" width="18px"> **Bootstrap:** Integrated to utilize its responsive grid system and pre-built components, ensuring the site is mobile-friendly and adaptable to different screen sizes.
 * [Django](https://www.djangoproject.com/) - A model-view-template framework used to create the Review | Alliance site
 * [Balsamiq](https://balsamiq.com/) - Used to create the wireframe.
+* [Pexels](https://www.pexels.com/) - Used for background image and animation video.
 * [Github](https://github.com/) - Used to host and edit the website.
+* [Eraser](https://app.eraser.io/) - Used to created the Database layout schema.
 * [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
 * [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.
 * [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used for responsiveness check.
@@ -233,7 +247,6 @@ The following site-maps show how the site is structured to logged in users whito
   <summary>Site Map - Not Logged In</summary>
   <img src="static/images/readme-images/Not_Logged.jpg" style="display: block; margin: auto;" alt="Site Map - Not Logged In - Desktop">
 </details>
-<br>
 
 ### The Structure Plane - Database
 
@@ -269,6 +282,8 @@ I used a PostgreSQL provided by Code Institute as relational database.
   - A Post category can have only one Categort
   - A Comment is only linked to one Post.
   - A Post like can belong to many Users.
+
+**note:** The **Subscriber Model** has only one particlular function and that is to make a list for all user who to join the newsletter, they don't have to be active member of the blog post website.
 
 [Table Of Contents](#table-of-contents)
 
@@ -336,17 +351,32 @@ These efforts help ensure that our site is not only compliant with accessibility
 
 I have conducted a thorough accessibility audit using the WAVE (Web Accessibility Evaluation Tool). There is a smooth transition between the header of the page and the rest of the main page. Nevertheless, there are some issues to address due to the background MPEG replay. WAVE is dynamic and cannot make a persistent measurement of background contrast.
 
-![Contrast Errors homepage header](staticfiles/images/readme-images/wave-errors-homepage-header.webp)
+<details>
+  <br>
+  <summary>Click to view Lighthouse Homepage Result</summary>
+  <img src="staticfiles/images/readme-images/wave-errors-homepage-header.webp" style="display: block; margin: auto;" alt="Contrast Error homepage header">
+  <br>
+</details>
 <br>
 
 I have also identified contrast issues with the modal buttons, which follow a similar color pattern to the Flash Danger alerts. However, the inclusion of shadow effects and other design enhancements significantly aids visibility. I believe these design choices ensure the buttons remain accessible and visually clear, even if they do not fully meet WAVE’s contrast recommendations.
 
-![Contrast Errors homepage footer](staticfiles/images/readme-images/wave-errors-homepage-footer.webp)
+<details>
+  <br>
+  <summary>Click to view Contrast Errors homepage footer</summary>
+  <img src="staticfiles/images/readme-images/wave-errors-homepage-footer.webp" style="display: block; margin: auto;" alt="Contrast Errors homepage footer">
+  <br>
+</details>
 <br>
 
 Additionally, contrast warnings were noted in the Flash messages—interestingly, all colors except yellow were flagged. While we understand that white text on a transparent background might pose a readability challenge, WAVE does flaged it as an issue. Conversely, other colors, which do not seem problematic to us, were marked for contrast errors.
 
-![Contrast Errors front-page pagination](staticfiles/images/readme-images/wave-errors-frontpage-pagination.webp)
+<details>
+  <br>
+  <summary>Click to view Contrast Errors front-page pagination</summary>
+  <img src="staticfiles/images/readme-images/wave-errors-frontpage-pagination.webp" style="display: block; margin: auto;" alt="Contrast Errors front-page pagination">
+  <br>
+</details>
 <br>
 
 Overall, the WAVE validation confirms that our website adheres to accessibility standards, with only a few minor contrast issues that have been carefully considered in the design process. While we will continue exploring potential solutions to these issues, we have prioritized maintaining a visually cohesive and intuitive theme for the site.
@@ -380,14 +410,20 @@ While the desktop version scores are very high, the mobile version, although sti
 
 ### JSHint Validation
 
-Although our project doesn't include an extensive amount of JavaScript, I canensured that the code we do have is fully validated using **JSHint**. I'm pleased to report that our JavaScript code has passed the validation process with a 100% clean bill of health—no errors whatsoever.
+Although our project doesn't include an extensive amount of JavaScript, I can ensured that the code we do have is fully validated using **JSHint**. I'm pleased to report that our JavaScript code has passed the validation process with a 99% clean bill of health—no errors whatsoever.
 
-In addition to being error-free, the JavaScript code is thoroughly commented and documented. This will make it easier for future developers to understand the purpose and function of each part of the code.
+There is only one warning that issue has probably to do JSHint interpreter itself.
+
+<details>
+  <br>
+  <summary>Click to view JSHint Result</summary>
+
+  <img src="static/images/readme-images/JShint-validation-Astro-Blog.png" style="display: block; margin: auto;" alt="JSHint test">
+</details>
 
 ### PEP8
 All Python files as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
 
-<br>
 <details>
   <br>
   <summary>Click to view PEP8 Result</summary>
@@ -471,12 +507,12 @@ No significant issues were encountered during the tests, confirming that our sit
 
 Navbar
 
-| Homepage – Template                                                    |                                                               |                                     |       |
+| Homepage – Template                                                    | [#17](https://github.com/Harmonica-Men/AstroShare-Blog/issues/17)                                                              |                                     |       |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------- | ----- |
 | Scenario                                                               | Action                                                        | Result                              | Check |
 | Click the “Go To Blog” Button                                          | should navigate to Frontpage - Blogpost                       | Redirect to Blog                    | PASS  |
 | Click “Subscribe”                                                      | Should navigate to Subscription                               | Redirect to section bottom homepage | PASS  |
-| Click “Go to APOD”                                                     | Should navigate to Astronomy Picture of the Day               | Redirect to APOD page               | PASS  |
+| Click “Go to APOD” #40                                                    | Should navigate to Astronomy Picture of the Day               | Redirect to APOD page               | PASS  |
 | Click “Go to ISS”                                                      | Should navigate to Track the International Space Station page | Redirect to ISS page                | PASS  |
 | Fill in “Subscribe to our Newsletter”Fill in Name & Email after Submit | Should navigate to Check Email Page                           | Redirect to “Check your Email” page | PASS  |
 
@@ -488,9 +524,9 @@ Navbar
 | Scenario                                    | Action                                                              | Result                                                        | Check |
 | Click House Icon                            | Should navigate to “Homepage”                                       | Redirect to Homepage                                          | PASS  |
 | Click Arrow Left                            | Should navigate to “Frontpage – Blogpost”                           | Redirect to Frontpage                                         | PASS  |
-| Click Category List                         | Dropdown menu to filter specific blogpost categories                | Redirect to Posts per Categorie                               | PASS  |
+| Click Category List [#32](https://github.com/Harmonica-Men/AstroShare-Blog/issues/32)                        | Dropdown menu to filter specific blogpost categories                | Redirect to Posts per Categorie                               | PASS  |
 | Click Category List – Blog Posts Categories | Dropdown menu to shows all aviable categories and there discription | Redirect to Category List Page                                | PASS  |
-| Click Search Query                          | Search for specific key words in the Blogpost                       | Redirect to Search post list out of blogpost specific keyword | PASS  |
+| Click Search Query [#31](https://github.com/Harmonica-Men/AstroShare-Blog/issues/31)                         | Search for specific key words in the Blogpost                       | Redirect to Search post list out of blogpost specific keyword | PASS  |
 | Click Register                              | Should navigate to Register page                                    | Redirect to Register page                                     | PASS  |
 | Click Login                                 | Should navigate to Login page                                       | Redirect to Login Page                                        | PASS  |
 
@@ -502,7 +538,7 @@ Navbar
 | Click Add Post                                              | Should navigate to Add Post            | Redirect to Create Add Post Page | PASS  |
 
 
-| NavBar – if after create a profile |                                      |                               |       |
+| NavBar – if after create a profile | [#18](https://github.com/Harmonica-Men/AstroShare-Blog/issues/18)                                     |                               |       |
 | ---------------------------------- | ------------------------------------ | ----------------------------- | ----- |
 | Scenario                           | Action                               | Result                        | Check |
 | Click Logged is as: [user]         | Should navigate to Edit Profile Page | Redirect to Edit Profile Page | PASS  |
@@ -516,7 +552,7 @@ Navbar
 | Back to Top                                             | Should navigate to top of Frontpage         | Redirect to Top op Frontpage     | PASS  |
 
 
-| Frontpage – Blogpost If [user] Logged In (Users)     |                                          |                                   |       |
+| Frontpage – Blogpost If [user] Logged In (Users)     | [#18](https://github.com/Harmonica-Men/AstroShare-Blog/issues/18) |                                   |       |
 | ---------------------------------------------------- | ---------------------------------------- | --------------------------------- | ----- |
 | Scenario                                             | Action                                   | Result                            | Check |
 | Click “Edit” for which to user has create the post   | Should navigate to Edit Article Blogpost | Redirect to Edit Article Blogpost | PASS  |
@@ -530,13 +566,13 @@ Navbar
 
 
 
-| Article detail blog post              |                                        |                                |       |
+| Article detail blog post              | [#25](https://github.com/Harmonica-Men/AstroShare-Blog/issues/25)                                       |                                |       |
 | ------------------------------------- | -------------------------------------- | ------------------------------ | ----- |
 | Scenario                              | Action                                 | Result                         | Check |
 | Click high lighted author name        | Should navigate to Author Profile Page | Redirect to Profile Page       | PASS  |
 | Click Like (visitors)                 | must be logged in to comment           | no redirect to comments        | PASS  |
-| Click Like (only autheticated users)  | Like button availeble                  | increase counter total likes   | PASS  |
-| Click unlike                          | Unlike button availeble                | decrease counter total likes   | PASS  |
+| Click Like (only autheticated users)  | Like button available                  | increase counter total likes   | PASS  |
+| Click unlike                          | Unlike button available                | decrease counter total likes   | PASS  |
 | Add Comment (vistors)                 | not able to make a comment             | no redirect to comments        | PASS  |
 | Add Comment (only autheticated users) | Should navigate to Add Comments        | Redirect to Add Comments       | PASS  |
 | Back to Blog                          | Should navigate to Frontpage Blogpost  | Redirect to Frontpage Blogpost | PASS  |
@@ -557,7 +593,7 @@ Navbar
 | Scenario          | Action                   | Result            | Check |
 | Click on Register | Should navigate to Login | Redirect to Login | PASS  |
 
-| Author Profile Template |                                       |                                |       |
+| Author Profile Template | [#16](https://github.com/Harmonica-Men/AstroShare-Blog/issues/16)                                      |                                |       |
 | ----------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario                | Action                                | Result                         | Check |
 | Click Twitter icon      | Should navigate to Twitter            | Redirect to Twitter            | PASS  |
@@ -656,7 +692,15 @@ This site was deployed to and is currently [hosted on the Heroku platform](https
 4. Give it a unique name and choose the region *Europe*
 5. Click the Settings tab, go to the *Config Vars* section and click on the Reveal Config Vars button
 6. Add all variables from *env.py* to ConfigVars of Heroku
-![screenshotc onfig vars](static/images/readme-images/config-vars-heroku-astroblog.png)
+
+<details>
+  <br>
+  <summary>Click to view details Config Vars Heroku</summary>
+  <img src="static/images/readme-images/config-vars-heroku-astroblog.png" style="display: block; margin: auto;" alt="Config Vars Heroku">
+  <br>
+</details>
+<br>
+
 7. Click the *Add* button
 8. Click the *Deploy* tab, go to the *Deployment method section*, select *GitHub* and confirm this selection by clicking on the *Connect to Github* button
 9. Search for the repository name on github *Astro Blog* and click the *Connect* button
@@ -694,7 +738,7 @@ This site was deployed to and is currently [hosted on the Heroku platform](https
 4. Click on _Go to API Keys_ button
 5. Generate a new API Key
 6. Provide the API environment variable in format: *CLOUDINARY_URL=cloudinary://<your_api_key>:<your_api_secret>@ds5rjhhxu* in _env.py_ and _Config Vars_
-7. Update settings.py
+7. Update *settings.py*
 
 #### Create a new PostgreSQL Code Institute database.
 
