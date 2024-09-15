@@ -3,14 +3,12 @@
 {% block title %} Edit Profile Page {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="d-flex justify-content-center align-items-center"
+<section class="d-flex justify-content-center align-items-center"
     style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
-
     <div class="steps--background-white rounded p-4 shadow-sm" style="width: 100%; max-width: 600px;">
         <!-- Edit Profile Form -->
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-
             {% if form.errors %}
             <div class="alert alert-danger">
                 <ul>
@@ -22,40 +20,33 @@
                 </ul>
             </div>
             {% endif %}
-
             <div class="mb-2">
                 <label for="id_username" class="form-label">Username</label>
                 {{ form.username }}
             </div>
-
             <div class="mb-2">
                 <label for="id_first_name" class="form-label">First Name</label>
                 {{ form.first_name }}
             </div>
-
             <div class="mb-2">
                 <label for="id_last_name" class="form-label">Last Name</label>
                 {{ form.last_name }}
             </div>
-
             <div class="mb-2">
                 <label for="id_email" class="form-label">Email</label>
                 {{ form.email }}
             </div>
-
             <div class="mb-2">
                 <label for="id_last_login" class="form-label"></label>
                 <div style="display: none;">
                     {{ form.last_login }}
                 </div>
             </div>
-
             <div class="mb-2">
                 <label class="form-label"><small><strong>Last Logged In:</strong></small></label>
                 <small>{{ user.last_login }}</small>
                 <a href="{% url 'password-change' user.pk %}"><small><strong>Change Password</strong></small></a>
             </div>
-
             <div class="mb-2 d-flex justify-content-between">
                 <button type="submit" class="btn btn-primary">Update Profile</button>
 
@@ -67,12 +58,11 @@
                 {% endif %}
             </div>
         </form>
-
         <!-- Back to Blog Link -->
         <div class="text-center mt-2">
             <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
         </div>
     </div>
-</div>
+</section>
 {% endwith %}
 {% endblock %}

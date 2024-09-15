@@ -3,7 +3,6 @@
 {% block title %}Update Blog Post{% endblock %}
 {% block content %}
 {% with image_url='images/background.webp' %}
-
 <section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container-custom" style="min-height: calc(100vh - 130px);">
         <!-- Centering the main content -->
@@ -11,19 +10,16 @@
             <!-- Form container -->
             <div class="steps--background-white p-4 mt-5 rounded shadow-sm w-100" style="max-width: 600px;">
                 <!-- <h1 class="text-center mb-3">Update Blog Post</h1> -->
-
                 {% if user.is_authenticated %}
                 <form method="POST" enctype="multipart/form-data" action="{% url 'update-post' post.pk %}">
                     {% csrf_token %}
                     <!-- Display form fields -->
                     {{ form.as_p }}
-
                     <!-- Submit button -->
                     <div class="text-center mt-3">
                         <button type="submit" class="btn btn-primary">Update Post</button>
                     </div>
                 </form>
-
                 <div class="text-center mt-5">
                     <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary">Back To Blog</a>
                 </div>
@@ -38,6 +34,5 @@
         </div>
     </div>
 </section>
-
 {% endwith %}
 {% endblock %}

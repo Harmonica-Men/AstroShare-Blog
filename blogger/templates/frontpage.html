@@ -3,21 +3,19 @@
 {% block title %}Astro Share Blog{% endblock %}
 <!-- Page title block -->
 {% block meta %}
-<meta name="description" content="Frontpage blogpost"> <!-- Meta description for SEO -->
+<meta name="description" content="Frontpage blogpost">
+<!-- Meta description for SEO -->
 {% endblock %}
-
 {% block content %}
 {% with image_url='images/background.webp' %}
 <!-- Background image URL for the page -->
 <div class="container-sub wrapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
   <!-- Background image style -->
-
   <div class="container-custom">
-    <h1 style="color: var(--main-text-color);">Latest Posts</h1> <!-- Main heading with dynamic text color -->
+    <h1 style="color: var(--main-text-color);">Latest Posts</h1>
+    <!-- Main heading with dynamic text color -->
   </div>
   {% for post in posts %}
-
-
   <!-- Loop through each post -->
   <section>
     <div class="container-custom steps--background-white p-4 mt-2 mb-5 shadow-sm rounded"
@@ -34,7 +32,6 @@
             loading="lazy">
           {% endif %}
         </div>
-
         <!-- Content Column -->
         <div class="container col-sm-6 col-md-8 order-1 order-sm-2">
           <h3 style="padding-left: 0.85rem;">{{ post.title }}</h3> <!-- Post title -->
@@ -49,7 +46,6 @@
               <strong>{{ post.author.first_name }}</strong>
             </p> <!-- Post metadata: date, category, author -->
           </div>
-
           {% if user.is_authenticated and user == post.author %}
           <div class="container">
             <a href="{% url 'update-post' post.pk %}" class="btn btn-warning">Edit</a>
@@ -62,10 +58,8 @@
       </div>
     </div>
   </section>
-
   <hr> <!-- Horizontal line between posts -->
   {% endfor %}
-
   <div class="d-flex justify-content-evenly">
     <div class="step-links m-1">
       <nav aria-label="Page navigation">

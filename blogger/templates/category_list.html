@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 {% with image_url='images/background.webp' %}
-<div class="container-sub wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<section class="container-sub wapper" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container-custom">
         <h1 style="color: var(--main-text-color);">Category List</h1>
     </div>
@@ -26,6 +26,6 @@
     <div class="container-custom">
         <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mb-3">Back To Blog</a>
     </div>
-</div>
+</section>
 {% endwith %}
 {% endblock %}

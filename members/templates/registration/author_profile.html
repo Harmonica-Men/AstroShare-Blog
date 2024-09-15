@@ -3,14 +3,12 @@
 {% block title %}User Profiles{% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container-sub d-flex justify-content-center align-items-center"
+<section class="container-sub d-flex justify-content-center align-items-center"
     style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
-
-    <section class="steps--background-white rounded p-4 mt-4 mb-4 shadow-sm text-center"
+    <div class="steps--background-white rounded p-4 mt-4 mb-4 shadow-sm text-center"
         style="width: 100%; max-width: 700px;">
         <!-- Author's Username Displayed as Title -->
         <h1 class="mb-4">{{ profile.user.username }}'s Profile</h1>
-
         <!-- Profile Picture Section -->
         <div class="text-center mb-4">
             {% if profile.profile_pic %}
@@ -25,7 +23,6 @@
             {% endif %}
         </div>
         <small class="fst-italic">Joined on {{ user.date_joined|date:"F j, Y" }}</small>
-
         <!-- Bio Section -->
         <div class="container-list mt-4 mb-4">
             <p><strong>Bio:</strong> {{ profile.bio }}</p>
@@ -43,12 +40,11 @@
                             class="bi bi-globe"></i></a></li>
             </ul>
         </div>
-
         <!-- Back to Blog Link -->
         <div class="text-center mt-2 mb-2">
             <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 {% endwith %}
 {% endblock %}

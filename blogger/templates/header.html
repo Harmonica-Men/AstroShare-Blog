@@ -1,7 +1,6 @@
 {% load static %}
 <!-- Header -->
 <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
@@ -13,7 +12,6 @@
                     <i class="bi bi-arrow-left"></i>
                 </a>
             </div>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,7 +30,6 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories List
                         </a>
-
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             {% for item in cat_menu %}
                             <li>
@@ -40,26 +37,21 @@
                                     {{ item }}
                                 </a>
                             </li>
-
                             {% endfor %}
                             <li>
                                 <hr>
                             </li>
                             <li><a class="dropdown-item" href="{% url 'category-list' %}">Blog Post Categories</a></li>
-
                         </ul>
-
                     </li>
                     {% endif %}
                 </ul>
-
                 <!-- Add search form here -->
                 <form class="d-flex" action="{% url 'search' %}" method="GET">
                     <input class="form-control me-3" type="search" name="query" placeholder="Search posts"
                         aria-label="Search">
                     <button class="btn btn-outline-light m-0" type="submit">Search</button>
                 </form>
-
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
                     {% if user.profile.bio %}
@@ -73,7 +65,6 @@
                             Logged in as:<strong style="color: white;"> {{ user.username }}</strong></a>
                     </li>
                     {% endif %}
-
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
@@ -89,5 +80,4 @@
             </div>
         </div>
     </nav>
-
 </header>

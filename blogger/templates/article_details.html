@@ -3,7 +3,6 @@
 {% block title %}This is article details{% endblock %}
 {% block content %}
 {% with image_url='images/background.webp' %}
-
 <section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container" style="min-height: calc(100vh - 130px);">
         <div class="d-flex flex-column align-items-center justify-content-center">
@@ -16,7 +15,6 @@
                 <img src="{% static 'images/no-image-available.jpg' %}" class="img-thumbnail w-75 mb-4"
                     alt="no-image-available">
                 {% endif %}
-
                 {% if user.is_authenticated %}
                 {% if user == post.author %}
                 <div class="mb-3">
@@ -25,8 +23,6 @@
                 </div>
                 {% endif %}
                 {% endif %}
-
-
                 <div class="mb-4 fst-italic">
                     <small class="d-block">Posted: <strong>{{ post.post_date }}</strong></small>
                     <small class="d-block">By:
@@ -38,11 +34,9 @@
                     </small>
                     <small class="d-block">Category: <strong>{{ post.category }}</strong></small>
                 </div>
-
                 <div class="container-list mb-4">
                     {{ post.body }}
                 </div>
-
                 <form action="{% url 'like-post' post.pk %}" method="POST" class="mb-4">
                     {% csrf_token %}
                     {% if user.is_authenticated %}
@@ -85,13 +79,10 @@
                         <small>By: <strong>{{ comment.name }}</strong></small>
                         <small>Date Added:</small>
                         <small><strong>{{ comment.date_added|date:"M j, Y" }}</strong></small>
-
-
                     </div>
                     {% endfor %}
                     {% endif %}
                 </section>
-
                 <div class="text-center">
                     <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-2 mb-4">Back To Blog</a>
                 </div>

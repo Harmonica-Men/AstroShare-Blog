@@ -3,8 +3,7 @@
 {% block title %}Login Page{% endblock %}
 {% block content %}
 {% with image_url='images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-
+<section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 130px);">
         <div class="container-custom d-flex justify-content-center align-items-center">
             <div class="steps--background-white p-4 rounded shadow-sm" style="width: 100%; max-width: 400px;">
@@ -30,7 +29,6 @@
             </div>
         </div>
     </div>
-
-</div>
+</section>
 {% endwith %}
 {% endblock %}

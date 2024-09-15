@@ -3,8 +3,8 @@
 {% block title %}Confirm Subscription{% endblock %}
 {% block content %}
 {% with image_url='images/background.webp' %}
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
-    <section class="d-flex justify-content-center align-items-center"
+<section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+    <div class="d-flex justify-content-center align-items-center"
         style="min-height: calc(100vh - 130px); padding: 2rem;">
         <div class="steps--background-white rounded p-4 text-center" style="max-width: 600px; width: 100%;">
             <h1 class="mb-4">Thank You</h1>
@@ -15,7 +15,7 @@
                 <strong><a href="/" class="btn btn-secondary">Return to homepage</a></strong>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 {% endwith %}
 {% endblock %}
