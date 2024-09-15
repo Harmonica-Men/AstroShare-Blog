@@ -7,7 +7,6 @@
     <div class="container-custom">
         <h1 style="color: var(--main-text-color);">Posts in {{ cats }}</h1>
     </div>
-
     {% if category_posts %}
     <section>
         <div class="container mt-2">
@@ -61,18 +60,14 @@
         </div>
     </section>
     {% else %}
-
     <div class="container-sub" style="min-height: calc(90vh - 130px);">
         <div class="container-list steps--background-white p-4 rounded">
             <h1 style="text-align: center;">No Posts Found in {{ cats }}</h1>
             <div class="container-custom">
                 <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
             </div>
-
         </div>
-
     </div>
-
     {% endif %}
 </div>
 {% endwith %}

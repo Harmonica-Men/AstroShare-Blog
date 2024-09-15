@@ -20,16 +20,10 @@
 
   <!-- Loop through each post -->
   <section>
-
     <div class="container-custom steps--background-white p-4 mt-2 mb-5 shadow-sm rounded"
       style="max-width: 1200px; width: 100%; text-align: center;">
-
-      <!-- Alternating background colors for posts -->
-
       <div
         class="col-12 d-flex flex-wrap align-items-start container-banner {% if forloop.counter0|divisibleby:2 %} flex-row-reverse {% endif %}">
-        <!-- Flex row reverse on every second post -->
-
         <!-- Image Column -->
         <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1">
           {% if post.image.url %}
@@ -91,7 +85,6 @@
       </nav>
     </div>
   </div>
-
   <div class="container-custom">
     <div class="back-to-top-button mb-3" style="padding-top: 1rem;">
       <a href="#" class="btn btn-secondary color-hyperlink-footer">Back to Top</a> <!-- Back to Top button -->

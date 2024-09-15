@@ -3,26 +3,26 @@
 {% block title %}User Profiles{% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
-<div class="container-sub d-flex justify-content-center align-items-center" 
-     style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
-    
-    <section class="steps--background-white rounded p-4 mt-4 mb-4 shadow-sm text-center" style="width: 100%; max-width: 700px;">
+<div class="container-sub d-flex justify-content-center align-items-center"
+    style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: calc(100vh - 130px);">
+
+    <section class="steps--background-white rounded p-4 mt-4 mb-4 shadow-sm text-center"
+        style="width: 100%; max-width: 700px;">
         <!-- Author's Username Displayed as Title -->
-        <h1 class="mb-4">{{ profile.user.username }}'s Profile</h1>        
+        <h1 class="mb-4">{{ profile.user.username }}'s Profile</h1>
 
         <!-- Profile Picture Section -->
         <div class="text-center mb-4">
             {% if profile.profile_pic %}
-            <img src="{{ profile.profile_pic.url }}" alt="{{ profile.user.username }}'s profile picture" 
-                 class="img-thumbnail rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+            <img src="{{ profile.profile_pic.url }}" alt="{{ profile.user.username }}'s profile picture"
+                class="img-thumbnail rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
             {% else %}
-            <img src="{% static 'images/anonymous-profile-pic.webp' %}" 
-                 class="img-thumbnail rounded-circle mb-3" 
-                 alt="Anonymous Profile Pic" style="width: 150px; height: 150px; object-fit: cover;">
+            <img src="{% static 'images/anonymous-profile-pic.webp' %}" class="img-thumbnail rounded-circle mb-3"
+                alt="Anonymous Profile Pic" style="width: 150px; height: 150px; object-fit: cover;">
             <div>
                 <small>No profile image</small>
             </div>
-            {% endif %}            
+            {% endif %}
         </div>
         <small class="fst-italic">Joined on {{ user.date_joined|date:"F j, Y" }}</small>
 
@@ -33,15 +33,19 @@
         <!-- Social Media Links -->
         <div class="text-center">
             <ul class="nav justify-content-center list-unstyled d-flex">
-                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.twitter_url }}"><i class="bi bi-twitter"></i></a></li>
-                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.instagram_url }}"><i class="bi bi-instagram"></i></a></li>
-                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.facebook_url }}"><i class="bi bi-facebook"></i></a></li>                
-                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.global_url }}"><i class="bi bi-globe"></i></a></li>                
+                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.twitter_url }}"><i
+                            class="bi bi-twitter"></i></a></li>
+                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.instagram_url }}"><i
+                            class="bi bi-instagram"></i></a></li>
+                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.facebook_url }}"><i
+                            class="bi bi-facebook"></i></a></li>
+                <li class="ms-3"><a class="color-hyperlink-invers" href="{{ profile.global_url }}"><i
+                            class="bi bi-globe"></i></a></li>
             </ul>
         </div>
 
-         <!-- Back to Blog Link -->
-         <div class="text-center mt-2 mb-2">
+        <!-- Back to Blog Link -->
+        <div class="text-center mt-2 mb-2">
             <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
         </div>
     </section>

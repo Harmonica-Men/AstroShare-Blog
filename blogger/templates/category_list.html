@@ -7,7 +7,6 @@
     <div class="container-custom">
         <h1 style="color: var(--main-text-color);">Category List</h1>
     </div>
-
     {% for category in cat_menu_list %}
     <section>
         <div class="container-custom steps--background-white p-4 mt-2 mb-5 shadow-sm rounded"
@@ -23,7 +22,6 @@
             </div>
         </div>
     </section>
-
     {% endfor %}
     <div class="container-custom">
         <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mb-3">Back To Blog</a>

@@ -15,7 +15,8 @@
 
 <body>
     {% with image_url='images/background.webp' %}
-    <div style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+    <div
+        style="background: url('{% static image_url %}') no-repeat fixed top right / cover; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
         <div class="container text-center" style="color: white;">
             <h1 class="display-4 mb-4">Current Location of the ISS</h1>
             <p class="lead mb-4">Tracking the real-time location of the International Space Station</p>

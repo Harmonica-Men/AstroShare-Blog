@@ -38,8 +38,6 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 NASA_API_KEY = os.getenv('NASA_API_KEY')
 
-# NASA_API_KEY = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 

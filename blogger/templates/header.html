@@ -6,12 +6,13 @@
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <a class="navbar-brand ms-2 color-hyperlink" href="{% url 'homepage' %}" aria-label="Back to Homepage">
-                  <i class="bi bi-house"></i>
+                    <i class="bi bi-house"></i>
                 </a>
-                <a class="navbar-brand ms-2 color-hyperlink" href="{% url 'frontpage-blogpost' %}" aria-label="Go to front page">
-                  <i class="bi bi-arrow-left"></i>
+                <a class="navbar-brand ms-2 color-hyperlink" href="{% url 'frontpage-blogpost' %}"
+                    aria-label="Go to front page">
+                    <i class="bi bi-arrow-left"></i>
                 </a>
-              </div>
+            </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
@@ -41,18 +42,21 @@
                             </li>
 
                             {% endfor %}
-                            <li><hr></li>
+                            <li>
+                                <hr>
+                            </li>
                             <li><a class="dropdown-item" href="{% url 'category-list' %}">Blog Post Categories</a></li>
-                            
+
                         </ul>
-                                                
+
                     </li>
                     {% endif %}
                 </ul>
 
                 <!-- Add search form here -->
                 <form class="d-flex" action="{% url 'search' %}" method="GET">
-                    <input class="form-control me-3" type="search" name="query" placeholder="Search posts" aria-label="Search">
+                    <input class="form-control me-3" type="search" name="query" placeholder="Search posts"
+                        aria-label="Search">
                     <button class="btn btn-outline-light m-0" type="submit">Search</button>
                 </form>
 

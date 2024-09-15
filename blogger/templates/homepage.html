@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Cosmic Chronicles is your gateway to the wonders of the universe! 
   Explore the latest discoveries, celestial events, and the secrets of the cosmos in our Astro Blog.">
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -39,10 +39,11 @@
     <div class="hero__content m-2 container-banner position-relative">
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="container-list text-white hero__text-bg">
-          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 mb-4 btn btn-outline-light btn-contrast btn-wide" role="button">
+          <a href="{% url 'frontpage-blogpost' %}" class="mt-2 mb-4 btn btn-outline-light btn-contrast btn-wide"
+            role="button">
             Go To Astro Share Blog
-        </a>
-        
+          </a>
+
           <div class="container-sub">
             <h2 class="hero__head">Share the latest space news</h2>
             <p class="hero__text">
@@ -61,7 +62,7 @@
               bringing the marvels of space right to your screen.
               <br>
               Buckle up and get ready to ignite your curiosity about the infinite night sky!
-            </p>           
+            </p>
           </div>
         </div>
       </div>
@@ -84,14 +85,14 @@
         </div>
         <div class="row container-banner justify-content-center">
           <div class="col-md-10 text-center" id="apod-media-container">
-            <img src="{% static 'images/apod-logo.webp'%}" class="img-fluid" alt="Astronomy Picture of the Day" loading="lazy" id="default-apod-image">
+            <img src="{% static 'images/apod-logo.webp'%}" class="img-fluid" alt="Astronomy Picture of the Day"
+              loading="lazy" id="default-apod-image">
           </div>
           <div class="container-custom mt-4">
             <a href="{% url 'nasa-picture' %}" class="color-hyperlink">
-                <strong>Go to APOD</strong>
+              <strong>Go to APOD</strong>
             </a>
-        </div>
-        
+          </div>
         </div>
       </div>
       <div class="col-12 col-sm-6">
@@ -101,7 +102,7 @@
             {% with posts|slice:":1" as first_post_list %}
             {% if first_post_list.0 %}
             <h4><a href="{% url 'article-detail' first_post_list.0.pk %}" class="color-hyperlink">
-              {{ first_post_list.0.title }}</a></h4>
+                {{ first_post_list.0.title }}</a></h4>
             <small>Posted on: {{ first_post_list.0.post_date }} By: {{ first_post_list.0.author.last_name }},
               {{ first_post_list.0.author.first_name }}</small>
             {% else %}
@@ -113,7 +114,7 @@
             {% with posts|slice:"1:2" as second_post_list %}
             {% if second_post_list.0 %}
             <h4><a href="{% url 'article-detail' second_post_list.0.pk %}" class="color-hyperlink">
-              {{ second_post_list.0.title }}</a></h4>
+                {{ second_post_list.0.title }}</a></h4>
             <small>Posted on: {{ second_post_list.0.post_date }} By: {{ second_post_list.0.author.last_name }},
               {{ second_post_list.0.author.first_name }}</small>
             {% else %}
@@ -125,7 +126,7 @@
             {% with posts|slice:"2:3" as third_post_list %}
             {% if third_post_list.0 %}
             <h4><a href="{% url 'article-detail' third_post_list.0.pk %}" class="color-hyperlink">
-              {{ third_post_list.0.title }}</a></h4>
+                {{ third_post_list.0.title }}</a></h4>
             <small>Posted on: {{ third_post_list.0.post_date }} By: {{ third_post_list.0.author.last_name }},
               {{ third_post_list.0.author.first_name }}</small>
             {% else %}
@@ -253,7 +254,8 @@
           <h3>Track The ISS</h3>
           <div class="iframe-container">
             <iframe class="responsive-iframe"
-              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1" title="ISS">
+              src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1"
+              title="ISS">
             </iframe>
           </div>
           <div class="container-custom mt-2">

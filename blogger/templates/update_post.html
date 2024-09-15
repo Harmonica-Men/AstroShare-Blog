@@ -4,7 +4,7 @@
 {% block content %}
 {% with image_url='images/background.webp' %}
 
-<div class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
+<section class="container-sub" style="background: url('{% static image_url %}') no-repeat fixed top right / cover;">
     <div class="container-custom" style="min-height: calc(100vh - 130px);">
         <!-- Centering the main content -->
         <div class="d-flex flex-column align-items-center">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 {% endwith %}
 {% endblock %}

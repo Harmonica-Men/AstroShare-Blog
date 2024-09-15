@@ -15,22 +15,22 @@
             <!-- Search results display -->
             <div class="w-100">
                 {% if posts %}
-                    {% for post in posts %}
-                        <div class="steps--background-white p-4 rounded shadow-sm mb-4">
-                            <h3>{{ post.title }}</h3>
-                            <small class="d-block mb-2">{{ post.created_at|timesince }} ago</small>
-                            <p>
-                                {{ post.body|slice:":200" }}{% if post.body|length > 200 %}...{% endif %}
-                                <a href="{% url 'article-detail' post.pk %}"><small><strong>[read more]</strong></small></a>
-                            </p>
-                        </div>
-                    {% endfor %}
+                {% for post in posts %}
+                <div class="steps--background-white p-4 rounded shadow-sm mb-4">
+                    <h3>{{ post.title }}</h3>
+                    <small class="d-block mb-2">{{ post.created_at|timesince }} ago</small>
+                    <p>
+                        {{ post.body|slice:":200" }}{% if post.body|length > 200 %}...{% endif %}
+                        <a href="{% url 'article-detail' post.pk %}"><small><strong>[read more]</strong></small></a>
+                    </p>
+                </div>
+                {% endfor %}
                 {% else %}
-                    <!-- No results found -->
-                    <div class="steps--background-white p-4 rounded shadow-sm text-center">
-                        <h2>No result for the given query...</h2>
-                        <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
-                    </div>
+                <!-- No results found -->
+                <div class="steps--background-white p-4 rounded shadow-sm text-center">
+                    <h2>No result for the given query...</h2>
+                    <a href="{% url 'frontpage-blogpost' %}" class="btn btn-secondary mt-3">Back To Blog</a>
+                </div>
                 {% endif %}
             </div>
         </div>
