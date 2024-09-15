@@ -41,7 +41,7 @@ NASA_API_KEY = os.getenv('NASA_API_KEY')
 # NASA_API_KEY = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-harmonicame-astroshareb-tykmah5chi5.ws.codeinstitute-ide.net',
