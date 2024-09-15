@@ -150,7 +150,7 @@ Key elements of the colour customization process include:
 
 ### Fonts
 
-I used a combination of classic and modern fonts to diversify myself, I've integrated [Google Fonts](https://fonts.google.com/ "Google Fonts") to find a typeface that complements the website's aesthetic. For the main text, I've opted for [Montserrat](https://fonts.google.com/specimen/https://fonts.google.com/specimen/Montserrat?query=mon "Montserrat") due to its classic appearance. Its make it easy to read long sentences.
+I used a combination of classic and modern fonts to diversify myself, I've integrated [Google Fonts](https://fonts.google.com/ "Google Fonts") to find a typeface that complements the website's aesthetic. For the main text, I've opted for [Montserrat](https://fonts.google.com/?query=+Montserrat "Montserrat") due to its classic appearance. Its make it easy to read long sentences.
 
 ### Icons
 
@@ -410,7 +410,7 @@ While the desktop version scores are very high, the mobile version, although sti
 
 ### JSHint Validation
 
-Although our project doesn't include an extensive amount of JavaScript, I can ensured that the code we do have is fully validated using **JSHint**. I'm pleased to report that our JavaScript code has passed the validation process with a 99% clean bill of health—no errors whatsoever.
+Although my project doesn't include an extensive amount of JavaScript, I can ensured that the code we do have is fully validated using **JSHint**. I'm pleased to report that my JavaScript code has passed the validation process with a 99% clean bill of health—no errors whatsoever.
 
 There is only one warning that issue has probably to do JSHint interpreter itself.
 
@@ -422,7 +422,7 @@ There is only one warning that issue has probably to do JSHint interpreter itsel
 </details>
 
 ### PEP8
-All Python files as well env.py and manage.py, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/). The only warnings given were for the settings.py file which contains a small number of long lines (i.e. greater than 80 characters) under AUTH_PASSWORD_VALIDATORS; as this is code implemented by Django itself at setup, these lines will be left unchanged. 
+All Python files as well *env.py* and *manage.py*, have been passed through the [Code Institute PEP8 Linter](https://pep8ci.herokuapp.com/).
 
 <details>
   <br>
@@ -504,7 +504,6 @@ No significant issues were encountered during the tests, confirming that our sit
 <summary>Manual Testing Result Report</summary>
 <br>
 
-
 Navbar
 
 | Homepage – Template                                                    | [#17](https://github.com/Harmonica-Men/AstroShare-Blog/issues/17)                                                              |                                     |       |
@@ -544,7 +543,7 @@ Navbar
 | Click Logged is as: [user]         | Should navigate to Edit Profile Page | Redirect to Edit Profile Page | PASS  |
 
 
-| Frontpage – Blogpost If [user] Not Logged In (Visitors) |                                             |                                  |       |
+| Frontpage – Blogpost If [user] Not Logged In (Visitors) | [#18](https://github.com/Harmonica-Men/AstroShare-Blog/issues/18)                                            |                                  |       |
 | ------------------------------------------------------- | ------------------------------------------- | -------------------------------- | ----- |
 | Scenario                                                | Action                                      | Result                           | Check |
 | Click [Read More]                                       | Should navigate to Article Detail Page      | Redirect to Article Details Page | PASS  |
@@ -608,21 +607,21 @@ Navbar
 | Scenario        | Action                                | Result                         | Check |
 | Back to Blog    | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Edit Profile Page Template |                                 |                          |       |
+| Edit Profile Page Template | [#21](https://github.com/Harmonica-Men/AstroShare-Blog/issues/21)                                |                          |       |
 | -------------------------- | ------------------------------- | ------------------------ | ----- |
 | Scenario                   | Action                          | Result                   | Check |
 | Click Edit Settings        | Should navigate to Edit Profile | Redirect to Edit Profile | PASS  |
 | Click Show Profile         | Should navigate to User profile | Redirect to User Profile | PASS  |
 | Click Update Profile       | Should navigate to User profile | Redirect to User Profile | PASS  |
 
-| Edit Profile          |                                       |                                |       |
+| Edit Profile          | [#17](https://github.com/Harmonica-Men/AstroShare-Blog/issues/17)                                      |                                |       |
 | --------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario              | Action                                | Result                         | Check |
 | Click Change Password | Should navigate to Change Password    | Redirect to Change Password    | PASS  |
 | Click Update Profile  | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 | Back to Blog          | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Create Profile Page  |                                       |                                |       |
+| Create Profile [#17](https://github.com/Harmonica-Men/AstroShare-Blog/issues/17)Page  |                                       |                                |       |
 | -------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario             | Action                                | Result                         | Check |
 | Click Create Profile | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
@@ -630,7 +629,7 @@ Navbar
 | Check Email Template     |                             |                      |       |
 | ------------------------ | --------------------------- | -------------------- | ----- |
 | Scenario                 | Action                      | Result               | Check |
-| Click Return to Homepage | Should navigate to Homepage | Redirect to Homepage | PASS  |
+| Click Return to Homepage | Should navigate to Homepage | Redirect to Homepage | FAIL  |
 
 | Check Confirm Subscribtion Template |                             |                      |       |
 | ----------------------------------- | --------------------------- | -------------------- | ----- |

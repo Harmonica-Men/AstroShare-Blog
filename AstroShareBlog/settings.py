@@ -17,7 +17,6 @@ import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
 
-
 if os.path.exists("env.py"):
     import env
 
@@ -33,11 +32,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-DATABASE_URL = "DATABASE_URL"
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
-SECRET_KEY = "SECRET_KEY"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-CLOUDINARY_URL = "CLOUDINARY_URL"
+CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -58,8 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_summernote',
+    'django.contrib.staticfiles',    
     'blogger',
     'members',
 ]
@@ -95,9 +93,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AstroShareBlog.wsgi.application'
 
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
