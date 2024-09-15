@@ -511,9 +511,9 @@ Navbar
 | ---------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------- | ----- |
 | Scenario                                                               | Action                                                        | Result                              | Check |
 | Click the “Go To Blog” Button                                          | should navigate to Frontpage - Blogpost                       | Redirect to Blog                    | PASS  |
-| Click “Subscribe”                                                      | Should navigate to Subscription                               | Redirect to section bottom homepage | PASS  |
-| Click “Go to APOD” #40                                                    | Should navigate to Astronomy Picture of the Day               | Redirect to APOD page               | PASS  |
-| Click “Go to ISS”                                                      | Should navigate to Track the International Space Station page | Redirect to ISS page                | PASS  |
+| Click “Subscribe” [#42](https://github.com/Harmonica-Men/AstroShare-Blog/issues/42)                                                     | Should navigate to Subscription                               | Redirect to section bottom homepage | PASS  |
+| Click “Go to APOD” [#40](https://github.com/Harmonica-Men/AstroShare-Blog/issues/40)                                                    | Should navigate to Astronomy Picture of the Day               | Redirect to APOD page               | PASS  |
+| Click “Go to ISS” [#41](https://github.com/Harmonica-Men/AstroShare-Blog/issues/41)                                                     | Should navigate to Track the International Space Station page | Redirect to ISS page                | PASS  |
 | Fill in “Subscribe to our Newsletter”Fill in Name & Email after Submit | Should navigate to Check Email Page                           | Redirect to “Check your Email” page | PASS  |
 
 
