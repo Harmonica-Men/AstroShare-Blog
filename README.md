@@ -26,6 +26,8 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Favicon](#favicon)
     - [Languages](#languages)
     - [Frameworks & Software](#frameworks--software)
+    - [NASA API 'Astronomy Picture Of The Day'](#nasa-api-astronomy-picture-of-the-day)
+    - [NASA ISS 'International Space Station' API](#iss-api-international-space-station)
     - [The Structure Plane - Site maps](#the-structure-plane---site-maps)
     - [The Structure Plane - Database](#the-structure-plane---database)
       - [Database](#database)
@@ -224,6 +226,20 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 * [PEP8 Validation](https://pep8ci.herokuapp.com/#) - Used to validate code 
 * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
   - <img src="static/images/icons8-js-16.ico" width="18px"> **JavaScript:** Employed to add interactivity and dynamic elements to the site, enhancing the user experience with features like form validation and asynchronous content updates.
+
+## NASA API Astronomy Picture Of The Day
+
+- The NASA Astronomy Picture of the Day [APOD](https://apod.nasa.gov/apod/astropix.html) API provides daily access to a curated astronomy image or photograph, accompanied by a brief explanation written by a professional astronomer. The APOD API delivers metadata, such as the image title, description, and copyright information, as well as the image itself, which often features stunning celestial objects, phenomena, or space exploration events. This API is widely used by developers to integrate educational and visual content related to space into applications, promoting public interest in astronomy and science.
+
+- A personal API key need to be created on [The NASA OPEN APIs](https://api.nasa.gov/)
+
+## ISS API (International Space Station)
+
+- The ISS API (International Space Station) provides real-time data about the location and activities of the ISS. It offers information such as the station's current position, upcoming pass times over specific locations, and crew member details. This API is commonly used by developers to track the [ISS](https://wheretheiss.at/)’s orbit, predict viewing opportunities, and display relevant data to users interested in space exploration and the operations of the space station.
+
+- More information about the ISS API and how to implement can be found [here](http://open-notify.org/Open-Notify-API/ISS-Location-Now/)
+
+- There also a free ISS Tracker Widget avialable on [isstracker.pl](https://isstracker.pl/en)
 
 [Table Of Contents](#table-of-contents)
 
