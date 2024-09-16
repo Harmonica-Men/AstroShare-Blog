@@ -1,9 +1,10 @@
 from django.urls import path
 from .views import (
-    AddCategoryView, AddCommentView, AddPostView, ApodView, ArticleDetailView,
+    AddCategoryView, AddCommentView, AddPostView, ArticleDetailView,
     category_list_view, CategoryView, CheckEmailView, confirm_subscription,
     DeletePostView, FrontpageView, HomepageView, iss_location, LikeView,
-    search_view, SubscribeView, UpdatePostView, NasaPictureOfTheDayView
+    search_view, SubscribeView, UpdatePostView, NasaPictureOfTheDayView,
+    apod
 )
 
 urlpatterns = [
@@ -54,4 +55,5 @@ urlpatterns = [
     path('check-email/', CheckEmailView.as_view(), name='check-email'),
     # Confirm subscription
     path('confirm/', confirm_subscription, name='confirm-subscription'),
+    path('apod/', apod, name='apod'),
 ]

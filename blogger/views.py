@@ -5,7 +5,7 @@ import plotly.io as pio
 import requests
 
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404, HttpResponseRedirect, HttpResponse
+from django.http import Http404, HttpResponseRedirect, HttpResponse, JsonResponse
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView,
     TemplateView, FormView
@@ -409,3 +409,15 @@ def confirm_subscription(request):
     subscriber.save()
 
     return render(request, 'registration/confirm_subscription.html')
+
+def apod(request):
+    api_key = settings.NASA_API_KEY
+    api_url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
+    
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        data = response.json()
+        return JsonResponse(data)
+    except requests.RequestException as e:
+        return JsonResponse({'error': str(e)}, status=500)
