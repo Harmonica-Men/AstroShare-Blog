@@ -283,7 +283,6 @@ def search_view(request):
     }
     return render(request, 'search.html', context)
 
-
 class NasaPictureOfTheDayView(TemplateView):
     """
     View to fetch and display NASA's Astronomy Picture of the Day (APOD).
@@ -293,20 +292,29 @@ class NasaPictureOfTheDayView(TemplateView):
     def get_context_data(self, **kwargs):
         # Fetch the base context from the parent class
         context = super().get_context_data(**kwargs)
+        
         # NASA_API_KEY is available in the settings
         nasa_api_key = getattr(settings, 'NASA_API_KEY', None)
         url = f"https://api.nasa.gov/planetary/apod?api_key={nasa_api_key}"
-        response = requests.get(url)
-        data = response.json()
-
+        
+        # Initialize data with default values
+        data = {}
+        
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+            data = response.json()
+        except requests.RequestException as e:
+            context['error'] = f"Error fetching APOD: {str(e)}"
+        
         # Add NASA APOD data to context
-        context['title'] = data.get('title')
-        context['image_url'] = data.get('url')
-        context['media_type'] = data.get('media_type')
-        context['explanation'] = data.get('explanation')
-        context['date'] = data.get('date')
+        context['title'] = data.get('title', 'No title available')
+        context['image_url'] = data.get('url', '')
+        context['media_type'] = data.get('media_type', 'image')
+        context['explanation'] = data.get('explanation', 'No explanation available')
+        context['date'] = data.get('date', 'No date available')
         context['bg_image_url'] = 'images/background.webp'
-
+        
         return context
 
 
@@ -409,15 +417,3 @@ def confirm_subscription(request):
     subscriber.save()
 
     return render(request, 'registration/confirm_subscription.html')
-
-def apod(request):
-    api_key = settings.NASA_API_KEY
-    api_url = f'https://api.nasa.gov/planetary/apod?api_key={api_key}'
-    
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        data = response.json()
-        return JsonResponse(data)
-    except requests.RequestException as e:
-        return JsonResponse({'error': str(e)}, status=500)
