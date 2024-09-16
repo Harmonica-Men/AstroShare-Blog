@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} User Profiles {% endblock %}
+{% block title %} User Profile {% endblock %}
 {% block content %}
 {% with image_url='/images/background.webp' %}
 <div class="d-flex justify-content-center align-items-center"
@@ -20,7 +20,7 @@
         </div>
         <div class="text-center mb-2">
             <h1 class="card-title">{{ user.first_name }} {{ user.last_name }}</h1>
-            <small class=" fst-italic">Joined on {{ user.date_joined|date:"F j, Y" }}</small>
+            <small class="fst-italic">Joined on: <strong>{{ user.date_joined|date:"jS F Y" }}</strong> </small>
         </div>
         <div class="container-list">
             {{ user.profile.bio }}
