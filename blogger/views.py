@@ -24,37 +24,6 @@ from django.http import HttpResponseForbidden
 import requests
 
 
-# class ApodView(View):
-#     """
-#     View to display NASA's Astronomy Picture of the Day (APOD)
-#     by fetching data from the NASA API.
-#     """
-#     def get(self, request, *args, **kwargs):
-#         """
-#         Handles the GET request to fetch APOD
-#         data and render it on the template.
-#         """
-#         api_key = settings.NASA_API_KEY
-#         url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
-#         response = requests.get(url)
-#         data = response.json()
-
-#         # Background image URL
-#         bg_image_url = 'images/background.webp'
-
-#         # Pass the data to the template
-#         context = {
-#             'title': data.get('title'),
-#             'image_url': data.get('url'),
-#             'explanation': data.get('explanation'),
-#             'date': data.get('date'),
-#             'media_type': data.get('media_type'),
-#             'bg_image_url': bg_image_url,
-#         }
-
-#         return render(request, 'nasa_picture.html', context)
-
-
 def CategoryView(request, cats):
     """
     View to display posts belonging to a specific category.
@@ -293,10 +262,8 @@ class NasaPictureOfTheDayView(TemplateView):
     def get_context_data(self, **kwargs):
         # Fetch the base context from the parent class
         context = super().get_context_data(**kwargs)
-        # NASA_API_KEY is available in the settings
-        # NASA_API_KEY = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
-
-        nasa_api_key = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
+        # API KEY is exposed!! see Readme for explenation 'Bugs & Fixs'
+        nasa_api_key = settings.NASA_API_KEY
         url = f"https://api.nasa.gov/planetary/apod?api_key={nasa_api_key}"
         # Initialize data with default values
         data = {}

@@ -45,7 +45,10 @@ urlpatterns = [
     # Search view
     path('search/', search_view, name='search'),
     # NASA picture of the day
-    path('nasa_picture/', NasaPictureOfTheDayView.as_view(), name='nasa-picture'),
+    path(
+        'nasa_picture/',
+        NasaPictureOfTheDayView.as_view(),
+        name='nasa-picture'),
     # View ISS location
     path('iss_location/', iss_location, name='iss-location'),
     # Subscribe to a newsletter or service
