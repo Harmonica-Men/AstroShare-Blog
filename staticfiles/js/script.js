@@ -2,7 +2,7 @@
 /* {"esversion":  6} */
 
   // Your NASA API key
-  const apiKey = NASA_API_KEY;
+  const api_key = settings.NASA_API_KEY
 
   // NASA APOD API URL
   const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
