@@ -5,28 +5,26 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self'; 
-  connect-src 'self' https://api.nasa.gov;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
-  style-src-elem 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; 
-  frame-src 'self' https://isstracker.pl; 
-  img-src 'self' https://apod.nasa.gov; 
-  font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com;
-  script-src-elem 'self' https://cdn.jsdelivr.net;
-  ">
+
+  <!-- Load the static template tag library -->
   {% load static %}
+
   <title>{% block title %} Astro Share Blog !! {% endblock %}</title>
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Montserrat:wght@400;700&display=swap"
     rel="stylesheet">
+  
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
   <!-- Favicon -->
   <link rel="icon" href="{% static 'images/favicon.ico' %}">
 </head>
@@ -35,15 +33,23 @@
   <!-- Header -->
   {% include 'header.html' %}
   <!-- Content -->
+
+
+
   <main>
     <!-- <div class="m-4"> -->
     {% block content %}
+
     {% endblock %}
     <!-- </div> -->
   </main>
+
   {% include 'footer.html' %}
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>
+
 </body>
+
 </html>
