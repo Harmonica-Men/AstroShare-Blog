@@ -5,6 +5,16 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self'; 
+  connect-src 'self' https://api.nasa.gov;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+  style-src-elem 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; 
+  frame-src 'self' https://isstracker.pl; 
+  img-src 'self' https://apod.nasa.gov; 
+  font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com;
+  script-src-elem 'self' https://cdn.jsdelivr.net;
+  ">
   {% load static %}
   <title>{% block title %} Astro Share Blog !! {% endblock %}</title>
   <!-- Bootstrap CSS -->
