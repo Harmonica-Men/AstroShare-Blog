@@ -1,5 +1,5 @@
 // Set ECMAScript version to 6 for linting (use colon instead of equals sign)
-// {"esversion"= 6}
+/* {"esversion":  6} */
 
 // Wait for the DOM to fully load before running the script
 document.addEventListener('DOMContentLoaded', function() {

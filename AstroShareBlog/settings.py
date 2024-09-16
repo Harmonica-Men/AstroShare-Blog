@@ -39,7 +39,7 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 NASA_API_KEY = os.getenv('NASA_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-harmonicame-astroshareb-tykmah5chi5.ws.codeinstitute-ide.net',
