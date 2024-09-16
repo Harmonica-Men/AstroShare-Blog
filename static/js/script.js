@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
             let titleElement = document.getElementById('apod-title');
             let explanationElement = document.getElementById('apod-explanation');
 
+            console.log('mediaContainer', mediaContainer)
+            console.log('titleElement', titleElement)
+            console.log('explanationElement', explanationElement)
+
             // Check if all required elements exist, log an error if any are missing
             if (!mediaContainer || !titleElement || !explanationElement) {
                 console.error('One or more required elements are missing.');
