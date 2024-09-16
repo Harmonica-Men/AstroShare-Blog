@@ -292,20 +292,8 @@ class NasaPictureOfTheDayView(TemplateView):
     def get_context_data(self, **kwargs):
         # Fetch the base context from the parent class
         context = super().get_context_data(**kwargs)
-        
-        # NASA_API_KEY is available in the settings
-        nasa_api_key = getattr(settings, 'NASA_API_KEY', None)
+        nasa_api_key = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
         url = f"https://api.nasa.gov/planetary/apod?api_key={nasa_api_key}"
-        
-        # Initialize data with default values
-        data = {}
-        
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            data = response.json()
-        except requests.RequestException as e:
-            context['error'] = f"Error fetching APOD: {str(e)}"
         
         # Add NASA APOD data to context
         context['title'] = data.get('title', 'No title available')

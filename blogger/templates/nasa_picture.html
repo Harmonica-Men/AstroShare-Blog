@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+
 {% load static %}
+{% block meta %}
+<meta name="description" content="Frontpage blogpost">
+<!-- Meta description for SEO -->
+{% endblock %}
 {% block title %}APOD{% endblock %}
 {% block content %}
 <section class="container-sub" style="background: url('{% static bg_image_url %}') no-repeat fixed top right / cover;">

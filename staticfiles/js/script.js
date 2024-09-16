@@ -1,7 +1,8 @@
 // Set ECMAScript version to 6 for linting (use colon instead of equals sign)
 /* {"esversion":  6} */
 
-  // Your NASA API key
+  // NASA API key
+  // API KEY is exposed!! see Readme for explenation 'Bugs & Fixs'
   const apiKey = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4';
 
   // NASA APOD API URL
@@ -35,8 +36,10 @@
         apodContainer.innerHTML = '';
         apodContainer.appendChild(videoFrame);
       }
-    } catch (error) {
-      console.error('Error fetching APOD:', error);
+    } catch (error) {     
+    // Handle error silently or with an alternative approach
+    // e.g., display a user-friendly message on the UI
+    // document.getElementById('error-message').textContent = 'Failed to fetch data.';
     }
   }
 
