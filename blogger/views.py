@@ -263,7 +263,7 @@ class NasaPictureOfTheDayView(TemplateView):
         # Fetch the base context from the parent class
         context = super().get_context_data(**kwargs)
         # API KEY is exposed!! see Readme for explenation 'Bugs & Fixs'
-        nasa_api_key = settings.NASA_API_KEY
+        nasa_api_key = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
         url = f"https://api.nasa.gov/planetary/apod?api_key={nasa_api_key}"
         # Initialize data with default values
         data = {}

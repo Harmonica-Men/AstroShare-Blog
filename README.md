@@ -52,7 +52,8 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Clone this repository](#clone-this-repository)
     - [Cloudinary](#cloudinary)
     - [Create PostgreSQL using Code Institute Database](#create-a-new-postgresql-code-institute-database)
-    - [Gmail](#gmail)    
+    - [Gmail](#gmail)
+  - [Bugs & Fixes]
   - [License](#license)
   - [Credits](#credits)
 
@@ -228,6 +229,8 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
   - <img src="static/images/icons8-js-16.ico" width="18px"> **JavaScript:** Employed to add interactivity and dynamic elements to the site, enhancing the user experience with features like form validation and asynchronous content updates.
 
+[Table Of Contents](#table-of-contents)
+
 ## NASA API Astronomy Picture Of The Day
 
 - The NASA Astronomy Picture of the Day [APOD](https://apod.nasa.gov/apod/astropix.html) API provides daily access to a curated astronomy image or photograph, accompanied by a brief explanation written by a professional astronomer. The APOD API delivers metadata, such as the image title, description, and copyright information, as well as the image itself, which often features stunning celestial objects, phenomena, or space exploration events. This API is widely used by developers to integrate educational and visual content related to space into applications, promoting public interest in astronomy and science.
@@ -248,8 +251,6 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 - A newsletter subscription integration with Google Gmail allows users to easily sign up for newsletters directly from their Gmail account. This integration typically works by adding a simple "Subscribe" option within Gmail, streamlining the process of joining mailing lists or newsletters. It ensures that subscription emails are correctly categorized (e.g., in the "Promotions" tab) and helps users manage and organize newsletters within their inbox. Developers can integrate newsletter services using Gmail’s API to automate sending, managing, and delivering newsletter content to subscribers' inboxes.
 
 - More information how to integrate the Gmail API can be found [here](https://developers.google.com/gmail/api/guides)
-
-[Table Of Contents](#table-of-contents)
 
 ### The Structure Plane - Site maps
 
