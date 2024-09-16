@@ -1,8 +1,8 @@
 // Set ECMAScript version to 6 for linting (use colon instead of equals sign)
 /* {"esversion":  6} */
 
-  // Your NASA API key
-  const apiKey = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4';
+  // NASA API key
+  const apiKey = NASA_API_KEY;
 
   // NASA APOD API URL
   const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;

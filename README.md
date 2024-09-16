@@ -28,6 +28,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Frameworks & Software](#frameworks--software)
     - [NASA API 'Astronomy Picture Of The Day'](#nasa-api-astronomy-picture-of-the-day)
     - [NASA ISS 'International Space Station' API](#iss-api-international-space-station)
+    - [Newsletter Gmail API](#newsletter-gmail-api)
     - [The Structure Plane - Site maps](#the-structure-plane---site-maps)
     - [The Structure Plane - Database](#the-structure-plane---database)
       - [Database](#database)
@@ -240,6 +241,13 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 - More information about the ISS API and how to implement can be found [here](http://open-notify.org/Open-Notify-API/ISS-Location-Now/)
 
 - There also a free ISS Tracker Widget avialable on [isstracker.pl](https://isstracker.pl/en)
+
+
+## Newsletter Gmail API
+
+- A newsletter subscription integration with Google Gmail allows users to easily sign up for newsletters directly from their Gmail account. This integration typically works by adding a simple "Subscribe" option within Gmail, streamlining the process of joining mailing lists or newsletters. It ensures that subscription emails are correctly categorized (e.g., in the "Promotions" tab) and helps users manage and organize newsletters within their inbox. Developers can integrate newsletter services using Gmail’s API to automate sending, managing, and delivering newsletter content to subscribers' inboxes.
+
+- More information how to integrate the Gmail API can be found [here](https://developers.google.com/gmail/api/guides)
 
 [Table Of Contents](#table-of-contents)
 
