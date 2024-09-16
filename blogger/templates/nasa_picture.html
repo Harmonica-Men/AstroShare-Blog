@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}APOD{% endblock %}
+{% block meta %}
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self'; 
+  connect-src 'self' https://api.nasa.gov;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+  style-src-elem 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; 
+  frame-src 'self' https://isstracker.pl; 
+  img-src 'self' https://apod.nasa.gov; 
+  font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com;
+  script-src-elem 'self' https://cdn.jsdelivr.net;
+  ">
+{% endblock %}
 {% block content %}
 <section class="container-sub" style="background: url('{% static bg_image_url %}') no-repeat fixed top right / cover;">
     <div class="container" style="min-height: calc(100vh - 130px);">
