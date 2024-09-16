@@ -1,37 +1,55 @@
-{"esversion"= 6}
-document.addEventListener('DOMContentLoaded', function() {
-     // Get the NASA_API_KEY passed from Django
-     let apiKey = "{{ NASA_API_KEY }}";  // The API key is now passed from the backend
-     let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
+// Set ECMAScript version to 6 for linting (use colon instead of equals sign)
+/* {"esversion":  6} */
 
+// Wait for the DOM to fully load before running the script
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Define the NASA API key and endpoint for Astronomy Picture of the Day (APOD)
+    // NASA_API_KEY = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
+    api_key_test = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
+    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + api_key_test;
+
+    // Fetch data from the APOD API
     fetch(apiUrl)
         .then(function(response) {
+            // Check if the response is okay (status 200-299)
             if (!response.ok) {
+                // Throw an error if the network response is not successful
                 throw new Error('Network response was not ok');
             }
+            // Convert the response to JSON format
             return response.json();
         })
         .then(function(data) {
-          	let mediaContainer = document.getElementById('apod-media-container');
+            // Get the HTML elements where the content will be injected
+            let mediaContainer = document.getElementById('apod-media-container');
             let titleElement = document.getElementById('apod-title');
-            let explanationElement = document.getElementById('apod-explanation');          
+            let explanationElement = document.getElementById('apod-explanation');
 
-            // Remove default APOD image if present
+            // Check if all required elements exist, log an error if any are missing
+            if (!mediaContainer || !titleElement || !explanationElement) {
+                console.error('One or more required elements are missing.');
+                return;
+            }
+
+            // Check for and remove the default APOD image if it exists (cleanup)
             let defaultApodImage = document.getElementById('default-apod-image');
             if (defaultApodImage) {
                 defaultApodImage.remove();
             }
 
-            // Display APOD image or video
+            // Display the APOD image or video based on the media type
             if (data.media_type === 'image') {
+                // If the media is an image, create an img tag with the correct src and alt attributes
                 mediaContainer.innerHTML = '<img src="' + data.url + '" alt="' + data.title + '" style="max-width: 100%;">';
             } else if (data.media_type === 'video') {
+                // If the media is a video, create an iframe for the video embed
                 mediaContainer.innerHTML = '<iframe src="' + data.url + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 400px;"></iframe>';
             }
 
-            // Update title and explanation
+            // Update the page with the title and explanation from the APOD data
             titleElement.textContent = data.title;
             explanationElement.textContent = data.explanation;
         })
         
-        });
+});
