@@ -213,21 +213,21 @@ input#id_last_login,
 
 /* Container for the iframe with flexbox centering */
 .iframe-container {
-    display: flex;                 /* Use flexbox to easily center content */
-    justify-content: center;       /* Horizontally center the iframe */
-    align-items: center;           /* Vertically center the iframe */
-    position: relative;            /* Allows positioning of child elements within this container */
-    width: 100%;                   /* Set the container to take up the full width of its parent */
-    max-width: 100%;               /* Prevents the container from exceeding 100% of the parent width */
-    margin: 0 auto;                /* Center the container horizontally if it has a fixed width */
-    padding: 0;                    /* Remove any padding around the container */
+    display: flex;                 
+    justify-content: center;       
+    align-items: center;           
+    position: relative;            
+    width: 100%;                   
+    max-width: 100%;               
+    margin: 0 auto;                
+    padding: 0;                    
 }
 
 /* Responsive iframe styling */
 .responsive-iframe {
-    width: 100%;                   /* Make the iframe fill the width of its container */
-    height: 100%;                  /* Make the iframe fill the height of its container */
-    border: 0;                     /* Remove the default border around the iframe */
+    width: 100%;                   
+    height: 100%;                  
+    border: 0;                     
 }
 
 /* Styling for italicized text */
@@ -450,36 +450,36 @@ Hero Section
 
 /* Steps Section Styling */
 .steps {
-    padding-top: 40px; /* Adds space above the steps section */
-    padding-bottom: 40px; /* Adds space below the steps section */
+    padding-top: 40px; 
+    padding-bottom: 40px; 
 }
 
 .steps__section-thumbnail {
-    height: 240px; /* Fixed height for thumbnails */
-    object-fit: cover; /* Ensures image fits within the container without distortion */
-    margin: 0 auto; /* Centers the thumbnail horizontally */
+    height: 240px; 
+    object-fit: cover; 
+    margin: 0 auto; 
 }
 
 .steps__content-width {
     max-width: 456px; /* Limits the maximum width of the steps content */
-    margin: 0 auto; /* Centers the content horizontally */
+    margin: 0 auto; 
 }
 
 /* Background and text color variations for steps section */
 .steps--background-white {
     background-color: var(--main-text-color); /* Applies main text color as background */
-    color: var(--main-text-color-invers); /* Inverse color for text */
+    color: var(--main-text-color-invers); 
 }
 
 .steps--background-black {
     background-color: var(--main-text-color-invers); /* Black background for dark theme */
-    color: var(--main-text-color); /* Inverse text color */
+    color: var(--main-text-color); 
 }
 
 /* Footer Styling */
 .footer .border-highlight {
-    border-top: 1px solid var(--primary-color-highlight); /* Adds a highlighted border at the top of the footer */
-    padding-top: 10px; /* Adds padding above the border */
+    border-top: 1px solid var(--primary-color-highlight); 
+    padding-top: 10px; 
 }
 
 /* Media queries for responsive design */

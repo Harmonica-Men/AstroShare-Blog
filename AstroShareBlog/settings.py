@@ -23,21 +23,11 @@ if os.path.exists("env.py"):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# database_url = os.environ.get("DATABASE_URL")
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-
 DATABASE_URL = os.environ.get("DATABASE_URL")
-
 SECRET_KEY = os.environ.get("SECRET_KEY")
-
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
-
-# NASA_API_KEY = os.getenv('NASA_API_KEY')
-NASA_API_KEY = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
+NASA_API_KEY = os.getenv('NASA_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -58,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',    
+    'django.contrib.staticfiles',
     'blogger',
     'members',
 ]
