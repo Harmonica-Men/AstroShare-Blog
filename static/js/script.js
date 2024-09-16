@@ -1,6 +1,6 @@
 async function fetchAPOD() {
     try {
-      const response = await fetch('/apod/');
+      const response = await fetch('/nasa_picture/');
       const data = await response.json();
   
       const apodContainer = document.getElementById('apod-media-container');
