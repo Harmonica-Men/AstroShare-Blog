@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- <meta http-equiv="Content-Security-Policy" content="
+  <meta http-equiv="Content-Security-Policy" content="
   default-src 'self'; 
   connect-src 'self' https://api.nasa.gov;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
@@ -15,9 +15,9 @@
   img-src 'self' https://apod.nasa.gov; 
   font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com;
   script-src-elem 'self' https://cdn.jsdelivr.net;
-  "> -->
+  ">
   
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://api.nasa.gov; media-src 'self'; frame-src 'self' https://isstracker.pl;">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://api.nasa.gov; media-src 'self'; frame-src 'self' https://isstracker.pl;"> -->
 
 <!-- 
 <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://api.nasa.gov;">
@@ -97,10 +97,15 @@
           <h3>Astronomy Picture of the Day</h3>
         </div>
         <div class="row container-banner justify-content-center">
-          <div class="col-md-10 text-center" id="apod-media-container">
+          <!-- <div class="col-md-10 text-center" id="apod-media-container">
             <img src="{% static 'images/apod-logo.webp'%}" class="img-fluid" alt="Astronomy Picture of the Day"
               loading="lazy" id="default-apod-image">
+          </div> -->
+          <div class="col-md-10 text-center" id="apod-media-container">
+            <img src="{% static 'images/apod-logo.webp' %}" class="img-fluid" alt="Astronomy Picture of the Day"
+              loading="lazy" id="default-apod-image">
           </div>
+          
           <div class="container-custom mt-4">
             <a href="{% url 'nasa-picture' %}" class="color-hyperlink">
               <strong>Go to APOD</strong>

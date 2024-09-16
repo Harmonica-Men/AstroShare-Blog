@@ -1,55 +1,45 @@
 // Set ECMAScript version to 6 for linting (use colon instead of equals sign)
 /* {"esversion":  6} */
 
-// Wait for the DOM to fully load before running the script
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Define the NASA API key and endpoint for Astronomy Picture of the Day (APOD)
-    // NASA_API_KEY = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
-    api_key_test = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4'
-    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + api_key_test;
+  // Your NASA API key
+  const apiKey = 'qSOjG0ja3zReYPEGfk9wFUwmv1is0lHQGjoUDvU4';
 
-    // Fetch data from the APOD API
-    fetch(apiUrl)
-        .then(function(response) {
-            // Check if the response is okay (status 200-299)
-            if (!response.ok) {
-                // Throw an error if the network response is not successful
-                throw new Error('Network response was not ok');
-            }
-            // Convert the response to JSON format
-            return response.json();
-        })
-        .then(function(data) {
-            // Get the HTML elements where the content will be injected
-            let mediaContainer = document.getElementById('apod-media-container');
-            let titleElement = document.getElementById('apod-title');
-            let explanationElement = document.getElementById('apod-explanation');
+  // NASA APOD API URL
+  const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
-            // Check if all required elements exist, log an error if any are missing
-            if (!mediaContainer || !titleElement || !explanationElement) {
-                console.error('One or more required elements are missing.');
-                return;
-            }
+  // Function to fetch the APOD data
+  async function fetchAPOD() {
+    try {
+      // Fetch the APOD data from the NASA API
+      const response = await fetch(apiURL);
+      const data = await response.json();
 
-            // Check for and remove the default APOD image if it exists (cleanup)
-            let defaultApodImage = document.getElementById('default-apod-image');
-            if (defaultApodImage) {
-                defaultApodImage.remove();
-            }
+      // Select the media container and default image elements
+      const apodContainer = document.getElementById('apod-media-container');
+      const defaultImage = document.getElementById('default-apod-image');
 
-            // Display the APOD image or video based on the media type
-            if (data.media_type === 'image') {
-                // If the media is an image, create an img tag with the correct src and alt attributes
-                mediaContainer.innerHTML = '<img src="' + data.url + '" alt="' + data.title + '" style="max-width: 100%;">';
-            } else if (data.media_type === 'video') {
-                // If the media is a video, create an iframe for the video embed
-                mediaContainer.innerHTML = '<iframe src="' + data.url + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 400px;"></iframe>';
-            }
+      // Check if the media is an image or video
+      if (data.media_type === 'image') {
+        // If it's an image, update the src attribute of the default image
+        defaultImage.src = data.url;
+        defaultImage.alt = data.title;
+      } else if (data.media_type === 'video') {
+        // If it's a video, create a video iframe element
+        const videoFrame = document.createElement('iframe');
+        videoFrame.src = data.url;
+        videoFrame.className = 'img-fluid';
+        videoFrame.frameBorder = '0';
+        videoFrame.allowFullscreen = true;
 
-            // Update the page with the title and explanation from the APOD data
-            titleElement.textContent = data.title;
-            explanationElement.textContent = data.explanation;
-        })
-        
-});
+        // Replace the default image with the video
+        apodContainer.innerHTML = '';
+        apodContainer.appendChild(videoFrame);
+      }
+    } catch (error) {
+      console.error('Error fetching APOD:', error);
+    }
+  }
+
+  // Call the function to fetch and display the APOD
+  fetchAPOD();
+
