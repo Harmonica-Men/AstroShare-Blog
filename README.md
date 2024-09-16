@@ -2,7 +2,7 @@
 
 AstroShare Blog is a fictional blog posting news site where information on astronomically related topics can be discussed and verified users can blog posts. There are a number of categories to choose from. 
 There is a comments section below each post. The idea is basically to create the ultimate space blog and discussion center for enthusiasts, experts and curious minds alike! Here users can post, read and comment on the latest news stories about space exploration, astronomy and much more. 
-Each post is tagged by topic, making it easy to navigate through categories like 'Astronomy', 'Space Emissions', 'Astrophysics' and more. Posts can be voted up or down, with the most engaging content highlighted. 
+Each post is tagged by topic, making it easy to navigate through categories like 'Black Holes', 'Space Missions', 'Astrophysics' and many more. Posts can be liked up or refoked whit down. 
 Users can also leave comments on posts to join the conversation. Every post and comment is timestamped, which promotes real-time discussions and builds a vibrant, interactive community around space topics.
 
 A live version of the project can be accessed here: [AstroShare Blog](https://astroshare-blog-6a7ca9d34749.herokuapp.com/)
@@ -821,6 +821,11 @@ From codeinstitute every student can maintain up to eight databases to run there
 7. Update settings.py
   
 [Table Of Contents](#table-of-contents)
+## Bugs & Fixes
+- In order to properly work the NASA APOD API, I was unable to hide to the API KEY from view.py (line 266) and the Javascript (line 6), after exenstive debugging, I was forced to hardcode the API KEY into the code.
+- The issues where I struggeled whit where how to inforce the Javascript onto a JSON response fetch was to complicated.
+- After that I also had problems how to recall NASA_API_KEY from *settings.py*. 
+- For demostrational perposes I hardcode the API KEYS to show the potentials of the API's.
 
 ## License
 
