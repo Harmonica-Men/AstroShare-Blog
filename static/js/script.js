@@ -1,11 +1,13 @@
 // Set ECMAScript version to 6 for linting (use colon instead of equals sign)
-{"esversion"= 6}
+// {"esversion"= 6}
 
 // Wait for the DOM to fully load before running the script
 document.addEventListener('DOMContentLoaded', function() {
     
     // Define the NASA API key and endpoint for Astronomy Picture of the Day (APOD)
-    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + API_KEY;
+    // NASA_API_KEY = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
+    api_key_test = 'ZXlNkoGPeg9qsaroBYKtRv8SlyR0jnjNIY0QzBrh'
+    let apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=' + api_key_test;
 
     // Fetch data from the APOD API
     fetch(apiUrl)
