@@ -53,7 +53,7 @@ A live version of the project can be accessed here: [AstroShare Blog](https://as
     - [Cloudinary](#cloudinary)
     - [Create PostgreSQL using Code Institute Database](#create-a-new-postgresql-code-institute-database)
     - [Gmail](#gmail)
-  - [Bugs & Fixes]
+  - [Bugs & Fixes](#bugs--fixes)
   - [License](#license)
   - [Credits](#credits)
 
@@ -821,11 +821,14 @@ From codeinstitute every student can maintain up to eight databases to run there
 7. Update settings.py
   
 [Table Of Contents](#table-of-contents)
+
 ## Bugs & Fixes
-- In order to properly work the NASA APOD API, I was unable to hide to the API KEY from view.py (line 266) and the Javascript (line 6), after exenstive debugging, I was forced to hardcode the API KEY into the code.
-- The issues where I struggeled whit where how to inforce the Javascript onto a JSON response fetch was to complicated.
-- After that I also had problems how to recall NASA_API_KEY from *settings.py*. 
-- For demostrational perposes I hardcode the API KEYS to show the potentials of the API's.
+
+- In order to properly work with the NASA APOD API, I was unable to hide the API KEY from *views.py* (line 266) and the JavaScript (line 6). After extensive debugging, I was forced to hardcode the API KEY into the code.
+- The issues I struggled with were how to enforce the JavaScript onto a JSON response fetch, which was too complicated.
+- After that, I also had problems recalling the `NASA_API_KEY` from *settings.py*.
+- For demonstrational purposes, I hardcoded the API KEYS to show the potential of the APIs.
+- Further more in the newsletter subscription there should be a confirmation message displayed but was included but fail to render.
 
 ## License
 
