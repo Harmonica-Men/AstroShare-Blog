@@ -7,6 +7,7 @@
     - [Introduction](#introduction)
     - [Benefits of agile development](#benefits-of-agile-development)
     - [MoSCoW](#moscow)
+    - [User Story Points Score](#user-story-points-score)
     - [Milestones](#milestones)
     - [User Stories and Epics](#user-stories-and-epics)
     - [User Stories](#user-stories)
@@ -63,7 +64,6 @@ For this project I have caculated that for the Fibonacci User Story Points Score
 - **Should Have:** #41 +8, #31 +5, #30 +8, #43 +13, #35 +8 = Total of 42 points
 - **Could Have:** #13 +8, #36 +8 = Total of 16 points
 - **Wont Have:** 0
-
 
 [Table Of Contents](#table-of-contents)
 
