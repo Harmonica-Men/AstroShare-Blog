@@ -42,7 +42,7 @@
 
 ## Introduction
 
-Agile planning methodology was used to create the site Astro Blog. GitHub projects was used to organise the development process into sprints, epics, Kanban boards and issues. This was the first time I have undertaken a project that was driven by the agile development process and a learning curve was associated with the development of this project, however the benefits of an agile approach soon outweighed the learning curve associated. I first started by creating issues. These where user stories that had a detailed acceptance criteria and unit tasks associated with each issue. These issues where also labelled using the MoSCoW technique. Each issue was then sorted into the epic in which it belonged. I also compartmentalised each epic into stints for the development process. One stint contained many epics and within this many issues. This project was completed over Four stints of work.
+Agile planning methodology was used to create the site Astro Blog. GitHub projects was used to organise the development process into sprints, epics, Kanban boards and issues. This was the first time I have undertaken a project that was driven by the agile development process and a learning curve was associated with the development of this project, however the benefits of an agile approach soon outweighed the learning curve associated. I first started by creating issues. These where user stories that had a detailed acceptance criteria and unit tasks associated with each issue. These issues where also labelled using the MoSCoW technique. Each issue was then sorted into the epic in which it belonged. This project was completed over three Milestones of work.
 
 ## Benefits of agile development
 
@@ -56,6 +56,13 @@ As mentioned in the introduction there was a learning curve associated with usin
 ## MoSCoW
 
 MoSCoW analysis helps developers understand which tasks to prioritise. It is a process by which labels are added to issues. These labels include 'Must-have', 'Could-have', 'Should-have' and ' Wont-have'. In my project I tried to ensure 'Should-have' prioritised user stories was not more than 60% of total. On reflection I should have prioritised more 'Must-have'. I also did not use 'Wont-have' and 'Could-have' in this project and this is something I would considering using more of in future projects as I found this technique useful to determine important work to be carried out. The image below shows a portion of the issues associated with this project and their labels in place.
+
+## User Story Points Score
+For this project I have caculated that for the Fibonacci User Story Points Score:
+- **Must Have:** #3 +3, #8 +8, #20 +5, #25 +13, #16 +5, #23 +2, #15 +8, #4 +2, #15 +8, #4 +2, #17 +13, #28 +5,  #32 +8, #26 +8, #5 +2, #21 +3, #33 +5, #22 +3, #39 +5, #19 +2, #37 +2, #38 +5 = Total of 122 points
+- **Should Have:** #41 +8, #31 +5, #30 +8, #43 +13, #35 +8 = Total of 42 points
+- **Could Have:** #13 +8, #36 +8 = Total of 16 points
+- **Wont Have:** 0
 
 
 [Table Of Contents](#table-of-contents)
@@ -253,7 +260,8 @@ A user story is an explanation of a software feature written from the perspectiv
 <br/>
 
 I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with milestones, epics, user stories and tasks.
-Each user story was classified with a label according to MoSCoW prioritization.<br>
+Each user story was classified with a label according to MoSCoW prioritization.
+<br>
 The Kanban board can be seen [here](https://github.com/users/Harmonica-Men/projects/10).
 
 ## Milestones 

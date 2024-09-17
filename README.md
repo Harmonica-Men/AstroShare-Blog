@@ -82,13 +82,13 @@ Following this, the AstroBlog section provides a brief introduction to the purpo
 
 To build more interest, I have incorporated an 'Astronomy Picture of the Day' (APOD) section where users and visitors always have a new astronomical item to explore, providing an easy and quick overview of the latest posts.
 
-In a zigzag pattern, the most popular categories are displayed on the homepage. To encourage further engagement with the blog, a "Latest Contributors" section is also included.
+In a zigzag pattern, the most popular categories are displayed on the homepage. To encourage further engagement with the blog, a 'Latest Contributors' section is also included.
 
 For astronomical enthusiasts, a nice widget is incorporated that tracks the current position of the International Space Station (ISS). When clicking on the 'Go To the ISS' button, a new page appears with an independently generated world map showing the ISS’s location.
 
 At the bottom of the page, I have included a subscription section where users can join the mailing list to receive newsletters, information, and relevant benefits.
 
-Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the AstroBlog.
+Finally, the page concludes with a footer that reinforces credibility and includes essential links, such as the social media links for the blog.
 
 ### Front Page Overview
 The **Front Page** is designed to give a quick overview of a list of 5 blog posts ranked by the date added, with the most recent post at the top of the page.
@@ -236,6 +236,7 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 - The NASA Astronomy Picture of the Day [APOD](https://apod.nasa.gov/apod/astropix.html) API provides daily access to a curated astronomy image or photograph, accompanied by a brief explanation written by a professional astronomer. The APOD API delivers metadata, such as the image title, description, and copyright information, as well as the image itself, which often features stunning celestial objects, phenomena, or space exploration events. This API is widely used by developers to integrate educational and visual content related to space into applications, promoting public interest in astronomy and science.
 
 - A personal API key need to be created on [The NASA OPEN APIs](https://api.nasa.gov/)
+- A dedicated GitHub repository can be found [here](https://github.com/nasa)
 
 ## ISS API (International Space Station)
 
@@ -378,7 +379,7 @@ I have conducted a thorough accessibility audit using the WAVE (Web Accessibilit
 
 <details>
   <br>
-  <summary>Click to view Lighthouse Homepage Result</summary>
+  <summary>Click to view Wave Homepage Result</summary>
   <img src="staticfiles/images/readme-images/wave-errors-homepage-header.webp" style="display: block; margin: auto;" alt="Contrast Error homepage header">
   <br>
 </details>
@@ -404,9 +405,9 @@ Additionally, contrast warnings were noted in the Flash messages—interestingly
 </details>
 <br>
 
-Overall, the WAVE validation confirms that our website adheres to accessibility standards, with only a few minor contrast issues that have been carefully considered in the design process. While we will continue exploring potential solutions to these issues, we have prioritized maintaining a visually cohesive and intuitive theme for the site.
+Overall, the WAVE validation confirms that our website adheres to accessibility standards, with only a few minor contrast issues that have been carefully considered in the design process. While I will continue exploring potential solutions to these issues, I have prioritized maintaining a visually cohesive and intuitive theme for the site.
 
-Note: I'm fully aware of the contrast issues highlighted by the WAVE Validation Tool. It is my duty to address these in future updates to ensure an even higher level of accessibility across the entire platform. We appreciate the insights provided by the tool and will use this feedback to guide our ongoing improvements.
+**Note:** I'm fully aware of the contrast issues highlighted by the WAVE Validation Tool. It is my duty to address these in future updates to ensure an even higher level of accessibility across the entire platform. I appreciate the insights provided by the tool and will use this feedback to guide our ongoing improvements.
 
 ### Lighthouse Validation
 
@@ -435,7 +436,7 @@ While the desktop version scores are very high, the mobile version, although sti
 
 ### JSHint Validation
 
-Although my project doesn't include an extensive amount of JavaScript, I can ensured that the code we do have is fully validated using **JSHint**. I'm pleased to report that my JavaScript code has passed the validation process with a 99% clean bill of health—no errors whatsoever.
+Although my project doesn't include an extensive amount of JavaScript, I can ensured that the code we do have is fully validated using [**JSHint**](https://jshint.com/). I'm pleased to report that my JavaScript code has passed the validation process with a 99% clean bill of health—no errors whatsoever.
 
 There is only one warning that issue has probably to do JSHint interpreter itself.
 
@@ -646,27 +647,27 @@ Navbar
 | Click Update Profile  | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 | Back to Blog          | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Create Profile [#17](https://github.com/Harmonica-Men/AstroShare-Blog/issues/17)Page  |                                       |                                |       |
+| Create Profile Page  | [#17](https://github.com/Harmonica-Men/AstroShare-Blog/issues/17)                                      |                                |       |
 | -------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario             | Action                                | Result                         | Check |
 | Click Create Profile | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Check Email Template     |                             |                      |       |
+| Check Email Template     | [#42](https://github.com/Harmonica-Men/AstroShare-Blog/issues/42)                            |                      |       |
 | ------------------------ | --------------------------- | -------------------- | ----- |
 | Scenario                 | Action                      | Result               | Check |
 | Click Return to Homepage | Should navigate to Homepage | Redirect to Homepage | FAIL  |
 
-| Check Confirm Subscribtion Template |                             |                      |       |
+| Check Confirm Subscription Template | [#42](https://github.com/Harmonica-Men/AstroShare-Blog/issues/42)                            |                      |       |
 | ----------------------------------- | --------------------------- | -------------------- | ----- |
 | Scenario                            | Action                      | Result               | Check |
 | Click Return to Homepage            | Should navigate to Homepage | Redirect to Homepage | PASS  |
 
-| Scenario              | Action                                | Result                         | Check |
+| Scenario [#41](https://github.com/Harmonica-Men/AstroShare-Blog/issues/41)             | Action                                | Result                         | Check |
 | --------------------- | ------------------------------------- | ------------------------------ | ----- |
 | ISS_location Template |                                       |                                |       |
 | Click Back to Blog    | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
 
-| Nasa_Picture Template |                                       |                                |       |
+| Nasa_Picture Template | [#40](https://github.com/Harmonica-Men/AstroShare-Blog/issues/40)                                      |                                |       |
 | --------------------- | ------------------------------------- | ------------------------------ | ----- |
 | Scenario              | Action                                | Result                         | Check |
 | Click Back to Blog    | Should navigate to Frontpage Blogpost | Redirect to Frontpage Blogpost | PASS  |
@@ -680,7 +681,7 @@ Navbar
 | Click Facebook                                | Should navigate to Facebook  | Redirect to Facebook      | PASS  |
 | Click Globe                                   | Should navigate to Website   | Redirect to Codeinstitute | PASS  |
 
-| Search Template    |                            |                      |       |
+| Search Template    |  [#31](https://github.com/Harmonica-Men/AstroShare-Blog/issues/31)                          |                      |       |
 | ------------------ | -------------------------- | -------------------- | ----- |
 | Scenario           | Action                     | Result               | Check |
 | Click Back to Blog | Should navigate to Hompage | Redirect to Homepage | PASS  |
@@ -828,11 +829,11 @@ From codeinstitute every student can maintain up to eight databases to run there
 - The issues I struggled with were how to enforce the JavaScript onto a JSON response fetch, which was too complicated.
 - After that, I also had problems recalling the `NASA_API_KEY` from *settings.py*.
 - For demonstrational purposes, I hardcoded the API KEYS to show the potential of the APIs.
-- Further more in the newsletter subscription there should be a confirmation message displayed but was included but fail to render.
+- Further more in the newsletter subscription there should be a confirmation message displayed but was included but fail to render. Instead a 404 page was returned.
 
 ## License
 
-Astro Blog is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+Astro Share Blog is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
 ![License](static/images/readme-images/license.jpg)
 
